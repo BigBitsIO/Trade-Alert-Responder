@@ -207,12 +207,12 @@ namespace TradeAlertResponder
             ChromeBrowserShop = new ChromiumWebBrowser();
             pnlShopBrowser.Controls.Add(ChromeBrowserShop);
             ChromeBrowserShop.Dock = DockStyle.Fill;
-            ChromeBrowserShop.LoadHtml("<html><iframe width=\"100%\" height=\"100%\" src=\"https://bigbits.io/product-category/all/\" frameborder =\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></html>");
+            ChromeBrowserShop.LoadHtml("<html><iframe width=\"100%\" height=\"100%\" src=\"https://bigbits.io/product-category/all/bigbits/?orderby=price-desc\" frameborder =\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></html>");
 
             ChromeBrowserContribute = new ChromiumWebBrowser();
             pnlContributeBrowser.Controls.Add(ChromeBrowserContribute);
             ChromeBrowserContribute.Dock = DockStyle.Fill;
-            ChromeBrowserContribute.LoadHtml("<html><iframe width=\"100%\" height=\"100%\" src=\"https://bigbits.io/blog/\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></html>");
+            ChromeBrowserContribute.LoadHtml("<html><iframe width=\"100%\" height=\"100%\" src=\"https://bigbits.io/bigbits-referrals/\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></html>");
 
             //ChromeBrowserIndicatorsExplained = new ChromiumWebBrowser();
             //pnlIndicatorsExplainedTab.Controls.Add(ChromeBrowserIndicatorsExplained);

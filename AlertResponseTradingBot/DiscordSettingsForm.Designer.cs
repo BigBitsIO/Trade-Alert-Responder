@@ -314,6 +314,7 @@
             this.tglScreenshotsInAlerts.Appearance = System.Windows.Forms.Appearance.Button;
             this.tglScreenshotsInAlerts.AutoSize = true;
             this.tglScreenshotsInAlerts.DisplayStatus = false;
+            this.tglScreenshotsInAlerts.Enabled = false;
             this.tglScreenshotsInAlerts.Location = new System.Drawing.Point(586, 218);
             this.tglScreenshotsInAlerts.Name = "tglScreenshotsInAlerts";
             this.tglScreenshotsInAlerts.Size = new System.Drawing.Size(50, 23);

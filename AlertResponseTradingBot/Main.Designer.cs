@@ -40,7 +40,6 @@
             this.pnlSettingsTab = new System.Windows.Forms.TabPage();
             this.pnlSettingsPanel = new MetroFramework.Controls.MetroPanel();
             this.btnAlertSettings = new FontAwesome.Sharp.IconButton();
-            this.btnExchangeCredentials = new FontAwesome.Sharp.IconButton();
             this.btnTwitterTest = new FontAwesome.Sharp.IconButton();
             this.btnDiscordTest = new FontAwesome.Sharp.IconButton();
             this.btnDiscordSettings = new FontAwesome.Sharp.IconButton();
@@ -131,7 +130,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlSettingsPanel.Controls.Add(this.btnAlertSettings);
-            this.pnlSettingsPanel.Controls.Add(this.btnExchangeCredentials);
             this.pnlSettingsPanel.Controls.Add(this.btnTwitterTest);
             this.pnlSettingsPanel.Controls.Add(this.btnDiscordTest);
             this.pnlSettingsPanel.Controls.Add(this.btnDiscordSettings);
@@ -164,18 +162,6 @@
             this.btnAlertSettings.TabIndex = 7;
             this.btnAlertSettings.Text = "Alert Settings";
             this.btnAlertSettings.Click += new System.EventHandler(this.btnAlertSettings_Click);
-            // 
-            // btnExchangeCredentials
-            // 
-            this.btnExchangeCredentials.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnExchangeCredentials.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnExchangeCredentials.IconColor = System.Drawing.Color.Black;
-            this.btnExchangeCredentials.IconSize = 16;
-            this.btnExchangeCredentials.Location = new System.Drawing.Point(0, 0);
-            this.btnExchangeCredentials.Name = "btnExchangeCredentials";
-            this.btnExchangeCredentials.Rotation = 0D;
-            this.btnExchangeCredentials.Size = new System.Drawing.Size(75, 23);
-            this.btnExchangeCredentials.TabIndex = 8;
             // 
             // btnTwitterTest
             // 
@@ -889,7 +875,6 @@
         private MetroFramework.Controls.MetroGrid grdAlerts;
         private System.Windows.Forms.TabPage pnlVideoTab;
         private MetroFramework.Controls.MetroGrid grdOrders;
-        private FontAwesome.Sharp.IconButton btnExchangeCredentials;
         private FontAwesome.Sharp.IconButton btnDiscordTest;
         private FontAwesome.Sharp.IconButton btnTwitterTest;
         private FontAwesome.Sharp.IconButton btnTwitterSettings;
