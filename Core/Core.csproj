@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ScreenshotSettings.cs" />
     <Compile Include="ScreenerAlert.cs" />
     <Compile Include="APIInfo.cs" />
     <Compile Include="Alert.cs" />

@@ -45,7 +45,7 @@ namespace CoreScreen
             driver.Quit();
         }
 
-        public async Task<ScreenshotResult> Screenshot(string URL, string DirectoryPath)
+        public async Task<ScreenshotResult> Screenshot(string URL, string DirectoryPath, bool IncludeLogoWatermark)
         {
             if (LoadedFine)
             {
@@ -83,21 +83,35 @@ namespace CoreScreen
 
                     Bitmap CroppedImage = CropImage(bmp, section);
 
-                    Bitmap Logo = Properties.Resources.BigBits;
-                    Bitmap FinalLogo = ResizeBitmap(Logo, Logo.Width / 3, Logo.Height / 3);
+                    
+
+                    if(IncludeLogoWatermark)
+                    {
+                        Bitmap Logo = Properties.Resources.BigBits;
+
+                        Bitmap FinalLogo = ResizeBitmap(Logo, Logo.Width / 3, Logo.Height / 3);
 
 
-                    Graphics gCroppedImage = Graphics.FromImage(CroppedImage);
-                    gCroppedImage.DrawImage(FinalLogo, CroppedImage.Width / 2 - FinalLogo.Width / 2, 70, new Rectangle(0, 0, FinalLogo.Width, FinalLogo.Height), GraphicsUnit.Pixel);
+                        Graphics gCroppedImage = Graphics.FromImage(CroppedImage);
+                        gCroppedImage.DrawImage(FinalLogo, CroppedImage.Width / 2 - FinalLogo.Width / 2, 70, new Rectangle(0, 0, FinalLogo.Width, FinalLogo.Height), GraphicsUnit.Pixel);
 
-                    CroppedImage.Save(ImagePath, ImageFormat.Png);
+                        CroppedImage.Save(ImagePath, ImageFormat.Png);
+
+                        gCroppedImage.Dispose();
+                        FinalLogo.Dispose();
+                        Logo.Dispose();
+                    }
+                    else
+                    {
+
+                        CroppedImage.Save(ImagePath, ImageFormat.Png);
+                    }
+
 
 
 
                     CroppedImage.Dispose();
-                    gCroppedImage.Dispose();
-                    FinalLogo.Dispose();
-                    Logo.Dispose();
+                    
                     CroppedImage.Dispose();
                     bmp.Dispose();
 

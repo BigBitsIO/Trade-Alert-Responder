@@ -14,6 +14,7 @@ namespace Core
             Browser,
             Data,
             Screenshots,
+            ScreenshotSettings,
             DataAlerts,
             DataOrders,
             DataDiscordSettings,
@@ -40,6 +41,10 @@ namespace Core
                     return Path + "/";
                 case AppDirectory.Screenshots:
                     Path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/" + Constants.ProjectFolderName + "/ScreenShots";
+                    ConfirmDirectory(Path);
+                    return Path + "/";
+                case AppDirectory.ScreenshotSettings:
+                    Path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/" + Constants.ProjectFolderName + "/Data/ScreenshotSettings";
                     ConfirmDirectory(Path);
                     return Path + "/";
                 case AppDirectory.DataAlerts:

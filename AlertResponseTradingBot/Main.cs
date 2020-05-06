@@ -53,6 +53,9 @@ namespace TradeAlertResponder
         // Alert Settings
         private AlertSettings AlertSettings = new AlertSettings();
 
+        // Screenshot Settings
+        private ScreenshotSettings ScreenshotSettings = new ScreenshotSettings();
+
         // Screenshot class
         private CoreScreen.Screen Screen = new CoreScreen.Screen();
 
@@ -104,6 +107,7 @@ namespace TradeAlertResponder
             LoadTwitterSettings().GetAwaiter().GetResult();
             LoadDiscordSettings().GetAwaiter().GetResult();
             LoadAlertSettings().GetAwaiter().GetResult();
+            LoadScreenshotSettings().GetAwaiter().GetResult();
         }
 
         private void LoadAlertsGrid()
@@ -151,6 +155,11 @@ namespace TradeAlertResponder
                 TwitterSettings = new TwitterSettings();
             }
             
+        }
+
+        private async Task LoadScreenshotSettings()
+        {
+            ScreenshotSettings = await FileHelper.ImportScreenshotSettings();
         }
 
         private async Task SetAlertTabText()
@@ -279,7 +288,7 @@ namespace TradeAlertResponder
                 {
                     string DirectoryPath = Constants.AppFolder(Constants.AppDirectory.Screenshots);
 
-                    CoreScreen.Screen.ScreenshotResult ScreenshotResult = WillHaveScreenShot ? Screen.Screenshot(Alert.URL, DirectoryPath).GetAwaiter().GetResult() : null;
+                    CoreScreen.Screen.ScreenshotResult ScreenshotResult = WillHaveScreenShot ? Screen.Screenshot(Alert.URL, DirectoryPath, ScreenshotSettings.IncludeLogoWatermark).GetAwaiter().GetResult() : null;
 
                     DateTime NowTime = DateTime.UtcNow;
 
@@ -469,7 +478,7 @@ namespace TradeAlertResponder
             {
                 //Task.Run(() => Twitter.Tweet("Test"));
                 string DirectoryPath = Constants.AppFolder(Constants.AppDirectory.Screenshots);
-                Task.Run(() => Twitter.TweetWithPngImage("Testing with screen in new mode.", Screen.Screenshot("https://www.bigbits.io", DirectoryPath).GetAwaiter().GetResult().ImageFilePath));
+                Task.Run(() => Twitter.TweetWithPngImage("Testing with screen in new mode.", Screen.Screenshot("https://www.bigbits.io", DirectoryPath, ScreenshotSettings.IncludeLogoWatermark).GetAwaiter().GetResult().ImageFilePath));
             }
         }
 
