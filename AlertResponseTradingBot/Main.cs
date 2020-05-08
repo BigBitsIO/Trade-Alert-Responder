@@ -234,7 +234,7 @@ namespace TradeAlertResponder
             {
                 string source = await ChromeBrowserTradingView.GetBrowser().MainFrame.GetSourceAsync();
 
-                List<Alert> ScannedAlerts = await TradingViewAlerts.GetTradingViewAlerts(source);
+                List<Alert> ScannedAlerts = await TradingViewAlerts.GetTradingViewAlerts(source, AlertSettings.MyBotName);
 
                 //List<StockScreenerAlert> stockScreenerAlerts = await TradingViewAlerts.GetTradingViewStockScreenerAlerts(source);
 
@@ -290,7 +290,7 @@ namespace TradeAlertResponder
 
                     DateTime NowTime = DateTime.UtcNow;
 
-                    string Message = (AlertSettings.MyBotName != "" ? AlertSettings.MyBotName : "") + (AlertSettings.MyBotStatus != "" ? "[" + AlertSettings.MyBotStatus + "]" : "") + (Alert.BaseAsset != "" ? "$" + Alert.BaseAsset : "") + (Alert.BaseAssetFullName != "" ? "#" + Alert.BaseAssetFullName : "") +
+                    string Message = (AlertSettings.MyBotName != "" ? AlertSettings.MyBotName : "") + (AlertSettings.MyBotStatus != "" ? " [" + AlertSettings.MyBotStatus + "]" : "") + (Alert.BaseAsset != "" ? " $" + Alert.BaseAsset : "") + (Alert.BaseAssetFullName != "" ? " #" + Alert.BaseAssetFullName : "") +
                                         "\n" +
                                         (Alert.TradingPair != "" ? "\nSymbol: " + Alert.TradingPair : "") +
                                         (Alert.Action.ToString() != "" ? "\nSignal: " + Alert.Action : "") +

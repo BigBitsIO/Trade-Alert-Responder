@@ -38,8 +38,9 @@ namespace Core
             CreationTime = DateTime.UtcNow;
         }
 
-        public static async Task<Alert> ExtractAlertsFromString(string Search)
+        public static async Task<Alert> ExtractAlertsFromString(string Search, string BotRootElement)
         {
+            string Root = BotRootElement.ToLower();
             if (Search != "")
             {
                 Alert ThisAction = new Alert();
@@ -48,12 +49,12 @@ namespace Core
                 {
                     // Gets text, replaces values if they were encoded, then searches for useful parts of text to grab values from
                     string BodyText = Search;
-                    if (BodyText.Contains("&lt;mybot&gt;"))
+                    if (BodyText.Contains("&lt;" + Root + "&gt;"))
                     {
                         BodyText = BodyText.Replace("&lt;", "<").Replace("&gt;", ">");
                     }
-                    int From = BodyText.IndexOf("<mybot>") + "<mybot>".Length;
-                    int To = BodyText.IndexOf("</mybot>");
+                    int From = BodyText.IndexOf("<" + Root + ">") + ("<" + Root + ">").Length;
+                    int To = BodyText.IndexOf("</" + Root + ">");
 
                     string BotString = "";
                     if (From >= 0 && To > From)

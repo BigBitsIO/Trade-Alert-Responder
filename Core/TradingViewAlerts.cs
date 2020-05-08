@@ -10,7 +10,7 @@ namespace Core
     {
 
 
-        public static async Task<List<Alert>> GetTradingViewAlerts(string source)
+        public static async Task<List<Alert>> GetTradingViewAlerts(string source, string BotRootElement)
         {
             //Task.Run(() => Aggregator.TestFreezerScreenshot("https://www.tradingview.com/chart/SOicDNGP/"));
             //Aggregator.TestDiscord();
@@ -77,7 +77,7 @@ namespace Core
             foreach (string Row in AlertTableRows)
             {
 
-                Alert ThisAlert = await Alert.ExtractAlertsFromString(Row);
+                Alert ThisAlert = await Alert.ExtractAlertsFromString(Row, BotRootElement);
                 if (ThisAlert != null)
                     ArtAlerts.Add(ThisAlert);
 
@@ -90,10 +90,8 @@ namespace Core
             string stoppper = "stopped";
         }
 
-        public static async Task<List<StockScreenerAlert>> GetTradingViewStockScreenerAlerts(string source)
+        public static async Task<List<StockScreenerAlert>> GetTradingViewStockScreenerAlerts(string source, string BotRootElement)
         {
-            //Task.Run(() => Aggregator.TestFreezerScreenshot("https://www.tradingview.com/chart/SOicDNGP/"));
-            //Aggregator.TestDiscord();
 
             source = source.Replace("&lt;", "<").Replace("&gt;", ">");
 
@@ -155,15 +153,15 @@ namespace Core
             }
 
             List<StockScreenerAlert> StockScreenerAlerts = new List<StockScreenerAlert>();
-            foreach (string Row in StockScreenerAlertTableRows)
+            Parallel.ForEach(StockScreenerAlertTableRows, Row =>
             {
 
-                StockScreenerAlert ThisStockScreenerAlert = await StockScreenerAlert.ExtractStockScreenerAlertsFromString(Row);
+                StockScreenerAlert ThisStockScreenerAlert = StockScreenerAlert.ExtractStockScreenerAlertsFromString(Row).GetAwaiter().GetResult();
                 if (ThisStockScreenerAlert != null)
                     StockScreenerAlerts.Add(ThisStockScreenerAlert);
 
 
-            }
+            });
 
 
             return StockScreenerAlerts;
