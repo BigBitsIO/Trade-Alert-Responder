@@ -28,6 +28,10 @@ namespace TradeAlertResponder
                 tglNotificationOnAlert.Checked = AlertSettings.NotificationOnAlert;
                 tglDiscordOnAlert.Checked = AlertSettings.DiscordOnAlert;
                 tglTweetOnAlert.Checked = AlertSettings.TweetOnAlert;
+                txtMyBotName.Text = AlertSettings.MyBotName;
+                txtMyBotStatus.Text = AlertSettings.MyBotStatus;
+                txtReferralsURL.Text = AlertSettings.ReferralURL;
+                txtDisclaimerText.Text = AlertSettings.Disclaimertext;
             }
         }
 
@@ -38,6 +42,10 @@ namespace TradeAlertResponder
             AlertSettings.NotificationOnAlert = tglNotificationOnAlert.Checked;
             AlertSettings.DiscordOnAlert = tglDiscordOnAlert.Checked;
             AlertSettings.TweetOnAlert = tglTweetOnAlert.Checked;
+            AlertSettings.MyBotName = txtMyBotName.Text;
+            AlertSettings.MyBotStatus = txtMyBotStatus.Text;
+            AlertSettings.ReferralURL = txtReferralsURL.Text;
+            AlertSettings.Disclaimertext = txtDisclaimerText.Text;
 
             FileHelper.ExportAlertSettings(AlertSettings).GetAwaiter().GetResult();
         }

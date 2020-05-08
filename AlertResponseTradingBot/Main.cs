@@ -41,7 +41,6 @@ namespace TradeAlertResponder
 
         //Grid Data
         private BindingSource AlertsSource = new BindingSource();
-        private BindingSource OrdersSource = new BindingSource();
 
         // Social Media Settings
         public TwitterSettings TwitterSettings { get; set; } = new TwitterSettings();
@@ -70,7 +69,6 @@ namespace TradeAlertResponder
             LoadSettings().GetAwaiter().GetResult();
 
             grdAlerts.DataSource = AlertsSource;
-            grdOrders.DataSource = OrdersSource;
             tabMainView.SelectedIndex = 0;
 
             HideItems().GetAwaiter().GetResult();
@@ -288,23 +286,23 @@ namespace TradeAlertResponder
                 {
                     string DirectoryPath = Constants.AppFolder(Constants.AppDirectory.Screenshots);
 
-                    CoreScreen.Screen.ScreenshotResult ScreenshotResult = WillHaveScreenShot ? Screen.Screenshot(Alert.URL, DirectoryPath, ScreenshotSettings.IncludeLogoWatermark).GetAwaiter().GetResult() : null;
+                    CoreScreen.Screen.ScreenshotResult ScreenshotResult = WillHaveScreenShot ? Screen.Screenshot(Alert.URL, DirectoryPath, ScreenshotSettings.IncludeLogoWatermark, ScreenshotSettings.CropStartPoint, ScreenshotSettings.CropSize, ScreenshotSettings.DoCropImage).GetAwaiter().GetResult() : null;
 
                     DateTime NowTime = DateTime.UtcNow;
 
-                    string Message = "Bot[BETA] " + (Alert.BaseAsset != "" ? "$" + Alert.BaseAsset : "") + (Alert.BaseAssetFullName != "" ? "#" + Alert.BaseAssetFullName : "") +
+                    string Message = (AlertSettings.MyBotName != "" ? AlertSettings.MyBotName : "") + (AlertSettings.MyBotStatus != "" ? "[" + AlertSettings.MyBotStatus + "]" : "") + (Alert.BaseAsset != "" ? "$" + Alert.BaseAsset : "") + (Alert.BaseAssetFullName != "" ? "#" + Alert.BaseAssetFullName : "") +
                                         "\n" +
                                         (Alert.TradingPair != "" ? "\nSymbol: " + Alert.TradingPair : "") +
                                         (Alert.Action.ToString() != "" ? "\nSignal: " + Alert.Action : "") +
                                         (Alert.Resolution != "" ? "\nResolution: " + Alert.Resolution : "") +
                                         (Alert.Price != "" ? "\nPrice: " + Alert.Price : "") +
-                                        "\nDate: " + NowTime.ToShortDateString() + " " + NowTime.ToShortTimeString() + " UTC" +
+                                        (AlertSettings.ShowUTCTimeStamp ? "\nDate: " + NowTime.ToShortDateString() + " " + NowTime.ToShortTimeString() + " UTC" : "") +
                                         "\n" +
                                         (Alert.URL != "" ? "\nChart: " + Alert.URL : "") +
                                         (Alert.Note != "" ? "\nNote: " + Alert.Note : "") +
-                                        "\nReferrals: https://bigbits.io/bigbits-referrals/" +
+                                        (AlertSettings.ReferralURL != "" ? "\nReferrals: " + AlertSettings.ReferralURL : "") +
                                         "\n" +
-                                        "\n!Not Financial Advice!";
+                                        (AlertSettings.Disclaimertext != "" ? "\n!Not Financial Advice!" : "");
 
                     if(WillTweet)
                     {
@@ -363,32 +361,6 @@ namespace TradeAlertResponder
                         }
                     }
                 }
-
-                
-
-                
-
-                // HANDLING ORDERS BELOW
-                //Order ThisOrder = new Order();
-                //ThisOrder.AlertID = Action.Id;
-                //ThisOrder.BaseAsset = Action.BaseAsset;
-                //ThisOrder.DesiredAmount = Utility.StringToDecimal(Action.DesiredAmount);
-                //ThisOrder.DesiredPrice = Utility.StringToDecimal(Action.DesiredPrice);
-                //ThisOrder.Exchange = Action.Exchange;
-                ////ThisOrder.FilledAmount = 0; // NOT ThisOrderED YET, CAN REMOVE
-                ////ThisOrder.FilledPrice = 0; // SAME AS ABOVE
-                //ThisOrder.TradingPair = Action.TradingPair;
-                //ThisOrder.Note = Action.Note;
-                //ThisOrder.QuoteAsset = Action.QuoteAsset;
-                //ThisOrder.Side = Order.StringToOrderSide(Action.Action.ToString()); // TODO CONVERT THIS
-                //ThisOrder.Status = OrderStatus.New;
-                //ThisOrder.Type = OrderType.Paper;
-
-                //Orders.Add(ThisOrder);
-
-                // Now, execute and update order
-
-                //await SetOrdersTabText();
             }
             catch(Exception ex)
             {
@@ -478,7 +450,7 @@ namespace TradeAlertResponder
             {
                 //Task.Run(() => Twitter.Tweet("Test"));
                 string DirectoryPath = Constants.AppFolder(Constants.AppDirectory.Screenshots);
-                Task.Run(() => Twitter.TweetWithPngImage("Testing with screen in new mode.", Screen.Screenshot("https://www.bigbits.io", DirectoryPath, ScreenshotSettings.IncludeLogoWatermark).GetAwaiter().GetResult().ImageFilePath));
+                Task.Run(() => Twitter.TweetWithPngImage("Testing with screen in new mode.", Screen.Screenshot("https://www.bigbits.io", DirectoryPath, ScreenshotSettings.IncludeLogoWatermark, ScreenshotSettings.CropStartPoint, ScreenshotSettings.CropSize, ScreenshotSettings.DoCropImage).GetAwaiter().GetResult().ImageFilePath));
             }
         }
 
@@ -488,7 +460,8 @@ namespace TradeAlertResponder
 
             DiscordSettings RESULT = DiscordSettings;
             DiscordSettingsForm DSF = new DiscordSettingsForm(ref RESULT);
-            DialogResult DR = DSF.ShowDialog();
+            //DialogResult DR = DSF.ShowDialog();
+            DSF.Show();
             Discord = new Discord(DiscordSettings.BotToken, DiscordSettings.GuildServerId, DiscordSettings.TextChannelId);
         }
 
@@ -498,7 +471,8 @@ namespace TradeAlertResponder
 
             TwitterSettings RESULT = TwitterSettings;
             TwitterSettingsForm TSF = new TwitterSettingsForm(ref RESULT);
-            DialogResult DR = TSF.ShowDialog();
+            //DialogResult DR = TSF.ShowDialog();
+            TSF.Show();
             Twitter = new Twitter(TwitterSettings.ConsumerKey, TwitterSettings.ConsumerSecret, TwitterSettings.AccessToken, TwitterSettings.AccessTokenSecret);
         }
 
@@ -619,7 +593,8 @@ namespace TradeAlertResponder
 
             AlertSettings RESULT = AlertSettings;
             AlertSettingsForm DSF = new AlertSettingsForm(ref RESULT);
-            DialogResult DR = DSF.ShowDialog();
+            //DialogResult DR = DSF.ShowDialog();
+            DSF.Show();
         }
     }
 }

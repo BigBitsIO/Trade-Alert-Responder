@@ -45,7 +45,7 @@ namespace CoreScreen
             driver.Quit();
         }
 
-        public async Task<ScreenshotResult> Screenshot(string URL, string DirectoryPath, bool IncludeLogoWatermark)
+        public async Task<ScreenshotResult> Screenshot(string URL, string DirectoryPath, bool IncludeLogoWatermark, Point CropStartPoint, Size CropSize, bool DoCropImage)
         {
             if (LoadedFine)
             {
@@ -53,16 +53,6 @@ namespace CoreScreen
                 {
 
                     string ImagePath = DirectoryPath + "Screenshot-" + DateTime.UtcNow.Month.ToString() + "-" + DateTime.UtcNow.Day.ToString() + "-" + DateTime.UtcNow.Year.ToString() + "-" + DateTime.UtcNow.Hour.ToString() + "h" + DateTime.UtcNow.Minute.ToString() + "m" + DateTime.UtcNow.Second.ToString() + "s.png";
-
-
-                    //ChromeDriverService service = ChromeDriverService.CreateDefaultService();
-                    //service.HideCommandPromptWindow = true;
-
-                    //ChromeOptions MyChromeOptions = new ChromeOptions();
-                    //MyChromeOptions.AddArgument("--window-size=1920,1080");
-                    //MyChromeOptions.AddArgument("headless");
-
-                    //var driver = new ChromeDriver(service, MyChromeOptions);
 
                     driver.Navigate()
                         .GoToUrl(URL);
@@ -79,11 +69,16 @@ namespace CoreScreen
                         bmp = new Bitmap(ms);
                     }
 
-                    Rectangle section = new Rectangle(new Point(57, 40), new Size(1540, 994));
-
-                    Bitmap CroppedImage = CropImage(bmp, section);
-
-                    
+                    Bitmap CroppedImage;
+                    if(DoCropImage)
+                    {
+                        Rectangle section = new Rectangle(CropStartPoint, CropSize);
+                        CroppedImage = CropImage(bmp, section);
+                    }
+                    else
+                    {
+                        CroppedImage = bmp;
+                    }
 
                     if(IncludeLogoWatermark)
                     {
@@ -107,11 +102,6 @@ namespace CoreScreen
                         CroppedImage.Save(ImagePath, ImageFormat.Png);
                     }
 
-
-
-
-                    CroppedImage.Dispose();
-                    
                     CroppedImage.Dispose();
                     bmp.Dispose();
 
