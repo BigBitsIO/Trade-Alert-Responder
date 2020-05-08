@@ -596,5 +596,15 @@ namespace TradeAlertResponder
             //DialogResult DR = DSF.ShowDialog();
             DSF.Show();
         }
+
+        private void btnScreenshotSettings_Click(object sender, EventArgs e)
+        {
+            HideFocus();
+
+            ScreenshotSettings RESULT = ScreenshotSettings;
+            ScreenshotSettingsForm DSF = new ScreenshotSettingsForm(ref RESULT);
+            //DialogResult DR = DSF.ShowDialog();
+            DSF.Show();
+        }
     }
 }

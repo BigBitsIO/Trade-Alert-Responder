@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.tabMainView = new MetroFramework.Controls.MetroTabControl();
             this.pnlSettingsTab = new System.Windows.Forms.TabPage();
@@ -75,6 +75,7 @@
             this.pnlLogo = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.Notification = new System.Windows.Forms.NotifyIcon(this.components);
+            this.btnScreenshotSettings = new FontAwesome.Sharp.IconButton();
             this.tabMainView.SuspendLayout();
             this.pnlSettingsTab.SuspendLayout();
             this.pnlSettingsPanel.SuspendLayout();
@@ -129,6 +130,7 @@
             this.pnlSettingsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlSettingsPanel.Controls.Add(this.btnScreenshotSettings);
             this.pnlSettingsPanel.Controls.Add(this.btnAlertSettings);
             this.pnlSettingsPanel.Controls.Add(this.btnTwitterTest);
             this.pnlSettingsPanel.Controls.Add(this.btnDiscordTest);
@@ -154,13 +156,14 @@
             this.btnAlertSettings.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
             this.btnAlertSettings.IconColor = System.Drawing.Color.Black;
             this.btnAlertSettings.IconSize = 32;
-            this.btnAlertSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlertSettings.Location = new System.Drawing.Point(20, 19);
+            this.btnAlertSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAlertSettings.Location = new System.Drawing.Point(20, 20);
             this.btnAlertSettings.Name = "btnAlertSettings";
             this.btnAlertSettings.Rotation = 0D;
             this.btnAlertSettings.Size = new System.Drawing.Size(216, 37);
             this.btnAlertSettings.TabIndex = 7;
             this.btnAlertSettings.Text = "Alert Settings";
+            this.btnAlertSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAlertSettings.Click += new System.EventHandler(this.btnAlertSettings_Click);
             // 
             // btnTwitterTest
@@ -172,13 +175,14 @@
             this.btnTwitterTest.IconChar = FontAwesome.Sharp.IconChar.Vial;
             this.btnTwitterTest.IconColor = System.Drawing.Color.Black;
             this.btnTwitterTest.IconSize = 32;
-            this.btnTwitterTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTwitterTest.Location = new System.Drawing.Point(242, 106);
+            this.btnTwitterTest.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTwitterTest.Location = new System.Drawing.Point(241, 150);
             this.btnTwitterTest.Name = "btnTwitterTest";
             this.btnTwitterTest.Rotation = 0D;
             this.btnTwitterTest.Size = new System.Drawing.Size(152, 37);
             this.btnTwitterTest.TabIndex = 4;
             this.btnTwitterTest.Text = "Twitter Test";
+            this.btnTwitterTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTwitterTest.Click += new System.EventHandler(this.btnTwitterTest_Click);
             // 
             // btnDiscordTest
@@ -190,13 +194,14 @@
             this.btnDiscordTest.IconChar = FontAwesome.Sharp.IconChar.Vial;
             this.btnDiscordTest.IconColor = System.Drawing.Color.Black;
             this.btnDiscordTest.IconSize = 32;
-            this.btnDiscordTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiscordTest.Location = new System.Drawing.Point(242, 63);
+            this.btnDiscordTest.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDiscordTest.Location = new System.Drawing.Point(241, 107);
             this.btnDiscordTest.Name = "btnDiscordTest";
             this.btnDiscordTest.Rotation = 0D;
             this.btnDiscordTest.Size = new System.Drawing.Size(152, 37);
             this.btnDiscordTest.TabIndex = 3;
             this.btnDiscordTest.Text = "Discord Test";
+            this.btnDiscordTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDiscordTest.Click += new System.EventHandler(this.btnDiscordTest_Click);
             // 
             // btnDiscordSettings
@@ -208,13 +213,14 @@
             this.btnDiscordSettings.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
             this.btnDiscordSettings.IconColor = System.Drawing.Color.Black;
             this.btnDiscordSettings.IconSize = 32;
-            this.btnDiscordSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiscordSettings.Location = new System.Drawing.Point(20, 63);
+            this.btnDiscordSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDiscordSettings.Location = new System.Drawing.Point(19, 107);
             this.btnDiscordSettings.Name = "btnDiscordSettings";
             this.btnDiscordSettings.Rotation = 0D;
             this.btnDiscordSettings.Size = new System.Drawing.Size(216, 37);
             this.btnDiscordSettings.TabIndex = 5;
             this.btnDiscordSettings.Text = "Discord Settings";
+            this.btnDiscordSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDiscordSettings.Click += new System.EventHandler(this.btnDiscordSettings_Click);
             // 
             // btnTwitterSettings
@@ -226,13 +232,14 @@
             this.btnTwitterSettings.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
             this.btnTwitterSettings.IconColor = System.Drawing.Color.Black;
             this.btnTwitterSettings.IconSize = 32;
-            this.btnTwitterSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTwitterSettings.Location = new System.Drawing.Point(20, 106);
+            this.btnTwitterSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTwitterSettings.Location = new System.Drawing.Point(19, 150);
             this.btnTwitterSettings.Name = "btnTwitterSettings";
             this.btnTwitterSettings.Rotation = 0D;
             this.btnTwitterSettings.Size = new System.Drawing.Size(216, 37);
             this.btnTwitterSettings.TabIndex = 6;
             this.btnTwitterSettings.Text = "Twitter Settings";
+            this.btnTwitterSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTwitterSettings.Click += new System.EventHandler(this.btnTwitterSettings_Click);
             // 
             // pnlContributeTab
@@ -404,23 +411,23 @@
             this.grdAlerts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdAlerts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grdAlerts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdAlerts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdAlerts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.grdAlerts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdAlerts.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdAlerts.DefaultCellStyle = dataGridViewCellStyle8;
             this.grdAlerts.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grdAlerts.EnableHeadersVisualStyles = false;
             this.grdAlerts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -428,14 +435,14 @@
             this.grdAlerts.Location = new System.Drawing.Point(0, 42);
             this.grdAlerts.Name = "grdAlerts";
             this.grdAlerts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdAlerts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdAlerts.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.grdAlerts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grdAlerts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdAlerts.Size = new System.Drawing.Size(1079, 633);
@@ -514,23 +521,23 @@
             this.grdOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdOrders.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grdOrders.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.grdOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdOrders.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdOrders.DefaultCellStyle = dataGridViewCellStyle11;
             this.grdOrders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdOrders.EnableHeadersVisualStyles = false;
             this.grdOrders.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -538,14 +545,14 @@
             this.grdOrders.Location = new System.Drawing.Point(0, 0);
             this.grdOrders.Name = "grdOrders";
             this.grdOrders.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdOrders.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdOrders.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.grdOrders.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grdOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdOrders.Size = new System.Drawing.Size(1079, 675);
@@ -829,6 +836,25 @@
             this.Notification.Text = "Notification";
             this.Notification.Visible = true;
             // 
+            // btnScreenshotSettings
+            // 
+            this.btnScreenshotSettings.FlatAppearance.BorderSize = 0;
+            this.btnScreenshotSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScreenshotSettings.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnScreenshotSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScreenshotSettings.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
+            this.btnScreenshotSettings.IconColor = System.Drawing.Color.Black;
+            this.btnScreenshotSettings.IconSize = 32;
+            this.btnScreenshotSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnScreenshotSettings.Location = new System.Drawing.Point(20, 63);
+            this.btnScreenshotSettings.Name = "btnScreenshotSettings";
+            this.btnScreenshotSettings.Rotation = 0D;
+            this.btnScreenshotSettings.Size = new System.Drawing.Size(216, 37);
+            this.btnScreenshotSettings.TabIndex = 8;
+            this.btnScreenshotSettings.Text = "Screenshot Settings";
+            this.btnScreenshotSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnScreenshotSettings.Click += new System.EventHandler(this.btnScreenshotSettings_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -904,6 +930,7 @@
         private MetroFramework.Controls.MetroPanel pnlShopBrowser;
         private System.Windows.Forms.NotifyIcon Notification;
         private FontAwesome.Sharp.IconButton btnAlertSettings;
+        private FontAwesome.Sharp.IconButton btnScreenshotSettings;
     }
 }
 

@@ -71,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ScreenshotSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenshotSettingsForm.Designer.cs">
+      <DependentUpon>ScreenshotSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlertSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <Compile Include="MyCefTradingViewBrowserRequestHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ScreenshotSettingsForm.resx">
+      <DependentUpon>ScreenshotSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AlertSettingsForm.resx">
       <DependentUpon>AlertSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
