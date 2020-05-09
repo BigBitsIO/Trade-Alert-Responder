@@ -21,13 +21,13 @@ namespace Core
         public string Id { get; set; } = "";
         public string URL { get; set; } = "";
         public string Note { get; set; } = "";
-        public string Resolution { get; set; } = "See chart.";
+        public string Resolution { get; set; } = "";
         public string Price { get; set; } = "";
         public string QuoteAsset { get; set; } = "";
         public string BaseAsset { get; set; } = "";
         public string DesiredAmount { get; set; } = "";
         public string DesiredPrice { get; set; } = "";
-        public string TradingPair { get; set; } = "";
+        public string Ticker { get; set; } = "";
         public string BaseAssetFullName { get; set; } = "";
         public string TimeOnAlert { get; set; } = "";
         public string Exchange { get; set; } = "";
@@ -43,7 +43,7 @@ namespace Core
             string Root = BotRootElement.ToLower();
             if (Search != "")
             {
-                Alert ThisAction = new Alert();
+                Alert ThisAlert = new Alert();
 
                 try
                 {
@@ -70,15 +70,15 @@ namespace Core
 
                     if (ActionString == "Buy")
                     {
-                        ThisAction.Action = AlertType.Buy;
+                        ThisAlert.Action = AlertType.Buy;
                     }
                     else if (ActionString == "Sell")
                     {
-                        ThisAction.Action = AlertType.Sell;
+                        ThisAlert.Action = AlertType.Sell;
                     }
                     else
                     {
-                        ThisAction.Action = AlertType.None;
+                        ThisAlert.Action = AlertType.None;
                     }
 
                     // Symbol to trade
@@ -89,7 +89,7 @@ namespace Core
                     //if (SymbolFrom >= 0 && SymbolTo > SymbolFrom)
                     //    SymbolString = BodyText.Substring(SymbolFrom, SymbolTo - SymbolFrom);
 
-                    //ThisAction.Symbol = SymbolString;
+                    //ThisAlert.Symbol = SymbolString;
 
 
                     // URL for chart if any
@@ -100,7 +100,7 @@ namespace Core
                     if (URLFrom >= 0 && URLTo > URLFrom)
                         URLString = BodyText.Substring(URLFrom, URLTo - URLFrom);
 
-                    ThisAction.URL = URLString;
+                    ThisAlert.URL = URLString;
 
 
                     // Note for chart if any
@@ -111,27 +111,27 @@ namespace Core
                     if (NoteFrom >= 0 && NoteTo > NoteFrom)
                         NoteString = BodyText.Substring(NoteFrom, NoteTo - NoteFrom);
 
-                    ThisAction.Note = NoteString;
+                    ThisAlert.Note = NoteString;
 
                     // DesiredAmount for chart if any
-                    int DesiredAmountFrom = BodyText.IndexOf("<da>") + "<da>".Length;
-                    int DesiredAmountTo = BodyText.IndexOf("</da>");
+                    //int DesiredAmountFrom = BodyText.IndexOf("<da>") + "<da>".Length;
+                    //int DesiredAmountTo = BodyText.IndexOf("</da>");
 
-                    string DesiredAmountString = "";
-                    if (DesiredAmountFrom >= 0 && DesiredAmountTo > DesiredAmountFrom)
-                        DesiredAmountString = BodyText.Substring(DesiredAmountFrom, DesiredAmountTo - DesiredAmountFrom);
+                    //string DesiredAmountString = "";
+                    //if (DesiredAmountFrom >= 0 && DesiredAmountTo > DesiredAmountFrom)
+                    //    DesiredAmountString = BodyText.Substring(DesiredAmountFrom, DesiredAmountTo - DesiredAmountFrom);
 
-                    ThisAction.DesiredAmount = DesiredAmountString;
+                    //ThisAlert.DesiredAmount = DesiredAmountString;
 
                     // DesiredPrice for chart if any
-                    int DesiredPriceFrom = BodyText.IndexOf("<dp>") + "<dp>".Length;
-                    int DesiredPriceTo = BodyText.IndexOf("</dp>");
+                    //int DesiredPriceFrom = BodyText.IndexOf("<dp>") + "<dp>".Length;
+                    //int DesiredPriceTo = BodyText.IndexOf("</dp>");
 
-                    string DesiredPriceString = "";
-                    if (DesiredPriceFrom >= 0 && DesiredPriceTo > DesiredPriceFrom)
-                        DesiredPriceString = BodyText.Substring(DesiredPriceFrom, DesiredPriceTo - DesiredPriceFrom);
+                    //string DesiredPriceString = "";
+                    //if (DesiredPriceFrom >= 0 && DesiredPriceTo > DesiredPriceFrom)
+                    //    DesiredPriceString = BodyText.Substring(DesiredPriceFrom, DesiredPriceTo - DesiredPriceFrom);
 
-                    ThisAction.DesiredPrice = DesiredPriceString;
+                    //ThisAlert.DesiredPrice = DesiredPriceString;
 
                     // Base for chart if any
                     int BaseFrom = BodyText.IndexOf("<base>") + "<base>".Length;
@@ -141,7 +141,7 @@ namespace Core
                     if (BaseFrom >= 0 && BaseTo > BaseFrom)
                         BaseString = BodyText.Substring(BaseFrom, BaseTo - BaseFrom);
 
-                    ThisAction.BaseAsset = BaseString;
+                    ThisAlert.BaseAsset = BaseString;
 
                     // Quote for chart if any
                     int QuoteFrom = BodyText.IndexOf("<quote>") + "<quote>".Length;
@@ -151,17 +151,17 @@ namespace Core
                     if (QuoteFrom >= 0 && QuoteTo > QuoteFrom)
                         QuoteString = BodyText.Substring(QuoteFrom, QuoteTo - QuoteFrom);
 
-                    ThisAction.QuoteAsset = QuoteString;
+                    ThisAlert.QuoteAsset = QuoteString;
 
-                    // TradingPair for chart if any
-                    int TradingPairFrom = BodyText.IndexOf("<pair>") + "<pair>".Length;
-                    int TradingPairTo = BodyText.IndexOf("</pair>");
+                    // Ticker for chart if any
+                    int TickerFrom = BodyText.IndexOf("<ticker>") + "<ticker>".Length;
+                    int TickerTo = BodyText.IndexOf("</ticker>");
 
-                    string TradingPairString = "";
-                    if (TradingPairFrom >= 0 && TradingPairTo > TradingPairFrom)
-                        TradingPairString = BodyText.Substring(TradingPairFrom, TradingPairTo - TradingPairFrom);
+                    string TickerString = "";
+                    if (TickerFrom >= 0 && TickerTo > TickerFrom)
+                        TickerString = BodyText.Substring(TickerFrom, TickerTo - TickerFrom);
 
-                    ThisAction.TradingPair = TradingPairString;
+                    ThisAlert.Ticker = TickerString;
 
                     // Resolution for chart if any
                     int ResolutionFrom = BodyText.IndexOf("<res>") + "<res>".Length;
@@ -171,7 +171,7 @@ namespace Core
                     if (ResolutionFrom >= 0 && ResolutionTo > ResolutionFrom)
                         ResolutionString = BodyText.Substring(ResolutionFrom, ResolutionTo - ResolutionFrom);
 
-                    ThisAction.Resolution = ResolutionString;
+                    ThisAlert.Resolution = ResolutionString;
 
                     // Price for chart if any
                     int PriceFrom = BodyText.IndexOf("<price>") + "<price>".Length;
@@ -181,7 +181,7 @@ namespace Core
                     if (PriceFrom >= 0 && PriceTo > PriceFrom)
                         PriceString = BodyText.Substring(PriceFrom, PriceTo - PriceFrom);
 
-                    ThisAction.Price = PriceString;
+                    ThisAlert.Price = PriceString;
 
                     // AssetFullName for chart if any
                     int AssetFullNameFrom = BodyText.IndexOf("<basefull>") + "<basefull>".Length;
@@ -191,7 +191,7 @@ namespace Core
                     if (AssetFullNameFrom >= 0 && AssetFullNameTo > AssetFullNameFrom)
                         AssetFullNameString = BodyText.Substring(AssetFullNameFrom, AssetFullNameTo - AssetFullNameFrom);
 
-                    ThisAction.BaseAssetFullName = AssetFullNameString;
+                    ThisAlert.BaseAssetFullName = AssetFullNameString;
 
                     // Exchange for chart if any
                     int ExchangeFrom = BodyText.IndexOf("<ex>") + "<ex>".Length;
@@ -201,7 +201,7 @@ namespace Core
                     if (ExchangeFrom >= 0 && ExchangeTo > ExchangeFrom)
                         ExchangeString = BodyText.Substring(ExchangeFrom, ExchangeTo - ExchangeFrom);
 
-                    ThisAction.Exchange = ExchangeString;
+                    ThisAlert.Exchange = ExchangeString;
 
                     // Time for chart if any
                     int TimeFrom = BodyText.IndexOf("<time>") + "<time>".Length;
@@ -211,7 +211,7 @@ namespace Core
                     if (TimeFrom >= 0 && TimeTo > TimeFrom)
                         TimeString = BodyText.Substring(TimeFrom, TimeTo - TimeFrom);
 
-                    ThisAction.TimeOnAlert = TimeString;
+                    ThisAlert.TimeOnAlert = TimeString;
 
 
                     //// Time for chart if any
@@ -225,18 +225,18 @@ namespace Core
                     //if (TimeFrom >= 0 && TimeTo > TimeFrom)
                     //    TimeResult = TimeString.Substring(TimeFrom, TimeTo - TimeFrom);
 
-                    //ThisAction.TimeOnAlert = TimeResult;
+                    //ThisAlert.TimeOnAlert = TimeResult;
 
                     // Set Id
                     if (BotString != "")
-                        ThisAction.Id = Guid.NewGuid().ToString();
+                        ThisAlert.Id = Guid.NewGuid().ToString();
                 }
                 catch (Exception ex)
                 {
                     return null;
                 }
 
-                return ThisAction;
+                return ThisAlert;
             }
             else
             {

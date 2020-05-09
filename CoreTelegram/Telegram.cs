@@ -16,8 +16,16 @@ namespace CoreTelegram
 
         public Telegram(string _BotToken)
         {
-            BotToken = _BotToken;
-            Bot = new TelegramBotClient(BotToken);
+            try
+            {
+                BotToken = _BotToken;
+                Bot = new TelegramBotClient(BotToken);
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
         }
 
         public async Task ChannelMessage(string TextMessage)

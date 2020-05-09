@@ -47,7 +47,7 @@ namespace TradeAlertResponder
         public DiscordSettings DiscordSettings { get; set; } = new DiscordSettings();
         public Discord Discord = new Discord("", 0, 0);
         public Twitter Twitter = new Twitter("","","","");
-        public Telegram Telegram = new Telegram("1128068348:AAGIIqj5N2LWJPyAAuHW6XVEx8vGiK0duC8");
+        public Telegram Telegram = new Telegram("");
 
         // Alert Settings
         private AlertSettings AlertSettings = new AlertSettings();
@@ -248,7 +248,7 @@ namespace TradeAlertResponder
                     {
                         if (ThisAlert != null)
                             if (ThisAlert.Id != "" && ThisAlert.TimeOnAlert != "")
-                                if (!AlertsAtScan.Any(a => a.TimeOnAlert == ThisAlert.TimeOnAlert && a.Exchange == ThisAlert.Exchange && a.TradingPair == ThisAlert.TradingPair))
+                                if (!AlertsAtScan.Any(a => a.TimeOnAlert == ThisAlert.TimeOnAlert && a.Exchange == ThisAlert.Exchange && a.Ticker == ThisAlert.Ticker))
                                 {
                                     Alerts.Add(ThisAlert);
                                     Task.Run(() => ProcessAlert(ThisAlert));
@@ -301,17 +301,15 @@ namespace TradeAlertResponder
 
                     string Message = (AlertSettings.MyBotName != "" ? AlertSettings.MyBotName : "") + (AlertSettings.MyBotStatus != "" ? " [" + AlertSettings.MyBotStatus + "]" : "") + (Alert.BaseAsset != "" ? " $" + Alert.BaseAsset : "") + (Alert.BaseAssetFullName != "" ? " #" + Alert.BaseAssetFullName : "") +
                                         "\n" +
-                                        (Alert.TradingPair != "" ? "\nSymbol: " + Alert.TradingPair : "") +
-                                        (Alert.Action.ToString() != "" ? "\nSignal: " + Alert.Action : "") +
+                                        (Alert.Ticker != "" ? "\nTicker: " + Alert.Ticker : "") +
+                                        ((Alert.Action.ToString() != "" || Alert.Action.ToString() == "None") ? "\nAction: " + Alert.Action : "") +
                                         (Alert.Resolution != "" ? "\nResolution: " + Alert.Resolution : "") +
                                         (Alert.Price != "" ? "\nPrice: " + Alert.Price : "") +
                                         (AlertSettings.ShowUTCTimeStamp ? "\nDate: " + NowTime.ToShortDateString() + " " + NowTime.ToShortTimeString() + " UTC" : "") +
-                                        "\n" +
-                                        (Alert.URL != "" ? "\nChart: " + Alert.URL : "") +
+                                        (Alert.URL != "" ? "\n\nURL: " + Alert.URL : "") +
                                         (Alert.Note != "" ? "\nNote: " + Alert.Note : "") +
                                         (AlertSettings.ReferralURL != "" ? "\nReferrals: " + AlertSettings.ReferralURL : "") +
-                                        "\n" +
-                                        (AlertSettings.Disclaimertext != "" ? "\n!Not Financial Advice!" : "");
+                                        (AlertSettings.Disclaimertext != "" ? "\n\n" + AlertSettings.Disclaimertext : "");
 
                     if(WillTweet)
                     {
@@ -380,7 +378,7 @@ namespace TradeAlertResponder
 
         private async Task AlertNotification(Alert Alert)
         {
-            Notification.ShowBalloonTip(1000, "New Alert!", "The application has found a new alert.", ToolTipIcon.Info);
+            Notification.ShowBalloonTip(1000, Constants.ProjectName + " " + AlertSettings.MyBotName + " - Alert!", "The application has found a new alert.  " + (Alert.Ticker != "" ? "Ticker: " + Alert.Ticker : "") + ((Alert.Action.ToString() != "" || Alert.Action.ToString() == "None") ? " Action: " + Alert.Action : ""), ToolTipIcon.Info);
         }
 
         private void btnScanTradingViewBrowserAlerts_Click(object sender, EventArgs e)
@@ -413,7 +411,6 @@ namespace TradeAlertResponder
             HideFocus();
 
             ChromeBrowserTradingView.Load("https://www.tradingview.com");
-            Notification.ShowBalloonTip(1000, "New Alert!", "The application has found a new alert.", ToolTipIcon.Info);
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
