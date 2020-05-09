@@ -232,29 +232,38 @@ namespace TradeAlertResponder
         {
             while (IsTradingViewBrowserAlertScanning)
             {
-                string source = await ChromeBrowserTradingView.GetBrowser().MainFrame.GetSourceAsync();
-
-                List<Alert> ScannedAlerts = await TradingViewAlerts.GetTradingViewAlerts(source, AlertSettings.MyBotName);
-
-                //List<StockScreenerAlert> stockScreenerAlerts = await TradingViewAlerts.GetTradingViewStockScreenerAlerts(source);
-
-
-
-                Parallel.ForEach(ScannedAlerts, ThisAlert =>//Alert ThisAlert in ScannedAlerts)
+                try
                 {
-                    if (ThisAlert != null)
-                        if (ThisAlert.Id != "" && ThisAlert.TimeOnAlert != "")
-                            if (!Alerts.Any(a => a.TimeOnAlert == ThisAlert.TimeOnAlert && a.Exchange == ThisAlert.Exchange && a.TradingPair == ThisAlert.TradingPair))
-                            {
-                                Alerts.Add(ThisAlert);
-                                Task.Run(() => ProcessAlert(ThisAlert));
-                            }
-                });
+                    string source = await ChromeBrowserTradingView.GetBrowser().MainFrame.GetSourceAsync();
 
-                await SetAlertTabText(); // This method checks for changes.
+                    List<Alert> ScannedAlerts = await TradingViewAlerts.GetTradingViewAlerts(source, AlertSettings.MyBotName);
 
-                //if(!ScannedAlerts.Any() && btnScanTradingViewBrowserAlerts.Text != "Pull up alerts")
-                //    btnScanTradingViewBrowserAlerts.Invoke(new Alert(() => btnScanTradingViewBrowserAlerts.Text = "Pull up alerts"));
+                    List<Alert> AlertsAtScan = Alerts; // Doing this helps with exceptions - should reconsider if alerts get duplicated.
+
+                    //List<StockScreenerAlert> stockScreenerAlerts = await TradingViewAlerts.GetTradingViewStockScreenerAlerts(source);
+
+
+
+                    Parallel.ForEach(ScannedAlerts, ThisAlert =>//Alert ThisAlert in ScannedAlerts)
+                    {
+                        if (ThisAlert != null)
+                            if (ThisAlert.Id != "" && ThisAlert.TimeOnAlert != "")
+                                if (!AlertsAtScan.Any(a => a.TimeOnAlert == ThisAlert.TimeOnAlert && a.Exchange == ThisAlert.Exchange && a.TradingPair == ThisAlert.TradingPair))
+                                {
+                                    Alerts.Add(ThisAlert);
+                                    Task.Run(() => ProcessAlert(ThisAlert));
+                                }
+                    });
+
+                    await SetAlertTabText(); // This method checks for changes.
+
+                    //if(!ScannedAlerts.Any() && btnScanTradingViewBrowserAlerts.Text != "Pull up alerts")
+                    //    btnScanTradingViewBrowserAlerts.Invoke(new Alert(() => btnScanTradingViewBrowserAlerts.Text = "Pull up alerts"));
+                }
+                catch (Exception ex)
+                {
+
+                }
 
                 Thread.Sleep(1000);
             }
@@ -552,6 +561,7 @@ namespace TradeAlertResponder
         {
             Alerts = new List<Alert>();
             Task.Run(() => FileHelper.ExportAlerts(Alerts));
+            LoadAlertsGrid();
         }
 
         private void btnSupportThisProjectTab_Click(object sender, EventArgs e)
