@@ -65,10 +65,12 @@ namespace TradeAlertResponder
 
             InitializeChromium();
 
+            grdAlerts.DataSource = AlertsSource;
+
             LoadAlerts().GetAwaiter().GetResult();
             LoadSettings().GetAwaiter().GetResult();
 
-            grdAlerts.DataSource = AlertsSource;
+            
             tabMainView.SelectedIndex = 0;
 
             HideItems().GetAwaiter().GetResult();
@@ -112,6 +114,33 @@ namespace TradeAlertResponder
         {
             DataTable AlertsTable = DataHelper.ConvertToDataTable(Alerts);
             AlertsSource.DataSource = AlertsTable;
+
+            try
+            {
+                
+
+                grdAlerts.Columns["Ticker"].DisplayIndex = 0;
+                grdAlerts.Columns["Action"].DisplayIndex = 1;
+                grdAlerts.Columns["Price"].DisplayIndex = 2;
+                grdAlerts.Columns["Exchange"].DisplayIndex = 3;
+                grdAlerts.Columns["CreationTime"].DisplayIndex = 4;
+                grdAlerts.Columns["BaseAsset"].DisplayIndex = 5;
+                grdAlerts.Columns["QuoteAsset"].DisplayIndex = 6;
+                grdAlerts.Columns["BaseAssetFullName"].DisplayIndex = 7;
+                grdAlerts.Columns["Resolution"].DisplayIndex = 8;
+                grdAlerts.Columns["Note"].DisplayIndex = 9;
+                grdAlerts.Columns["URL"].DisplayIndex = 10;
+
+                grdAlerts.Columns["Id"].DisplayIndex = 11;
+                grdAlerts.Columns["TimeOnAlert"].DisplayIndex = 12;
+                grdAlerts.Columns["Id"].Visible = false;
+                grdAlerts.Columns["TimeOnAlert"].Visible = false;
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
         }
 
         private async Task LoadAlerts()

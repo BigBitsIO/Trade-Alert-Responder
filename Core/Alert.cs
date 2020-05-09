@@ -17,21 +17,22 @@ namespace Core
 
     public class Alert
     {
-        public AlertType Action { get; set; } = AlertType.None; // Default to None
-        public string Id { get; set; } = "";
-        public string URL { get; set; } = "";
-        public string Note { get; set; } = "";
-        public string Resolution { get; set; } = "";
-        public string Price { get; set; } = "";
-        public string QuoteAsset { get; set; } = "";
-        public string BaseAsset { get; set; } = "";
-        public string DesiredAmount { get; set; } = "";
-        public string DesiredPrice { get; set; } = "";
         public string Ticker { get; set; } = "";
-        public string BaseAssetFullName { get; set; } = "";
-        public string TimeOnAlert { get; set; } = "";
+        public AlertType Action { get; set; } = AlertType.None; // Default to None
+        public string Price { get; set; } = ""; 
         public string Exchange { get; set; } = "";
         public DateTime CreationTime { get; set; } = new DateTime();
+        public string BaseAsset { get; set; } = "";
+        public string QuoteAsset { get; set; } = "";
+        public string BaseAssetFullName { get; set; } = "";
+        public string Resolution { get; set; } = "";
+        public string Note { get; set; } = "";
+        public string URL { get; set; } = "";
+
+        public string Id { get; set; } = "";
+        public string TimeOnAlert { get; set; } = "";
+        
+        
 
         public Alert()
         {
@@ -81,16 +82,6 @@ namespace Core
                         ThisAlert.Action = AlertType.None;
                     }
 
-                    // Symbol to trade
-                    //int SymbolFrom = BodyText.IndexOf("<symbol>") + "<symbol>".Length;
-                    //int SymbolTo = BodyText.IndexOf("</symbol>");
-
-                    //string SymbolString = "";
-                    //if (SymbolFrom >= 0 && SymbolTo > SymbolFrom)
-                    //    SymbolString = BodyText.Substring(SymbolFrom, SymbolTo - SymbolFrom);
-
-                    //ThisAlert.Symbol = SymbolString;
-
 
                     // URL for chart if any
                     int URLFrom = BodyText.IndexOf("<url>") + "<url>".Length;
@@ -112,26 +103,6 @@ namespace Core
                         NoteString = BodyText.Substring(NoteFrom, NoteTo - NoteFrom);
 
                     ThisAlert.Note = NoteString;
-
-                    // DesiredAmount for chart if any
-                    //int DesiredAmountFrom = BodyText.IndexOf("<da>") + "<da>".Length;
-                    //int DesiredAmountTo = BodyText.IndexOf("</da>");
-
-                    //string DesiredAmountString = "";
-                    //if (DesiredAmountFrom >= 0 && DesiredAmountTo > DesiredAmountFrom)
-                    //    DesiredAmountString = BodyText.Substring(DesiredAmountFrom, DesiredAmountTo - DesiredAmountFrom);
-
-                    //ThisAlert.DesiredAmount = DesiredAmountString;
-
-                    // DesiredPrice for chart if any
-                    //int DesiredPriceFrom = BodyText.IndexOf("<dp>") + "<dp>".Length;
-                    //int DesiredPriceTo = BodyText.IndexOf("</dp>");
-
-                    //string DesiredPriceString = "";
-                    //if (DesiredPriceFrom >= 0 && DesiredPriceTo > DesiredPriceFrom)
-                    //    DesiredPriceString = BodyText.Substring(DesiredPriceFrom, DesiredPriceTo - DesiredPriceFrom);
-
-                    //ThisAlert.DesiredPrice = DesiredPriceString;
 
                     // Base for chart if any
                     int BaseFrom = BodyText.IndexOf("<base>") + "<base>".Length;
@@ -212,20 +183,6 @@ namespace Core
                         TimeString = BodyText.Substring(TimeFrom, TimeTo - TimeFrom);
 
                     ThisAlert.TimeOnAlert = TimeString;
-
-
-                    //// Time for chart if any
-                    //int TimeTrimIndex = BodyText.IndexOf("alert-log-item-date\">");
-                    //int TimeTrimLength = 20;
-                    //string TimeString = BodyText.Substring(TimeTrimIndex + "alert-log-item-date\">".Length, TimeTrimLength);
-                    //int TimeFrom = 0;
-                    //int TimeTo = TimeString.IndexOf("<");
-
-                    //string TimeResult = "";
-                    //if (TimeFrom >= 0 && TimeTo > TimeFrom)
-                    //    TimeResult = TimeString.Substring(TimeFrom, TimeTo - TimeFrom);
-
-                    //ThisAlert.TimeOnAlert = TimeResult;
 
                     // Set Id
                     if (BotString != "")
