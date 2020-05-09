@@ -18,6 +18,9 @@ using System.Diagnostics;
 using FontAwesome.Sharp;
 using System.Drawing;
 using CoreTelegram;
+using System.IO.MemoryMappedFiles;
+using System.Text;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace TradeAlertResponder
 {
@@ -58,6 +61,9 @@ namespace TradeAlertResponder
         // Screenshot class
         private CoreScreen.Screen Screen = new CoreScreen.Screen();
 
+        //Heartbeat
+        private bool Heartbeating = true;
+
 
         public Main()
         {
@@ -90,10 +96,34 @@ namespace TradeAlertResponder
 
         private async Task AppHeartbeat()
         {
-            while (true)
+            while (Heartbeating)
             {
+                using (MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateNew("tradealertresponder", 10000))
+                {
+                    using (MemoryMappedViewAccessor viewAccessor = memoryMappedFile.CreateViewAccessor())
+                    {
+                        try
+                        {
+                            //if (Alerts.Any())
+                            //{
+                            //    List<Alert> CurrentAlerts = Alerts;
+                            //    var binFormatter = new BinaryFormatter();
+                            //    var mStream = new MemoryStream();
+                            //    binFormatter.Serialize(mStream, CurrentAlerts);
 
-                Thread.Sleep(1000);
+                            //    byte[] textBytes = mStream.ToArray();  //This gives you the byte array.
+                            //    viewAccessor.WriteArray(0, textBytes, 0, textBytes.Length);
+                            //}
+                        }
+                        catch(Exception ex)
+                        {
+
+                        }
+                    }
+
+                    Thread.Sleep(500);
+                }
+                Thread.Sleep(500);
             }
         }
 
@@ -444,6 +474,8 @@ namespace TradeAlertResponder
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Heartbeating = false;
+
             ChromeBrowserTradingView.Dispose();
             //ChromeBrowserIndicatorsExplained.Dispose();
             ChromeBrowserVideos.Dispose();
