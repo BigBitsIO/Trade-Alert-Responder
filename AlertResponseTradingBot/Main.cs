@@ -98,31 +98,32 @@ namespace TradeAlertResponder
         {
             while (Heartbeating)
             {
-                using (MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateNew("tradealertresponder", 10000))
-                {
-                    using (MemoryMappedViewAccessor viewAccessor = memoryMappedFile.CreateViewAccessor())
-                    {
-                        try
-                        {
-                            //if (Alerts.Any())
-                            //{
-                            //    List<Alert> CurrentAlerts = Alerts;
-                            //    var binFormatter = new BinaryFormatter();
-                            //    var mStream = new MemoryStream();
-                            //    binFormatter.Serialize(mStream, CurrentAlerts);
+                // TODO: Add a setting for enabling this part...
+                //using (MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateNew("tradealertresponder", 10000))
+                //{
+                //    using (MemoryMappedViewAccessor viewAccessor = memoryMappedFile.CreateViewAccessor())
+                //    {
+                //        try
+                //        {
+                //            //if (Alerts.Any())
+                //            //{
+                //            //    List<Alert> CurrentAlerts = Alerts;
+                //            //    var binFormatter = new BinaryFormatter();
+                //            //    var mStream = new MemoryStream();
+                //            //    binFormatter.Serialize(mStream, CurrentAlerts);
 
-                            //    byte[] textBytes = mStream.ToArray();  //This gives you the byte array.
-                            //    viewAccessor.WriteArray(0, textBytes, 0, textBytes.Length);
-                            //}
-                        }
-                        catch(Exception ex)
-                        {
+                //            //    byte[] textBytes = mStream.ToArray();  //This gives you the byte array.
+                //            //    viewAccessor.WriteArray(0, textBytes, 0, textBytes.Length);
+                //            //}
+                //        }
+                //        catch(Exception ex)
+                //        {
 
-                        }
-                    }
+                //        }
+                //    }
 
-                    Thread.Sleep(500);
-                }
+                //    Thread.Sleep(500);
+                //}
                 Thread.Sleep(500);
             }
         }
