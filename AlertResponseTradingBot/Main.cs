@@ -117,6 +117,9 @@ namespace TradeAlertResponder
                                     BinaryFormatter formatter = new BinaryFormatter();
                                     formatter.Serialize(mmvStream, Alerts.OrderByDescending(a => a.CreationTime).Take(50).ToList());
                                     mmvStream.Seek(0, SeekOrigin.Begin); // sets the current position back to the beginning of the stream
+
+
+                                    Thread.Sleep(1000); // Wait 1 second before updating
                                 };
 
                             }
@@ -125,10 +128,7 @@ namespace TradeAlertResponder
 
                             }
                         }
-
-                        Thread.Sleep(500);
                     }
-                    Thread.Sleep(500);
                 }
             }
         }
