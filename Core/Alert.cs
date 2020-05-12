@@ -15,6 +15,7 @@ namespace Core
         TEST
     }
 
+    [Serializable]
     public class Alert
     {
         public string Ticker { get; set; } = "";

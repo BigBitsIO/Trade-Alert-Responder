@@ -49,7 +49,7 @@ namespace TradeAlertResponder
         public TwitterSettings TwitterSettings { get; set; } = new TwitterSettings();
         public DiscordSettings DiscordSettings { get; set; } = new DiscordSettings();
         public Discord Discord = new Discord("", 0, 0);
-        public Twitter Twitter = new Twitter("","","","");
+        public Twitter Twitter = new Twitter("", "", "", "");
         public Telegram Telegram = new Telegram("");
 
         // Alert Settings
@@ -76,7 +76,7 @@ namespace TradeAlertResponder
             LoadAlerts().GetAwaiter().GetResult();
             LoadSettings().GetAwaiter().GetResult();
 
-            
+
             tabMainView.SelectedIndex = 0;
 
             HideItems().GetAwaiter().GetResult();
@@ -96,35 +96,40 @@ namespace TradeAlertResponder
 
         private async Task AppHeartbeat()
         {
+            //const int MMF_MAX_SIZE = 1024;  // allocated memory for this memory mapped file (bytes)
+            const int MMF_VIEW_SIZE = 1024; // how many bytes of the allocated memory can this process access
+            bool MemFileEnabled = true;
+
             while (Heartbeating)
             {
-                // TODO: Add a setting for enabling this part...
-                //using (MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateNew("tradealertresponder", 10000))
-                //{
-                //    using (MemoryMappedViewAccessor viewAccessor = memoryMappedFile.CreateViewAccessor())
-                //    {
-                //        try
-                //        {
-                //            //if (Alerts.Any())
-                //            //{
-                //            //    List<Alert> CurrentAlerts = Alerts;
-                //            //    var binFormatter = new BinaryFormatter();
-                //            //    var mStream = new MemoryStream();
-                //            //    binFormatter.Serialize(mStream, CurrentAlerts);
+                if (MemFileEnabled)// TODO: Replace with setting
+                {
+                    using (MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateNew(Constants.ProjectName + "MemFile", 10000))
+                    {
+                        using (MemoryMappedViewStream mmvStream = memoryMappedFile.CreateViewStream(0, MMF_VIEW_SIZE))
+                        {
+                            try
+                            {
+                                while (true)
+                                {
 
-                //            //    byte[] textBytes = mStream.ToArray();  //This gives you the byte array.
-                //            //    viewAccessor.WriteArray(0, textBytes, 0, textBytes.Length);
-                //            //}
-                //        }
-                //        catch(Exception ex)
-                //        {
+                                    // serialize the variable 'message1' and write it to the memory mapped file
+                                    BinaryFormatter formatter = new BinaryFormatter();
+                                    formatter.Serialize(mmvStream, Alerts.OrderByDescending(a => a.CreationTime).Take(50).ToList());
+                                    mmvStream.Seek(0, SeekOrigin.Begin); // sets the current position back to the beginning of the stream
+                                };
 
-                //        }
-                //    }
+                            }
+                            catch (Exception ex)
+                            {
 
-                //    Thread.Sleep(500);
-                //}
-                Thread.Sleep(500);
+                            }
+                        }
+
+                        Thread.Sleep(500);
+                    }
+                    Thread.Sleep(500);
+                }
             }
         }
 
@@ -148,7 +153,7 @@ namespace TradeAlertResponder
 
             try
             {
-                
+
 
                 grdAlerts.Columns["Ticker"].DisplayIndex = 0;
                 grdAlerts.Columns["Action"].DisplayIndex = 1;
@@ -167,11 +172,11 @@ namespace TradeAlertResponder
                 grdAlerts.Columns["Id"].Visible = false;
                 grdAlerts.Columns["TimeOnAlert"].Visible = false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
-            
+
         }
 
         private async Task LoadAlerts()
@@ -191,7 +196,7 @@ namespace TradeAlertResponder
         private async Task LoadDiscordSettings()
         {
             DiscordSettings = await FileHelper.ImportDiscordSettings();
-            if(DiscordSettings != null)
+            if (DiscordSettings != null)
             {
                 Discord = new Discord(DiscordSettings.BotToken, DiscordSettings.GuildServerId, DiscordSettings.TextChannelId);
             }
@@ -204,7 +209,7 @@ namespace TradeAlertResponder
         private async Task LoadTwitterSettings()
         {
             TwitterSettings = await FileHelper.ImportTwitterSettings();
-            if(TwitterSettings != null)
+            if (TwitterSettings != null)
             {
                 Twitter = new Twitter(TwitterSettings.ConsumerKey, TwitterSettings.ConsumerSecret, TwitterSettings.AccessToken, TwitterSettings.AccessTokenSecret);
             }
@@ -212,7 +217,7 @@ namespace TradeAlertResponder
             {
                 TwitterSettings = new TwitterSettings();
             }
-            
+
         }
 
         private async Task LoadScreenshotSettings()
@@ -371,13 +376,13 @@ namespace TradeAlertResponder
                                         (AlertSettings.ReferralURL != "" ? "\nReferrals: " + AlertSettings.ReferralURL : "") +
                                         (AlertSettings.Disclaimertext != "" ? "\n\n" + AlertSettings.Disclaimertext : "");
 
-                    if(WillTweet)
+                    if (WillTweet)
                     {
-                        if(AddURLScreenshotToTweet)
+                        if (AddURLScreenshotToTweet)
                         {
-                            if(ScreenshotResult != null)
+                            if (ScreenshotResult != null)
                             {
-                                if(ScreenshotResult.Succeeded)
+                                if (ScreenshotResult.Succeeded)
                                 {
                                     Task.Run(() => Twitter.TweetWithPngImage(Message, ScreenshotResult.ImageFilePath));
                                 }
@@ -429,11 +434,11 @@ namespace TradeAlertResponder
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 string stopper = "stopped";
             }
-            
+
         }
 
         private async Task AlertNotification(Alert Alert)
@@ -445,7 +450,7 @@ namespace TradeAlertResponder
         {
             HideFocus();
 
-            if(IsTradingViewBrowserAlertScanning)
+            if (IsTradingViewBrowserAlertScanning)
             {
                 IsTradingViewBrowserAlertScanning = false;
                 btnScanTradingViewBrowserAlerts.Text = "Resume Scan";
@@ -462,8 +467,8 @@ namespace TradeAlertResponder
                 btnScanTradingViewBrowserAlerts.BackColor = System.Drawing.Color.Gray;
                 Task.Run(() => ScanningForTradingViewAlerts());
             }
-            
-            
+
+
         }
 
         private void btnTradingViewBrowserHome_Click(object sender, EventArgs e)
@@ -547,31 +552,31 @@ namespace TradeAlertResponder
         private void btnTradingViewTab_Click(object sender, EventArgs e)
         {
             HideFocus();
-                SelectNavButton((IconButton)sender);
-            
+            SelectNavButton((IconButton)sender);
+
         }
 
         private void btnAlertsTab_Click(object sender, EventArgs e)
         {
             HideFocus();
-                SelectNavButton((IconButton)sender);
+            SelectNavButton((IconButton)sender);
         }
 
         private void btnSettingsTab_Click(object sender, EventArgs e)
         {
             HideFocus();
-                SelectNavButton((IconButton)sender);
+            SelectNavButton((IconButton)sender);
         }
 
         private void btnVideoTab_Click(object sender, EventArgs e)
         {
             HideFocus();
-                SelectNavButton((IconButton)sender);
+            SelectNavButton((IconButton)sender);
         }
 
         private void SelectNavButton(IconButton Button)
         {
-            switch(Button.Name)
+            switch (Button.Name)
             {
                 case "btnTradingViewTab":
                     tabMainView.SelectedTab = pnlTradingViewTab;
