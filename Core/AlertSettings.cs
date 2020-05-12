@@ -16,5 +16,6 @@ namespace Core
         public bool ShowUTCTimeStamp { get; set; } = false;
         public string ReferralURL { get; set; } = "https://bigbits.io/bigbits-referrals/";
         public string Disclaimertext { get; set; } = "!Not Financial Advice!";
+        public bool MemMapEnabled { get; set; } = true;
     }
 }

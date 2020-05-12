@@ -45,6 +45,8 @@
             this.txtMyBotStatus = new MetroFramework.Controls.MetroTextBox();
             this.txtReferralsURL = new MetroFramework.Controls.MetroTextBox();
             this.txtDisclaimerText = new MetroFramework.Controls.MetroTextBox();
+            this.tglMemMapFile = new MetroFramework.Controls.MetroToggle();
+            this.lblMemMapFile = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -308,11 +310,36 @@
             this.txtDisclaimerText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDisclaimerText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // tglMemMapFile
+            // 
+            this.tglMemMapFile.Appearance = System.Windows.Forms.Appearance.Button;
+            this.tglMemMapFile.AutoSize = true;
+            this.tglMemMapFile.DisplayStatus = false;
+            this.tglMemMapFile.Location = new System.Drawing.Point(485, 260);
+            this.tglMemMapFile.Name = "tglMemMapFile";
+            this.tglMemMapFile.Size = new System.Drawing.Size(50, 23);
+            this.tglMemMapFile.TabIndex = 38;
+            this.tglMemMapFile.Text = "Off";
+            this.tglMemMapFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tglMemMapFile.UseSelectable = true;
+            // 
+            // lblMemMapFile
+            // 
+            this.lblMemMapFile.AutoSize = true;
+            this.lblMemMapFile.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblMemMapFile.Location = new System.Drawing.Point(369, 261);
+            this.lblMemMapFile.Name = "lblMemMapFile";
+            this.lblMemMapFile.Size = new System.Drawing.Size(108, 19);
+            this.lblMemMapFile.TabIndex = 37;
+            this.lblMemMapFile.Text = "Mem Map File:";
+            // 
             // AlertSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 347);
+            this.Controls.Add(this.tglMemMapFile);
+            this.Controls.Add(this.lblMemMapFile);
             this.Controls.Add(this.txtDisclaimerText);
             this.Controls.Add(this.txtReferralsURL);
             this.Controls.Add(this.txtMyBotStatus);
@@ -360,5 +387,7 @@
         private MetroFramework.Controls.MetroTextBox txtMyBotStatus;
         private MetroFramework.Controls.MetroTextBox txtReferralsURL;
         private MetroFramework.Controls.MetroTextBox txtDisclaimerText;
+        private MetroFramework.Controls.MetroToggle tglMemMapFile;
+        private MetroFramework.Controls.MetroLabel lblMemMapFile;
     }
 }

@@ -28,6 +28,7 @@ namespace TradeAlertResponder
                 tglNotificationOnAlert.Checked = AlertSettings.NotificationOnAlert;
                 tglDiscordOnAlert.Checked = AlertSettings.DiscordOnAlert;
                 tglTweetOnAlert.Checked = AlertSettings.TweetOnAlert;
+                tglMemMapFile.Checked = AlertSettings.MemMapEnabled;
                 txtMyBotName.Text = AlertSettings.MyBotName;
                 txtMyBotStatus.Text = AlertSettings.MyBotStatus;
                 txtReferralsURL.Text = AlertSettings.ReferralURL;
@@ -46,6 +47,7 @@ namespace TradeAlertResponder
             AlertSettings.MyBotStatus = txtMyBotStatus.Text;
             AlertSettings.ReferralURL = txtReferralsURL.Text;
             AlertSettings.Disclaimertext = txtDisclaimerText.Text;
+            AlertSettings.MemMapEnabled = tglMemMapFile.Checked;
 
             FileHelper.ExportAlertSettings(AlertSettings).GetAwaiter().GetResult();
         }

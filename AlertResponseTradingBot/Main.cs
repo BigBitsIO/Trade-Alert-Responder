@@ -96,13 +96,13 @@ namespace TradeAlertResponder
 
         private async Task AppHeartbeat()
         {
+            //https://codingvision.net/tips-and-tricks/c-send-data-between-processes-w-memory-mapped-file
             //const int MMF_MAX_SIZE = 1024;  // allocated memory for this memory mapped file (bytes)
             const int MMF_VIEW_SIZE = 1024; // how many bytes of the allocated memory can this process access
-            bool MemFileEnabled = true;
 
-            while (Heartbeating)
+            while (Heartbeating) // should aways be true, always keep loop running while process is running
             {
-                if (MemFileEnabled)// TODO: Replace with setting
+                if (AlertSettings.MemMapEnabled)  // Only have the memory map file created if it's enabled
                 {
                     using (MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateNew(Constants.ProjectName + "MemFile", 10000))
                     {
@@ -110,7 +110,7 @@ namespace TradeAlertResponder
                         {
                             try
                             {
-                                while (true)
+                                while (AlertSettings.MemMapEnabled) // keep the file open, and update every X ms using thread sleep.  When disabled, will break loop, closing mem file
                                 {
 
                                     // serialize the variable 'message1' and write it to the memory mapped file
