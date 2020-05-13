@@ -680,5 +680,12 @@ namespace TradeAlertResponder
             //DialogResult DR = DSF.ShowDialog();
             DSF.Show();
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+            this.WindowState = FormWindowState.Normal;
+            this.Focus(); this.Show();
+        }
     }
 }

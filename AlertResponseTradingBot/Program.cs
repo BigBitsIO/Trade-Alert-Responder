@@ -18,7 +18,10 @@ namespace TradeAlertResponder
             log4net.Config.XmlConfigurator.Configure();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Splash.ShowSplashScreen();
+            Main mainForm = new Main(); //this takes ages
+            Splash.CloseForm();
+            Application.Run(mainForm);
             
         }
 
