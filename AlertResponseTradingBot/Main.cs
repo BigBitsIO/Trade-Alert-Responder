@@ -636,19 +636,19 @@ namespace TradeAlertResponder
 
         private void btnAlertInfo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Alert element: <mybot></mybot>" +
+            MessageBox.Show("Alert element: <" + AlertSettings.MyBotName.ToLower() + "></" + AlertSettings.MyBotName.ToLower() + ">" +
                 "\nAll alert properties must be within the alert element above." +
                 "\n" +
                 "\nAlert properties" +
+                "\nTicker: <ticker></ticker>" +
+                "\nBase Asset: <base></base>" +
+                "\nQuote Asset: <quote></quote>" +
+                "\nBase Full Name: <basefull></basefull>" +
+                "\nPrice: <price></price>" +
                 "\nAction/Signal: <act></act>" +
                 "\nURL: <url></url>" +
                 "\nNote: <note></note>" +
-                "\nBase Asset: <base></base>" +
-                "\nQuote Asset: <quote></quote>" +
-                "\nTrading Pairl: <pair></pair>" +
                 "\nResolution: <res></res>" +
-                "\nAction/Signal: <act></act>" +
-                "\nBase Full Name: <basefull></basefull>" +
                 "\nExchange: <ex></ex>" +
                 "\nTime: <time></time>"
                 , "Alert Info", MessageBoxButtons.OK, MessageBoxIcon.Information
