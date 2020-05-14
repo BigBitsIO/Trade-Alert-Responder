@@ -189,6 +189,10 @@
       <Project>{bb32068c-efac-405e-a2c7-e3cc57aa722b}</Project>
       <Name>Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Plugin\Plugin.csproj">
+      <Project>{672d1fc3-e791-47cd-9d1e-a6564be5848f}</Project>
+      <Name>Plugin</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.bmp" />

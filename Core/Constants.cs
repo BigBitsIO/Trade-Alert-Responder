@@ -21,12 +21,14 @@ namespace Core
             DataDiscordSettings,
             DataExchangeSettings,
             DataTwitterSettings,
-            DataAlertSettings
+            DataAlertSettings,
+            AlertScanPlugins
         }
 
         public const string ProjectName = "TradeAlertResponder";
         public const string ProjectFolderName = "TradeAlertResponder"; // IF CHANGED UPDATE IN log4net in app.config
         public static string WatermarkFilePath = Constants.AppFolder(Constants.AppDirectory.ScreenshotSettingsLogo) + "Logo.png";
+        public static string AlertScanPluginFolder = Constants.AppFolder(Constants.AppDirectory.AlertScanPlugins);
 
         public static string AppFolder(AppDirectory Directory)
         {

@@ -665,6 +665,7 @@
             this.pnlLeftNav.VerticalScrollbarBarColor = true;
             this.pnlLeftNav.VerticalScrollbarHighlightOnWheel = false;
             this.pnlLeftNav.VerticalScrollbarSize = 10;
+            this.pnlLeftNav.DoubleClick += new System.EventHandler(this.pnlLeftNav_DoubleClick);
             // 
             // btnShopTab
             // 

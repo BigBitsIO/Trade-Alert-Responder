@@ -21,6 +21,7 @@ using CoreTelegram;
 using System.IO.MemoryMappedFiles;
 using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
+using Plugin;
 
 namespace TradeAlertResponder
 {
@@ -36,6 +37,9 @@ namespace TradeAlertResponder
         //private ChromiumWebBrowser ChromeBrowserIndicatorsExplained;
         private ChromiumWebBrowser ChromeBrowserContribute;
         private ChromiumWebBrowser ChromeBrowserShop;
+
+        // PLUGINS
+        AlertScanPluginLoader ASPL = new AlertScanPluginLoader();
 
         // Bot Actions that have been scanned
         List<Alert> Alerts = new List<Alert>();
@@ -75,6 +79,9 @@ namespace TradeAlertResponder
 
             LoadAlerts().GetAwaiter().GetResult();
             LoadSettings().GetAwaiter().GetResult();
+            ASPL.LoadPlugins();
+
+            
 
 
             tabMainView.SelectedIndex = 0;
@@ -96,6 +103,7 @@ namespace TradeAlertResponder
 
         private async Task AppHeartbeat()
         {
+
             //https://codingvision.net/tips-and-tricks/c-send-data-between-processes-w-memory-mapped-file
             //const int MMF_MAX_SIZE = 1024;  // allocated memory for this memory mapped file (bytes)
             const int MMF_VIEW_SIZE = 1024; // how many bytes of the allocated memory can this process access
@@ -686,6 +694,11 @@ namespace TradeAlertResponder
             this.WindowState = FormWindowState.Minimized;
             this.WindowState = FormWindowState.Normal;
             this.Focus(); this.Show();
+        }
+
+        private void pnlLeftNav_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show(AlertScanPluginLoader.Plugins.Count.ToString() + AlertScanPluginLoader.Plugins.FirstOrDefault().Name);
         }
     }
 }
