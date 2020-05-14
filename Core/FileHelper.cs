@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CoreDiscord;
 using CoreTwitter;
+using System.Drawing;
 
 namespace Core
 {

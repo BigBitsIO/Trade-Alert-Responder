@@ -67,6 +67,9 @@
   <ItemGroup>
     <None Include="Resources\BigBits.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Watermark.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterCompile">
     <Exec Command="echo &quot;&quot;" />

@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Core;
+using System.IO;
+using System.Threading;
 
 namespace TradeAlertResponder
 {
@@ -32,6 +34,8 @@ namespace TradeAlertResponder
                 txtCropSizeWidth.Text = ScreenshotSettings.CropSize.Width.ToString();
                 txtCropSizeHeight.Text = ScreenshotSettings.CropSize.Height.ToString();
             }
+
+            LoadCurrentLogoImage();
         }
 
         private void btnValidateAndSave_Click(object sender, EventArgs e)
@@ -54,5 +58,60 @@ namespace TradeAlertResponder
             
         }
 
+        private void btnLogoSelect_Click(object sender, EventArgs e)
+        {
+            if (fileOpenDialogue.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var FileName = fileOpenDialogue.FileName;
+                    File.Copy(FileName, Constants.WatermarkFilePath);
+                    LoadCurrentLogoImage();
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+        }
+
+        private void LoadCurrentLogoImage()
+        {
+            try
+            {
+                if(File.Exists(Constants.WatermarkFilePath))
+                {
+                    imgLogo.Image = Image.FromFile(Constants.WatermarkFilePath);
+                }
+                else
+                {
+                    imgLogo.Image =  Properties.Resources.Watermark;
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        private void btnResetLogo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (File.Exists(Constants.WatermarkFilePath))
+                {
+                    imgLogo.Image = Properties.Resources.Watermark;
+
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+
+                    File.Delete(Constants.WatermarkFilePath);
+                    LoadCurrentLogoImage();
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

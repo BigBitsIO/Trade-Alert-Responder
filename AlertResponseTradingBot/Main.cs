@@ -360,7 +360,7 @@ namespace TradeAlertResponder
                 {
                     string DirectoryPath = Constants.AppFolder(Constants.AppDirectory.Screenshots);
 
-                    CoreScreen.Screen.ScreenshotResult ScreenshotResult = WillHaveScreenShot ? Screen.Screenshot(Alert.URL, DirectoryPath, ScreenshotSettings.IncludeLogoWatermark, ScreenshotSettings.CropStartPoint, ScreenshotSettings.CropSize, ScreenshotSettings.DoCropImage).GetAwaiter().GetResult() : null;
+                    CoreScreen.Screen.ScreenshotResult ScreenshotResult = WillHaveScreenShot ? Screen.Screenshot(Alert.URL, DirectoryPath, ScreenshotSettings.IncludeLogoWatermark, Constants.WatermarkFilePath, ScreenshotSettings.CropStartPoint, ScreenshotSettings.CropSize, ScreenshotSettings.DoCropImage).GetAwaiter().GetResult() : null;
 
                     DateTime NowTime = DateTime.UtcNow;
 
@@ -523,7 +523,7 @@ namespace TradeAlertResponder
             {
                 //Task.Run(() => Twitter.Tweet("Test"));
                 string DirectoryPath = Constants.AppFolder(Constants.AppDirectory.Screenshots);
-                Task.Run(() => Twitter.TweetWithPngImage("Testing with screen in new mode.", Screen.Screenshot("https://www.bigbits.io", DirectoryPath, ScreenshotSettings.IncludeLogoWatermark, ScreenshotSettings.CropStartPoint, ScreenshotSettings.CropSize, ScreenshotSettings.DoCropImage).GetAwaiter().GetResult().ImageFilePath));
+                Task.Run(() => Twitter.TweetWithPngImage("Testing Trade Alert Responder with image.", Screen.Screenshot("https://www.tradingview.com", DirectoryPath, ScreenshotSettings.IncludeLogoWatermark, Constants.WatermarkFilePath, ScreenshotSettings.CropStartPoint, ScreenshotSettings.CropSize, ScreenshotSettings.DoCropImage).GetAwaiter().GetResult().ImageFilePath));
             }
         }
 

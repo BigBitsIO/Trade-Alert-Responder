@@ -15,6 +15,7 @@ namespace Core
             Data,
             Screenshots,
             ScreenshotSettings,
+            ScreenshotSettingsLogo,
             DataAlerts,
             DataOrders,
             DataDiscordSettings,
@@ -25,6 +26,7 @@ namespace Core
 
         public const string ProjectName = "TradeAlertResponder";
         public const string ProjectFolderName = "TradeAlertResponder"; // IF CHANGED UPDATE IN log4net in app.config
+        public static string WatermarkFilePath = Constants.AppFolder(Constants.AppDirectory.ScreenshotSettingsLogo) + "Logo.png";
 
         public static string AppFolder(AppDirectory Directory)
         {
@@ -45,6 +47,10 @@ namespace Core
                     return Path + "/";
                 case AppDirectory.ScreenshotSettings:
                     Path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/" + Constants.ProjectFolderName + "/Data/ScreenshotSettings";
+                    ConfirmDirectory(Path);
+                    return Path + "/";
+                case AppDirectory.ScreenshotSettingsLogo:
+                    Path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/" + Constants.ProjectFolderName + "/Data/ScreenshotSettings/Logo";
                     ConfirmDirectory(Path);
                     return Path + "/";
                 case AppDirectory.DataAlerts:

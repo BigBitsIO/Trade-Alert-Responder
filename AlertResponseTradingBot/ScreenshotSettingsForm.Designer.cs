@@ -32,7 +32,6 @@
             this.lblResult = new MetroFramework.Controls.MetroLabel();
             this.tglWatermarkImage = new MetroFramework.Controls.MetroToggle();
             this.lblWatermarkImage = new MetroFramework.Controls.MetroLabel();
-            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.tglCropImage = new MetroFramework.Controls.MetroToggle();
             this.lblDiscordOnScreenshot = new MetroFramework.Controls.MetroLabel();
             this.lblCropStartPoint = new MetroFramework.Controls.MetroLabel();
@@ -45,6 +44,12 @@
             this.txtCropStartPointY = new MetroFramework.Controls.MetroTextBox();
             this.txtCropSizeHeight = new MetroFramework.Controls.MetroTextBox();
             this.txtCropSizeWidth = new MetroFramework.Controls.MetroTextBox();
+            this.fileOpenDialogue = new System.Windows.Forms.OpenFileDialog();
+            this.imgLogo = new System.Windows.Forms.PictureBox();
+            this.btnLogoSelect = new FontAwesome.Sharp.IconButton();
+            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+            this.btnResetLogo = new FontAwesome.Sharp.IconButton();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +76,6 @@
             this.tglWatermarkImage.Appearance = System.Windows.Forms.Appearance.Button;
             this.tglWatermarkImage.AutoSize = true;
             this.tglWatermarkImage.DisplayStatus = false;
-            this.tglWatermarkImage.Enabled = false;
             this.tglWatermarkImage.Location = new System.Drawing.Point(163, 255);
             this.tglWatermarkImage.Name = "tglWatermarkImage";
             this.tglWatermarkImage.Size = new System.Drawing.Size(50, 23);
@@ -89,19 +93,6 @@
             this.lblWatermarkImage.Size = new System.Drawing.Size(134, 19);
             this.lblWatermarkImage.TabIndex = 15;
             this.lblWatermarkImage.Text = "Watermark Image:";
-            // 
-            // iconPictureBox2
-            // 
-            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconPictureBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Camera;
-            this.iconPictureBox2.IconColor = System.Drawing.SystemColors.ControlText;
-            this.iconPictureBox2.IconSize = 60;
-            this.iconPictureBox2.Location = new System.Drawing.Point(241, 11);
-            this.iconPictureBox2.Name = "iconPictureBox2";
-            this.iconPictureBox2.Size = new System.Drawing.Size(69, 60);
-            this.iconPictureBox2.TabIndex = 24;
-            this.iconPictureBox2.TabStop = false;
             // 
             // tglCropImage
             // 
@@ -306,11 +297,81 @@
             this.txtCropSizeWidth.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCropSizeWidth.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // fileOpenDialogue
+            // 
+            this.fileOpenDialogue.FileName = "Select a .png Image";
+            this.fileOpenDialogue.Filter = "Image Files (*.png)|*.png";
+            this.fileOpenDialogue.Title = "Select Logo Image";
+            // 
+            // imgLogo
+            // 
+            this.imgLogo.Image = global::TradeAlertResponder.Properties.Resources.Watermark;
+            this.imgLogo.Location = new System.Drawing.Point(334, 242);
+            this.imgLogo.Name = "imgLogo";
+            this.imgLogo.Size = new System.Drawing.Size(50, 50);
+            this.imgLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgLogo.TabIndex = 40;
+            this.imgLogo.TabStop = false;
+            // 
+            // btnLogoSelect
+            // 
+            this.btnLogoSelect.FlatAppearance.BorderSize = 0;
+            this.btnLogoSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogoSelect.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnLogoSelect.IconChar = FontAwesome.Sharp.IconChar.Save;
+            this.btnLogoSelect.IconColor = System.Drawing.Color.Black;
+            this.btnLogoSelect.IconSize = 32;
+            this.btnLogoSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogoSelect.Location = new System.Drawing.Point(219, 249);
+            this.btnLogoSelect.Name = "btnLogoSelect";
+            this.btnLogoSelect.Rotation = 0D;
+            this.btnLogoSelect.Size = new System.Drawing.Size(109, 42);
+            this.btnLogoSelect.TabIndex = 39;
+            this.btnLogoSelect.Text = "Select Image";
+            this.btnLogoSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLogoSelect.UseVisualStyleBackColor = true;
+            this.btnLogoSelect.Click += new System.EventHandler(this.btnLogoSelect_Click);
+            // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconPictureBox2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Camera;
+            this.iconPictureBox2.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox2.IconSize = 60;
+            this.iconPictureBox2.Location = new System.Drawing.Point(241, 11);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(69, 60);
+            this.iconPictureBox2.TabIndex = 24;
+            this.iconPictureBox2.TabStop = false;
+            // 
+            // btnResetLogo
+            // 
+            this.btnResetLogo.FlatAppearance.BorderSize = 0;
+            this.btnResetLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetLogo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnResetLogo.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            this.btnResetLogo.IconColor = System.Drawing.Color.Black;
+            this.btnResetLogo.IconSize = 32;
+            this.btnResetLogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnResetLogo.Location = new System.Drawing.Point(400, 249);
+            this.btnResetLogo.Name = "btnResetLogo";
+            this.btnResetLogo.Rotation = 0D;
+            this.btnResetLogo.Size = new System.Drawing.Size(109, 42);
+            this.btnResetLogo.TabIndex = 41;
+            this.btnResetLogo.Text = "Reset Logo";
+            this.btnResetLogo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnResetLogo.UseVisualStyleBackColor = true;
+            this.btnResetLogo.Click += new System.EventHandler(this.btnResetLogo_Click);
+            // 
             // ScreenshotSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 339);
+            this.Controls.Add(this.btnResetLogo);
+            this.Controls.Add(this.imgLogo);
+            this.Controls.Add(this.btnLogoSelect);
             this.Controls.Add(this.txtCropSizeHeight);
             this.Controls.Add(this.txtCropSizeWidth);
             this.Controls.Add(this.txtCropStartPointY);
@@ -334,6 +395,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Style = MetroFramework.MetroColorStyle.Black;
             this.Text = "Screenshot Settings";
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -358,5 +420,9 @@
         private MetroFramework.Controls.MetroTextBox txtCropStartPointY;
         private MetroFramework.Controls.MetroTextBox txtCropSizeHeight;
         private MetroFramework.Controls.MetroTextBox txtCropSizeWidth;
+        private System.Windows.Forms.OpenFileDialog fileOpenDialogue;
+        private FontAwesome.Sharp.IconButton btnLogoSelect;
+        private System.Windows.Forms.PictureBox imgLogo;
+        private FontAwesome.Sharp.IconButton btnResetLogo;
     }
 }

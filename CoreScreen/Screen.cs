@@ -45,7 +45,7 @@ namespace CoreScreen
             driver.Quit();
         }
 
-        public async Task<ScreenshotResult> Screenshot(string URL, string DirectoryPath, bool IncludeLogoWatermark, Point CropStartPoint, Size CropSize, bool DoCropImage)
+        public async Task<ScreenshotResult> Screenshot(string URL, string DirectoryPath, bool IncludeLogoWatermark, string WatermarkFilePath, Point CropStartPoint, Size CropSize, bool DoCropImage)
         {
             if (LoadedFine)
             {
@@ -82,7 +82,24 @@ namespace CoreScreen
 
                     if(IncludeLogoWatermark)
                     {
-                        Bitmap Logo = Properties.Resources.BigBits;
+                        Bitmap Logo;
+
+                        if(WatermarkFilePath != "")
+                        {
+                            if (File.Exists(WatermarkFilePath))
+                            {
+                                Logo = new Bitmap(WatermarkFilePath);
+                            }
+                            else
+                            {
+                                Logo = Properties.Resources.Watermark;
+                            }
+                        }
+                        else
+                        {
+                            Logo = Properties.Resources.Watermark;
+                        }
+                        
 
                         Bitmap FinalLogo = ResizeBitmap(Logo, Logo.Width / 3, Logo.Height / 3);
 
