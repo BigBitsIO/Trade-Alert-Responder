@@ -52,6 +52,10 @@ namespace TradeAlertResponder
             FileHelper.ExportAlertSettings(AlertSettings).GetAwaiter().GetResult();
         }
 
-
+        private void iconPictureBox2_Click(object sender, EventArgs e)
+        {
+            //MainNew MN = new MainNew();
+            //MN.Show();
+        }
     }
 }

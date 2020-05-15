@@ -103,6 +103,7 @@
             this.iconPictureBox2.Size = new System.Drawing.Size(69, 60);
             this.iconPictureBox2.TabIndex = 24;
             this.iconPictureBox2.TabStop = false;
+            this.iconPictureBox2.Click += new System.EventHandler(this.iconPictureBox2_Click);
             // 
             // tglTweetOnAlert
             // 

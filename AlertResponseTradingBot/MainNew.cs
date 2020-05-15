@@ -25,7 +25,7 @@ using Plugin;
 
 namespace TradeAlertResponder
 {
-    public partial class Main : MetroForm
+    public partial class MainNew : MetroForm
     {
 
         // BROWSER SPECIFIC
@@ -69,7 +69,7 @@ namespace TradeAlertResponder
         private bool Heartbeating = true;
 
 
-        public Main()
+        public MainNew()
         {
             InitializeComponent();
 
@@ -237,7 +237,7 @@ namespace TradeAlertResponder
         {
             if (Alerts.Count > LastAlertsTextUpdateCount)
             {
-                pnlAlertsTab.Invoke(new Action(() => pnlAlertsTab.Text = "Alerts (" + Alerts.Count.ToString() + ")"));
+                //pnlAlertsTab.Invoke(new Action(() => pnlAlertsTab.Text = "Alerts (" + Alerts.Count.ToString() + ")"));
                 LastAlertsTextUpdateCount = Alerts.Count;
             }
         }
@@ -472,16 +472,17 @@ namespace TradeAlertResponder
             {
                 IsTradingViewBrowserAlertScanning = false;
                 btnScanTradingViewBrowserAlerts.Text = "Resume Scan";
-                spinScanning.Spinning = false;
-                spinScanning.Style = MetroFramework.MetroColorStyle.Red;
+                //TODO: Add spinner
+                //spinScanning.Spinning = false;
+                //spinScanning.Style = MetroFramework.MetroColorStyle.Red;
                 btnScanTradingViewBrowserAlerts.BackColor = System.Drawing.Color.Transparent;
             }
             else
             {
                 IsTradingViewBrowserAlertScanning = true;
                 btnScanTradingViewBrowserAlerts.Text = "Stop Scan";
-                spinScanning.Spinning = true;
-                spinScanning.Style = MetroFramework.MetroColorStyle.Green;
+                //spinScanning.Spinning = true;
+                //spinScanning.Style = MetroFramework.MetroColorStyle.Green;
                 btnScanTradingViewBrowserAlerts.BackColor = System.Drawing.Color.Gray;
                 Task.Run(() => ScanningForTradingViewAlerts());
             }
@@ -503,6 +504,8 @@ namespace TradeAlertResponder
             ChromeBrowserTradingView.Dispose();
             //ChromeBrowserIndicatorsExplained.Dispose();
             ChromeBrowserVideos.Dispose();
+            ChromeBrowserShop.Dispose();
+            ChromeBrowserContribute.Dispose();
 
             Screen.QuitChrome().GetAwaiter().GetResult();
 
@@ -616,10 +619,12 @@ namespace TradeAlertResponder
                     break;
             }
 
-            btnTradingViewTab.BackColor = Button.Name == "btnTradingViewTab" ? System.Drawing.Color.Gray : System.Drawing.Color.FromArgb(0, 0, 51, 160);
-            btnAlertsTab.BackColor = Button.Name == "btnAlertsTab" ? System.Drawing.Color.Gray : System.Drawing.Color.FromArgb(0, 0, 51, 160);
-            btnSettingsTab.BackColor = Button.Name == "btnSettingsTab" ? System.Drawing.Color.Gray : System.Drawing.Color.FromArgb(0, 0, 51, 160);
-            btnVideoTab.BackColor = Button.Name == "btnVideoTab" ? System.Drawing.Color.Gray : System.Drawing.Color.FromArgb(0, 0, 51, 160);
+            btnTradingViewTab.IconColor = Button.Name == "btnTradingViewTab" ? System.Drawing.Color.FromArgb(255,0,51,160) : System.Drawing.Color.White;
+            btnAlertsTab.IconColor = Button.Name == "btnAlertsTab" ? System.Drawing.Color.FromArgb(255,0,51,160) : System.Drawing.Color.White;
+            btnSettingsTab.IconColor = Button.Name == "btnSettingsTab" ? System.Drawing.Color.FromArgb(255,0,51,160) : System.Drawing.Color.White;
+            btnVideoTab.IconColor = Button.Name == "btnVideoTab" ? System.Drawing.Color.FromArgb(255,0,51,160) : System.Drawing.Color.White;
+            btnContributeTab.IconColor = Button.Name == "btnContributeTab" ? System.Drawing.Color.FromArgb(255,0,51,160) : System.Drawing.Color.White;
+            btnShopTab.IconColor = Button.Name == "btnShopTab" ? System.Drawing.Color.FromArgb(255,0,51,160) : System.Drawing.Color.White;
         }
 
         private void btnPineScriptTutorialPlaylist_Click(object sender, EventArgs e)
@@ -644,12 +649,6 @@ namespace TradeAlertResponder
             Alerts = new List<Alert>();
             Task.Run(() => FileHelper.ExportAlerts(Alerts));
             LoadAlertsGrid();
-        }
-
-        private void btnSupportThisProjectTab_Click(object sender, EventArgs e)
-        {
-            HideFocus();
-            SelectNavButton((IconButton)sender);
         }
 
         private void btnAlertInfo_Click(object sender, EventArgs e)
@@ -709,6 +708,12 @@ namespace TradeAlertResponder
         private void pnlLeftNav_DoubleClick(object sender, EventArgs e)
         {
             //MessageBox.Show(AlertScanPluginLoader.Plugins.Count.ToString() + AlertScanPluginLoader.Plugins.FirstOrDefault().Name);
+        }
+
+        private void btnContributeTab_Click(object sender, EventArgs e)
+        {
+            HideFocus();
+            SelectNavButton((IconButton)sender);
         }
     }
 }

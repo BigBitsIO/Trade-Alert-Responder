@@ -20,6 +20,7 @@ namespace TradeAlertResponder
             Application.SetCompatibleTextRenderingDefault(false);
             Splash.ShowSplashScreen();
             Main mainForm = new Main(); //this takes ages
+            //MainNew mainForm = new MainNew(); //this takes ages
             Splash.CloseForm();
             Application.Run(mainForm);
             
