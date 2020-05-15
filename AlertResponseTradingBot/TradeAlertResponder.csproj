@@ -86,6 +86,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\AlertScanner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AlertScanner.Designer.cs">
+      <DependentUpon>AlertScanner.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainNew.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     <Compile Include="MyCefTradingViewBrowserRequestHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\AlertScanner.resx">
+      <DependentUpon>AlertScanner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainNew.resx">
       <DependentUpon>MainNew.cs</DependentUpon>
     </EmbeddedResource>

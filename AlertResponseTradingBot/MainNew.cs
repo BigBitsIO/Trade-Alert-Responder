@@ -22,6 +22,7 @@ using System.IO.MemoryMappedFiles;
 using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
 using Plugin;
+using TradeAlertResponder.Controls;
 
 namespace TradeAlertResponder
 {
@@ -42,7 +43,7 @@ namespace TradeAlertResponder
         AlertScanPluginLoader ASPL = new AlertScanPluginLoader();
 
         // Bot Actions that have been scanned
-        List<Alert> Alerts = new List<Alert>();
+        public static List<Alert> Alerts = new List<Alert>();
         int LastAlertsSaveCount = 0;
         int LastAlertsTextUpdateCount = 0;
 
@@ -50,20 +51,20 @@ namespace TradeAlertResponder
         private BindingSource AlertsSource = new BindingSource();
 
         // Social Media Settings
-        public TwitterSettings TwitterSettings { get; set; } = new TwitterSettings();
-        public DiscordSettings DiscordSettings { get; set; } = new DiscordSettings();
-        public Discord Discord = new Discord("", 0, 0);
-        public Twitter Twitter = new Twitter("", "", "", "");
+        public static TwitterSettings TwitterSettings { get; set; } = new TwitterSettings();
+        public static DiscordSettings DiscordSettings { get; set; } = new DiscordSettings();
+        public static Discord Discord = new Discord("", 0, 0);
+        public static Twitter Twitter = new Twitter("", "", "", "");
         public Telegram Telegram = new Telegram("");
 
         // Alert Settings
-        private AlertSettings AlertSettings = new AlertSettings();
+        public static AlertSettings AlertSettings = new AlertSettings();
 
         // Screenshot Settings
-        private ScreenshotSettings ScreenshotSettings = new ScreenshotSettings();
+        public static ScreenshotSettings ScreenshotSettings = new ScreenshotSettings();
 
         // Screenshot class
-        private CoreScreen.Screen Screen = new CoreScreen.Screen();
+        public static CoreScreen.Screen Screen = new CoreScreen.Screen();
 
         //Heartbeat
         private bool Heartbeating = true;
@@ -601,6 +602,10 @@ namespace TradeAlertResponder
             {
                 case "btnTradingViewTab":
                     tabMainView.SelectedTab = pnlTradingViewTab;
+                    tabMainView.SelectedTab = pnlScanTestTab;
+                    AlertScanner AS = new AlertScanner(AlertScanPluginLoader.Plugins.FirstOrDefault());
+                    pnlScanTestTab.Controls.Add(AS);
+                    AS.Dock = DockStyle.Fill;
                     break;
                 case "btnAlertsTab":
                     tabMainView.SelectedTab = pnlAlertsTab;
@@ -714,6 +719,16 @@ namespace TradeAlertResponder
         {
             HideFocus();
             SelectNavButton((IconButton)sender);
+        }
+
+        private void btnTradingViewBrowserHome_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnScanTradingViewBrowserAlerts_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

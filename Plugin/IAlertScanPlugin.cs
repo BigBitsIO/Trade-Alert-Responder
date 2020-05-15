@@ -11,6 +11,7 @@ namespace Plugin
     {
         string Name { get; }
         string Description { get; }
+        string StartURL { get; }
         int DelayBetweenScansInMilliseconds { get; }
         AlertScanResult Scan(string Source, string BotRootElement);
     }

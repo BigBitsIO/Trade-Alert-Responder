@@ -25,6 +25,14 @@ namespace Plugin.AlertScanPlugins
             }
         }
 
+        public string StartURL
+        {
+            get
+            {
+                return "https://www.tradingview.com"; // use about:none if it will not be scanning a web source that is visible
+            }
+        }
+
         public int DelayBetweenScansInMilliseconds
         {
             get
