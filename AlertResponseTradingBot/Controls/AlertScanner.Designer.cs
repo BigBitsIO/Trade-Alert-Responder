@@ -30,15 +30,17 @@
         {
             this.pnlBrowser = new MetroFramework.Controls.MetroPanel();
             this.pnlControls = new MetroFramework.Controls.MetroPanel();
+            this.lblPluginTextFriendlyName = new MetroFramework.Controls.MetroLabel();
             this.btnHome = new FontAwesome.Sharp.IconButton();
             this.btnScanForAlerts = new FontAwesome.Sharp.IconButton();
-            this.lblPluginTextFriendlyName = new MetroFramework.Controls.MetroLabel();
             this.pnlControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBrowser
             // 
-            this.pnlBrowser.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlBrowser.HorizontalScrollbarBarColor = true;
             this.pnlBrowser.HorizontalScrollbarHighlightOnWheel = false;
             this.pnlBrowser.HorizontalScrollbarSize = 10;
@@ -68,6 +70,16 @@
             this.pnlControls.VerticalScrollbarBarColor = true;
             this.pnlControls.VerticalScrollbarHighlightOnWheel = false;
             this.pnlControls.VerticalScrollbarSize = 10;
+            // 
+            // lblPluginTextFriendlyName
+            // 
+            this.lblPluginTextFriendlyName.AutoSize = true;
+            this.lblPluginTextFriendlyName.Location = new System.Drawing.Point(388, 19);
+            this.lblPluginTextFriendlyName.Name = "lblPluginTextFriendlyName";
+            this.lblPluginTextFriendlyName.Size = new System.Drawing.Size(81, 19);
+            this.lblPluginTextFriendlyName.TabIndex = 20;
+            this.lblPluginTextFriendlyName.Text = "PluginName";
+            this.lblPluginTextFriendlyName.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // btnHome
             // 
@@ -124,16 +136,6 @@
             this.btnScanForAlerts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnScanForAlerts.UseVisualStyleBackColor = false;
             this.btnScanForAlerts.Click += new System.EventHandler(this.btnScanForAlerts_Click);
-            // 
-            // lblPluginTextFriendlyName
-            // 
-            this.lblPluginTextFriendlyName.AutoSize = true;
-            this.lblPluginTextFriendlyName.Location = new System.Drawing.Point(388, 19);
-            this.lblPluginTextFriendlyName.Name = "lblPluginTextFriendlyName";
-            this.lblPluginTextFriendlyName.Size = new System.Drawing.Size(81, 19);
-            this.lblPluginTextFriendlyName.TabIndex = 20;
-            this.lblPluginTextFriendlyName.Text = "PluginName";
-            this.lblPluginTextFriendlyName.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // AlertScanner
             // 
