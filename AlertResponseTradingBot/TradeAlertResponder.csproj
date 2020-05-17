@@ -92,6 +92,12 @@
     <Compile Include="Controls\AlertScanner.Designer.cs">
       <DependentUpon>AlertScanner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\AlertScannerContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AlertScannerContainer.Designer.cs">
+      <DependentUpon>AlertScannerContainer.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainNew.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\AlertScanner.resx">
       <DependentUpon>AlertScanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AlertScannerContainer.resx">
+      <DependentUpon>AlertScannerContainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainNew.resx">
       <DependentUpon>MainNew.cs</DependentUpon>

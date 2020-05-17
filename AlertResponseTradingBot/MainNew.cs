@@ -73,6 +73,7 @@ namespace TradeAlertResponder
         public MainNew()
         {
             InitializeComponent();
+            ASPL.LoadPlugins();
 
             InitializeChromium();
 
@@ -80,7 +81,7 @@ namespace TradeAlertResponder
 
             LoadAlerts().GetAwaiter().GetResult();
             LoadSettings().GetAwaiter().GetResult();
-            ASPL.LoadPlugins();
+            
 
             
 
