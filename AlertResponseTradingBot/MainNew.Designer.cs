@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainNew));
             this.grdOrders = new MetroFramework.Controls.MetroGrid();
             this.Notification = new System.Windows.Forms.NotifyIcon(this.components);
@@ -47,15 +47,6 @@
             this.btnTradingViewTab = new FontAwesome.Sharp.IconButton();
             this.pnlContent = new MetroFramework.Controls.MetroPanel();
             this.tabMainView = new System.Windows.Forms.TabControl();
-            this.pnlTradingViewTab = new System.Windows.Forms.TabPage();
-            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
-            this.btnAlertInfo = new FontAwesome.Sharp.IconButton();
-            this.btnScanTradingViewBrowserAlerts = new FontAwesome.Sharp.IconButton();
-            this.btnTradingViewBrowserHome = new FontAwesome.Sharp.IconButton();
-            this.pnlTradingViewBrowser = new MetroFramework.Controls.MetroPanel();
-            this.pnlAlertsTab = new System.Windows.Forms.TabPage();
-            this.btnAlertsReset = new FontAwesome.Sharp.IconButton();
-            this.grdAlerts = new MetroFramework.Controls.MetroGrid();
             this.pnlSettingsTab = new System.Windows.Forms.TabPage();
             this.pnlSettingsPanel = new MetroFramework.Controls.MetroPanel();
             this.btnScreenshotSettings = new FontAwesome.Sharp.IconButton();
@@ -64,6 +55,15 @@
             this.btnDiscordTest = new FontAwesome.Sharp.IconButton();
             this.btnDiscordSettings = new FontAwesome.Sharp.IconButton();
             this.btnTwitterSettings = new FontAwesome.Sharp.IconButton();
+            this.pnlAlertsTab = new System.Windows.Forms.TabPage();
+            this.btnAlertsReset = new FontAwesome.Sharp.IconButton();
+            this.grdAlerts = new MetroFramework.Controls.MetroGrid();
+            this.pnlTradingViewTab = new System.Windows.Forms.TabPage();
+            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.btnAlertInfo = new FontAwesome.Sharp.IconButton();
+            this.btnScanTradingViewBrowserAlerts = new FontAwesome.Sharp.IconButton();
+            this.btnTradingViewBrowserHome = new FontAwesome.Sharp.IconButton();
+            this.pnlTradingViewBrowser = new MetroFramework.Controls.MetroPanel();
             this.pnlContributeTab = new System.Windows.Forms.TabPage();
             this.pnlContributeBrowser = new MetroFramework.Controls.MetroPanel();
             this.pnlShopTab = new System.Windows.Forms.TabPage();
@@ -81,12 +81,12 @@
             this.pnlNavigation.SuspendLayout();
             this.pnlContent.SuspendLayout();
             this.tabMainView.SuspendLayout();
-            this.pnlTradingViewTab.SuspendLayout();
-            this.metroPanel2.SuspendLayout();
-            this.pnlAlertsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdAlerts)).BeginInit();
             this.pnlSettingsTab.SuspendLayout();
             this.pnlSettingsPanel.SuspendLayout();
+            this.pnlAlertsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAlerts)).BeginInit();
+            this.pnlTradingViewTab.SuspendLayout();
+            this.metroPanel2.SuspendLayout();
             this.pnlContributeTab.SuspendLayout();
             this.pnlShopTab.SuspendLayout();
             this.pnlVideoTab.SuspendLayout();
@@ -100,23 +100,23 @@
             this.grdOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdOrders.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grdOrders.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdOrders.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdOrders.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdOrders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdOrders.EnableHeadersVisualStyles = false;
             this.grdOrders.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -124,14 +124,14 @@
             this.grdOrders.Location = new System.Drawing.Point(0, 0);
             this.grdOrders.Name = "grdOrders";
             this.grdOrders.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdOrders.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdOrders.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grdOrders.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grdOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdOrders.Size = new System.Drawing.Size(1079, 675);
@@ -352,9 +352,9 @@
             // 
             this.tabMainView.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabMainView.Controls.Add(this.pnlTradingViewTab);
-            this.tabMainView.Controls.Add(this.pnlAlertsTab);
-            this.tabMainView.Controls.Add(this.pnlSettingsTab);
             this.tabMainView.Controls.Add(this.pnlContributeTab);
+            this.tabMainView.Controls.Add(this.pnlSettingsTab);
+            this.tabMainView.Controls.Add(this.pnlAlertsTab);
             this.tabMainView.Controls.Add(this.pnlShopTab);
             this.tabMainView.Controls.Add(this.pnlVideoTab);
             this.tabMainView.Controls.Add(this.pnlScanTestTab);
@@ -368,181 +368,6 @@
             this.tabMainView.Size = new System.Drawing.Size(1186, 640);
             this.tabMainView.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabMainView.TabIndex = 2;
-            // 
-            // pnlTradingViewTab
-            // 
-            this.pnlTradingViewTab.BackColor = System.Drawing.Color.Transparent;
-            this.pnlTradingViewTab.Controls.Add(this.metroPanel2);
-            this.pnlTradingViewTab.Location = new System.Drawing.Point(4, 5);
-            this.pnlTradingViewTab.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlTradingViewTab.Name = "pnlTradingViewTab";
-            this.pnlTradingViewTab.Size = new System.Drawing.Size(1178, 631);
-            this.pnlTradingViewTab.TabIndex = 0;
-            this.pnlTradingViewTab.Text = "TradingView";
-            // 
-            // metroPanel2
-            // 
-            this.metroPanel2.Controls.Add(this.btnAlertInfo);
-            this.metroPanel2.Controls.Add(this.btnScanTradingViewBrowserAlerts);
-            this.metroPanel2.Controls.Add(this.btnTradingViewBrowserHome);
-            this.metroPanel2.Controls.Add(this.pnlTradingViewBrowser);
-            this.metroPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel2.HorizontalScrollbarBarColor = true;
-            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel2.HorizontalScrollbarSize = 10;
-            this.metroPanel2.Location = new System.Drawing.Point(0, 0);
-            this.metroPanel2.Name = "metroPanel2";
-            this.metroPanel2.Size = new System.Drawing.Size(1178, 631);
-            this.metroPanel2.TabIndex = 4;
-            this.metroPanel2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroPanel2.VerticalScrollbarBarColor = true;
-            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel2.VerticalScrollbarSize = 10;
-            // 
-            // btnAlertInfo
-            // 
-            this.btnAlertInfo.FlatAppearance.BorderSize = 0;
-            this.btnAlertInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlertInfo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnAlertInfo.ForeColor = System.Drawing.Color.White;
-            this.btnAlertInfo.IconChar = FontAwesome.Sharp.IconChar.InfoCircle;
-            this.btnAlertInfo.IconColor = System.Drawing.Color.White;
-            this.btnAlertInfo.IconSize = 32;
-            this.btnAlertInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlertInfo.Location = new System.Drawing.Point(219, 3);
-            this.btnAlertInfo.Name = "btnAlertInfo";
-            this.btnAlertInfo.Rotation = 0D;
-            this.btnAlertInfo.Size = new System.Drawing.Size(97, 36);
-            this.btnAlertInfo.TabIndex = 3;
-            this.btnAlertInfo.Text = "Alert Info";
-            this.btnAlertInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnScanTradingViewBrowserAlerts
-            // 
-            this.btnScanTradingViewBrowserAlerts.FlatAppearance.BorderSize = 0;
-            this.btnScanTradingViewBrowserAlerts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnScanTradingViewBrowserAlerts.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnScanTradingViewBrowserAlerts.ForeColor = System.Drawing.Color.White;
-            this.btnScanTradingViewBrowserAlerts.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btnScanTradingViewBrowserAlerts.IconColor = System.Drawing.Color.White;
-            this.btnScanTradingViewBrowserAlerts.IconSize = 32;
-            this.btnScanTradingViewBrowserAlerts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScanTradingViewBrowserAlerts.Location = new System.Drawing.Point(3, 3);
-            this.btnScanTradingViewBrowserAlerts.Name = "btnScanTradingViewBrowserAlerts";
-            this.btnScanTradingViewBrowserAlerts.Rotation = 0D;
-            this.btnScanTradingViewBrowserAlerts.Size = new System.Drawing.Size(125, 36);
-            this.btnScanTradingViewBrowserAlerts.TabIndex = 1;
-            this.btnScanTradingViewBrowserAlerts.Text = "Scan Alerts";
-            this.btnScanTradingViewBrowserAlerts.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnScanTradingViewBrowserAlerts.Click += new System.EventHandler(this.btnScanTradingViewBrowserAlerts_Click_1);
-            // 
-            // btnTradingViewBrowserHome
-            // 
-            this.btnTradingViewBrowserHome.FlatAppearance.BorderSize = 0;
-            this.btnTradingViewBrowserHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTradingViewBrowserHome.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnTradingViewBrowserHome.ForeColor = System.Drawing.Color.White;
-            this.btnTradingViewBrowserHome.IconChar = FontAwesome.Sharp.IconChar.Home;
-            this.btnTradingViewBrowserHome.IconColor = System.Drawing.Color.White;
-            this.btnTradingViewBrowserHome.IconSize = 32;
-            this.btnTradingViewBrowserHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTradingViewBrowserHome.Location = new System.Drawing.Point(134, 3);
-            this.btnTradingViewBrowserHome.Name = "btnTradingViewBrowserHome";
-            this.btnTradingViewBrowserHome.Rotation = 0D;
-            this.btnTradingViewBrowserHome.Size = new System.Drawing.Size(79, 36);
-            this.btnTradingViewBrowserHome.TabIndex = 2;
-            this.btnTradingViewBrowserHome.Text = "Home";
-            this.btnTradingViewBrowserHome.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTradingViewBrowserHome.Click += new System.EventHandler(this.btnTradingViewBrowserHome_Click_1);
-            // 
-            // pnlTradingViewBrowser
-            // 
-            this.pnlTradingViewBrowser.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlTradingViewBrowser.HorizontalScrollbarBarColor = true;
-            this.pnlTradingViewBrowser.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnlTradingViewBrowser.HorizontalScrollbarSize = 10;
-            this.pnlTradingViewBrowser.Location = new System.Drawing.Point(0, 45);
-            this.pnlTradingViewBrowser.Name = "pnlTradingViewBrowser";
-            this.pnlTradingViewBrowser.Size = new System.Drawing.Size(1178, 586);
-            this.pnlTradingViewBrowser.TabIndex = 0;
-            this.pnlTradingViewBrowser.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.pnlTradingViewBrowser.VerticalScrollbarBarColor = true;
-            this.pnlTradingViewBrowser.VerticalScrollbarHighlightOnWheel = false;
-            this.pnlTradingViewBrowser.VerticalScrollbarSize = 10;
-            // 
-            // pnlAlertsTab
-            // 
-            this.pnlAlertsTab.BackColor = System.Drawing.Color.Transparent;
-            this.pnlAlertsTab.Controls.Add(this.btnAlertsReset);
-            this.pnlAlertsTab.Controls.Add(this.grdAlerts);
-            this.pnlAlertsTab.Location = new System.Drawing.Point(4, 5);
-            this.pnlAlertsTab.Name = "pnlAlertsTab";
-            this.pnlAlertsTab.Size = new System.Drawing.Size(1178, 631);
-            this.pnlAlertsTab.TabIndex = 1;
-            this.pnlAlertsTab.Text = "Alerts";
-            // 
-            // btnAlertsReset
-            // 
-            this.btnAlertsReset.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAlertsReset.FlatAppearance.BorderSize = 0;
-            this.btnAlertsReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlertsReset.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnAlertsReset.IconChar = FontAwesome.Sharp.IconChar.Save;
-            this.btnAlertsReset.IconColor = System.Drawing.Color.Black;
-            this.btnAlertsReset.IconSize = 32;
-            this.btnAlertsReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlertsReset.Location = new System.Drawing.Point(0, 0);
-            this.btnAlertsReset.Name = "btnAlertsReset";
-            this.btnAlertsReset.Rotation = 0D;
-            this.btnAlertsReset.Size = new System.Drawing.Size(84, 0);
-            this.btnAlertsReset.TabIndex = 1;
-            this.btnAlertsReset.Text = "Clear";
-            this.btnAlertsReset.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAlertsReset.UseVisualStyleBackColor = true;
-            // 
-            // grdAlerts
-            // 
-            this.grdAlerts.AllowUserToResizeRows = false;
-            this.grdAlerts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.grdAlerts.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grdAlerts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.grdAlerts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdAlerts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.grdAlerts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdAlerts.DefaultCellStyle = dataGridViewCellStyle17;
-            this.grdAlerts.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grdAlerts.EnableHeadersVisualStyles = false;
-            this.grdAlerts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.grdAlerts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.grdAlerts.Location = new System.Drawing.Point(0, -2);
-            this.grdAlerts.Name = "grdAlerts";
-            this.grdAlerts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdAlerts.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
-            this.grdAlerts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.grdAlerts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdAlerts.Size = new System.Drawing.Size(1178, 633);
-            this.grdAlerts.TabIndex = 0;
             // 
             // pnlSettingsTab
             // 
@@ -592,6 +417,7 @@
             this.btnScreenshotSettings.TabIndex = 8;
             this.btnScreenshotSettings.Text = "Screenshot Settings";
             this.btnScreenshotSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnScreenshotSettings.Click += new System.EventHandler(this.btnScreenshotSettings_Click);
             // 
             // btnAlertSettings
             // 
@@ -610,6 +436,7 @@
             this.btnAlertSettings.TabIndex = 7;
             this.btnAlertSettings.Text = "Alert Settings";
             this.btnAlertSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlertSettings.Click += new System.EventHandler(this.btnAlertSettings_Click);
             // 
             // btnTwitterTest
             // 
@@ -628,6 +455,7 @@
             this.btnTwitterTest.TabIndex = 4;
             this.btnTwitterTest.Text = "Twitter Test";
             this.btnTwitterTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTwitterTest.Click += new System.EventHandler(this.btnTwitterTest_Click);
             // 
             // btnDiscordTest
             // 
@@ -646,6 +474,7 @@
             this.btnDiscordTest.TabIndex = 3;
             this.btnDiscordTest.Text = "Discord Test";
             this.btnDiscordTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDiscordTest.Click += new System.EventHandler(this.btnDiscordTest_Click);
             // 
             // btnDiscordSettings
             // 
@@ -664,6 +493,7 @@
             this.btnDiscordSettings.TabIndex = 5;
             this.btnDiscordSettings.Text = "Discord Settings";
             this.btnDiscordSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDiscordSettings.Click += new System.EventHandler(this.btnDiscordSettings_Click);
             // 
             // btnTwitterSettings
             // 
@@ -682,6 +512,184 @@
             this.btnTwitterSettings.TabIndex = 6;
             this.btnTwitterSettings.Text = "Twitter Settings";
             this.btnTwitterSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTwitterSettings.Click += new System.EventHandler(this.btnTwitterSettings_Click);
+            // 
+            // pnlAlertsTab
+            // 
+            this.pnlAlertsTab.BackColor = System.Drawing.Color.Transparent;
+            this.pnlAlertsTab.Controls.Add(this.btnAlertsReset);
+            this.pnlAlertsTab.Controls.Add(this.grdAlerts);
+            this.pnlAlertsTab.Location = new System.Drawing.Point(4, 5);
+            this.pnlAlertsTab.Name = "pnlAlertsTab";
+            this.pnlAlertsTab.Size = new System.Drawing.Size(1178, 631);
+            this.pnlAlertsTab.TabIndex = 1;
+            this.pnlAlertsTab.Text = "Alerts";
+            // 
+            // btnAlertsReset
+            // 
+            this.btnAlertsReset.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAlertsReset.FlatAppearance.BorderSize = 0;
+            this.btnAlertsReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlertsReset.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnAlertsReset.IconChar = FontAwesome.Sharp.IconChar.Save;
+            this.btnAlertsReset.IconColor = System.Drawing.Color.Black;
+            this.btnAlertsReset.IconSize = 32;
+            this.btnAlertsReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlertsReset.Location = new System.Drawing.Point(0, 0);
+            this.btnAlertsReset.Name = "btnAlertsReset";
+            this.btnAlertsReset.Rotation = 0D;
+            this.btnAlertsReset.Size = new System.Drawing.Size(84, 53);
+            this.btnAlertsReset.TabIndex = 1;
+            this.btnAlertsReset.Text = "Clear";
+            this.btnAlertsReset.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAlertsReset.UseVisualStyleBackColor = true;
+            this.btnAlertsReset.Click += new System.EventHandler(this.btnAlertsReset_Click);
+            // 
+            // grdAlerts
+            // 
+            this.grdAlerts.AllowUserToResizeRows = false;
+            this.grdAlerts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grdAlerts.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grdAlerts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.grdAlerts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdAlerts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.grdAlerts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdAlerts.DefaultCellStyle = dataGridViewCellStyle5;
+            this.grdAlerts.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grdAlerts.EnableHeadersVisualStyles = false;
+            this.grdAlerts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.grdAlerts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grdAlerts.Location = new System.Drawing.Point(0, 53);
+            this.grdAlerts.Name = "grdAlerts";
+            this.grdAlerts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdAlerts.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.grdAlerts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.grdAlerts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdAlerts.Size = new System.Drawing.Size(1178, 578);
+            this.grdAlerts.TabIndex = 0;
+            // 
+            // pnlTradingViewTab
+            // 
+            this.pnlTradingViewTab.BackColor = System.Drawing.Color.Transparent;
+            this.pnlTradingViewTab.Controls.Add(this.metroPanel2);
+            this.pnlTradingViewTab.Location = new System.Drawing.Point(4, 5);
+            this.pnlTradingViewTab.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlTradingViewTab.Name = "pnlTradingViewTab";
+            this.pnlTradingViewTab.Size = new System.Drawing.Size(1178, 631);
+            this.pnlTradingViewTab.TabIndex = 0;
+            this.pnlTradingViewTab.Text = "TradingView";
+            // 
+            // metroPanel2
+            // 
+            this.metroPanel2.Controls.Add(this.btnAlertInfo);
+            this.metroPanel2.Controls.Add(this.btnScanTradingViewBrowserAlerts);
+            this.metroPanel2.Controls.Add(this.btnTradingViewBrowserHome);
+            this.metroPanel2.Controls.Add(this.pnlTradingViewBrowser);
+            this.metroPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel2.HorizontalScrollbarBarColor = true;
+            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.HorizontalScrollbarSize = 10;
+            this.metroPanel2.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel2.Name = "metroPanel2";
+            this.metroPanel2.Size = new System.Drawing.Size(1178, 631);
+            this.metroPanel2.TabIndex = 4;
+            this.metroPanel2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel2.VerticalScrollbarBarColor = true;
+            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.VerticalScrollbarSize = 10;
+            // 
+            // btnAlertInfo
+            // 
+            this.btnAlertInfo.FlatAppearance.BorderSize = 0;
+            this.btnAlertInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlertInfo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnAlertInfo.ForeColor = System.Drawing.Color.White;
+            this.btnAlertInfo.IconChar = FontAwesome.Sharp.IconChar.InfoCircle;
+            this.btnAlertInfo.IconColor = System.Drawing.Color.White;
+            this.btnAlertInfo.IconSize = 32;
+            this.btnAlertInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlertInfo.Location = new System.Drawing.Point(219, 3);
+            this.btnAlertInfo.Name = "btnAlertInfo";
+            this.btnAlertInfo.Rotation = 0D;
+            this.btnAlertInfo.Size = new System.Drawing.Size(97, 36);
+            this.btnAlertInfo.TabIndex = 3;
+            this.btnAlertInfo.Text = "Alert Info";
+            this.btnAlertInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAlertInfo.Click += new System.EventHandler(this.btnAlertInfo_Click);
+            // 
+            // btnScanTradingViewBrowserAlerts
+            // 
+            this.btnScanTradingViewBrowserAlerts.FlatAppearance.BorderSize = 0;
+            this.btnScanTradingViewBrowserAlerts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScanTradingViewBrowserAlerts.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnScanTradingViewBrowserAlerts.ForeColor = System.Drawing.Color.White;
+            this.btnScanTradingViewBrowserAlerts.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnScanTradingViewBrowserAlerts.IconColor = System.Drawing.Color.White;
+            this.btnScanTradingViewBrowserAlerts.IconSize = 32;
+            this.btnScanTradingViewBrowserAlerts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnScanTradingViewBrowserAlerts.Location = new System.Drawing.Point(3, 3);
+            this.btnScanTradingViewBrowserAlerts.Name = "btnScanTradingViewBrowserAlerts";
+            this.btnScanTradingViewBrowserAlerts.Rotation = 0D;
+            this.btnScanTradingViewBrowserAlerts.Size = new System.Drawing.Size(125, 36);
+            this.btnScanTradingViewBrowserAlerts.TabIndex = 1;
+            this.btnScanTradingViewBrowserAlerts.Text = "Scan Alerts";
+            this.btnScanTradingViewBrowserAlerts.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnScanTradingViewBrowserAlerts.Click += new System.EventHandler(this.btnScanTradingViewBrowserAlerts_Click);
+            // 
+            // btnTradingViewBrowserHome
+            // 
+            this.btnTradingViewBrowserHome.FlatAppearance.BorderSize = 0;
+            this.btnTradingViewBrowserHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTradingViewBrowserHome.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnTradingViewBrowserHome.ForeColor = System.Drawing.Color.White;
+            this.btnTradingViewBrowserHome.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.btnTradingViewBrowserHome.IconColor = System.Drawing.Color.White;
+            this.btnTradingViewBrowserHome.IconSize = 32;
+            this.btnTradingViewBrowserHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTradingViewBrowserHome.Location = new System.Drawing.Point(134, 3);
+            this.btnTradingViewBrowserHome.Name = "btnTradingViewBrowserHome";
+            this.btnTradingViewBrowserHome.Rotation = 0D;
+            this.btnTradingViewBrowserHome.Size = new System.Drawing.Size(79, 36);
+            this.btnTradingViewBrowserHome.TabIndex = 2;
+            this.btnTradingViewBrowserHome.Text = "Home";
+            this.btnTradingViewBrowserHome.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTradingViewBrowserHome.Click += new System.EventHandler(this.btnTradingViewBrowserHome_Click);
+            // 
+            // pnlTradingViewBrowser
+            // 
+            this.pnlTradingViewBrowser.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlTradingViewBrowser.HorizontalScrollbarBarColor = true;
+            this.pnlTradingViewBrowser.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlTradingViewBrowser.HorizontalScrollbarSize = 10;
+            this.pnlTradingViewBrowser.Location = new System.Drawing.Point(0, 45);
+            this.pnlTradingViewBrowser.Name = "pnlTradingViewBrowser";
+            this.pnlTradingViewBrowser.Size = new System.Drawing.Size(1178, 586);
+            this.pnlTradingViewBrowser.TabIndex = 0;
+            this.pnlTradingViewBrowser.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pnlTradingViewBrowser.VerticalScrollbarBarColor = true;
+            this.pnlTradingViewBrowser.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlTradingViewBrowser.VerticalScrollbarSize = 10;
             // 
             // pnlContributeTab
             // 
@@ -850,6 +858,7 @@
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 8;
             this.picLogo.TabStop = false;
+            this.picLogo.Click += new System.EventHandler(this.picLogo_Click);
             // 
             // MainNew
             // 
@@ -875,12 +884,12 @@
             this.pnlNavigation.ResumeLayout(false);
             this.pnlContent.ResumeLayout(false);
             this.tabMainView.ResumeLayout(false);
-            this.pnlTradingViewTab.ResumeLayout(false);
-            this.metroPanel2.ResumeLayout(false);
-            this.pnlAlertsTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdAlerts)).EndInit();
             this.pnlSettingsTab.ResumeLayout(false);
             this.pnlSettingsPanel.ResumeLayout(false);
+            this.pnlAlertsTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdAlerts)).EndInit();
+            this.pnlTradingViewTab.ResumeLayout(false);
+            this.metroPanel2.ResumeLayout(false);
             this.pnlContributeTab.ResumeLayout(false);
             this.pnlShopTab.ResumeLayout(false);
             this.pnlVideoTab.ResumeLayout(false);
