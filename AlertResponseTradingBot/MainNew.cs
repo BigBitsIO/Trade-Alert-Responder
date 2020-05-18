@@ -604,9 +604,10 @@ namespace TradeAlertResponder
                 case "btnTradingViewTab":
                     tabMainView.SelectedTab = pnlTradingViewTab;
                     tabMainView.SelectedTab = pnlScanTestTab;
-                    AlertScanner AS = new AlertScanner(AlertScanPluginLoader.Plugins.FirstOrDefault());
-                    pnlScanTestTab.Controls.Add(AS);
-                    AS.Dock = DockStyle.Fill;
+                    AlertScannerContainer ASC = new AlertScannerContainer();
+                    //AlertScanner AS = new AlertScanner(AlertScanPluginLoader.Plugins.FirstOrDefault());
+                    pnlScanTestTab.Controls.Add(ASC);
+                    ASC.Dock = DockStyle.Fill;
                     break;
                 case "btnAlertsTab":
                     tabMainView.SelectedTab = pnlAlertsTab;

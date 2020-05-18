@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             this.pnlTopControls = new MetroFramework.Controls.MetroPanel();
+            this.btnRemoveSelectedTab = new FontAwesome.Sharp.IconButton();
             this.btnAddNew = new FontAwesome.Sharp.IconButton();
             this.ddlPlugin = new MetroFramework.Controls.MetroComboBox();
             this.pnlTabControls = new MetroFramework.Controls.MetroPanel();
-            this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnRemoveSelectedTab = new FontAwesome.Sharp.IconButton();
+            this.tabControlAlertScanners = new MetroFramework.Controls.MetroTabControl();
             this.pnlTopControls.SuspendLayout();
             this.pnlTabControls.SuspendLayout();
-            this.metroTabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTopControls
@@ -57,82 +55,6 @@
             this.pnlTopControls.VerticalScrollbarBarColor = true;
             this.pnlTopControls.VerticalScrollbarHighlightOnWheel = false;
             this.pnlTopControls.VerticalScrollbarSize = 10;
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddNew.FlatAppearance.BorderSize = 0;
-            this.btnAddNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAddNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNew.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNew.ForeColor = System.Drawing.Color.White;
-            this.btnAddNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.btnAddNew.IconColor = System.Drawing.Color.White;
-            this.btnAddNew.IconSize = 35;
-            this.btnAddNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddNew.Location = new System.Drawing.Point(151, 3);
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Padding = new System.Windows.Forms.Padding(10);
-            this.btnAddNew.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnAddNew.Rotation = 0D;
-            this.btnAddNew.Size = new System.Drawing.Size(64, 53);
-            this.btnAddNew.TabIndex = 20;
-            this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddNew.UseVisualStyleBackColor = false;
-            // 
-            // ddlPlugin
-            // 
-            this.ddlPlugin.FormattingEnabled = true;
-            this.ddlPlugin.ItemHeight = 23;
-            this.ddlPlugin.Location = new System.Drawing.Point(14, 14);
-            this.ddlPlugin.Name = "ddlPlugin";
-            this.ddlPlugin.Size = new System.Drawing.Size(121, 29);
-            this.ddlPlugin.TabIndex = 2;
-            this.ddlPlugin.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.ddlPlugin.UseSelectable = true;
-            // 
-            // pnlTabControls
-            // 
-            this.pnlTabControls.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlTabControls.Controls.Add(this.metroTabControl1);
-            this.pnlTabControls.HorizontalScrollbarBarColor = true;
-            this.pnlTabControls.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnlTabControls.HorizontalScrollbarSize = 10;
-            this.pnlTabControls.Location = new System.Drawing.Point(0, 58);
-            this.pnlTabControls.Name = "pnlTabControls";
-            this.pnlTabControls.Size = new System.Drawing.Size(1063, 561);
-            this.pnlTabControls.TabIndex = 1;
-            this.pnlTabControls.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.pnlTabControls.VerticalScrollbarBarColor = true;
-            this.pnlTabControls.VerticalScrollbarHighlightOnWheel = false;
-            this.pnlTabControls.VerticalScrollbarSize = 10;
-            // 
-            // metroTabControl1
-            // 
-            this.metroTabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.metroTabControl1.Controls.Add(this.tabPage1);
-            this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(1063, 561);
-            this.metroTabControl1.TabIndex = 2;
-            this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTabControl1.UseSelectable = true;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 41);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1055, 516);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
             // 
             // btnRemoveSelectedTab
             // 
@@ -160,6 +82,74 @@
             this.btnRemoveSelectedTab.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRemoveSelectedTab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRemoveSelectedTab.UseVisualStyleBackColor = false;
+            this.btnRemoveSelectedTab.Click += new System.EventHandler(this.btnRemoveSelectedTab_Click);
+            // 
+            // btnAddNew
+            // 
+            this.btnAddNew.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNew.FlatAppearance.BorderSize = 0;
+            this.btnAddNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAddNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNew.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNew.ForeColor = System.Drawing.Color.White;
+            this.btnAddNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.btnAddNew.IconColor = System.Drawing.Color.White;
+            this.btnAddNew.IconSize = 35;
+            this.btnAddNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddNew.Location = new System.Drawing.Point(290, 3);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Padding = new System.Windows.Forms.Padding(10);
+            this.btnAddNew.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnAddNew.Rotation = 0D;
+            this.btnAddNew.Size = new System.Drawing.Size(64, 53);
+            this.btnAddNew.TabIndex = 20;
+            this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddNew.UseVisualStyleBackColor = false;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
+            // ddlPlugin
+            // 
+            this.ddlPlugin.FormattingEnabled = true;
+            this.ddlPlugin.ItemHeight = 23;
+            this.ddlPlugin.Location = new System.Drawing.Point(17, 14);
+            this.ddlPlugin.Name = "ddlPlugin";
+            this.ddlPlugin.Size = new System.Drawing.Size(257, 29);
+            this.ddlPlugin.TabIndex = 2;
+            this.ddlPlugin.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ddlPlugin.UseSelectable = true;
+            // 
+            // pnlTabControls
+            // 
+            this.pnlTabControls.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlTabControls.Controls.Add(this.tabControlAlertScanners);
+            this.pnlTabControls.HorizontalScrollbarBarColor = true;
+            this.pnlTabControls.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlTabControls.HorizontalScrollbarSize = 10;
+            this.pnlTabControls.Location = new System.Drawing.Point(0, 58);
+            this.pnlTabControls.Name = "pnlTabControls";
+            this.pnlTabControls.Size = new System.Drawing.Size(1063, 561);
+            this.pnlTabControls.TabIndex = 1;
+            this.pnlTabControls.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pnlTabControls.VerticalScrollbarBarColor = true;
+            this.pnlTabControls.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlTabControls.VerticalScrollbarSize = 10;
+            // 
+            // tabControlAlertScanners
+            // 
+            this.tabControlAlertScanners.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabControlAlertScanners.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlAlertScanners.Location = new System.Drawing.Point(0, 0);
+            this.tabControlAlertScanners.Name = "tabControlAlertScanners";
+            this.tabControlAlertScanners.Size = new System.Drawing.Size(1063, 561);
+            this.tabControlAlertScanners.TabIndex = 2;
+            this.tabControlAlertScanners.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.tabControlAlertScanners.UseSelectable = true;
             // 
             // AlertScannerContainer
             // 
@@ -171,7 +161,6 @@
             this.Size = new System.Drawing.Size(1063, 619);
             this.pnlTopControls.ResumeLayout(false);
             this.pnlTabControls.ResumeLayout(false);
-            this.metroTabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -182,8 +171,7 @@
         private MetroFramework.Controls.MetroPanel pnlTabControls;
         private MetroFramework.Controls.MetroComboBox ddlPlugin;
         private FontAwesome.Sharp.IconButton btnAddNew;
-        private MetroFramework.Controls.MetroTabControl metroTabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private MetroFramework.Controls.MetroTabControl tabControlAlertScanners;
         private FontAwesome.Sharp.IconButton btnRemoveSelectedTab;
     }
 }

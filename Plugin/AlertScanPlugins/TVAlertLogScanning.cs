@@ -17,6 +17,14 @@ namespace Plugin.AlertScanPlugins
             }
         }
 
+        public string ShortName
+        {
+            get
+            {
+                return "TV Alert Log";
+            }
+        }
+
         public string Description
         {
             get

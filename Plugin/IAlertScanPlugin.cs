@@ -10,6 +10,7 @@ namespace Plugin
     public interface IAlertScanPlugin
     {
         string Name { get; }
+        string ShortName { get; }
         string Description { get; }
         string StartURL { get; }
         int DelayBetweenScansInMilliseconds { get; }
