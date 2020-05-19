@@ -77,7 +77,7 @@ namespace Core
             foreach (string Row in AlertTableRows)
             {
 
-                Alert ThisAlert = await Alert.ExtractAlertsFromString(Row, BotRootElement);
+                Alert ThisAlert = await AlertExtractor.ExtractAlertsFromString(Row, BotRootElement);
                 if (ThisAlert != null)
                     ArtAlerts.Add(ThisAlert);
 

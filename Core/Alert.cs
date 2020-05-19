@@ -20,7 +20,7 @@ namespace Core
     {
         public string Ticker { get; set; } = "";
         public AlertType Action { get; set; } = AlertType.None; // Default to None
-        public string Price { get; set; } = ""; 
+        public string Price { get; set; } = "";
         public string Exchange { get; set; } = "";
         public DateTime CreationTime { get; set; } = new DateTime();
         public string BaseAsset { get; set; } = "";
@@ -32,14 +32,18 @@ namespace Core
 
         public string Id { get; set; } = "";
         public string TimeOnAlert { get; set; } = "";
-        
-        
+
 
         public Alert()
         {
             CreationTime = DateTime.UtcNow;
         }
 
+
+    }
+
+    public class AlertExtractor
+    {
         public static async Task<Alert> ExtractAlertsFromString(string Search, string BotRootElement)
         {
             string Root = BotRootElement.ToLower();

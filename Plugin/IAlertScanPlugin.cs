@@ -12,9 +12,13 @@ namespace Plugin
         string Name { get; }
         string ShortName { get; }
         string Description { get; }
+        bool UseBrowserScanning { get; }
+        bool UseCustomHTML { get; }
+        string CustomHTML { get; }
         string StartURL { get; }
         int DelayBetweenScansInMilliseconds { get; }
         AlertScanResult Scan(string Source, string BotRootElement);
+        AlertScanResult Scan(string BotRootElement);
     }
 
     public class AlertScanResult

@@ -23,6 +23,7 @@ using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
 using Plugin;
 using TradeAlertResponder.Controls;
+using System.Xml.Serialization;
 
 namespace TradeAlertResponder
 {
@@ -116,7 +117,7 @@ namespace TradeAlertResponder
             {
                 if (AlertSettings.MemMapEnabled)  // Only have the memory map file created if it's enabled
                 {
-                    using (MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateNew(Constants.ProjectName + "MemFile", 10000))
+                    using (MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateNew(Constants.ProjectName + "MemFile", 999990000))
                     {
                         using (MemoryMappedViewStream mmvStream = memoryMappedFile.CreateViewStream(0, MMF_VIEW_SIZE))
                         {
@@ -124,10 +125,13 @@ namespace TradeAlertResponder
                             {
                                 while (AlertSettings.MemMapEnabled) // keep the file open, and update every X ms using thread sleep.  When disabled, will break loop, closing mem file
                                 {
-
+                                    List<Alert> MemAlerts = Alerts.Where(a => a.CreationTime > DateTime.UtcNow.AddHours(-1)).ToList();
                                     // serialize the variable 'message1' and write it to the memory mapped file
-                                    BinaryFormatter formatter = new BinaryFormatter();
-                                    formatter.Serialize(mmvStream, Alerts.OrderByDescending(a => a.CreationTime).Take(50).ToList());
+                                    //BinaryFormatter formatter = new BinaryFormatter();
+                                    //formatter.Serialize(mmvStream, MemAlerts);
+
+                                    XmlSerializer XLM = new XmlSerializer(typeof(List<Alert>));
+                                    XLM.Serialize(mmvStream, MemAlerts);
                                     mmvStream.Seek(0, SeekOrigin.Begin); // sets the current position back to the beginning of the stream
 
 

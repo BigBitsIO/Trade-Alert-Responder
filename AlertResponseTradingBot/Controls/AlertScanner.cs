@@ -33,7 +33,16 @@ namespace TradeAlertResponder.Controls
             Plugin = _Plugin;
             lblPluginTextFriendlyName.Text = Plugin.Name;
 
-            InitializeChrome();
+            if(Plugin.UseBrowserScanning || Plugin.UseCustomHTML)
+            {
+                InitializeChrome();
+            }
+            else
+            {
+                btnHome.Visible = false;
+            }
+                
+
         }
 
         private void InitializeChrome()
@@ -47,12 +56,27 @@ namespace TradeAlertResponder.Controls
             //// Initialize cef with the provided settings
             //Cef.Initialize(settings);
             //// Create a browser component
-            ChromeBrowser = new ChromiumWebBrowser(Plugin.StartURL)
+            ///
+
+            if(Plugin.UseCustomHTML)
             {
+                ChromeBrowser = new ChromiumWebBrowser("<br/>")
+                {
 
-                RequestHandler = new MyCefTradingViewBrowserRequestHandler()
+                    RequestHandler = new MyCefTradingViewBrowserRequestHandler()
 
-            };
+                };
+                ChromeBrowser.LoadHtml(Plugin.CustomHTML);
+            }
+            else
+            {
+                ChromeBrowser = new ChromiumWebBrowser(Plugin.StartURL)
+                {
+
+                    RequestHandler = new MyCefTradingViewBrowserRequestHandler()
+
+                };
+            }
 
             // Add it to the form and fill it to the form window.
             pnlBrowser.Controls.Add(ChromeBrowser);
@@ -78,7 +102,18 @@ namespace TradeAlertResponder.Controls
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            ChromeBrowser.Load(Plugin.StartURL);
+            if (Plugin.UseBrowserScanning || Plugin.UseCustomHTML)
+            {
+                if(Plugin.UseCustomHTML)
+                {
+                    ChromeBrowser.LoadHtml(Plugin.CustomHTML);
+                }
+                else
+                {
+                    ChromeBrowser.Load(Plugin.StartURL);
+                }
+                
+            }
         }
 
         private async Task ScanForAlerts()
@@ -86,18 +121,47 @@ namespace TradeAlertResponder.Controls
             AlertScanResult ASR = new AlertScanResult();
             while (IsScanning)
             {
-                try
+                List<Alert> ScannedAlerts = new List<Alert>();
+                List<Alert> AlertsAtScan = new List<Alert>();
+                string source = "";
+
+                if (Plugin.UseBrowserScanning) // Only scans browser HTML in custom mode if it is specifically set
                 {
-                    List<Alert> ScannedAlerts = new List<Alert>();
-                    string source = await ChromeBrowser.GetBrowser().MainFrame.GetSourceAsync();
+                    
+                    try
+                    {
+                        
+                        source = await ChromeBrowser.GetBrowser().MainFrame.GetSourceAsync();
 
                         ASR = Plugin.Scan(source, MainNew.AlertSettings.MyBotName);
                         if (ASR.SourceIsValid)
                             ScannedAlerts.AddRange(ASR.AlertsScanned);
 
-                    List<Alert> AlertsAtScan = MainNew.Alerts; // Doing this helps with exceptions - should reconsider if alerts get duplicated.
+                        
+                    }
+                    catch (Exception ex)
+                    {
 
+                    }
+                }
+                else
+                {
+                    //Custom scanning method
+                    try
+                    {
+                        ASR = Plugin.Scan(MainNew.AlertSettings.MyBotName);
+                        if (ASR.SourceIsValid)
+                            ScannedAlerts.AddRange(ASR.AlertsScanned);
+                    }
+                    catch(Exception ex)
+                    {
 
+                    }
+                }
+
+                if(ScannedAlerts.Any())
+                {
+                    AlertsAtScan = MainNew.Alerts; // Doing this helps with exceptions - should reconsider if alerts get duplicated.
 
                     Parallel.ForEach(ScannedAlerts, ThisAlert =>//Alert ThisAlert in ScannedAlerts)
                     {
@@ -110,12 +174,8 @@ namespace TradeAlertResponder.Controls
                                 }
                     });
                 }
-                catch (Exception ex)
-                {
 
-                }
-
-                Thread.Sleep(1000);
+                Thread.Sleep(Plugin.DelayBetweenScansInMilliseconds > 1000 ? Plugin.DelayBetweenScansInMilliseconds : 1000);
             }
         }
 

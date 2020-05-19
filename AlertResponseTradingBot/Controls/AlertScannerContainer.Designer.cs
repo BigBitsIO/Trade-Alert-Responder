@@ -74,7 +74,7 @@
             this.btnRemoveSelectedTab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRemoveSelectedTab.Location = new System.Drawing.Point(999, 0);
             this.btnRemoveSelectedTab.Name = "btnRemoveSelectedTab";
-            this.btnRemoveSelectedTab.Padding = new System.Windows.Forms.Padding(10);
+            this.btnRemoveSelectedTab.Padding = new System.Windows.Forms.Padding(10, 15, 10, 10);
             this.btnRemoveSelectedTab.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnRemoveSelectedTab.Rotation = 0D;
             this.btnRemoveSelectedTab.Size = new System.Drawing.Size(64, 58);
@@ -98,10 +98,9 @@
             this.btnAddNew.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             this.btnAddNew.IconColor = System.Drawing.Color.White;
             this.btnAddNew.IconSize = 35;
-            this.btnAddNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddNew.Location = new System.Drawing.Point(290, 3);
             this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Padding = new System.Windows.Forms.Padding(10);
+            this.btnAddNew.Padding = new System.Windows.Forms.Padding(10, 15, 10, 10);
             this.btnAddNew.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnAddNew.Rotation = 0D;
             this.btnAddNew.Size = new System.Drawing.Size(64, 53);

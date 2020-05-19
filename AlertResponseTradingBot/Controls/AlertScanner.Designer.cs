@@ -33,7 +33,9 @@
             this.lblPluginTextFriendlyName = new MetroFramework.Controls.MetroLabel();
             this.btnHome = new FontAwesome.Sharp.IconButton();
             this.btnScanForAlerts = new FontAwesome.Sharp.IconButton();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.pnlControls.SuspendLayout();
+            this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBrowser
@@ -55,7 +57,7 @@
             // 
             // pnlControls
             // 
-            this.pnlControls.Controls.Add(this.lblPluginTextFriendlyName);
+            this.pnlControls.Controls.Add(this.metroPanel1);
             this.pnlControls.Controls.Add(this.btnHome);
             this.pnlControls.Controls.Add(this.btnScanForAlerts);
             this.pnlControls.Dock = System.Windows.Forms.DockStyle.Top;
@@ -74,9 +76,10 @@
             // lblPluginTextFriendlyName
             // 
             this.lblPluginTextFriendlyName.AutoSize = true;
-            this.lblPluginTextFriendlyName.Location = new System.Drawing.Point(388, 19);
+            this.lblPluginTextFriendlyName.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblPluginTextFriendlyName.Location = new System.Drawing.Point(26, 18);
             this.lblPluginTextFriendlyName.Name = "lblPluginTextFriendlyName";
-            this.lblPluginTextFriendlyName.Size = new System.Drawing.Size(81, 19);
+            this.lblPluginTextFriendlyName.Size = new System.Drawing.Size(91, 19);
             this.lblPluginTextFriendlyName.TabIndex = 20;
             this.lblPluginTextFriendlyName.Text = "PluginName";
             this.lblPluginTextFriendlyName.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -137,6 +140,22 @@
             this.btnScanForAlerts.UseVisualStyleBackColor = false;
             this.btnScanForAlerts.Click += new System.EventHandler(this.btnScanForAlerts_Click);
             // 
+            // metroPanel1
+            // 
+            this.metroPanel1.Controls.Add(this.lblPluginTextFriendlyName);
+            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(128, 0);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(717, 53);
+            this.metroPanel1.TabIndex = 21;
+            this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
             // AlertScanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,7 +165,8 @@
             this.Name = "AlertScanner";
             this.Size = new System.Drawing.Size(845, 535);
             this.pnlControls.ResumeLayout(false);
-            this.pnlControls.PerformLayout();
+            this.metroPanel1.ResumeLayout(false);
+            this.metroPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -158,5 +178,6 @@
         private FontAwesome.Sharp.IconButton btnHome;
         private FontAwesome.Sharp.IconButton btnScanForAlerts;
         private MetroFramework.Controls.MetroLabel lblPluginTextFriendlyName;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
     }
 }

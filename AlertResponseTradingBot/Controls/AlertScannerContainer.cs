@@ -17,6 +17,12 @@ namespace TradeAlertResponder.Controls
         {
             InitializeComponent();
             LoadPlugins();
+
+            if(AlertScanPluginLoader.Plugins.Any(a => a.Name == "TradingView Alert Log Scanning"))
+            {
+                IAlertScanPlugin Plugin = AlertScanPluginLoader.Plugins.Where(a => a.Name == "TradingView Alert Log Scanning").FirstOrDefault();
+                AddTab(Plugin);
+            }
         }
 
         private void LoadPlugins()
@@ -33,6 +39,12 @@ namespace TradeAlertResponder.Controls
         {
             IAlertScanPlugin Plugin = AlertScanPluginLoader.Plugins.Where(a => a.Name == (string)ddlPlugin.SelectedValue).FirstOrDefault();
 
+            AddTab(Plugin);
+            
+        }
+
+        private void AddTab(IAlertScanPlugin Plugin)
+        {
             TabPage TP = new TabPage(Plugin.ShortName);
 
             tabControlAlertScanners.TabPages.Add(TP);
@@ -42,7 +54,6 @@ namespace TradeAlertResponder.Controls
 
             TP.Controls.Add(AS);
             AS.Dock = DockStyle.Fill;
-            
         }
 
         private void btnRemoveSelectedTab_Click(object sender, EventArgs e)

@@ -41,6 +41,30 @@ namespace Plugin.AlertScanPlugins
             }
         }
 
+        public bool UseCustomHTML
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public string CustomHTML
+        {
+            get
+            {
+                return "<h3>TEST</h3>";
+            }
+        }
+
+        public bool UseBrowserScanning
+        {
+            get
+            {
+                return true;
+            }
+        }
+
         public int DelayBetweenScansInMilliseconds
         {
             get
@@ -66,6 +90,12 @@ namespace Plugin.AlertScanPlugins
             // At this point, our html source is "valid" so try to scan for alerts within.
             ASR.AlertsScanned = GetTradingViewAlerts(Source, BotRootElement).GetAwaiter().GetResult();
             return ASR;
+        }
+
+        public AlertScanResult Scan(string BotRootElement)
+        {
+            //Here you would do a custom scan.
+            return new AlertScanResult();
         }
 
 
@@ -134,7 +164,7 @@ namespace Plugin.AlertScanPlugins
             foreach (string Row in AlertTableRows)
             {
 
-                Alert ThisAlert = await Alert.ExtractAlertsFromString(Row, BotRootElement);
+                Alert ThisAlert = await AlertExtractor.ExtractAlertsFromString(Row, BotRootElement);
                 if (ThisAlert != null)
                     ArtAlerts.Add(ThisAlert);
 
