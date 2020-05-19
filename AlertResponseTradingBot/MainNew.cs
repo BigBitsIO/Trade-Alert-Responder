@@ -117,7 +117,7 @@ namespace TradeAlertResponder
             {
                 if (AlertSettings.MemMapEnabled)  // Only have the memory map file created if it's enabled
                 {
-                    using (MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateNew(Constants.ProjectName + "MemFile", 999990000))
+                    using (MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateNew(Constants.ProjectName + "MemFile", 1000000))
                     {
                         using (MemoryMappedViewStream mmvStream = memoryMappedFile.CreateViewStream(0, MMF_VIEW_SIZE))
                         {
