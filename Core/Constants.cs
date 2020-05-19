@@ -22,13 +22,15 @@ namespace Core
             DataExchangeSettings,
             DataTwitterSettings,
             DataAlertSettings,
-            AlertScanPlugins
+            AlertScanPlugins,
+            AlertActionPlugins
         }
 
         public const string ProjectName = "TradeAlertResponder";
         public const string ProjectFolderName = "TradeAlertResponder"; // IF CHANGED UPDATE IN log4net in app.config
         public static string WatermarkFilePath = Constants.AppFolder(Constants.AppDirectory.ScreenshotSettingsLogo) + "Logo.png";
         public static string AlertScanPluginFolder = Constants.AppFolder(Constants.AppDirectory.AlertScanPlugins);
+        public static string AlertActionPluginFolder = Constants.AppFolder(Constants.AppDirectory.AlertActionPlugins);
 
         public static string AppFolder(AppDirectory Directory)
         {
@@ -77,6 +79,14 @@ namespace Core
                     return Path + "/";
                 case AppDirectory.DataAlertSettings:
                     Path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/" + Constants.ProjectFolderName + "/Data/AlertSettings";
+                    ConfirmDirectory(Path);
+                    return Path + "/";
+                case AppDirectory.AlertScanPlugins:
+                    Path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/" + Constants.ProjectFolderName + "/Plugins/AlertScanners";
+                    ConfirmDirectory(Path);
+                    return Path + "/";
+                case AppDirectory.AlertActionPlugins:
+                    Path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/" + Constants.ProjectFolderName + "/Plugins/AlertActions";
                     ConfirmDirectory(Path);
                     return Path + "/";
                 default:

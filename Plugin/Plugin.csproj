@@ -41,12 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlertActionPluginLoader.cs" />
+    <Compile Include="AlertActionPlugins\DiscordAlertAction.cs" />
     <Compile Include="AlertScanPluginLoader.cs" />
     <Compile Include="AlertScanPlugins\TVAlertLogScanning.cs" />
+    <Compile Include="IAlertActionPlugin.cs" />
     <Compile Include="IAlertScanPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CoreDiscord\CoreDiscord.csproj">
+      <Project>{C6A25AEC-3A4B-4D55-AFDD-E2E84F4A0FD7}</Project>
+      <Name>CoreDiscord</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{BB32068C-EFAC-405E-A2C7-E3CC57AA722B}</Project>
       <Name>Core</Name>

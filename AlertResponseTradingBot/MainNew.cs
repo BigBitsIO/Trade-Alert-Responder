@@ -41,6 +41,7 @@ namespace TradeAlertResponder
 
         // PLUGINS
         AlertScanPluginLoader ASPL = new AlertScanPluginLoader();
+        AlertActionPluginLoader AAPL = new AlertActionPluginLoader();
 
         // Bot Actions that have been scanned
         public static List<Alert> Alerts = new List<Alert>();
@@ -74,6 +75,7 @@ namespace TradeAlertResponder
         {
             InitializeComponent();
             ASPL.LoadPlugins();
+            AAPL.LoadPlugins();
 
             InitializeChromium();
 

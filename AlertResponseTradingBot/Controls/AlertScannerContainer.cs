@@ -31,7 +31,7 @@ namespace TradeAlertResponder.Controls
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            IAlertScanPlugin Plugin = AlertScanPluginLoader.Plugins.Where(a => a.Name == ddlPlugin.SelectedValue).FirstOrDefault();
+            IAlertScanPlugin Plugin = AlertScanPluginLoader.Plugins.Where(a => a.Name == (string)ddlPlugin.SelectedValue).FirstOrDefault();
 
             TabPage TP = new TabPage(Plugin.ShortName);
 
