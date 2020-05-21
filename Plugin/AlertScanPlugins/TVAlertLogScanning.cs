@@ -88,7 +88,7 @@ namespace Plugin.AlertScanPlugins
             }
 
             // At this point, our html source is "valid" so try to scan for alerts within.
-            ASR.AlertsScanned = GetTradingViewAlerts(Source, BotRootElement).GetAwaiter().GetResult();
+            ASR.AlertsScanned = GetTradingViewAlerts(Source, BotRootElement, ShortName).GetAwaiter().GetResult();
             return ASR;
         }
 
@@ -99,7 +99,7 @@ namespace Plugin.AlertScanPlugins
         }
 
 
-        public static async Task<List<Alert>> GetTradingViewAlerts(string source, string BotRootElement)
+        public static async Task<List<Alert>> GetTradingViewAlerts(string source, string BotRootElement, string Source)
         {
 
 
@@ -164,7 +164,7 @@ namespace Plugin.AlertScanPlugins
             foreach (string Row in AlertTableRows)
             {
 
-                Alert ThisAlert = await AlertExtractor.ExtractAlertsFromString(Row, BotRootElement);
+                Alert ThisAlert = await AlertExtractor.ExtractAlertsFromString(Row, BotRootElement, Source);
                 if (ThisAlert != null)
                     ArtAlerts.Add(ThisAlert);
 

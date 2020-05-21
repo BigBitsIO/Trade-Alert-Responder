@@ -33,6 +33,14 @@ namespace Core
         public string Id { get; set; } = "";
         public string TimeOnAlert { get; set; } = "";
 
+        public string Source { get; set; } = "None";
+
+
+        public Alert(string _Source)
+        {
+            CreationTime = DateTime.UtcNow;
+            Source = _Source;
+        }
 
         public Alert()
         {
@@ -44,12 +52,12 @@ namespace Core
 
     public class AlertExtractor
     {
-        public static async Task<Alert> ExtractAlertsFromString(string Search, string BotRootElement)
+        public static async Task<Alert> ExtractAlertsFromString(string Search, string BotRootElement, string Source)
         {
             string Root = BotRootElement.ToLower();
             if (Search != "")
             {
-                Alert ThisAlert = new Alert();
+                Alert ThisAlert = new Alert(Source);
 
                 try
                 {
