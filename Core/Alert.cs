@@ -35,6 +35,9 @@ namespace Core
 
         public string Source { get; set; } = "None";
 
+        public string WebhookURL { get; set; } = "";
+        public string WebhookMessage { get; set; } = "";
+
 
         public Alert(string _Source)
         {
@@ -196,6 +199,26 @@ namespace Core
                         TimeString = BodyText.Substring(TimeFrom, TimeTo - TimeFrom);
 
                     ThisAlert.TimeOnAlert = TimeString;
+
+                    // Webhook for chart if any
+                    int WebhookFrom = BodyText.IndexOf("<whurl>") + "<whurl>".Length;
+                    int WebhookTo = BodyText.IndexOf("</whurl>");
+
+                    string WebhookString = "";
+                    if (WebhookFrom >= 0 && WebhookTo > WebhookFrom)
+                        WebhookString = BodyText.Substring(WebhookFrom, WebhookTo - WebhookFrom);
+
+                    ThisAlert.WebhookURL = WebhookString;
+
+                    // WebhookMessage for chart if any
+                    int WebhookMessageFrom = BodyText.IndexOf("<whmes>") + "<whmes>".Length;
+                    int WebhookMessageTo = BodyText.IndexOf("</whmes>");
+
+                    string WebhookMessageString = "";
+                    if (WebhookMessageFrom >= 0 && WebhookMessageTo > WebhookMessageFrom)
+                        WebhookMessageString = BodyText.Substring(WebhookMessageFrom, WebhookMessageTo - WebhookMessageFrom);
+
+                    ThisAlert.WebhookMessage = WebhookMessageString;
 
                     // Set Id
                     if (BotString != "")

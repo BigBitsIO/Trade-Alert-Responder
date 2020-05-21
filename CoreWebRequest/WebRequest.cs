@@ -14,6 +14,7 @@ namespace CoreWebRequest
             using (WebClient wc = new WebClient())
             {
                 string HtmlResult = "";
+
                 if (UseJSON)
                 {
                     wc.Headers[HttpRequestHeader.ContentType] = "application/json";
