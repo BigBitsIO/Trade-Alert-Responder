@@ -201,6 +201,10 @@
       <Project>{c6a25aec-3a4b-4d55-afdd-e2e84f4a0fd7}</Project>
       <Name>CoreDiscord</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CoreGithub\CoreGithub.csproj">
+      <Project>{3eac3e3a-7054-4279-ad29-290c0316e8bc}</Project>
+      <Name>CoreGithub</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CoreScreen\CoreScreen.csproj">
       <Project>{f0cfa115-7add-4a85-8d0a-75987bf92676}</Project>
       <Name>CoreScreen</Name>
@@ -212,6 +216,10 @@
     <ProjectReference Include="..\CoreTwitter\CoreTwitter.csproj">
       <Project>{5194a77f-785d-41d2-afad-28a05fc621ce}</Project>
       <Name>CoreTwitter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CoreWebRequest\CoreWebRequest.csproj">
+      <Project>{be159c40-808e-498f-8b76-2e1b55c16d66}</Project>
+      <Name>CoreWebRequest</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{bb32068c-efac-405e-a2c7-e3cc57aa722b}</Project>

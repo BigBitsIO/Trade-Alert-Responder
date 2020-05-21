@@ -31,6 +31,7 @@ namespace Core
         public static string WatermarkFilePath = Constants.AppFolder(Constants.AppDirectory.ScreenshotSettingsLogo) + "Logo.png";
         public static string AlertScanPluginFolder = Constants.AppFolder(Constants.AppDirectory.AlertScanPlugins);
         public static string AlertActionPluginFolder = Constants.AppFolder(Constants.AppDirectory.AlertActionPlugins);
+        public const string Version = "1.0.0";
 
         public static string AppFolder(AppDirectory Directory)
         {

@@ -24,6 +24,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Plugin;
 using TradeAlertResponder.Controls;
 using System.Xml.Serialization;
+using CoreGithub;
 
 namespace TradeAlertResponder
 {
@@ -75,6 +76,7 @@ namespace TradeAlertResponder
         public MainNew()
         {
             InitializeComponent();
+            LoadVersionInfo().GetAwaiter().GetResult();
             ASPL.LoadPlugins();
             AAPL.LoadPlugins();
 
@@ -84,8 +86,6 @@ namespace TradeAlertResponder
 
             LoadAlerts().GetAwaiter().GetResult();
             LoadSettings().GetAwaiter().GetResult();
-            
-
             
 
 
@@ -104,6 +104,24 @@ namespace TradeAlertResponder
             Notification.Icon = SystemIcons.Application; // Required for balloon notification to show
 
             //Telegram.ChannelMessage("Testing form load.");
+        }
+
+        private async Task LoadVersionInfo()
+        {
+            string CurrentReleaseVersion = Github.GetVersion().GetAwaiter().GetResult();
+            if(IsVersionCurrent(Constants.Version))
+            {
+                lblApplicationNameAndVersion.Text = Constants.ProjectName + " " + Constants.Version;
+            }
+            else
+            {
+                lblApplicationNameAndVersion.Text = Constants.ProjectName + " " + "UPDATE TEXT GOES HERE";// TODO update this
+            }
+        }
+
+        private bool IsVersionCurrent(string CurrentVersion)
+        {
+            return true; // TODO UPDATE THIS.
         }
 
         private async Task AppHeartbeat()
@@ -718,15 +736,16 @@ namespace TradeAlertResponder
             this.Focus(); this.Show();
         }
 
-        private void pnlLeftNav_DoubleClick(object sender, EventArgs e)
-        {
-            //MessageBox.Show(AlertScanPluginLoader.Plugins.Count.ToString() + AlertScanPluginLoader.Plugins.FirstOrDefault().Name);
-        }
-
         private void btnContributeTab_Click(object sender, EventArgs e)
         {
             HideFocus();
             SelectNavButton((IconButton)sender);
+        }
+
+        private void pnlNavigation_DoubleClick(object sender, EventArgs e)
+        {
+            var result = Github.GetVersion().GetAwaiter().GetResult();
+            string howdy = "";
         }
     }
 }
