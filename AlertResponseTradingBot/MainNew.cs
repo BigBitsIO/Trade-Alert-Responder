@@ -108,20 +108,38 @@ namespace TradeAlertResponder
 
         private async Task LoadVersionInfo()
         {
-            string CurrentReleaseVersion = Github.GetVersion().GetAwaiter().GetResult();
-            if(IsVersionCurrent(Constants.Version))
+            lblApplicationNameAndVersion.Text = Constants.ProjectName + " " + Constants.Version;
+            if (IsVersionCurrent())
             {
-                lblApplicationNameAndVersion.Text = Constants.ProjectName + " " + Constants.Version;
+                // hide version upgrade control
             }
             else
             {
-                lblApplicationNameAndVersion.Text = Constants.ProjectName + " " + "UPDATE TEXT GOES HERE";// TODO update this
+                // show version upgrade control with link to new version release
+                // TODO: ^^^^^^ that stuff Ex: https://github.com/BigBitsIO/Trade-Alert-Responder/releases/tag/1.0.0
             }
         }
 
-        private bool IsVersionCurrent(string CurrentVersion)
+        private bool IsVersionCurrent()
         {
-            return true; // TODO UPDATE THIS.
+            Version Current;
+            Version Latest;
+            string LatestVersion = Github.GetVersion().GetAwaiter().GetResult();
+
+            if (Version.TryParse(Constants.Version, out Current) && Version.TryParse(LatestVersion, out Latest))
+            {
+                int result = Latest.CompareTo(Current);
+                if (result > 0)
+                {
+                    return false;//Latest is greater
+                }
+                else
+                {
+                    return true; // Is current, or in a dev environment with newer version in current
+                }
+            }
+
+            return true;
         }
 
         private async Task AppHeartbeat()
