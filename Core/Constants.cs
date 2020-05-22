@@ -26,6 +26,7 @@ namespace Core
             AlertActionPlugins
         }
 
+        public const string ProjectUserFriendlyName = "Trade Alert Responder";
         public const string ProjectName = "TradeAlertResponder";
         public const string ProjectFolderName = "TradeAlertResponder"; // IF CHANGED UPDATE IN log4net in app.config
         public static string WatermarkFilePath = Constants.AppFolder(Constants.AppDirectory.ScreenshotSettingsLogo) + "Logo.png";

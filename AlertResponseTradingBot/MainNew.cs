@@ -108,19 +108,23 @@ namespace TradeAlertResponder
 
         private async Task LoadVersionInfo()
         {
-            lblApplicationNameAndVersion.Text = Constants.ProjectName + " " + Constants.Version;
-            if (IsVersionCurrent())
+            Version VersionCheck;
+            lblApplicationNameAndVersion.Text = Constants.ProjectUserFriendlyName + " " + Constants.Version;
+            if (IsVersionCurrent(out VersionCheck))
             {
                 // hide version upgrade control
+                lblUpdate.Visible = false;
             }
             else
             {
                 // show version upgrade control with link to new version release
-                // TODO: ^^^^^^ that stuff Ex: https://github.com/BigBitsIO/Trade-Alert-Responder/releases/tag/1.0.0
+                lblUpdate.Visible = true;
+                lblUpdate.Text = "New version " + VersionCheck.ToString() + " available!";
+                // TODO: Add ability to link to update directly Ex: https://github.com/BigBitsIO/Trade-Alert-Responder/releases/tag/1.0.0
             }
         }
 
-        private bool IsVersionCurrent()
+        private bool IsVersionCurrent(out Version Version)
         {
             Version Current;
             Version Latest;
@@ -131,14 +135,17 @@ namespace TradeAlertResponder
                 int result = Latest.CompareTo(Current);
                 if (result > 0)
                 {
+                    Version = Latest;
                     return false;//Latest is greater
                 }
                 else
                 {
+                    Version = Current;
                     return true; // Is current, or in a dev environment with newer version in current
                 }
             }
 
+            Version = Current;
             return true;
         }
 
