@@ -94,7 +94,7 @@ namespace TradeAlertResponder
 
             HideFocus();
 
-            Logging.Log(Logging.LogLevel.Info, "Started.");
+            Logs.Log(Logs.LogLevel.Info, "Started.");
 
             Notification.Icon = SystemIcons.Application; // Required for balloon notification to show
 

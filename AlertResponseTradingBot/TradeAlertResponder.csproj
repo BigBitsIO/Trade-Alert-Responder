@@ -99,6 +99,12 @@
     <Compile Include="Controls\AlertScannerContainer.Designer.cs">
       <DependentUpon>AlertScannerContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CurrentLogMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CurrentLogMessage.Designer.cs">
+      <DependentUpon>CurrentLogMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainNew.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,7 +129,6 @@
     <Compile Include="DiscordSettingsForm.Designer.cs">
       <DependentUpon>DiscordSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logging.cs" />
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\AlertScannerContainer.resx">
       <DependentUpon>AlertScannerContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CurrentLogMessage.resx">
+      <DependentUpon>CurrentLogMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainNew.resx">
       <DependentUpon>MainNew.cs</DependentUpon>

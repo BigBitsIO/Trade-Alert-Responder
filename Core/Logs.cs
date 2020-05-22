@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace TradeAlertResponder
 {
-    public static class Logging
+    public class Logs
     {
-
         public enum LogLevel
         {
             Debug,
             Info,
             Warning,
-            Error
+            Error,
+            Advertisement,
+            SponsorMessage
         }
 
         public class LogMessage
@@ -24,26 +25,28 @@ namespace TradeAlertResponder
             public string Message { get; set; }
         }
 
-        static Logging()
+        static Logs()
         {
             LogMessages = new System.ComponentModel.BindingList<LogMessage>();
         }
 
         public static System.ComponentModel.BindingList<LogMessage> LogMessages { get; }
-        private static log4net.ILog log = log4net.LogManager.GetLogger(typeof(Logging));
-        public static event EventHandler<System.ComponentModel.AddingNewEventArgs> LogMessageAdded;
+        private static log4net.ILog log = log4net.LogManager.GetLogger(typeof(Logs));
+        public static event EventHandler<System.ComponentModel.AddingNewEventArgs> NewLog;
 
         public static void Log(LogLevel level, string message, Exception ex = null)
         {
             LogMessage logMessage = new LogMessage { DateLogged = System.DateTime.Now, Level = level, Message = message };
             LogMessages.Add(logMessage);
-            LogMessageAdded?.Invoke(null, new System.ComponentModel.AddingNewEventArgs { NewObject = logMessage });
+            NewLog?.Invoke(null, new System.ComponentModel.AddingNewEventArgs { NewObject = logMessage });
             switch (level)
             {
                 case LogLevel.Debug: log.Debug(message, ex); break;
                 case LogLevel.Info: log.Info(message, ex); break;
                 case LogLevel.Warning: log.Warn(message, ex); break;
                 case LogLevel.Error: log.Error(message, ex); break;
+                case LogLevel.SponsorMessage: log.Info(message, ex); break;
+                case LogLevel.Advertisement: log.Info(message, ex); break;
             }
         }
 
@@ -63,6 +66,5 @@ namespace TradeAlertResponder
         {
             Log(LogLevel.Error, message, ex);
         }
-
     }
 }

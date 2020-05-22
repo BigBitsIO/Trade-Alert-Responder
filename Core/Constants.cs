@@ -23,7 +23,8 @@ namespace Core
             DataTwitterSettings,
             DataAlertSettings,
             AlertScanPlugins,
-            AlertActionPlugins
+            AlertActionPlugins,
+            Logs
         }
 
         public const string ProjectUserFriendlyName = "Trade Alert Responder";
@@ -32,6 +33,7 @@ namespace Core
         public static string WatermarkFilePath = Constants.AppFolder(Constants.AppDirectory.ScreenshotSettingsLogo) + "Logo.png";
         public static string AlertScanPluginFolder = Constants.AppFolder(Constants.AppDirectory.AlertScanPlugins);
         public static string AlertActionPluginFolder = Constants.AppFolder(Constants.AppDirectory.AlertActionPlugins);
+        public static string LogsFolder = Constants.AppFolder(Constants.AppDirectory.Logs);
         public const string Version = "1.0.0";
 
         public static string AppFolder(AppDirectory Directory)
@@ -45,6 +47,10 @@ namespace Core
                     return Path + "/";
                 case AppDirectory.Data:
                     Path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/" + Constants.ProjectFolderName + "/Data";
+                    ConfirmDirectory(Path);
+                    return Path + "/";
+                case AppDirectory.Logs:
+                    Path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/" + Constants.ProjectFolderName + "/Logs";
                     ConfirmDirectory(Path);
                     return Path + "/";
                 case AppDirectory.Screenshots:

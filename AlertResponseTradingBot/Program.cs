@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using Core;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace TradeAlertResponder
         static void Main()
         {
             log4net.Config.XmlConfigurator.Configure();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Splash.ShowSplashScreen();
@@ -23,7 +25,8 @@ namespace TradeAlertResponder
             MainNew mainForm = new MainNew(); //this takes ages
             Splash.CloseForm();
             Application.Run(mainForm);
-            
+            Logs.Info("Application started.");
+
         }
 
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)

@@ -31,6 +31,8 @@ namespace TradeAlertResponder
     public partial class MainNew : MetroForm
     {
 
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(MainNew));
+
         // BROWSER SPECIFIC
         // TradingView Specific
         private ChromiumWebBrowser ChromeBrowserTradingView;
@@ -72,6 +74,9 @@ namespace TradeAlertResponder
         //Heartbeat
         private bool Heartbeating = true;
 
+        //Version
+        private Version AppVersion;
+
 
         public MainNew()
         {
@@ -99,18 +104,18 @@ namespace TradeAlertResponder
 
             HideFocus();
 
-            Logging.Log(Logging.LogLevel.Info, "Started.");
+            
 
             Notification.Icon = SystemIcons.Application; // Required for balloon notification to show
 
             //Telegram.ChannelMessage("Testing form load.");
+            Logs.Log(Logs.LogLevel.Info, "Form finished loading.");
         }
 
         private async Task LoadVersionInfo()
         {
-            Version VersionCheck;
             lblApplicationNameAndVersion.Text = Constants.ProjectUserFriendlyName + " " + Constants.Version;
-            if (IsVersionCurrent(out VersionCheck))
+            if (IsVersionCurrent(out AppVersion))
             {
                 // hide version upgrade control
                 lblUpdate.Visible = false;
@@ -119,8 +124,7 @@ namespace TradeAlertResponder
             {
                 // show version upgrade control with link to new version release
                 lblUpdate.Visible = true;
-                lblUpdate.Text = "New version " + VersionCheck.ToString() + " available!";
-                // TODO: Add ability to link to update directly Ex: https://github.com/BigBitsIO/Trade-Alert-Responder/releases/tag/1.0.0
+                lblUpdate.Text = "New version " + AppVersion.ToString() + " available!";
             }
         }
 
@@ -769,8 +773,22 @@ namespace TradeAlertResponder
 
         private void pnlNavigation_DoubleClick(object sender, EventArgs e)
         {
-            var result = Github.GetVersion().GetAwaiter().GetResult();
-            string howdy = "";
+            //var result = Github.GetVersion().GetAwaiter().GetResult();
+        }
+
+        private void lblUpdate_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/BigBitsIO/Trade-Alert-Responder/releases/tag/" + AppVersion.ToString());
+        }
+
+        private void lblUpdate_MouseLeave(object sender, EventArgs e)
+        {
+            lblUpdate.ForeColor = Color.Yellow;
+        }
+
+        private void lblUpdate_MouseEnter(object sender, EventArgs e)
+        {
+            lblUpdate.ForeColor = Color.LightSkyBlue;
         }
     }
 }
