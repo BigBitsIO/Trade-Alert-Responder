@@ -132,9 +132,18 @@ namespace TradeAlertResponder
         {
             Version Current;
             Version Latest;
-            string LatestVersion = Github.GetVersion().GetAwaiter().GetResult();
+            string LatestVersion = "";
 
-            if (Version.TryParse(Constants.Version, out Current) && Version.TryParse(LatestVersion, out Latest))
+            try
+            {
+                LatestVersion = Github.GetVersion().GetAwaiter().GetResult();
+            }
+            catch (Exception ex)
+            {
+            }
+            
+
+            if (Version.TryParse(Constants.Version, out Current) && Version.TryParse(LatestVersion, out Latest) && LatestVersion != "")
             {
                 int result = Latest.CompareTo(Current);
                 if (result > 0)
@@ -677,6 +686,9 @@ namespace TradeAlertResponder
                 case "btnShopTab":
                     tabMainView.SelectedTab = pnlShopTab;
                     break;
+                case "btnAboutTab":
+                    tabMainView.SelectedTab = pnlAboutTab;
+                    break;
             }
 
             btnTradingViewTab.IconColor = Button.Name == "btnTradingViewTab" ? System.Drawing.Color.FromArgb(255,0,51,160) : System.Drawing.Color.White;
@@ -685,6 +697,7 @@ namespace TradeAlertResponder
             btnVideoTab.IconColor = Button.Name == "btnVideoTab" ? System.Drawing.Color.FromArgb(255,0,51,160) : System.Drawing.Color.White;
             btnContributeTab.IconColor = Button.Name == "btnContributeTab" ? System.Drawing.Color.FromArgb(255,0,51,160) : System.Drawing.Color.White;
             btnShopTab.IconColor = Button.Name == "btnShopTab" ? System.Drawing.Color.FromArgb(255,0,51,160) : System.Drawing.Color.White;
+            btnAboutTab.IconColor = Button.Name == "btnAboutTab" ? System.Drawing.Color.FromArgb(255, 0, 51, 160) : System.Drawing.Color.White;
         }
 
         private void btnPineScriptTutorialPlaylist_Click(object sender, EventArgs e)
@@ -789,6 +802,12 @@ namespace TradeAlertResponder
         private void lblUpdate_MouseEnter(object sender, EventArgs e)
         {
             lblUpdate.ForeColor = Color.LightSkyBlue;
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            HideFocus();
+            SelectNavButton((IconButton)sender);
         }
     }
 }
