@@ -55,6 +55,7 @@ namespace TradeAlertResponder
 
         //Grid Data
         private BindingSource AlertsSource = new BindingSource();
+        private bool AlertTableConfigured = false;
 
         // Social Media Settings
         public static TwitterSettings TwitterSettings { get; set; } = new TwitterSettings();
@@ -77,6 +78,8 @@ namespace TradeAlertResponder
 
         //Version
         private Version AppVersion;
+
+        private bool MemMapOpen = false;
 
 
         public MainNew()
@@ -166,46 +169,68 @@ namespace TradeAlertResponder
         private async Task AppHeartbeat()
         {
 
-            //https://codingvision.net/tips-and-tricks/c-send-data-between-processes-w-memory-mapped-file
-            //const int MMF_MAX_SIZE = 1024;  // allocated memory for this memory mapped file (bytes)
-            const int MMF_VIEW_SIZE = 1024; // how many bytes of the allocated memory can this process access
+            Task.Run(() => SaveAlertsPeriodically());
+
+            
 
             while (Heartbeating) // should aways be true, always keep loop running while process is running
             {
-                if (AlertSettings.MemMapEnabled)  // Only have the memory map file created if it's enabled
+                if (AlertSettings.MemMapEnabled && !MemMapOpen)  // Only have the memory map file created if it's enabled
                 {
-                    using (MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateNew(Constants.ProjectName + "MemFile", 1000000))
-                    {
-                        using (MemoryMappedViewStream mmvStream = memoryMappedFile.CreateViewStream(0, MMF_VIEW_SIZE))
-                        {
-                            try
-                            {
-                                while (AlertSettings.MemMapEnabled) // keep the file open, and update every X ms using thread sleep.  When disabled, will break loop, closing mem file
-                                {
-                                    List<Alert> MemAlerts = Alerts.Where(a => a.CreationTime > DateTime.UtcNow.AddHours(-1)).ToList();
-                                    // serialize the variable 'message1' and write it to the memory mapped file
-                                    //BinaryFormatter formatter = new BinaryFormatter();
-                                    //formatter.Serialize(mmvStream, MemAlerts);
-
-                                    XmlSerializer XLM = new XmlSerializer(typeof(List<Alert>));
-                                    XLM.Serialize(mmvStream, MemAlerts);
-                                    mmvStream.Seek(0, SeekOrigin.Begin); // sets the current position back to the beginning of the stream
-
-
-                                    Thread.Sleep(1000); // Wait 1 second before updating
-                                };
-
-                            }
-                            catch (Exception ex)
-                            {
-
-                            }
-                        }
-                    }
+                    Task.Run(() => MemoryMapFile());
                 }
             }
         }
 
+        private async Task MemoryMapFile()
+        {
+            MemMapOpen = true;
+
+            //https://codingvision.net/tips-and-tricks/c-send-data-between-processes-w-memory-mapped-file
+            //const int MMF_MAX_SIZE = 1024;  // allocated memory for this memory mapped file (bytes)
+            const int MMF_VIEW_SIZE = 1024; // how many bytes of the allocated memory can this process access
+
+            using (MemoryMappedFile memoryMappedFile = MemoryMappedFile.CreateNew(Constants.ProjectName + "MemFile", 1000000))
+            {
+                using (MemoryMappedViewStream mmvStream = memoryMappedFile.CreateViewStream(0, MMF_VIEW_SIZE))
+                {
+                    try
+                    {
+                        
+                        while (AlertSettings.MemMapEnabled) // keep the file open, and update every X ms using thread sleep.  When disabled, will break loop, closing mem file
+                        {
+                            List<Alert> MemAlerts = Alerts;
+                            // serialize the variable 'message1' and write it to the memory mapped file
+                            //BinaryFormatter formatter = new BinaryFormatter();
+                            //formatter.Serialize(mmvStream, MemAlerts);
+
+                            XmlSerializer XLM = new XmlSerializer(typeof(List<Alert>));
+                            XLM.Serialize(mmvStream, MemAlerts);
+                            mmvStream.Seek(0, SeekOrigin.Begin); // sets the current position back to the beginning of the stream
+
+
+                            Thread.Sleep(1000); // Wait 1 second before updating
+                        };
+                        
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+            }
+            MemMapOpen = false;
+        }
+
+        private async Task SaveAlertsPeriodically()
+        {
+            while(true)
+            {
+                Task.Run(() => SaveAlerts());
+                Thread.Sleep(5000);
+            }
+            
+        }
         private async Task HideItems()
         {
             // If we need to hide anything, do it here
@@ -219,36 +244,61 @@ namespace TradeAlertResponder
             LoadScreenshotSettings().GetAwaiter().GetResult();
         }
 
+        private void LoadAlertsGrid(DataTable AlertsTable)
+        {
+            AlertsSource.DataSource = AlertsTable;
+        }
+
         private void LoadAlertsGrid()
         {
-            DataTable AlertsTable = DataHelper.ConvertToDataTable(Alerts);
-            AlertsSource.DataSource = AlertsTable;
-
-            try
+            
+            if(InvokeRequired)
             {
-
-
-                grdAlerts.Columns["Ticker"].DisplayIndex = 0;
-                grdAlerts.Columns["Action"].DisplayIndex = 1;
-                grdAlerts.Columns["Price"].DisplayIndex = 2;
-                grdAlerts.Columns["Exchange"].DisplayIndex = 3;
-                grdAlerts.Columns["CreationTime"].DisplayIndex = 4;
-                grdAlerts.Columns["BaseAsset"].DisplayIndex = 5;
-                grdAlerts.Columns["QuoteAsset"].DisplayIndex = 6;
-                grdAlerts.Columns["BaseAssetFullName"].DisplayIndex = 7;
-                grdAlerts.Columns["Resolution"].DisplayIndex = 8;
-                grdAlerts.Columns["Note"].DisplayIndex = 9;
-                grdAlerts.Columns["URL"].DisplayIndex = 10;
-
-                grdAlerts.Columns["Id"].DisplayIndex = 11;
-                grdAlerts.Columns["TimeOnAlert"].DisplayIndex = 12;
-                grdAlerts.Columns["Id"].Visible = false;
-                grdAlerts.Columns["TimeOnAlert"].Visible = false;
+                DataTable AlertsTable = DataHelper.ConvertToDataTable(Alerts);
+                Invoke(new Action<DataTable>(LoadAlertsGrid), AlertsTable);
             }
-            catch (Exception ex)
+            else
             {
-
+                DataTable AlertsTable = DataHelper.ConvertToDataTable(Alerts);
+                AlertsSource.DataSource = AlertsTable;
             }
+                    
+
+            
+
+            if(AlertTableConfigured == false)
+            {
+                try
+                {
+
+
+                    grdAlerts.Columns["Ticker"].DisplayIndex = 0;
+                    grdAlerts.Columns["Action"].DisplayIndex = 1;
+                    grdAlerts.Columns["Price"].DisplayIndex = 2;
+                    grdAlerts.Columns["Exchange"].DisplayIndex = 3;
+                    grdAlerts.Columns["CreationTime"].DisplayIndex = 4;
+                    grdAlerts.Columns["BaseAsset"].DisplayIndex = 5;
+                    grdAlerts.Columns["QuoteAsset"].DisplayIndex = 6;
+                    grdAlerts.Columns["BaseAssetFullName"].DisplayIndex = 7;
+                    grdAlerts.Columns["Resolution"].DisplayIndex = 8;
+                    grdAlerts.Columns["Note"].DisplayIndex = 9;
+                    grdAlerts.Columns["URL"].DisplayIndex = 10;
+
+                    grdAlerts.Columns["Id"].DisplayIndex = 11;
+                    grdAlerts.Columns["TimeOnAlert"].DisplayIndex = 12;
+                    grdAlerts.Columns["Id"].Visible = false;
+                    grdAlerts.Columns["TimeOnAlert"].Visible = false;
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+                    AlertTableConfigured = true;
+                }
+            }
+            
 
         }
 
@@ -577,22 +627,6 @@ namespace TradeAlertResponder
             Screen.QuitChrome().GetAwaiter().GetResult();
 
             SaveAlerts().GetAwaiter().GetResult();
-        }
-
-        private void pnlAlerts_TextChanged(object sender, EventArgs e)
-        {
-            if (Alerts.Count > LastAlertsSaveCount)
-            {
-                try
-                {
-                    SaveAlerts().GetAwaiter().GetResult();
-                }
-                catch (Exception ex)
-                {
-
-                }
-
-            }
         }
 
         private void btnDiscordTest_Click(object sender, EventArgs e)

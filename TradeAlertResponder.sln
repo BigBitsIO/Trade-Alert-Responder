@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWebRequest", "CoreWebRe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreGithub", "CoreGithub\CoreGithub.csproj", "{3EAC3E3A-7054-4279-AD29-290C0316E8BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAlertScanPlugin", "TestAlertScanPlugin\TestAlertScanPlugin.csproj", "{7B8D0992-F677-4723-93E7-0177B1053CCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{3EAC3E3A-7054-4279-AD29-290C0316E8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EAC3E3A-7054-4279-AD29-290C0316E8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EAC3E3A-7054-4279-AD29-290C0316E8BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B8D0992-F677-4723-93E7-0177B1053CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B8D0992-F677-4723-93E7-0177B1053CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B8D0992-F677-4723-93E7-0177B1053CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B8D0992-F677-4723-93E7-0177B1053CCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

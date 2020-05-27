@@ -29,9 +29,16 @@ namespace CoreTwitter
 
         public async void Tweet(string Message)
         {
-            var twitterContext = new TwitterContext(authorizer);
+            try
+            {
+                var twitterContext = new TwitterContext(authorizer);
 
-            await twitterContext.TweetAsync(Message);
+                await twitterContext.TweetAsync(Message);
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         public async void TweetWithPngImage(string Message, string ImageFilePath) // todo convert param data type
