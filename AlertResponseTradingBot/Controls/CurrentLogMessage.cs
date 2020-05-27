@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Core;
 
 namespace TradeAlertResponder.Controls
 {
@@ -15,7 +16,7 @@ namespace TradeAlertResponder.Controls
         public CurrentLogMessage()
         {
             InitializeComponent();
-            Logs.NewLog += NewLogMessage;
+            Core.Logs.NewLog += NewLogMessage;
         }
 
         private void NewLogMessage(object sender, AddingNewEventArgs e)
@@ -28,8 +29,8 @@ namespace TradeAlertResponder.Controls
                     return;
                 }
 
-                Logs.LogMessage Message = e.NewObject as Logs.LogMessage;
-                if (Message.Level == Logs.LogLevel.Info)
+                Core.Logs.LogMessage Message = e.NewObject as Core.Logs.LogMessage;
+                if (Message.Level == Core.Logs.LogLevel.Info)
                 {
                     SetLogMessage(Message);
                 }
@@ -40,17 +41,10 @@ namespace TradeAlertResponder.Controls
             }
         }
 
-        private void SetLogMessage(Logs.LogMessage Log)
+        private void SetLogMessage(Core.Logs.LogMessage Log)
         {
             lblMessage.Text = Log.DateLogged.ToLongTimeString() + " " + Log.Level.ToString() + ": " + Log.Message;
-            if (Log.Level == Logs.LogLevel.Info)
-                lblMessage.ForeColor = Color.Teal;
-            if (Log.Level == Logs.LogLevel.Error)
-                lblMessage.ForeColor = Color.Red;
-            if (Log.Level == Logs.LogLevel.Warning)
-                lblMessage.ForeColor = Color.Orange;
-            if (Log.Level == Logs.LogLevel.Debug)
-                lblMessage.ForeColor = Color.Pink;
+            lblMessage.ForeColor = Core.Logs.LogColor(Log.Level);
         }
     }
 }

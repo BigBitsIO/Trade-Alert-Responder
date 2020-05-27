@@ -105,6 +105,12 @@
     <Compile Include="Controls\CurrentLogMessage.Designer.cs">
       <DependentUpon>CurrentLogMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Logs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Logs.Designer.cs">
+      <DependentUpon>Logs.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainNew.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CurrentLogMessage.resx">
       <DependentUpon>CurrentLogMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Logs.resx">
+      <DependentUpon>Logs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainNew.resx">
       <DependentUpon>MainNew.cs</DependentUpon>

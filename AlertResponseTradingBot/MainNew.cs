@@ -109,7 +109,7 @@ namespace TradeAlertResponder
             Notification.Icon = SystemIcons.Application; // Required for balloon notification to show
 
             //Telegram.ChannelMessage("Testing form load.");
-            Logs.Log(Logs.LogLevel.Info, "Form finished loading.");
+            Core.Logs.Log(Core.Logs.LogLevel.Info, "Form finished loading.");
         }
 
         private async Task LoadVersionInfo()

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TradeAlertResponder
+namespace Core
 {
-    public class Logs
+    public static class Logs
     {
         public enum LogLevel
         {
@@ -65,6 +66,41 @@ namespace TradeAlertResponder
         public static void Error(string message, Exception ex = null)
         {
             Log(LogLevel.Error, message, ex);
+        }
+
+        public static Color LogColor(LogLevel Level)
+        {
+            switch (Level)
+            {
+                case LogLevel.Debug: return Color.Pink;
+                case LogLevel.Info: return Color.Teal;
+                case LogLevel.Warning: return Color.Orange;
+                case LogLevel.Error: return Color.Red;
+                case LogLevel.SponsorMessage: return Color.LimeGreen;
+                case LogLevel.Advertisement: return Color.PaleGoldenrod;
+                default: return Color.White;
+            }
+        }
+
+        public static LogLevel LevelFromString(string LevelString)
+        {
+            switch (LevelString)
+            {
+                case "Info":
+                    return LogLevel.Info;
+                case "Debug":
+                    return LogLevel.Debug;
+                case "Warning":
+                    return LogLevel.Warning;
+                case "Error":
+                    return LogLevel.Error;
+                case "SponsorMessage":
+                    return LogLevel.SponsorMessage;
+                case "Advertisement":
+                    return LogLevel.Advertisement;
+                default:
+                    return LogLevel.Info;
+            }
         }
     }
 }
