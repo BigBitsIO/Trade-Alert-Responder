@@ -1,5 +1,6 @@
 ﻿using Core;
 using log4net;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,16 +21,15 @@ namespace TradeAlertResponder
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Splash.ShowSplashScreen();
-            //Main mainForm = new Main(); //this takes ages
-            MainNew mainForm = new MainNew(); //this takes ages
-            Splash.CloseForm();
-            Application.Run(mainForm);
+
+            var app = new MyApplication();
+            app.Run(Environment.GetCommandLineArgs());
+
             Logs.Info("Application started.");
 
         }
 
-        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        private static void CurrentDomain_UnhandledException(object sender, System.UnhandledExceptionEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine(e.ExceptionObject.ToString());
             Console.WriteLine(e.ExceptionObject.ToString());
@@ -51,6 +51,18 @@ namespace TradeAlertResponder
         {
             ILog logger = LogManager.GetLogger(typeof(Program));
             logger.Debug(ex.ToString());
+        }
+    }
+
+    public class MyApplication : WindowsFormsApplicationBase
+    {
+        protected override void OnCreateMainForm()
+        {
+            MainForm = new MainNew();
+        }
+        protected override void OnCreateSplashScreen()
+        {
+            SplashScreen = new Splash();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,18 +28,19 @@ namespace TradeAlertResponder
 
         static public void ShowSplashScreen()
         {
-            // Make sure it is only launched once.    
-            if (splash != null) return;
-            splash = new Splash();
-            Thread thread = new Thread(new ThreadStart(Splash.ShowForm));
-            thread.IsBackground = true;
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
+            //// Make sure it is only launched once.    
+            //if (splash != null) return;
+            //splash = new Splash();
+            //Thread thread = new Thread(new ThreadStart(Splash.ShowForm));
+            //thread.IsBackground = true;
+            //thread.SetApartmentState(ApartmentState.STA);
+            //thread.Start();
         }
 
         static private void ShowForm()
         {
-            if (splash != null) Application.Run(splash);
+            //if (splash != null) Application.Run(splash);
+
         }
 
         static public void CloseForm()

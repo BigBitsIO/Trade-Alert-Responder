@@ -25,6 +25,7 @@ using Plugin;
 using TradeAlertResponder.Controls;
 using System.Xml.Serialization;
 using CoreGithub;
+using MetroFramework.Controls;
 
 namespace TradeAlertResponder
 {
@@ -564,6 +565,8 @@ namespace TradeAlertResponder
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             Heartbeating = false;
+
+            Cef.Shutdown();
 
             ChromeBrowserTradingView.Dispose();
             //ChromeBrowserIndicatorsExplained.Dispose();
