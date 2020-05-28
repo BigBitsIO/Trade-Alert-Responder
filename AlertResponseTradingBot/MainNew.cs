@@ -388,12 +388,33 @@ namespace TradeAlertResponder
         {
             Heartbeating = false;
 
-            Cef.Shutdown();
+            try
+            {
+                ChromeBrowserVideos.Dispose();
+            }
+            catch (Exception ex)
+            {
 
-            //ChromeBrowserIndicatorsExplained.Dispose();
-            ChromeBrowserVideos.Dispose();
+            }
 
-            Screen.QuitChrome().GetAwaiter().GetResult();
+            try
+            {
+                Cef.Shutdown();
+            }
+            catch (Exception ex)
+            {
+
+            }                
+
+            try
+            {
+                Screen.QuitChrome().GetAwaiter().GetResult();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
 
             SaveAlerts().GetAwaiter().GetResult();
         }
