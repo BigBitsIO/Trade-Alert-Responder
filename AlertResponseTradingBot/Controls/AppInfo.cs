@@ -33,6 +33,36 @@ namespace TradeAlertResponder.Controls
             lblContributors.Text = "None so far - see contribution methods below.";
 
         }
+
+        private void lblEthereumAddress_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://etherscan.io/address/0x9790Cb4B3286741779ad0cC43aa31C7A2e435ac5");
+        }
+
+        private void lblBitcoinAddress_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.blockchain.com/btc/address/3Jr9eA3GgWXEVhxc5BGWPfq5EXT3ix8omD");
+        }
+
+        private void picBitcoin_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.blockchain.com/btc/address/3Jr9eA3GgWXEVhxc5BGWPfq5EXT3ix8omD");
+        }
+
+        private void picEthereum_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://etherscan.io/address/0x9790Cb4B3286741779ad0cC43aa31C7A2e435ac5");
+        }
+
+        private void lblCompanyWebsite_Click(object sender, EventArgs e)
+        {
+            Process.Start(lblCompanyWebsite.Text);
+        }
+
+        private void lblAppGithub_Click(object sender, EventArgs e)
+        {
+            Process.Start(lblAppGithub.Text);
+        }
     }
     
 }

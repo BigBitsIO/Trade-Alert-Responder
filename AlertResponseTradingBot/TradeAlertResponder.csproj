@@ -284,6 +284,12 @@
   <ItemGroup>
     <None Include="Resources\Watermark.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bitcoin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ethereum.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

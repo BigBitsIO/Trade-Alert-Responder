@@ -35,14 +35,8 @@ namespace TradeAlertResponder
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(MainNew));
 
         // BROWSER SPECIFIC
-        // TradingView Specific
-        private ChromiumWebBrowser ChromeBrowserTradingView;
-        private bool IsTradingViewBrowserAlertScanning = false;
         // Video Tab Specific
         private ChromiumWebBrowser ChromeBrowserVideos;
-        //private ChromiumWebBrowser ChromeBrowserIndicatorsExplained;
-        private ChromiumWebBrowser ChromeBrowserContribute;
-        private ChromiumWebBrowser ChromeBrowserShop;
 
         // PLUGINS
         AlertScanPluginLoader ASPL = new AlertScanPluginLoader();
@@ -255,7 +249,7 @@ namespace TradeAlertResponder
             if(InvokeRequired)
             {
                 DataTable AlertsTable = DataHelper.ConvertToDataTable(Alerts);
-                Invoke(new Action<DataTable>(LoadAlertsGrid), AlertsTable);
+                Invoke(new Action<DataTable>(LoadAlertsGrid), AlertsTable); // Calls the above function
             }
             else
             {
@@ -381,17 +375,6 @@ namespace TradeAlertResponder
 
             // Initialize cef with the provided settings
             Cef.Initialize(settings);
-            // Create a browser component
-            ChromeBrowserTradingView = new ChromiumWebBrowser("https://tradingview.com")
-            {
-
-                RequestHandler = new MyCefTradingViewBrowserRequestHandler()
-
-            };
-
-            // Add it to the form and fill it to the form window.
-            pnlTradingViewBrowser.Controls.Add(ChromeBrowserTradingView);
-            ChromeBrowserTradingView.Dock = DockStyle.Fill;
 
             // ------------ OTHER TABS --------------------
             ChromeBrowserVideos = new ChromiumWebBrowser();
@@ -399,217 +382,6 @@ namespace TradeAlertResponder
             ChromeBrowserVideos.Dock = DockStyle.Fill;
             ChromeBrowserVideos.LoadHtml("<html><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/videoseries?list=PLM0BBafRCnRNhvMxyiqScZWV_h41raut6\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></html>");
 
-            ChromeBrowserShop = new ChromiumWebBrowser();
-            pnlShopBrowser.Controls.Add(ChromeBrowserShop);
-            ChromeBrowserShop.Dock = DockStyle.Fill;
-            ChromeBrowserShop.LoadHtml("<html><iframe width=\"100%\" height=\"100%\" src=\"https://bigbits.io/product-category/all/bigbits/?orderby=price-desc\" frameborder =\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></html>");
-
-            ChromeBrowserContribute = new ChromiumWebBrowser();
-            pnlContributeBrowser.Controls.Add(ChromeBrowserContribute);
-            ChromeBrowserContribute.Dock = DockStyle.Fill;
-            ChromeBrowserContribute.LoadHtml("<html><iframe width=\"100%\" height=\"100%\" src=\"https://bigbits.io/bigbits-referrals/\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></html>");
-
-            //ChromeBrowserIndicatorsExplained = new ChromiumWebBrowser();
-            //pnlIndicatorsExplainedTab.Controls.Add(ChromeBrowserIndicatorsExplained);
-            //ChromeBrowserIndicatorsExplained.Dock = DockStyle.Fill;
-            //ChromeBrowserIndicatorsExplained.LoadHtml("<html><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/videoseries?list=PLM0BBafRCnRNFHv5lG54qYqbCebOMxz-U\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></html>");
-
-        }
-
-        private async Task ScanningForTradingViewAlerts()
-        {
-            while (IsTradingViewBrowserAlertScanning)
-            {
-                try
-                {
-                    List<Alert> ScannedAlerts = new List<Alert>();
-                    string source = await ChromeBrowserTradingView.GetBrowser().MainFrame.GetSourceAsync();
-
-                    foreach(IAlertScanPlugin Scanner in AlertScanPluginLoader.Plugins)
-                    {
-                        AlertScanResult ASR = Scanner.Scan(source, AlertSettings.MyBotName);
-                        if (ASR.SourceIsValid)
-                            ScannedAlerts.AddRange(ASR.AlertsScanned);
-                    }
-
-                    //ScannedAlerts = await TradingViewAlerts.GetTradingViewAlerts(source, AlertSettings.MyBotName);
-
-                    List<Alert> AlertsAtScan = Alerts; // Doing this helps with exceptions - should reconsider if alerts get duplicated.
-
-
-
-                    //List<StockScreenerAlert> stockScreenerAlerts = await TradingViewAlerts.GetTradingViewStockScreenerAlerts(source);
-
-
-
-                    Parallel.ForEach(ScannedAlerts, ThisAlert =>//Alert ThisAlert in ScannedAlerts)
-                    {
-                        if (ThisAlert != null)
-                            if (ThisAlert.Id != "" && ThisAlert.TimeOnAlert != "")
-                                if (!AlertsAtScan.Any(a => a.TimeOnAlert == ThisAlert.TimeOnAlert && a.Exchange == ThisAlert.Exchange && a.Ticker == ThisAlert.Ticker))
-                                {
-                                    Alerts.Add(ThisAlert);
-                                    Task.Run(() => ProcessAlert(ThisAlert));
-                                }
-                    });
-
-                    await SetAlertTabText(); // This method checks for changes.
-
-                    //if(!ScannedAlerts.Any() && btnScanTradingViewBrowserAlerts.Text != "Pull up alerts")
-                    //    btnScanTradingViewBrowserAlerts.Invoke(new Alert(() => btnScanTradingViewBrowserAlerts.Text = "Pull up alerts"));
-                }
-                catch (Exception ex)
-                {
-
-                }
-
-                Thread.Sleep(1000);
-            }
-        }
-
-        private async Task ProcessAlert(Alert Alert)
-        {
-            try
-            {
-                if (AlertSettings.NotificationOnAlert)
-                    Task.Run(() => AlertNotification(Alert));
-
-                bool DiscordOnAlert = AlertSettings.DiscordOnAlert;
-                bool AddURLScreenshotToDiscord = DiscordSettings.ScreenshotsInAlerts;
-                bool TweetOnAlert = AlertSettings.TweetOnAlert;
-                bool AddURLScreenshotToTweet = TwitterSettings.ScreenshotsInAlerts;
-
-                bool WillGenerateMessage = (TweetOnAlert && TwitterSettings.Enabled && TwitterSettings.VerifiedByUserAsWorking)
-                    || (DiscordOnAlert && DiscordSettings.Enabled && DiscordSettings.VerifiedByUserAsWorking);
-                bool WillHaveScreenShot = WillGenerateMessage && (AddURLScreenshotToDiscord || AddURLScreenshotToTweet);
-
-                bool WillTweet = (TweetOnAlert && TwitterSettings.Enabled && TwitterSettings.VerifiedByUserAsWorking);
-                bool WillDiscord = (DiscordOnAlert && DiscordSettings.Enabled && DiscordSettings.VerifiedByUserAsWorking);
-
-
-
-
-                if (WillGenerateMessage)
-                {
-                    string DirectoryPath = Constants.AppFolder(Constants.AppDirectory.Screenshots);
-
-                    CoreScreen.Screen.ScreenshotResult ScreenshotResult = WillHaveScreenShot ? Screen.Screenshot(Alert.URL, DirectoryPath, ScreenshotSettings.IncludeLogoWatermark, Constants.WatermarkFilePath, ScreenshotSettings.CropStartPoint, ScreenshotSettings.CropSize, ScreenshotSettings.DoCropImage).GetAwaiter().GetResult() : null;
-
-                    DateTime NowTime = DateTime.UtcNow;
-
-                    string Message = (AlertSettings.MyBotName != "" ? AlertSettings.MyBotName : "") + (AlertSettings.MyBotStatus != "" ? " [" + AlertSettings.MyBotStatus + "]" : "") + (Alert.BaseAsset != "" ? " $" + Alert.BaseAsset : "") + (Alert.BaseAssetFullName != "" ? " #" + Alert.BaseAssetFullName : "") +
-                                        "\n" +
-                                        (Alert.Ticker != "" ? "\nTicker: " + Alert.Ticker : "") +
-                                        ((Alert.Action.ToString() != "" || Alert.Action.ToString() == "None") ? "\nAction: " + Alert.Action : "") +
-                                        (Alert.Resolution != "" ? "\nResolution: " + Alert.Resolution : "") +
-                                        (Alert.Price != "" ? "\nPrice: " + Alert.Price : "") +
-                                        (AlertSettings.ShowUTCTimeStamp ? "\nDate: " + NowTime.ToShortDateString() + " " + NowTime.ToShortTimeString() + " UTC" : "") +
-                                        (Alert.URL != "" ? "\n\nURL: " + Alert.URL : "") +
-                                        (Alert.Note != "" ? "\nNote: " + Alert.Note : "") +
-                                        (AlertSettings.ReferralURL != "" ? "\nReferrals: " + AlertSettings.ReferralURL : "") +
-                                        (AlertSettings.Disclaimertext != "" ? "\n\n" + AlertSettings.Disclaimertext : "");
-
-                    if (WillTweet)
-                    {
-                        if (AddURLScreenshotToTweet)
-                        {
-                            if (ScreenshotResult != null)
-                            {
-                                if (ScreenshotResult.Succeeded)
-                                {
-                                    Task.Run(() => Twitter.TweetWithPngImage(Message, ScreenshotResult.ImageFilePath));
-                                }
-                                else
-                                {
-                                    //still send message here
-                                    Task.Run(() => Twitter.Tweet(Message));
-                                }
-                            }
-                            else
-                            {
-                                //still send message here
-                                Task.Run(() => Twitter.Tweet(Message));
-                            }
-                        }
-                        else
-                        {
-                            //still send message here
-                            Task.Run(() => Twitter.Tweet(Message));
-                        }
-                    }
-                    if (WillDiscord)
-                    {
-                        if (AddURLScreenshotToDiscord)
-                        {
-                            if (ScreenshotResult != null)
-                            {
-                                if (ScreenshotResult.Succeeded)
-                                {
-                                    Task.Run(() => Discord.SendFile(ScreenshotResult.ImageFilePath, Message, DiscordSettings.TagHere, DiscordSettings.TagEveryone));
-                                }
-                                else
-                                {
-                                    //still send message here
-                                    Task.Run(() => Discord.SendMessage(Message, DiscordSettings.TagHere, DiscordSettings.TagEveryone));
-                                }
-                            }
-                            else
-                            {
-                                //still send message here
-                                Task.Run(() => Discord.SendMessage(Message, DiscordSettings.TagHere, DiscordSettings.TagEveryone));
-                            }
-                        }
-                        else
-                        {
-                            //still send message here
-                            Task.Run(() => Discord.SendMessage(Message, DiscordSettings.TagHere, DiscordSettings.TagEveryone));
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string stopper = "stopped";
-            }
-
-        }
-
-        private async Task AlertNotification(Alert Alert)
-        {
-            Notification.ShowBalloonTip(1000, Constants.ProjectName + " " + AlertSettings.MyBotName + " - Alert!", "The application has found a new alert.  " + (Alert.Ticker != "" ? "Ticker: " + Alert.Ticker : "") + ((Alert.Action.ToString() != "" || Alert.Action.ToString() == "None") ? " Action: " + Alert.Action : ""), ToolTipIcon.Info);
-        }
-
-        private void btnScanTradingViewBrowserAlerts_Click(object sender, EventArgs e)
-        {
-            HideFocus();
-
-            if (IsTradingViewBrowserAlertScanning)
-            {
-                IsTradingViewBrowserAlertScanning = false;
-                btnScanTradingViewBrowserAlerts.Text = "Resume Scan";
-                //TODO: Add spinner
-                //spinScanning.Spinning = false;
-                //spinScanning.Style = MetroFramework.MetroColorStyle.Red;
-                btnScanTradingViewBrowserAlerts.BackColor = System.Drawing.Color.Transparent;
-            }
-            else
-            {
-                IsTradingViewBrowserAlertScanning = true;
-                btnScanTradingViewBrowserAlerts.Text = "Stop Scan";
-                //spinScanning.Spinning = true;
-                //spinScanning.Style = MetroFramework.MetroColorStyle.Green;
-                btnScanTradingViewBrowserAlerts.BackColor = System.Drawing.Color.Gray;
-                Task.Run(() => ScanningForTradingViewAlerts());
-            }
-
-
-        }
-
-        private void btnTradingViewBrowserHome_Click(object sender, EventArgs e)
-        {
-            HideFocus();
-
-            ChromeBrowserTradingView.Load("https://www.tradingview.com");
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -618,11 +390,8 @@ namespace TradeAlertResponder
 
             Cef.Shutdown();
 
-            ChromeBrowserTradingView.Dispose();
             //ChromeBrowserIndicatorsExplained.Dispose();
             ChromeBrowserVideos.Dispose();
-            ChromeBrowserShop.Dispose();
-            ChromeBrowserContribute.Dispose();
 
             Screen.QuitChrome().GetAwaiter().GetResult();
 
@@ -701,11 +470,9 @@ namespace TradeAlertResponder
             switch (Button.Name)
             {
                 case "btnTradingViewTab":
-                    tabMainView.SelectedTab = pnlTradingViewTab;
-                    tabMainView.SelectedTab = pnlScanTestTab;
+                    tabMainView.SelectedTab = pnlAlertScanTab;
                     AlertScannerContainer ASC = new AlertScannerContainer();
-                    //AlertScanner AS = new AlertScanner(AlertScanPluginLoader.Plugins.FirstOrDefault());
-                    pnlScanTestTab.Controls.Add(ASC);
+                    pnlAlertScanTab.Controls.Add(ASC);
                     ASC.Dock = DockStyle.Fill;
                     break;
                 case "btnAlertsTab":
@@ -718,7 +485,8 @@ namespace TradeAlertResponder
                     tabMainView.SelectedTab = pnlVideoTab;
                     break;
                 case "btnContributeTab":
-                    tabMainView.SelectedTab = pnlContributeTab;
+                    tabMainView.SelectedTab = pnlAboutTab;
+                    tabAbout.SelectedTab = pnlAboutInfoTab;
                     break;
                 case "btnShopTab":
                     tabMainView.SelectedTab = pnlShopTab;
@@ -785,7 +553,8 @@ namespace TradeAlertResponder
         private void btnShopTab_Click(object sender, EventArgs e)
         {
             HideFocus();
-            SelectNavButton((IconButton)sender);
+            //SelectNavButton((IconButton)sender);
+            Process.Start("https://bigbits.io/product-category/all/bigbits/?orderby=price-desc");
         }
 
         private void btnAlertSettings_Click(object sender, EventArgs e)
@@ -818,7 +587,7 @@ namespace TradeAlertResponder
         private void btnContributeTab_Click(object sender, EventArgs e)
         {
             HideFocus();
-            SelectNavButton((IconButton)sender);
+            SelectNavButton(btnAboutTab);
         }
 
         private void pnlNavigation_DoubleClick(object sender, EventArgs e)

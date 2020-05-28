@@ -41,7 +41,7 @@
             this.lblEthereumAddress = new MetroFramework.Controls.MetroLabel();
             this.lblBitcoinAddress = new MetroFramework.Controls.MetroLabel();
             this.picEthereum = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picBitcoi = new System.Windows.Forms.PictureBox();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
@@ -56,7 +56,7 @@
             this.pnlAppInfo.SuspendLayout();
             this.picBitcoin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEthereum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBitcoi)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlAppInfo
@@ -124,26 +124,36 @@
             // lblAppGithub
             // 
             this.lblAppGithub.AutoSize = true;
+            this.lblAppGithub.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAppGithub.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.lblAppGithub.Location = new System.Drawing.Point(189, 89);
             this.lblAppGithub.Name = "lblAppGithub";
             this.lblAppGithub.Size = new System.Drawing.Size(47, 19);
             this.lblAppGithub.TabIndex = 15;
             this.lblAppGithub.Text = "Github";
             this.lblAppGithub.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblAppGithub.UseCustomForeColor = true;
+            this.lblAppGithub.Click += new System.EventHandler(this.lblAppGithub_Click);
             // 
             // lblCompanyWebsite
             // 
             this.lblCompanyWebsite.AutoSize = true;
+            this.lblCompanyWebsite.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCompanyWebsite.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.lblCompanyWebsite.Location = new System.Drawing.Point(189, 70);
             this.lblCompanyWebsite.Name = "lblCompanyWebsite";
             this.lblCompanyWebsite.Size = new System.Drawing.Size(116, 19);
             this.lblCompanyWebsite.TabIndex = 14;
             this.lblCompanyWebsite.Text = "Company Website";
             this.lblCompanyWebsite.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblCompanyWebsite.UseCustomForeColor = true;
+            this.lblCompanyWebsite.Click += new System.EventHandler(this.lblCompanyWebsite_Click);
             // 
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
+            this.lblCompany.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.lblCompany.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.lblCompany.Location = new System.Drawing.Point(189, 51);
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(66, 19);
@@ -177,7 +187,7 @@
             this.picBitcoin.Controls.Add(this.lblEthereumAddress);
             this.picBitcoin.Controls.Add(this.lblBitcoinAddress);
             this.picBitcoin.Controls.Add(this.picEthereum);
-            this.picBitcoin.Controls.Add(this.pictureBox1);
+            this.picBitcoin.Controls.Add(this.picBitcoi);
             this.picBitcoin.Controls.Add(this.metroLabel11);
             this.picBitcoin.Controls.Add(this.metroLabel10);
             this.picBitcoin.Controls.Add(this.metroLabel9);
@@ -196,40 +206,57 @@
             // lblEthereumAddress
             // 
             this.lblEthereumAddress.AutoSize = true;
-            this.lblEthereumAddress.Location = new System.Drawing.Point(541, 250);
+            this.lblEthereumAddress.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblEthereumAddress.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblEthereumAddress.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.lblEthereumAddress.Location = new System.Drawing.Point(421, 250);
             this.lblEthereumAddress.Name = "lblEthereumAddress";
-            this.lblEthereumAddress.Size = new System.Drawing.Size(65, 19);
+            this.lblEthereumAddress.Size = new System.Drawing.Size(307, 19);
             this.lblEthereumAddress.TabIndex = 17;
-            this.lblEthereumAddress.Text = "Ethereum";
+            this.lblEthereumAddress.Text = "0x9790Cb4B3286741779ad0cC43aa31C7A2e435ac5";
             this.lblEthereumAddress.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.lblEthereumAddress.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblEthereumAddress.UseCustomForeColor = true;
+            this.lblEthereumAddress.Click += new System.EventHandler(this.lblEthereumAddress_Click);
             // 
             // lblBitcoinAddress
             // 
             this.lblBitcoinAddress.AutoSize = true;
-            this.lblBitcoinAddress.Location = new System.Drawing.Point(161, 250);
+            this.lblBitcoinAddress.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblBitcoinAddress.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.lblBitcoinAddress.Location = new System.Drawing.Point(54, 250);
             this.lblBitcoinAddress.Name = "lblBitcoinAddress";
-            this.lblBitcoinAddress.Size = new System.Drawing.Size(48, 19);
+            this.lblBitcoinAddress.Size = new System.Drawing.Size(266, 19);
             this.lblBitcoinAddress.TabIndex = 16;
-            this.lblBitcoinAddress.Text = "Bitcoin";
+            this.lblBitcoinAddress.Text = "3Jr9eA3GgWXEVhxc5BGWPfq5EXT3ix8omD";
             this.lblBitcoinAddress.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.lblBitcoinAddress.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblBitcoinAddress.UseCustomForeColor = true;
+            this.lblBitcoinAddress.Click += new System.EventHandler(this.lblBitcoinAddress_Click);
             // 
             // picEthereum
             // 
+            this.picEthereum.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picEthereum.Image = global::TradeAlertResponder.Properties.Resources.Ethereum;
             this.picEthereum.Location = new System.Drawing.Point(482, 67);
             this.picEthereum.Name = "picEthereum";
             this.picEthereum.Size = new System.Drawing.Size(180, 180);
+            this.picEthereum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picEthereum.TabIndex = 15;
             this.picEthereum.TabStop = false;
+            this.picEthereum.Click += new System.EventHandler(this.picEthereum_Click);
             // 
-            // pictureBox1
+            // picBitcoi
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(98, 67);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(180, 180);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
+            this.picBitcoi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBitcoi.Image = global::TradeAlertResponder.Properties.Resources.Bitcoin;
+            this.picBitcoi.Location = new System.Drawing.Point(98, 67);
+            this.picBitcoi.Name = "picBitcoi";
+            this.picBitcoi.Size = new System.Drawing.Size(180, 180);
+            this.picBitcoi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBitcoi.TabIndex = 14;
+            this.picBitcoi.TabStop = false;
+            this.picBitcoi.Click += new System.EventHandler(this.picBitcoin_Click);
             // 
             // metroLabel11
             // 
@@ -364,7 +391,7 @@
             this.picBitcoin.ResumeLayout(false);
             this.picBitcoin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEthereum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBitcoi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -381,7 +408,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picBitcoi;
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroLabel metroLabel10;
         private MetroFramework.Controls.MetroLabel metroLabel9;
