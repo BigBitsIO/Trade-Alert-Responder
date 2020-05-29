@@ -73,6 +73,22 @@ namespace Plugin.AlertScanPlugins
             }
         }
 
+        public string AuthorName
+        {
+            get
+            {
+                return "Big Bits";
+            }
+        }
+
+        public string AuthorURL
+        {
+            get
+            {
+                return "https://www.bigbits.io";
+            }
+        }
+
         public AlertScanResult Scan(string Source, string BotRootElement)
         {
             AlertScanResult ASR = new AlertScanResult();

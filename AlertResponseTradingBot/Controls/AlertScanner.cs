@@ -14,6 +14,7 @@ using Core;
 using System.Threading;
 using CoreDiscord;
 using CoreTwitter;
+using System.Diagnostics;
 
 namespace TradeAlertResponder.Controls
 {
@@ -32,6 +33,7 @@ namespace TradeAlertResponder.Controls
             Notification.Visible = false;
             Plugin = _Plugin;
             lblPluginTextFriendlyName.Text = Plugin.Name;
+            lblAuthor.Text = "Created By: " + Plugin.AuthorName;
 
             if(Plugin.UseBrowserScanning || Plugin.UseCustomHTML)
             {
@@ -289,6 +291,12 @@ namespace TradeAlertResponder.Controls
         private async Task SystemNotification(Alert Alert)
         {
             Notification.ShowBalloonTip(1000, Constants.ProjectName + " " + MainNew.AlertSettings.MyBotName + " - Alert!", "The application has found a new alert.  " + (Alert.Ticker != "" ? "Ticker: " + Alert.Ticker : "") + ((Alert.Action.ToString() != "" || Alert.Action.ToString() == "None") ? " Action: " + Alert.Action : ""), ToolTipIcon.Info);
+        }
+
+        private void lblAuthor_Click(object sender, EventArgs e)
+        {
+            if (Uri.IsWellFormedUriString(Plugin.AuthorURL, UriKind.Absolute))
+                Process.Start(Plugin.AuthorURL);
         }
     }
 }

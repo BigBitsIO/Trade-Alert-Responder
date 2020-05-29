@@ -30,10 +30,11 @@
         {
             this.pnlBrowser = new MetroFramework.Controls.MetroPanel();
             this.pnlControls = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.lblPluginTextFriendlyName = new MetroFramework.Controls.MetroLabel();
             this.btnHome = new FontAwesome.Sharp.IconButton();
             this.btnScanForAlerts = new FontAwesome.Sharp.IconButton();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.lblAuthor = new MetroFramework.Controls.MetroLabel();
             this.pnlControls.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -73,11 +74,28 @@
             this.pnlControls.VerticalScrollbarHighlightOnWheel = false;
             this.pnlControls.VerticalScrollbarSize = 10;
             // 
+            // metroPanel1
+            // 
+            this.metroPanel1.Controls.Add(this.lblAuthor);
+            this.metroPanel1.Controls.Add(this.lblPluginTextFriendlyName);
+            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(128, 0);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(717, 53);
+            this.metroPanel1.TabIndex = 21;
+            this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
             // lblPluginTextFriendlyName
             // 
             this.lblPluginTextFriendlyName.AutoSize = true;
             this.lblPluginTextFriendlyName.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblPluginTextFriendlyName.Location = new System.Drawing.Point(26, 18);
+            this.lblPluginTextFriendlyName.Location = new System.Drawing.Point(26, 6);
             this.lblPluginTextFriendlyName.Name = "lblPluginTextFriendlyName";
             this.lblPluginTextFriendlyName.Size = new System.Drawing.Size(91, 19);
             this.lblPluginTextFriendlyName.TabIndex = 20;
@@ -140,21 +158,19 @@
             this.btnScanForAlerts.UseVisualStyleBackColor = false;
             this.btnScanForAlerts.Click += new System.EventHandler(this.btnScanForAlerts_Click);
             // 
-            // metroPanel1
+            // lblAuthor
             // 
-            this.metroPanel1.Controls.Add(this.lblPluginTextFriendlyName);
-            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(128, 0);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(717, 53);
-            this.metroPanel1.TabIndex = 21;
-            this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.lblAuthor.AutoSize = true;
+            this.lblAuthor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAuthor.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.lblAuthor.Location = new System.Drawing.Point(26, 25);
+            this.lblAuthor.Name = "lblAuthor";
+            this.lblAuthor.Size = new System.Drawing.Size(49, 19);
+            this.lblAuthor.TabIndex = 21;
+            this.lblAuthor.Text = "Author";
+            this.lblAuthor.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblAuthor.UseCustomForeColor = true;
+            this.lblAuthor.Click += new System.EventHandler(this.lblAuthor_Click);
             // 
             // AlertScanner
             // 
@@ -179,5 +195,6 @@
         private FontAwesome.Sharp.IconButton btnScanForAlerts;
         private MetroFramework.Controls.MetroLabel lblPluginTextFriendlyName;
         private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroLabel lblAuthor;
     }
 }

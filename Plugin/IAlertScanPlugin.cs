@@ -19,6 +19,10 @@ namespace Plugin
         int DelayBetweenScansInMilliseconds { get; }
         AlertScanResult Scan(string Source, string BotRootElement);
         AlertScanResult Scan(string BotRootElement);
+
+
+        string AuthorName { get; }
+        string AuthorURL { get; }
     }
 
     public class AlertScanResult
