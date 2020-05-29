@@ -55,10 +55,8 @@ namespace TradeAlertResponder
             this.tabAbout = new MetroFramework.Controls.MetroTabControl();
             this.pnlAboutInfoTab = new System.Windows.Forms.TabPage();
             this.pnlAboutInfo = new MetroFramework.Controls.MetroPanel();
-            this.appInfo = new TradeAlertResponder.Controls.AppInfo();
             this.pnlAboutLogsTab = new System.Windows.Forms.TabPage();
             this.pnlAboutLogs = new MetroFramework.Controls.MetroPanel();
-            this.logs = new TradeAlertResponder.Controls.Logs();
             this.pnlAboutDisclaimerTab = new System.Windows.Forms.TabPage();
             this.pnlAboutDisclaimer = new MetroFramework.Controls.MetroPanel();
             this.pnlContributeTab = new System.Windows.Forms.TabPage();
@@ -88,6 +86,9 @@ namespace TradeAlertResponder
             this.StyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.lblUpdate = new MetroFramework.Controls.MetroLabel();
             this.currentLogMessage1 = new TradeAlertResponder.Controls.CurrentLogMessage();
+            this.appInfo = new TradeAlertResponder.Controls.AppInfo();
+            this.logs = new TradeAlertResponder.Controls.Logs();
+            this.disclaimer1 = new TradeAlertResponder.Controls.Disclaimer();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrders)).BeginInit();
             this.pnlNavigation.SuspendLayout();
             this.pnlContent.SuspendLayout();
@@ -100,6 +101,7 @@ namespace TradeAlertResponder
             this.pnlAboutLogsTab.SuspendLayout();
             this.pnlAboutLogs.SuspendLayout();
             this.pnlAboutDisclaimerTab.SuspendLayout();
+            this.pnlAboutDisclaimer.SuspendLayout();
             this.pnlContributeTab.SuspendLayout();
             this.pnlSettingsTab.SuspendLayout();
             this.pnlSettingsPanel.SuspendLayout();
@@ -452,7 +454,7 @@ namespace TradeAlertResponder
             this.tabAbout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabAbout.Location = new System.Drawing.Point(0, 0);
             this.tabAbout.Name = "tabAbout";
-            this.tabAbout.SelectedIndex = 0;
+            this.tabAbout.SelectedIndex = 2;
             this.tabAbout.Size = new System.Drawing.Size(1178, 631);
             this.tabAbout.TabIndex = 2;
             this.tabAbout.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -483,14 +485,6 @@ namespace TradeAlertResponder
             this.pnlAboutInfo.VerticalScrollbarHighlightOnWheel = false;
             this.pnlAboutInfo.VerticalScrollbarSize = 10;
             // 
-            // appInfo
-            // 
-            this.appInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.appInfo.Location = new System.Drawing.Point(0, 0);
-            this.appInfo.Name = "appInfo";
-            this.appInfo.Size = new System.Drawing.Size(1170, 586);
-            this.appInfo.TabIndex = 2;
-            // 
             // pnlAboutLogsTab
             // 
             this.pnlAboutLogsTab.Controls.Add(this.pnlAboutLogs);
@@ -516,14 +510,6 @@ namespace TradeAlertResponder
             this.pnlAboutLogs.VerticalScrollbarHighlightOnWheel = false;
             this.pnlAboutLogs.VerticalScrollbarSize = 10;
             // 
-            // logs
-            // 
-            this.logs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logs.Location = new System.Drawing.Point(0, 0);
-            this.logs.Name = "logs";
-            this.logs.Size = new System.Drawing.Size(1170, 586);
-            this.logs.TabIndex = 2;
-            // 
             // pnlAboutDisclaimerTab
             // 
             this.pnlAboutDisclaimerTab.Controls.Add(this.pnlAboutDisclaimer);
@@ -535,6 +521,7 @@ namespace TradeAlertResponder
             // 
             // pnlAboutDisclaimer
             // 
+            this.pnlAboutDisclaimer.Controls.Add(this.disclaimer1);
             this.pnlAboutDisclaimer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlAboutDisclaimer.HorizontalScrollbarBarColor = true;
             this.pnlAboutDisclaimer.HorizontalScrollbarHighlightOnWheel = false;
@@ -971,6 +958,30 @@ namespace TradeAlertResponder
             this.currentLogMessage1.Size = new System.Drawing.Size(446, 21);
             this.currentLogMessage1.TabIndex = 12;
             // 
+            // appInfo
+            // 
+            this.appInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.appInfo.Location = new System.Drawing.Point(0, 0);
+            this.appInfo.Name = "appInfo";
+            this.appInfo.Size = new System.Drawing.Size(1170, 586);
+            this.appInfo.TabIndex = 2;
+            // 
+            // logs
+            // 
+            this.logs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logs.Location = new System.Drawing.Point(0, 0);
+            this.logs.Name = "logs";
+            this.logs.Size = new System.Drawing.Size(1170, 586);
+            this.logs.TabIndex = 2;
+            // 
+            // disclaimer1
+            // 
+            this.disclaimer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.disclaimer1.Location = new System.Drawing.Point(0, 0);
+            this.disclaimer1.Name = "disclaimer1";
+            this.disclaimer1.Size = new System.Drawing.Size(1170, 586);
+            this.disclaimer1.TabIndex = 2;
+            // 
             // MainNew
             // 
             this.ApplyImageInvert = true;
@@ -1007,6 +1018,7 @@ namespace TradeAlertResponder
             this.pnlAboutLogsTab.ResumeLayout(false);
             this.pnlAboutLogs.ResumeLayout(false);
             this.pnlAboutDisclaimerTab.ResumeLayout(false);
+            this.pnlAboutDisclaimer.ResumeLayout(false);
             this.pnlContributeTab.ResumeLayout(false);
             this.pnlSettingsTab.ResumeLayout(false);
             this.pnlSettingsPanel.ResumeLayout(false);
@@ -1074,6 +1086,7 @@ namespace TradeAlertResponder
         private MetroFramework.Controls.MetroPanel pnlAboutLogs;
         private Logs logs;
         private AppInfo appInfo;
+        private Disclaimer disclaimer1;
     }
 }
 

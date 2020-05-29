@@ -112,6 +112,12 @@
     <Compile Include="Controls\CurrentLogMessage.Designer.cs">
       <DependentUpon>CurrentLogMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Disclaimer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Disclaimer.Designer.cs">
+      <DependentUpon>Disclaimer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Logs.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -154,12 +160,6 @@
     <Compile Include="TwitterSettingsForm.Designer.cs">
       <DependentUpon>TwitterSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
     <Compile Include="MyCefTradingViewBrowserRequestHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CurrentLogMessage.resx">
       <DependentUpon>CurrentLogMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Disclaimer.resx">
+      <DependentUpon>Disclaimer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Logs.resx">
       <DependentUpon>Logs.cs</DependentUpon>
@@ -195,9 +198,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TwitterSettingsForm.resx">
       <DependentUpon>TwitterSettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

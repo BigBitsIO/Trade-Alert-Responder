@@ -514,6 +514,7 @@ namespace TradeAlertResponder
                     break;
                 case "btnAboutTab":
                     tabMainView.SelectedTab = pnlAboutTab;
+                    tabAbout.SelectedTab = pnlAboutInfoTab;
                     break;
             }
 
