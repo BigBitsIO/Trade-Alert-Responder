@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Plugin
 {
@@ -19,6 +20,8 @@ namespace Plugin
         int DelayBetweenScansInMilliseconds { get; }
         AlertScanResult Scan(string Source, string BotRootElement);
         AlertScanResult Scan(string BotRootElement);
+
+        UserControl Settings { get; }
 
 
         string AuthorName { get; }

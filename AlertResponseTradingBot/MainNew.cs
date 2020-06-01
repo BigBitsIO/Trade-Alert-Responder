@@ -81,6 +81,13 @@ namespace TradeAlertResponder
             InitializeComponent();
             LoadVersionInfo().GetAwaiter().GetResult();
             ASPL.LoadPlugins();
+            //foreach(var plugin in AlertScanPluginLoader.Plugins)
+            //{
+            //    Form pluginform = new Form();
+            //    pluginform.Controls.Add(plugin.Settings);
+            //    plugin.Settings.Dock = DockStyle.Fill;
+            //    pluginform.Show();
+            //}
             AAPL.LoadPlugins();
 
             InitializeChromium();

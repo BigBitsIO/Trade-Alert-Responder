@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,10 +46,21 @@
     <Compile Include="AlertActionPluginLoader.cs" />
     <Compile Include="AlertActionPlugins\DiscordAlertAction.cs" />
     <Compile Include="AlertScanPluginLoader.cs" />
-    <Compile Include="AlertScanPlugins\TVAlertLogScanning.cs" />
+    <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanning.cs" />
+    <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningSettings.Designer.cs">
+      <DependentUpon>TVAlertLogScanningSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="IAlertActionPlugin.cs" />
     <Compile Include="IAlertScanPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CoreDiscord\CoreDiscord.csproj">
@@ -61,6 +74,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningSettings.resx">
+      <DependentUpon>TVAlertLogScanningSettings.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

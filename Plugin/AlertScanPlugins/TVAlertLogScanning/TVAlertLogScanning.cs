@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Plugin.AlertScanPlugins
 {
@@ -69,7 +70,7 @@ namespace Plugin.AlertScanPlugins
         {
             get
             {
-                return 1000;
+                return Plugin.Properties.Settings.Default.TVAlertLogScanningDelay;
             }
         }
 
@@ -86,6 +87,14 @@ namespace Plugin.AlertScanPlugins
             get
             {
                 return "https://www.bigbits.io";
+            }
+        }
+
+        public UserControl Settings
+        {
+            get
+            {
+                return new TVAlertLogScanningSettings();
             }
         }
 
