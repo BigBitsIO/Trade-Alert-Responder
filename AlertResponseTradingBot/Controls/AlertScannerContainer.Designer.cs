@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlTopControls = new MetroFramework.Controls.MetroPanel();
+            this.btnSettings = new FontAwesome.Sharp.IconButton();
             this.btnRemoveSelectedTab = new FontAwesome.Sharp.IconButton();
             this.btnAddNew = new FontAwesome.Sharp.IconButton();
             this.ddlPlugin = new MetroFramework.Controls.MetroComboBox();
@@ -40,6 +41,7 @@
             // 
             // pnlTopControls
             // 
+            this.pnlTopControls.Controls.Add(this.btnSettings);
             this.pnlTopControls.Controls.Add(this.btnRemoveSelectedTab);
             this.pnlTopControls.Controls.Add(this.btnAddNew);
             this.pnlTopControls.Controls.Add(this.ddlPlugin);
@@ -55,6 +57,32 @@
             this.pnlTopControls.VerticalScrollbarBarColor = true;
             this.pnlTopControls.VerticalScrollbarHighlightOnWheel = false;
             this.pnlTopControls.VerticalScrollbarSize = 10;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.IconChar = FontAwesome.Sharp.IconChar.Cog;
+            this.btnSettings.IconColor = System.Drawing.Color.White;
+            this.btnSettings.IconSize = 35;
+            this.btnSettings.Location = new System.Drawing.Point(360, 3);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 15, 10, 10);
+            this.btnSettings.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnSettings.Rotation = 0D;
+            this.btnSettings.Size = new System.Drawing.Size(64, 53);
+            this.btnSettings.TabIndex = 22;
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnRemoveSelectedTab
             // 
@@ -172,5 +200,6 @@
         private FontAwesome.Sharp.IconButton btnAddNew;
         private MetroFramework.Controls.MetroTabControl tabControlAlertScanners;
         private FontAwesome.Sharp.IconButton btnRemoveSelectedTab;
+        private FontAwesome.Sharp.IconButton btnSettings;
     }
 }

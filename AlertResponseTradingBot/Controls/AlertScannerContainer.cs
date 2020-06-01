@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Plugin;
+using MetroFramework.Forms;
 
 namespace TradeAlertResponder.Controls
 {
     public partial class AlertScannerContainer : UserControl
     {
+
+        private IAlertScanPlugin Plugin;
+
         public AlertScannerContainer()
         {
             InitializeComponent();
@@ -20,7 +24,7 @@ namespace TradeAlertResponder.Controls
 
             if(AlertScanPluginLoader.Plugins.Any(a => a.Name == "TradingView Alert Log Scanning"))
             {
-                IAlertScanPlugin Plugin = AlertScanPluginLoader.Plugins.Where(a => a.Name == "TradingView Alert Log Scanning").FirstOrDefault();
+                Plugin = AlertScanPluginLoader.Plugins.Where(a => a.Name == "TradingView Alert Log Scanning").FirstOrDefault();
                 AddTab(Plugin);
             }
         }
@@ -70,6 +74,14 @@ namespace TradeAlertResponder.Controls
             {
                 tabControlAlertScanners.SelectedIndex = SelectedIndex - 1;
             }
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            MetroForm SettingsForm = new MetroForm();
+            SettingsForm.Controls.Add(Plugin.Settings);
+            Plugin.Settings.Dock = DockStyle.Fill;
+            SettingsForm.Show();
         }
     }
 }
