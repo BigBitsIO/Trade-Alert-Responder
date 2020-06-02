@@ -90,7 +90,15 @@ namespace Plugin.AlertScanPlugins
             }
         }
 
-        public UserControl Settings
+        public UserControl PluginGlobalSettings
+        {
+            get
+            {
+                return new TVAlertLogScanningSettings();
+            }
+        }
+
+        public UserControl PluginInstanceSettings
         {
             get
             {

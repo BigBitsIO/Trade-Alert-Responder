@@ -13,6 +13,7 @@ namespace Plugin
     public class AlertScanPluginLoader
     {
         public static List<IAlertScanPlugin> Plugins { get; set; }
+        public static List<string> PluginDLLFileName { get; set; }
 
         public void LoadPlugins()
         {

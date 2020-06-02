@@ -79,8 +79,8 @@ namespace TradeAlertResponder.Controls
         private void btnSettings_Click(object sender, EventArgs e)
         {
             MetroForm SettingsForm = new MetroForm();
-            SettingsForm.Controls.Add(Plugin.Settings);
-            Plugin.Settings.Dock = DockStyle.Fill;
+            SettingsForm.Controls.Add(Plugin.PluginGlobalSettings);
+            Plugin.PluginGlobalSettings.Dock = DockStyle.Fill;
             SettingsForm.Show();
         }
     }

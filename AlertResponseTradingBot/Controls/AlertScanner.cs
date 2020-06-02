@@ -15,6 +15,7 @@ using System.Threading;
 using CoreDiscord;
 using CoreTwitter;
 using System.Diagnostics;
+using MetroFramework.Forms;
 
 namespace TradeAlertResponder.Controls
 {
@@ -297,6 +298,14 @@ namespace TradeAlertResponder.Controls
         {
             if (Uri.IsWellFormedUriString(Plugin.AuthorURL, UriKind.Absolute))
                 Process.Start(Plugin.AuthorURL);
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            MetroForm SettingsForm = new MetroForm();
+            SettingsForm.Controls.Add(Plugin.PluginInstanceSettings);
+            Plugin.PluginInstanceSettings.Dock = DockStyle.Fill;
+            SettingsForm.Show();
         }
     }
 }
