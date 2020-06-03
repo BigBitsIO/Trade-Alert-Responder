@@ -47,11 +47,17 @@
     <Compile Include="AlertActionPlugins\DiscordAlertAction.cs" />
     <Compile Include="AlertScanPluginLoader.cs" />
     <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanning.cs" />
-    <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningSettings.cs">
+    <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningLocalSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningSettings.Designer.cs">
-      <DependentUpon>TVAlertLogScanningSettings.cs</DependentUpon>
+    <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningLocalSettings.Designer.cs">
+      <DependentUpon>TVAlertLogScanningLocalSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningGlobalSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningGlobalSettings.Designer.cs">
+      <DependentUpon>TVAlertLogScanningGlobalSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="IAlertActionPlugin.cs" />
     <Compile Include="IAlertScanPlugin.cs" />
@@ -80,8 +86,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningSettings.resx">
-      <DependentUpon>TVAlertLogScanningSettings.cs</DependentUpon>
+    <EmbeddedResource Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningLocalSettings.resx">
+      <DependentUpon>TVAlertLogScanningLocalSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningGlobalSettings.resx">
+      <DependentUpon>TVAlertLogScanningGlobalSettings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -26,6 +26,7 @@ namespace TradeAlertResponder.Controls
         private ChromiumWebBrowser ChromeBrowser;
         public bool IsScanning = false;
         private NotifyIcon Notification = new NotifyIcon();
+        private MetroForm SettingsForm = new MetroForm();
 
         public AlertScanner(IAlertScanPlugin _Plugin)
         {
@@ -302,9 +303,11 @@ namespace TradeAlertResponder.Controls
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            MetroForm SettingsForm = new MetroForm();
-            SettingsForm.Controls.Add(Plugin.PluginInstanceSettings);
-            Plugin.PluginInstanceSettings.Dock = DockStyle.Fill;
+            SettingsForm = new MetroForm();
+            UserControl SettingsControl = Plugin.PluginInstanceSettings();
+            SettingsForm.Size = SettingsControl.Size;
+            SettingsForm.Controls.Add(SettingsControl);
+            SettingsControl.Dock = DockStyle.Fill;
             SettingsForm.Show();
         }
     }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Plugin;
 using MetroFramework.Forms;
+using TradeAlertResponder.Properties;
 
 namespace TradeAlertResponder.Controls
 {
@@ -16,6 +17,7 @@ namespace TradeAlertResponder.Controls
     {
 
         private IAlertScanPlugin Plugin;
+        private MetroForm SettingsForm = new MetroForm();
 
         public AlertScannerContainer()
         {
@@ -78,9 +80,11 @@ namespace TradeAlertResponder.Controls
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            MetroForm SettingsForm = new MetroForm();
-            SettingsForm.Controls.Add(Plugin.PluginGlobalSettings);
-            Plugin.PluginGlobalSettings.Dock = DockStyle.Fill;
+            SettingsForm = new MetroForm();
+            UserControl SettingsControl = Plugin.PluginGlobalSettings();
+            SettingsForm.Size = SettingsControl.Size;
+            SettingsForm.Controls.Add(SettingsControl);
+            SettingsControl.Dock = DockStyle.Fill;
             SettingsForm.Show();
         }
     }

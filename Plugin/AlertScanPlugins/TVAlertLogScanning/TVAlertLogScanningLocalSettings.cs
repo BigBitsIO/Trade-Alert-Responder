@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace Plugin.AlertScanPlugins
 {
-    public partial class TVAlertLogScanningSettings : UserControl
+    public partial class TVAlertLogScanningLocalSettings : UserControl
     {
-        public TVAlertLogScanningSettings()
+        public LocalSettings Settings = new LocalSettings();
+
+        public TVAlertLogScanningLocalSettings(ref LocalSettings _Settings)
         {
             InitializeComponent();
+            Settings = _Settings;
             LoadSettings();
         }
 
@@ -26,13 +29,14 @@ namespace Plugin.AlertScanPlugins
 
         private void LoadSettings()
         {
-            textBox1.Text = Properties.Settings.Default.TVAlertLogScanningDelay.ToString();
+            textBox1.Text = Settings.CustomScanDelay.ToString();
+            checkBox1.Checked = Settings.UseCustomScanDelay;
         }
 
         private void SaveSettings()
         {
-            Properties.Settings.Default.TVAlertLogScanningDelay = Convert.ToInt32(textBox1.Text);
-            Properties.Settings.Default.Save();
+            Settings.CustomScanDelay = Convert.ToInt32(textBox1.Text);
+            Settings.UseCustomScanDelay = checkBox1.Checked;
         }
     }
 }

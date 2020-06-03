@@ -25,8 +25,9 @@ namespace Plugin
         AlertScanResult Scan(string Source, string BotRootElement);
         AlertScanResult Scan(string BotRootElement);
 
-        UserControl PluginGlobalSettings { get; }
-        UserControl PluginInstanceSettings { get; }
+        UserControl PluginGlobalSettings();
+        UserControl PluginInstanceSettings();
+
 
 
         string AuthorName { get; }

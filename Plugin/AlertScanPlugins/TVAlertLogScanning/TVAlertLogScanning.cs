@@ -1,4 +1,5 @@
 ﻿using Core;
+using Plugin.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,13 @@ namespace Plugin.AlertScanPlugins
 {
     public class TVAlertLogScanning : IAlertScanPlugin
     {
+        public LocalSettings LocalSettings;
+
+        public TVAlertLogScanning()
+        {
+            LocalSettings = new LocalSettings();
+        }
+
         public string Name
         {
             get
@@ -90,20 +98,15 @@ namespace Plugin.AlertScanPlugins
             }
         }
 
-        public UserControl PluginGlobalSettings
+        public UserControl PluginGlobalSettings()
         {
-            get
-            {
-                return new TVAlertLogScanningSettings();
-            }
+            return new TVAlertLogScanningGlobalSettings();
         }
 
-        public UserControl PluginInstanceSettings
+        public UserControl PluginInstanceSettings()
         {
-            get
-            {
-                return new TVAlertLogScanningSettings();
-            }
+
+            return new TVAlertLogScanningLocalSettings(ref LocalSettings);
         }
 
         public AlertScanResult Scan(string Source, string BotRootElement)
@@ -206,5 +209,11 @@ namespace Plugin.AlertScanPlugins
 
             return ArtAlerts;
         }
+    }
+
+    public class LocalSettings
+    {
+        public bool UseCustomScanDelay { get; set; } = false;
+        public int CustomScanDelay { get; set; } = Properties.Settings.Default.TVAlertLogScanningDelay;
     }
 }
