@@ -13,6 +13,7 @@ namespace Plugin.AlertScanPlugins
     public partial class TVAlertLogScanningLocalSettings : UserControl
     {
         public LocalSettings Settings = new LocalSettings();
+        bool SettingsLoadedToForm = false;
 
         public TVAlertLogScanningLocalSettings(ref LocalSettings _Settings)
         {
@@ -23,20 +24,33 @@ namespace Plugin.AlertScanPlugins
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(textBox1.Text);
             SaveSettings();
         }
 
         private void LoadSettings()
         {
-            textBox1.Text = Settings.CustomScanDelay.ToString();
+            numericUpDown1.Text = Settings.CustomScanDelay.ToString();
             checkBox1.Checked = Settings.UseCustomScanDelay;
+            SettingsLoadedToForm = true;
         }
 
         private void SaveSettings()
         {
-            Settings.CustomScanDelay = Convert.ToInt32(textBox1.Text);
-            Settings.UseCustomScanDelay = checkBox1.Checked;
+            if(SettingsLoadedToForm)
+            {
+                Settings.CustomScanDelay = (int)numericUpDown1.Value;
+                Settings.UseCustomScanDelay = checkBox1.Checked;
+            }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            SaveSettings();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            SaveSettings();
         }
     }
 }

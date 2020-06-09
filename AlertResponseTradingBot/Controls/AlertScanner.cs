@@ -304,8 +304,12 @@ namespace TradeAlertResponder.Controls
         private void btnSettings_Click(object sender, EventArgs e)
         {
             SettingsForm = new MetroForm();
+            SettingsForm.Resizable = false;
+            SettingsForm.ShadowType = MetroFormShadowType.DropShadow;
+            SettingsForm.MinimizeBox = false;
+            SettingsForm.MaximizeBox = false;
             UserControl SettingsControl = Plugin.PluginInstanceSettings();
-            SettingsForm.Size = SettingsControl.Size;
+            SettingsForm.Size = new Size(SettingsControl.Size.Width + 100, SettingsControl.Height + 100);
             SettingsForm.Controls.Add(SettingsControl);
             SettingsControl.Dock = DockStyle.Fill;
             SettingsForm.Show();

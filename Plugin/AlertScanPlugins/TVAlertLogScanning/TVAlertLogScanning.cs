@@ -78,7 +78,7 @@ namespace Plugin.AlertScanPlugins
         {
             get
             {
-                return Plugin.Properties.Settings.Default.TVAlertLogScanningDelay;
+                return GetScanDelay();
             }
         }
 
@@ -132,6 +132,18 @@ namespace Plugin.AlertScanPlugins
         {
             //Here you would do a custom scan.
             return new AlertScanResult();
+        }
+
+        private int GetScanDelay()
+        {
+            if(LocalSettings.UseCustomScanDelay)
+            {
+                return LocalSettings.CustomScanDelay;
+            }
+            else
+            {
+                return Properties.Settings.Default.TVAlertLogScanningDelay;
+            }
         }
 
 

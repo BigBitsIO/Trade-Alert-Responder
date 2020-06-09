@@ -12,27 +12,32 @@ namespace Plugin.AlertScanPlugins
 {
     public partial class TVAlertLogScanningGlobalSettings : UserControl
     {
+        bool SettingsLoadedToForm = false;
+
         public TVAlertLogScanningGlobalSettings()
         {
             InitializeComponent();
             LoadSettings();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(textBox1.Text);
-            SaveSettings();
-        }
-
         private void LoadSettings()
         {
-            textBox1.Text = Properties.Settings.Default.TVAlertLogScanningDelay.ToString();
+            numericUpDown1.Value = Properties.Settings.Default.TVAlertLogScanningDelay;
+            SettingsLoadedToForm = true;
         }
 
         private void SaveSettings()
         {
-            Properties.Settings.Default.TVAlertLogScanningDelay = Convert.ToInt32(textBox1.Text);
-            Properties.Settings.Default.Save();
+            if(SettingsLoadedToForm)
+            {
+                Properties.Settings.Default.TVAlertLogScanningDelay = Convert.ToInt32((int)numericUpDown1.Value);
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            SaveSettings();
         }
     }
 }
