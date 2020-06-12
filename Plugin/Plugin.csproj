@@ -46,6 +46,12 @@
     <Compile Include="AlertActionPluginLoader.cs" />
     <Compile Include="AlertActionPlugins\DiscordAlertAction.cs" />
     <Compile Include="AlertScanPluginLoader.cs" />
+    <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningAbout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningAbout.Designer.cs">
+      <DependentUpon>TVAlertLogScanningAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanning.cs" />
     <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningLocalSettings.cs">
       <SubType>UserControl</SubType>
@@ -86,6 +92,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningAbout.resx">
+      <DependentUpon>TVAlertLogScanningAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningLocalSettings.resx">
       <DependentUpon>TVAlertLogScanningLocalSettings.cs</DependentUpon>
     </EmbeddedResource>

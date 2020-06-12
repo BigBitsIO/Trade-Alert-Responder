@@ -27,6 +27,7 @@ namespace TradeAlertResponder.Controls
         public bool IsScanning = false;
         private NotifyIcon Notification = new NotifyIcon();
         private MetroForm SettingsForm = new MetroForm();
+        private MetroForm AboutForm = new MetroForm();
 
         public AlertScanner(IAlertScanPlugin _Plugin)
         {
@@ -313,6 +314,20 @@ namespace TradeAlertResponder.Controls
             SettingsForm.Controls.Add(SettingsControl);
             SettingsControl.Dock = DockStyle.Fill;
             SettingsForm.Show();
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            AboutForm = new MetroForm();
+            AboutForm.Resizable = false;
+            AboutForm.ShadowType = MetroFormShadowType.DropShadow;
+            AboutForm.MinimizeBox = false;
+            AboutForm.MaximizeBox = false;
+            UserControl AboutControl = Plugin.About();
+            AboutForm.Size = new Size(AboutControl.Size.Width + 100, AboutControl.Height + 100);
+            AboutForm.Controls.Add(AboutControl);
+            AboutControl.Dock = DockStyle.Fill;
+            AboutForm.Show();
         }
     }
 }

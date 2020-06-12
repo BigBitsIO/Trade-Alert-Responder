@@ -109,6 +109,11 @@ namespace Plugin.AlertScanPlugins
             return new TVAlertLogScanningLocalSettings(ref LocalSettings);
         }
 
+        public UserControl About()
+        {
+            return new TVAlertLogScanningAbout();
+        }
+
         public AlertScanResult Scan(string Source, string BotRootElement)
         {
             AlertScanResult ASR = new AlertScanResult();

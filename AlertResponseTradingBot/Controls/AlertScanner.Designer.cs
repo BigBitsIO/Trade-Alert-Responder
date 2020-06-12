@@ -31,11 +31,12 @@
             this.pnlBrowser = new MetroFramework.Controls.MetroPanel();
             this.pnlControls = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.btnSettings = new FontAwesome.Sharp.IconButton();
+            this.btnAbout = new FontAwesome.Sharp.IconButton();
             this.lblAuthor = new MetroFramework.Controls.MetroLabel();
             this.lblPluginTextFriendlyName = new MetroFramework.Controls.MetroLabel();
             this.btnHome = new FontAwesome.Sharp.IconButton();
             this.btnScanForAlerts = new FontAwesome.Sharp.IconButton();
-            this.btnSettings = new FontAwesome.Sharp.IconButton();
             this.pnlControls.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +79,7 @@
             // metroPanel1
             // 
             this.metroPanel1.Controls.Add(this.btnSettings);
+            this.metroPanel1.Controls.Add(this.btnAbout);
             this.metroPanel1.Controls.Add(this.lblAuthor);
             this.metroPanel1.Controls.Add(this.lblPluginTextFriendlyName);
             this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -92,6 +94,60 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.IconChar = FontAwesome.Sharp.IconChar.Cog;
+            this.btnSettings.IconColor = System.Drawing.Color.White;
+            this.btnSettings.IconSize = 35;
+            this.btnSettings.Location = new System.Drawing.Point(589, 0);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 15, 10, 10);
+            this.btnSettings.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnSettings.Rotation = 0D;
+            this.btnSettings.Size = new System.Drawing.Size(64, 53);
+            this.btnSettings.TabIndex = 23;
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.BackColor = System.Drawing.Color.Transparent;
+            this.btnAbout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAbout.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAbout.FlatAppearance.BorderSize = 0;
+            this.btnAbout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbout.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbout.ForeColor = System.Drawing.Color.White;
+            this.btnAbout.IconChar = FontAwesome.Sharp.IconChar.InfoCircle;
+            this.btnAbout.IconColor = System.Drawing.Color.White;
+            this.btnAbout.IconSize = 35;
+            this.btnAbout.Location = new System.Drawing.Point(653, 0);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Padding = new System.Windows.Forms.Padding(10, 15, 10, 10);
+            this.btnAbout.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnAbout.Rotation = 0D;
+            this.btnAbout.Size = new System.Drawing.Size(64, 53);
+            this.btnAbout.TabIndex = 24;
+            this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAbout.UseVisualStyleBackColor = false;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // lblAuthor
             // 
@@ -174,33 +230,6 @@
             this.btnScanForAlerts.UseVisualStyleBackColor = false;
             this.btnScanForAlerts.Click += new System.EventHandler(this.btnScanForAlerts_Click);
             // 
-            // btnSettings
-            // 
-            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
-            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSettings.FlatAppearance.BorderSize = 0;
-            this.btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettings.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.IconChar = FontAwesome.Sharp.IconChar.Cog;
-            this.btnSettings.IconColor = System.Drawing.Color.White;
-            this.btnSettings.IconSize = 35;
-            this.btnSettings.Location = new System.Drawing.Point(653, 0);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 15, 10, 10);
-            this.btnSettings.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnSettings.Rotation = 0D;
-            this.btnSettings.Size = new System.Drawing.Size(64, 53);
-            this.btnSettings.TabIndex = 23;
-            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSettings.UseVisualStyleBackColor = false;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            // 
             // AlertScanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,5 +255,6 @@
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroLabel lblAuthor;
         private FontAwesome.Sharp.IconButton btnSettings;
+        private FontAwesome.Sharp.IconButton btnAbout;
     }
 }

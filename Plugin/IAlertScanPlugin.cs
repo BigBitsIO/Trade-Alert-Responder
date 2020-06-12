@@ -27,6 +27,7 @@ namespace Plugin
 
         UserControl PluginGlobalSettings();
         UserControl PluginInstanceSettings();
+        UserControl About();
 
 
 
