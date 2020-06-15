@@ -43,7 +43,8 @@ namespace TradeAlertResponder.Controls
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            IAlertScanPlugin Plugin = AlertScanPluginLoader.Plugins.Where(a => a.Name == (string)ddlPlugin.SelectedValue).FirstOrDefault();
+            Type PluginType = AlertScanPluginLoader.Plugins.Where(a => a.Name == (string)ddlPlugin.SelectedValue).FirstOrDefault().GetType();
+            IAlertScanPlugin Plugin = (IAlertScanPlugin)Activator.CreateInstance(PluginType);
 
             AddTab(Plugin);
             
