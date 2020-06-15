@@ -34,5 +34,29 @@ namespace Plugin.Properties {
                 this["TVAlertLogScanningDelay"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DiscordAlertsEnabled {
+            get {
+                return ((bool)(this["DiscordAlertsEnabled"]));
+            }
+            set {
+                this["DiscordAlertsEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DiscordAlertsUseScreenshot {
+            get {
+                return ((bool)(this["DiscordAlertsUseScreenshot"]));
+            }
+            set {
+                this["DiscordAlertsUseScreenshot"] = value;
+            }
+        }
     }
 }

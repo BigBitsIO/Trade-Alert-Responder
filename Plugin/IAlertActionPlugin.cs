@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Plugin
 {
@@ -12,7 +13,16 @@ namespace Plugin
         string Name { get; }
         string ShortName { get; }
         string Description { get; }
+        bool Enabled { get; }
+        bool UseScreenshot { get; }
         AlertActionResult Action(Alert Alert);
+        UserControl PluginSettings();
+        UserControl About();
+
+
+
+        string AuthorName { get; }
+        string AuthorURL { get; }
     }
 
     public class AlertActionResult
