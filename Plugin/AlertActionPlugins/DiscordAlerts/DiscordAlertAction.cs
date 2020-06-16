@@ -42,6 +42,11 @@ namespace Plugin.AlertActionPlugins
             {
                 return GetEnabledSetting();
             }
+            set
+            {
+                Properties.Settings.Default.DiscordAlertsEnabled = value;
+                Properties.Settings.Default.Save();
+            }
         }
 
         public string AuthorName

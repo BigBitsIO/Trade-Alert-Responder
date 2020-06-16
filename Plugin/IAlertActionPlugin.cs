@@ -13,8 +13,8 @@ namespace Plugin
         string Name { get; }
         string ShortName { get; }
         string Description { get; }
-        bool Enabled { get; }
-        bool UseScreenshot { get; }
+        bool Enabled { get; set; }
+        bool UseScreenshot { get;}
         AlertActionResult Action(Alert Alert);
         UserControl PluginSettings();
         UserControl About();
