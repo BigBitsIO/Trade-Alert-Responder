@@ -37,16 +37,7 @@ namespace TradeAlertResponder.Controls
 
         private void btnPluginSettings_Click(object sender, EventArgs e)
         {
-            SettingsForm = new MetroForm();
-            SettingsForm.Resizable = false;
-            SettingsForm.ShadowType = MetroFormShadowType.DropShadow;
-            SettingsForm.MinimizeBox = false;
-            SettingsForm.MaximizeBox = false;
-            UserControl SettingsControl = Plugin.PluginSettings();
-            SettingsForm.Size = new Size(SettingsControl.Size.Width + 100, SettingsControl.Height + 100);
-            SettingsForm.Controls.Add(SettingsControl);
-            SettingsControl.Dock = DockStyle.Fill;
-            SettingsForm.Show();
+            
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -73,6 +64,20 @@ namespace TradeAlertResponder.Controls
         {
             if(ControlLoaded) // Prevents this action from setting value before the form is fully loaded, and changed
                 Plugin.Enabled = tglEnabled.Checked;
+        }
+
+        private void btnPluginSettings_Click_1(object sender, EventArgs e)
+        {
+            SettingsForm = new MetroForm();
+            SettingsForm.Resizable = false;
+            SettingsForm.ShadowType = MetroFormShadowType.DropShadow;
+            SettingsForm.MinimizeBox = false;
+            SettingsForm.MaximizeBox = false;
+            UserControl SettingsControl = Plugin.PluginSettings();
+            SettingsForm.Size = new Size(SettingsControl.Size.Width + 100, SettingsControl.Height + 100);
+            SettingsForm.Controls.Add(SettingsControl);
+            SettingsControl.Dock = DockStyle.Fill;
+            SettingsForm.Show();
         }
     }
 }

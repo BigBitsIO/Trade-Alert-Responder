@@ -28,20 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtBotToken = new System.Windows.Forms.TextBox();
+            this.chkBotToken = new System.Windows.Forms.CheckBox();
+            this.chkGuildServerId = new System.Windows.Forms.CheckBox();
+            this.txtGuildServerId = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.chkTextChannelId = new System.Windows.Forms.CheckBox();
+            this.txtTextChannelId = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.chkTagEveryone = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.chkTagHere = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.chkIncludeScreenshot = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Scan Delay (in ms)";
             // 
             // label2
             // 
@@ -53,52 +56,202 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Plugin Settings";
             // 
-            // numericUpDown1
+            // label1
             // 
-            this.numericUpDown1.Increment = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Location = new System.Drawing.Point(14, 61);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            -727379968,
-            232,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 7;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Bot Token:";
             // 
-            // TVAlertLogScanningGlobalSettings
+            // txtBotToken
+            // 
+            this.txtBotToken.Location = new System.Drawing.Point(14, 66);
+            this.txtBotToken.Name = "txtBotToken";
+            this.txtBotToken.PasswordChar = '*';
+            this.txtBotToken.Size = new System.Drawing.Size(487, 20);
+            this.txtBotToken.TabIndex = 5;
+            this.txtBotToken.TextChanged += new System.EventHandler(this.txtBotToken_TextChanged);
+            // 
+            // chkBotToken
+            // 
+            this.chkBotToken.AutoSize = true;
+            this.chkBotToken.Checked = true;
+            this.chkBotToken.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkBotToken.Location = new System.Drawing.Point(508, 69);
+            this.chkBotToken.Name = "chkBotToken";
+            this.chkBotToken.Size = new System.Drawing.Size(15, 14);
+            this.chkBotToken.TabIndex = 6;
+            this.chkBotToken.UseVisualStyleBackColor = true;
+            this.chkBotToken.CheckedChanged += new System.EventHandler(this.chkBotToken_CheckedChanged);
+            // 
+            // chkGuildServerId
+            // 
+            this.chkGuildServerId.AutoSize = true;
+            this.chkGuildServerId.Checked = true;
+            this.chkGuildServerId.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkGuildServerId.Location = new System.Drawing.Point(508, 116);
+            this.chkGuildServerId.Name = "chkGuildServerId";
+            this.chkGuildServerId.Size = new System.Drawing.Size(15, 14);
+            this.chkGuildServerId.TabIndex = 9;
+            this.chkGuildServerId.UseVisualStyleBackColor = true;
+            this.chkGuildServerId.CheckedChanged += new System.EventHandler(this.chkGuildServerId_CheckedChanged);
+            // 
+            // txtGuildServerId
+            // 
+            this.txtGuildServerId.Location = new System.Drawing.Point(14, 113);
+            this.txtGuildServerId.Name = "txtGuildServerId";
+            this.txtGuildServerId.PasswordChar = '*';
+            this.txtGuildServerId.Size = new System.Drawing.Size(487, 20);
+            this.txtGuildServerId.TabIndex = 8;
+            this.txtGuildServerId.TextChanged += new System.EventHandler(this.txtGuildServerId_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(10, 89);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Guild Server Id:";
+            // 
+            // chkTextChannelId
+            // 
+            this.chkTextChannelId.AutoSize = true;
+            this.chkTextChannelId.Checked = true;
+            this.chkTextChannelId.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkTextChannelId.Location = new System.Drawing.Point(508, 163);
+            this.chkTextChannelId.Name = "chkTextChannelId";
+            this.chkTextChannelId.Size = new System.Drawing.Size(15, 14);
+            this.chkTextChannelId.TabIndex = 12;
+            this.chkTextChannelId.UseVisualStyleBackColor = true;
+            this.chkTextChannelId.CheckedChanged += new System.EventHandler(this.chkTextChannelId_CheckedChanged);
+            // 
+            // txtTextChannelId
+            // 
+            this.txtTextChannelId.Location = new System.Drawing.Point(14, 160);
+            this.txtTextChannelId.Name = "txtTextChannelId";
+            this.txtTextChannelId.PasswordChar = '*';
+            this.txtTextChannelId.Size = new System.Drawing.Size(487, 20);
+            this.txtTextChannelId.TabIndex = 11;
+            this.txtTextChannelId.TextChanged += new System.EventHandler(this.txtTextChannelId_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(10, 136);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 20);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Text Channel Id:";
+            // 
+            // chkTagEveryone
+            // 
+            this.chkTagEveryone.AutoSize = true;
+            this.chkTagEveryone.Location = new System.Drawing.Point(180, 208);
+            this.chkTagEveryone.Name = "chkTagEveryone";
+            this.chkTagEveryone.Size = new System.Drawing.Size(15, 14);
+            this.chkTagEveryone.TabIndex = 15;
+            this.chkTagEveryone.UseVisualStyleBackColor = true;
+            this.chkTagEveryone.CheckedChanged += new System.EventHandler(this.chkTagEveryone_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(10, 204);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(133, 20);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Tag @everyone";
+            // 
+            // chkTagHere
+            // 
+            this.chkTagHere.AutoSize = true;
+            this.chkTagHere.Location = new System.Drawing.Point(180, 251);
+            this.chkTagHere.Name = "chkTagHere";
+            this.chkTagHere.Size = new System.Drawing.Size(15, 14);
+            this.chkTagHere.TabIndex = 17;
+            this.chkTagHere.UseVisualStyleBackColor = true;
+            this.chkTagHere.CheckedChanged += new System.EventHandler(this.chkTagHere_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(10, 247);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 20);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Tag @here";
+            // 
+            // chkIncludeScreenshot
+            // 
+            this.chkIncludeScreenshot.AutoSize = true;
+            this.chkIncludeScreenshot.Location = new System.Drawing.Point(180, 295);
+            this.chkIncludeScreenshot.Name = "chkIncludeScreenshot";
+            this.chkIncludeScreenshot.Size = new System.Drawing.Size(15, 14);
+            this.chkIncludeScreenshot.TabIndex = 19;
+            this.chkIncludeScreenshot.UseVisualStyleBackColor = true;
+            this.chkIncludeScreenshot.CheckedChanged += new System.EventHandler(this.chkIncludeScreenshot_CheckedChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(10, 291);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(165, 20);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Include Screenshot";
+            // 
+            // DiscordAlertActionSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.chkIncludeScreenshot);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.chkTagHere);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.chkTagEveryone);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.chkTextChannelId);
+            this.Controls.Add(this.txtTextChannelId);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.chkGuildServerId);
+            this.Controls.Add(this.txtGuildServerId);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.chkBotToken);
+            this.Controls.Add(this.txtBotToken);
             this.Controls.Add(this.label1);
-            this.Name = "TVAlertLogScanningGlobalSettings";
-            this.Size = new System.Drawing.Size(191, 93);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.Controls.Add(this.label2);
+            this.Name = "DiscordAlertActionSettings";
+            this.Size = new System.Drawing.Size(533, 326);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtBotToken;
+        private System.Windows.Forms.CheckBox chkBotToken;
+        private System.Windows.Forms.CheckBox chkGuildServerId;
+        private System.Windows.Forms.TextBox txtGuildServerId;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox chkTextChannelId;
+        private System.Windows.Forms.TextBox txtTextChannelId;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox chkTagEveryone;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox chkTagHere;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox chkIncludeScreenshot;
+        private System.Windows.Forms.Label label7;
     }
 }

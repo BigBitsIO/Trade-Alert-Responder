@@ -243,6 +243,17 @@ namespace TradeAlertResponder
             LoadDiscordSettings().GetAwaiter().GetResult();
             LoadAlertSettings().GetAwaiter().GetResult();
             LoadScreenshotSettings().GetAwaiter().GetResult();
+
+            int ControlY = btnTwitterSettings.Location.Y + 43;
+            int ControlX = btnTwitterSettings.Location.X;
+            int ControlWidth = pnlSettingsPanel.Width - ControlX;
+
+            AlertActionPluginContainer PluginControl = new AlertActionPluginContainer();
+            pnlSettingsPanel.Controls.Add(PluginControl);
+            PluginControl.Location = new Point(ControlX, ControlY);
+            PluginControl.Width = ControlWidth;
+            PluginControl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
         }
 
         private void LoadAlertsGrid(DataTable AlertsTable)

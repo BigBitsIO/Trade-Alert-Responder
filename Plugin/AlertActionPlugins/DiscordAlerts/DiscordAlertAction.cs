@@ -97,5 +97,6 @@ namespace Plugin.AlertActionPlugins
         {
             return Properties.Settings.Default.DiscordAlertsUseScreenshot;
         }
+
     }
 }

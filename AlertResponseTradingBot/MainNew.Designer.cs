@@ -50,17 +50,6 @@ namespace TradeAlertResponder
             this.btnTradingViewTab = new FontAwesome.Sharp.IconButton();
             this.pnlContent = new MetroFramework.Controls.MetroPanel();
             this.tabMainView = new System.Windows.Forms.TabControl();
-            this.pnlAboutTab = new System.Windows.Forms.TabPage();
-            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
-            this.tabAbout = new MetroFramework.Controls.MetroTabControl();
-            this.pnlAboutInfoTab = new System.Windows.Forms.TabPage();
-            this.pnlAboutInfo = new MetroFramework.Controls.MetroPanel();
-            this.pnlAboutLogsTab = new System.Windows.Forms.TabPage();
-            this.pnlAboutLogs = new MetroFramework.Controls.MetroPanel();
-            this.pnlAboutDisclaimerTab = new System.Windows.Forms.TabPage();
-            this.pnlAboutDisclaimer = new MetroFramework.Controls.MetroPanel();
-            this.pnlContributeTab = new System.Windows.Forms.TabPage();
-            this.pnlContributeBrowser = new MetroFramework.Controls.MetroPanel();
             this.pnlSettingsTab = new System.Windows.Forms.TabPage();
             this.pnlSettingsPanel = new MetroFramework.Controls.MetroPanel();
             this.btnScreenshotSettings = new FontAwesome.Sharp.IconButton();
@@ -69,6 +58,20 @@ namespace TradeAlertResponder
             this.btnDiscordTest = new FontAwesome.Sharp.IconButton();
             this.btnDiscordSettings = new FontAwesome.Sharp.IconButton();
             this.btnTwitterSettings = new FontAwesome.Sharp.IconButton();
+            this.pnlAboutTab = new System.Windows.Forms.TabPage();
+            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.tabAbout = new MetroFramework.Controls.MetroTabControl();
+            this.pnlAboutInfoTab = new System.Windows.Forms.TabPage();
+            this.pnlAboutInfo = new MetroFramework.Controls.MetroPanel();
+            this.appInfo = new TradeAlertResponder.Controls.AppInfo();
+            this.pnlAboutLogsTab = new System.Windows.Forms.TabPage();
+            this.pnlAboutLogs = new MetroFramework.Controls.MetroPanel();
+            this.logs = new TradeAlertResponder.Controls.Logs();
+            this.pnlAboutDisclaimerTab = new System.Windows.Forms.TabPage();
+            this.pnlAboutDisclaimer = new MetroFramework.Controls.MetroPanel();
+            this.disclaimer1 = new TradeAlertResponder.Controls.Disclaimer();
+            this.pnlContributeTab = new System.Windows.Forms.TabPage();
+            this.pnlContributeBrowser = new MetroFramework.Controls.MetroPanel();
             this.pnlAlertsTab = new System.Windows.Forms.TabPage();
             this.btnAlertsReset = new FontAwesome.Sharp.IconButton();
             this.grdAlerts = new MetroFramework.Controls.MetroGrid();
@@ -86,13 +89,12 @@ namespace TradeAlertResponder
             this.StyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.lblUpdate = new MetroFramework.Controls.MetroLabel();
             this.currentLogMessage1 = new TradeAlertResponder.Controls.CurrentLogMessage();
-            this.appInfo = new TradeAlertResponder.Controls.AppInfo();
-            this.logs = new TradeAlertResponder.Controls.Logs();
-            this.disclaimer1 = new TradeAlertResponder.Controls.Disclaimer();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrders)).BeginInit();
             this.pnlNavigation.SuspendLayout();
             this.pnlContent.SuspendLayout();
             this.tabMainView.SuspendLayout();
+            this.pnlSettingsTab.SuspendLayout();
+            this.pnlSettingsPanel.SuspendLayout();
             this.pnlAboutTab.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.tabAbout.SuspendLayout();
@@ -103,8 +105,6 @@ namespace TradeAlertResponder
             this.pnlAboutDisclaimerTab.SuspendLayout();
             this.pnlAboutDisclaimer.SuspendLayout();
             this.pnlContributeTab.SuspendLayout();
-            this.pnlSettingsTab.SuspendLayout();
-            this.pnlSettingsPanel.SuspendLayout();
             this.pnlAlertsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAlerts)).BeginInit();
             this.pnlShopTab.SuspendLayout();
@@ -401,9 +401,9 @@ namespace TradeAlertResponder
             // tabMainView
             // 
             this.tabMainView.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabMainView.Controls.Add(this.pnlSettingsTab);
             this.tabMainView.Controls.Add(this.pnlAboutTab);
             this.tabMainView.Controls.Add(this.pnlContributeTab);
-            this.tabMainView.Controls.Add(this.pnlSettingsTab);
             this.tabMainView.Controls.Add(this.pnlAlertsTab);
             this.tabMainView.Controls.Add(this.pnlShopTab);
             this.tabMainView.Controls.Add(this.pnlVideoTab);
@@ -419,145 +419,6 @@ namespace TradeAlertResponder
             this.tabMainView.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabMainView.TabIndex = 2;
             // 
-            // pnlAboutTab
-            // 
-            this.pnlAboutTab.Controls.Add(this.metroPanel3);
-            this.pnlAboutTab.Location = new System.Drawing.Point(4, 5);
-            this.pnlAboutTab.Name = "pnlAboutTab";
-            this.pnlAboutTab.Size = new System.Drawing.Size(1178, 631);
-            this.pnlAboutTab.TabIndex = 9;
-            this.pnlAboutTab.Text = "tabPage3";
-            this.pnlAboutTab.UseVisualStyleBackColor = true;
-            // 
-            // metroPanel3
-            // 
-            this.metroPanel3.Controls.Add(this.tabAbout);
-            this.metroPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel3.HorizontalScrollbarBarColor = true;
-            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(0, 0);
-            this.metroPanel3.Name = "metroPanel3";
-            this.metroPanel3.Size = new System.Drawing.Size(1178, 631);
-            this.metroPanel3.TabIndex = 0;
-            this.metroPanel3.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroPanel3.VerticalScrollbarBarColor = true;
-            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel3.VerticalScrollbarSize = 10;
-            // 
-            // tabAbout
-            // 
-            this.tabAbout.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabAbout.Controls.Add(this.pnlAboutInfoTab);
-            this.tabAbout.Controls.Add(this.pnlAboutLogsTab);
-            this.tabAbout.Controls.Add(this.pnlAboutDisclaimerTab);
-            this.tabAbout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabAbout.Location = new System.Drawing.Point(0, 0);
-            this.tabAbout.Name = "tabAbout";
-            this.tabAbout.SelectedIndex = 2;
-            this.tabAbout.Size = new System.Drawing.Size(1178, 631);
-            this.tabAbout.TabIndex = 2;
-            this.tabAbout.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.tabAbout.UseSelectable = true;
-            // 
-            // pnlAboutInfoTab
-            // 
-            this.pnlAboutInfoTab.Controls.Add(this.pnlAboutInfo);
-            this.pnlAboutInfoTab.Location = new System.Drawing.Point(4, 41);
-            this.pnlAboutInfoTab.Name = "pnlAboutInfoTab";
-            this.pnlAboutInfoTab.Size = new System.Drawing.Size(1170, 586);
-            this.pnlAboutInfoTab.TabIndex = 0;
-            this.pnlAboutInfoTab.Text = "Info";
-            // 
-            // pnlAboutInfo
-            // 
-            this.pnlAboutInfo.Controls.Add(this.appInfo);
-            this.pnlAboutInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlAboutInfo.HorizontalScrollbarBarColor = true;
-            this.pnlAboutInfo.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnlAboutInfo.HorizontalScrollbarSize = 10;
-            this.pnlAboutInfo.Location = new System.Drawing.Point(0, 0);
-            this.pnlAboutInfo.Name = "pnlAboutInfo";
-            this.pnlAboutInfo.Size = new System.Drawing.Size(1170, 586);
-            this.pnlAboutInfo.TabIndex = 0;
-            this.pnlAboutInfo.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.pnlAboutInfo.VerticalScrollbarBarColor = true;
-            this.pnlAboutInfo.VerticalScrollbarHighlightOnWheel = false;
-            this.pnlAboutInfo.VerticalScrollbarSize = 10;
-            // 
-            // pnlAboutLogsTab
-            // 
-            this.pnlAboutLogsTab.Controls.Add(this.pnlAboutLogs);
-            this.pnlAboutLogsTab.Location = new System.Drawing.Point(4, 41);
-            this.pnlAboutLogsTab.Name = "pnlAboutLogsTab";
-            this.pnlAboutLogsTab.Size = new System.Drawing.Size(1170, 586);
-            this.pnlAboutLogsTab.TabIndex = 2;
-            this.pnlAboutLogsTab.Text = "Logs";
-            // 
-            // pnlAboutLogs
-            // 
-            this.pnlAboutLogs.Controls.Add(this.logs);
-            this.pnlAboutLogs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlAboutLogs.HorizontalScrollbarBarColor = true;
-            this.pnlAboutLogs.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnlAboutLogs.HorizontalScrollbarSize = 10;
-            this.pnlAboutLogs.Location = new System.Drawing.Point(0, 0);
-            this.pnlAboutLogs.Name = "pnlAboutLogs";
-            this.pnlAboutLogs.Size = new System.Drawing.Size(1170, 586);
-            this.pnlAboutLogs.TabIndex = 0;
-            this.pnlAboutLogs.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.pnlAboutLogs.VerticalScrollbarBarColor = true;
-            this.pnlAboutLogs.VerticalScrollbarHighlightOnWheel = false;
-            this.pnlAboutLogs.VerticalScrollbarSize = 10;
-            // 
-            // pnlAboutDisclaimerTab
-            // 
-            this.pnlAboutDisclaimerTab.Controls.Add(this.pnlAboutDisclaimer);
-            this.pnlAboutDisclaimerTab.Location = new System.Drawing.Point(4, 41);
-            this.pnlAboutDisclaimerTab.Name = "pnlAboutDisclaimerTab";
-            this.pnlAboutDisclaimerTab.Size = new System.Drawing.Size(1170, 586);
-            this.pnlAboutDisclaimerTab.TabIndex = 1;
-            this.pnlAboutDisclaimerTab.Text = "Disclaimer";
-            // 
-            // pnlAboutDisclaimer
-            // 
-            this.pnlAboutDisclaimer.Controls.Add(this.disclaimer1);
-            this.pnlAboutDisclaimer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlAboutDisclaimer.HorizontalScrollbarBarColor = true;
-            this.pnlAboutDisclaimer.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnlAboutDisclaimer.HorizontalScrollbarSize = 10;
-            this.pnlAboutDisclaimer.Location = new System.Drawing.Point(0, 0);
-            this.pnlAboutDisclaimer.Name = "pnlAboutDisclaimer";
-            this.pnlAboutDisclaimer.Size = new System.Drawing.Size(1170, 586);
-            this.pnlAboutDisclaimer.TabIndex = 0;
-            this.pnlAboutDisclaimer.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.pnlAboutDisclaimer.VerticalScrollbarBarColor = true;
-            this.pnlAboutDisclaimer.VerticalScrollbarHighlightOnWheel = false;
-            this.pnlAboutDisclaimer.VerticalScrollbarSize = 10;
-            // 
-            // pnlContributeTab
-            // 
-            this.pnlContributeTab.Controls.Add(this.pnlContributeBrowser);
-            this.pnlContributeTab.Location = new System.Drawing.Point(4, 5);
-            this.pnlContributeTab.Name = "pnlContributeTab";
-            this.pnlContributeTab.Size = new System.Drawing.Size(1178, 631);
-            this.pnlContributeTab.TabIndex = 7;
-            this.pnlContributeTab.Text = "tabPage2";
-            // 
-            // pnlContributeBrowser
-            // 
-            this.pnlContributeBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContributeBrowser.HorizontalScrollbarBarColor = true;
-            this.pnlContributeBrowser.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnlContributeBrowser.HorizontalScrollbarSize = 10;
-            this.pnlContributeBrowser.Location = new System.Drawing.Point(0, 0);
-            this.pnlContributeBrowser.Name = "pnlContributeBrowser";
-            this.pnlContributeBrowser.Size = new System.Drawing.Size(1178, 631);
-            this.pnlContributeBrowser.TabIndex = 0;
-            this.pnlContributeBrowser.VerticalScrollbarBarColor = true;
-            this.pnlContributeBrowser.VerticalScrollbarHighlightOnWheel = false;
-            this.pnlContributeBrowser.VerticalScrollbarSize = 10;
-            // 
             // pnlSettingsTab
             // 
             this.pnlSettingsTab.Controls.Add(this.pnlSettingsPanel);
@@ -569,22 +430,21 @@ namespace TradeAlertResponder
             // 
             // pnlSettingsPanel
             // 
-            this.pnlSettingsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlSettingsPanel.Controls.Add(this.btnScreenshotSettings);
             this.pnlSettingsPanel.Controls.Add(this.btnAlertSettings);
             this.pnlSettingsPanel.Controls.Add(this.btnTwitterTest);
             this.pnlSettingsPanel.Controls.Add(this.btnDiscordTest);
             this.pnlSettingsPanel.Controls.Add(this.btnDiscordSettings);
             this.pnlSettingsPanel.Controls.Add(this.btnTwitterSettings);
+            this.pnlSettingsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSettingsPanel.HorizontalScrollbarBarColor = true;
             this.pnlSettingsPanel.HorizontalScrollbarHighlightOnWheel = false;
             this.pnlSettingsPanel.HorizontalScrollbarSize = 10;
             this.pnlSettingsPanel.Location = new System.Drawing.Point(0, 0);
             this.pnlSettingsPanel.Name = "pnlSettingsPanel";
-            this.pnlSettingsPanel.Size = new System.Drawing.Size(1076, 662);
+            this.pnlSettingsPanel.Size = new System.Drawing.Size(1178, 631);
             this.pnlSettingsPanel.TabIndex = 0;
+            this.pnlSettingsPanel.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.pnlSettingsPanel.VerticalScrollbarBarColor = true;
             this.pnlSettingsPanel.VerticalScrollbarHighlightOnWheel = false;
             this.pnlSettingsPanel.VerticalScrollbarSize = 10;
@@ -702,6 +562,169 @@ namespace TradeAlertResponder
             this.btnTwitterSettings.Text = "Twitter Settings";
             this.btnTwitterSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTwitterSettings.Click += new System.EventHandler(this.btnTwitterSettings_Click);
+            // 
+            // pnlAboutTab
+            // 
+            this.pnlAboutTab.Controls.Add(this.metroPanel3);
+            this.pnlAboutTab.Location = new System.Drawing.Point(4, 5);
+            this.pnlAboutTab.Name = "pnlAboutTab";
+            this.pnlAboutTab.Size = new System.Drawing.Size(1178, 631);
+            this.pnlAboutTab.TabIndex = 9;
+            this.pnlAboutTab.Text = "tabPage3";
+            this.pnlAboutTab.UseVisualStyleBackColor = true;
+            // 
+            // metroPanel3
+            // 
+            this.metroPanel3.Controls.Add(this.tabAbout);
+            this.metroPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel3.HorizontalScrollbarBarColor = true;
+            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.HorizontalScrollbarSize = 10;
+            this.metroPanel3.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel3.Name = "metroPanel3";
+            this.metroPanel3.Size = new System.Drawing.Size(1178, 631);
+            this.metroPanel3.TabIndex = 0;
+            this.metroPanel3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel3.VerticalScrollbarBarColor = true;
+            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
+            // tabAbout
+            // 
+            this.tabAbout.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabAbout.Controls.Add(this.pnlAboutInfoTab);
+            this.tabAbout.Controls.Add(this.pnlAboutLogsTab);
+            this.tabAbout.Controls.Add(this.pnlAboutDisclaimerTab);
+            this.tabAbout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabAbout.Location = new System.Drawing.Point(0, 0);
+            this.tabAbout.Name = "tabAbout";
+            this.tabAbout.SelectedIndex = 2;
+            this.tabAbout.Size = new System.Drawing.Size(1178, 631);
+            this.tabAbout.TabIndex = 2;
+            this.tabAbout.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.tabAbout.UseSelectable = true;
+            // 
+            // pnlAboutInfoTab
+            // 
+            this.pnlAboutInfoTab.Controls.Add(this.pnlAboutInfo);
+            this.pnlAboutInfoTab.Location = new System.Drawing.Point(4, 41);
+            this.pnlAboutInfoTab.Name = "pnlAboutInfoTab";
+            this.pnlAboutInfoTab.Size = new System.Drawing.Size(1170, 586);
+            this.pnlAboutInfoTab.TabIndex = 0;
+            this.pnlAboutInfoTab.Text = "Info";
+            // 
+            // pnlAboutInfo
+            // 
+            this.pnlAboutInfo.Controls.Add(this.appInfo);
+            this.pnlAboutInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlAboutInfo.HorizontalScrollbarBarColor = true;
+            this.pnlAboutInfo.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlAboutInfo.HorizontalScrollbarSize = 10;
+            this.pnlAboutInfo.Location = new System.Drawing.Point(0, 0);
+            this.pnlAboutInfo.Name = "pnlAboutInfo";
+            this.pnlAboutInfo.Size = new System.Drawing.Size(1170, 586);
+            this.pnlAboutInfo.TabIndex = 0;
+            this.pnlAboutInfo.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pnlAboutInfo.VerticalScrollbarBarColor = true;
+            this.pnlAboutInfo.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlAboutInfo.VerticalScrollbarSize = 10;
+            // 
+            // appInfo
+            // 
+            this.appInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.appInfo.Location = new System.Drawing.Point(0, 0);
+            this.appInfo.Name = "appInfo";
+            this.appInfo.Size = new System.Drawing.Size(1170, 586);
+            this.appInfo.TabIndex = 2;
+            // 
+            // pnlAboutLogsTab
+            // 
+            this.pnlAboutLogsTab.Controls.Add(this.pnlAboutLogs);
+            this.pnlAboutLogsTab.Location = new System.Drawing.Point(4, 41);
+            this.pnlAboutLogsTab.Name = "pnlAboutLogsTab";
+            this.pnlAboutLogsTab.Size = new System.Drawing.Size(1170, 586);
+            this.pnlAboutLogsTab.TabIndex = 2;
+            this.pnlAboutLogsTab.Text = "Logs";
+            // 
+            // pnlAboutLogs
+            // 
+            this.pnlAboutLogs.Controls.Add(this.logs);
+            this.pnlAboutLogs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlAboutLogs.HorizontalScrollbarBarColor = true;
+            this.pnlAboutLogs.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlAboutLogs.HorizontalScrollbarSize = 10;
+            this.pnlAboutLogs.Location = new System.Drawing.Point(0, 0);
+            this.pnlAboutLogs.Name = "pnlAboutLogs";
+            this.pnlAboutLogs.Size = new System.Drawing.Size(1170, 586);
+            this.pnlAboutLogs.TabIndex = 0;
+            this.pnlAboutLogs.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pnlAboutLogs.VerticalScrollbarBarColor = true;
+            this.pnlAboutLogs.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlAboutLogs.VerticalScrollbarSize = 10;
+            // 
+            // logs
+            // 
+            this.logs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logs.Location = new System.Drawing.Point(0, 0);
+            this.logs.Name = "logs";
+            this.logs.Size = new System.Drawing.Size(1170, 586);
+            this.logs.TabIndex = 2;
+            // 
+            // pnlAboutDisclaimerTab
+            // 
+            this.pnlAboutDisclaimerTab.Controls.Add(this.pnlAboutDisclaimer);
+            this.pnlAboutDisclaimerTab.Location = new System.Drawing.Point(4, 41);
+            this.pnlAboutDisclaimerTab.Name = "pnlAboutDisclaimerTab";
+            this.pnlAboutDisclaimerTab.Size = new System.Drawing.Size(1170, 586);
+            this.pnlAboutDisclaimerTab.TabIndex = 1;
+            this.pnlAboutDisclaimerTab.Text = "Disclaimer";
+            // 
+            // pnlAboutDisclaimer
+            // 
+            this.pnlAboutDisclaimer.Controls.Add(this.disclaimer1);
+            this.pnlAboutDisclaimer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlAboutDisclaimer.HorizontalScrollbarBarColor = true;
+            this.pnlAboutDisclaimer.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlAboutDisclaimer.HorizontalScrollbarSize = 10;
+            this.pnlAboutDisclaimer.Location = new System.Drawing.Point(0, 0);
+            this.pnlAboutDisclaimer.Name = "pnlAboutDisclaimer";
+            this.pnlAboutDisclaimer.Size = new System.Drawing.Size(1170, 586);
+            this.pnlAboutDisclaimer.TabIndex = 0;
+            this.pnlAboutDisclaimer.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pnlAboutDisclaimer.VerticalScrollbarBarColor = true;
+            this.pnlAboutDisclaimer.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlAboutDisclaimer.VerticalScrollbarSize = 10;
+            // 
+            // disclaimer1
+            // 
+            this.disclaimer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.disclaimer1.Location = new System.Drawing.Point(0, 0);
+            this.disclaimer1.Name = "disclaimer1";
+            this.disclaimer1.Size = new System.Drawing.Size(1170, 586);
+            this.disclaimer1.TabIndex = 2;
+            // 
+            // pnlContributeTab
+            // 
+            this.pnlContributeTab.Controls.Add(this.pnlContributeBrowser);
+            this.pnlContributeTab.Location = new System.Drawing.Point(4, 5);
+            this.pnlContributeTab.Name = "pnlContributeTab";
+            this.pnlContributeTab.Size = new System.Drawing.Size(1178, 631);
+            this.pnlContributeTab.TabIndex = 7;
+            this.pnlContributeTab.Text = "tabPage2";
+            // 
+            // pnlContributeBrowser
+            // 
+            this.pnlContributeBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContributeBrowser.HorizontalScrollbarBarColor = true;
+            this.pnlContributeBrowser.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlContributeBrowser.HorizontalScrollbarSize = 10;
+            this.pnlContributeBrowser.Location = new System.Drawing.Point(0, 0);
+            this.pnlContributeBrowser.Name = "pnlContributeBrowser";
+            this.pnlContributeBrowser.Size = new System.Drawing.Size(1178, 631);
+            this.pnlContributeBrowser.TabIndex = 0;
+            this.pnlContributeBrowser.VerticalScrollbarBarColor = true;
+            this.pnlContributeBrowser.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlContributeBrowser.VerticalScrollbarSize = 10;
             // 
             // pnlAlertsTab
             // 
@@ -958,30 +981,6 @@ namespace TradeAlertResponder
             this.currentLogMessage1.Size = new System.Drawing.Size(446, 21);
             this.currentLogMessage1.TabIndex = 12;
             // 
-            // appInfo
-            // 
-            this.appInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.appInfo.Location = new System.Drawing.Point(0, 0);
-            this.appInfo.Name = "appInfo";
-            this.appInfo.Size = new System.Drawing.Size(1170, 586);
-            this.appInfo.TabIndex = 2;
-            // 
-            // logs
-            // 
-            this.logs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logs.Location = new System.Drawing.Point(0, 0);
-            this.logs.Name = "logs";
-            this.logs.Size = new System.Drawing.Size(1170, 586);
-            this.logs.TabIndex = 2;
-            // 
-            // disclaimer1
-            // 
-            this.disclaimer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.disclaimer1.Location = new System.Drawing.Point(0, 0);
-            this.disclaimer1.Name = "disclaimer1";
-            this.disclaimer1.Size = new System.Drawing.Size(1170, 586);
-            this.disclaimer1.TabIndex = 2;
-            // 
             // MainNew
             // 
             this.ApplyImageInvert = true;
@@ -1010,6 +1009,8 @@ namespace TradeAlertResponder
             this.pnlNavigation.ResumeLayout(false);
             this.pnlContent.ResumeLayout(false);
             this.tabMainView.ResumeLayout(false);
+            this.pnlSettingsTab.ResumeLayout(false);
+            this.pnlSettingsPanel.ResumeLayout(false);
             this.pnlAboutTab.ResumeLayout(false);
             this.metroPanel3.ResumeLayout(false);
             this.tabAbout.ResumeLayout(false);
@@ -1020,8 +1021,6 @@ namespace TradeAlertResponder
             this.pnlAboutDisclaimerTab.ResumeLayout(false);
             this.pnlAboutDisclaimer.ResumeLayout(false);
             this.pnlContributeTab.ResumeLayout(false);
-            this.pnlSettingsTab.ResumeLayout(false);
-            this.pnlSettingsPanel.ResumeLayout(false);
             this.pnlAlertsTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdAlerts)).EndInit();
             this.pnlShopTab.ResumeLayout(false);

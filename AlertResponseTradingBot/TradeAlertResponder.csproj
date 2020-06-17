@@ -94,6 +94,12 @@
     <Compile Include="Controls\AlertActionPlugin.Designer.cs">
       <DependentUpon>AlertActionPlugin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\AlertActionPluginContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AlertActionPluginContainer.Designer.cs">
+      <DependentUpon>AlertActionPluginContainer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AlertScanner.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\AlertActionPlugin.resx">
       <DependentUpon>AlertActionPlugin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AlertActionPluginContainer.resx">
+      <DependentUpon>AlertActionPluginContainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\AlertScanner.resx">
       <DependentUpon>AlertScanner.cs</DependentUpon>

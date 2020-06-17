@@ -58,5 +58,41 @@ namespace Plugin.Properties {
                 this["DiscordAlertsUseScreenshot"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DiscordAlertBotToken {
+            get {
+                return ((string)(this["DiscordAlertBotToken"]));
+            }
+            set {
+                this["DiscordAlertBotToken"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DiscordAlertGuildServerId {
+            get {
+                return ((string)(this["DiscordAlertGuildServerId"]));
+            }
+            set {
+                this["DiscordAlertGuildServerId"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DiscordAlertTextChannelId {
+            get {
+                return ((string)(this["DiscordAlertTextChannelId"]));
+            }
+            set {
+                this["DiscordAlertTextChannelId"] = value;
+            }
+        }
     }
 }
