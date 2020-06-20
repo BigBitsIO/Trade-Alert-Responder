@@ -53,8 +53,8 @@ namespace TradeAlertResponder
 
         // Social Media Settings
         public static TwitterSettings TwitterSettings { get; set; } = new TwitterSettings();
-        public static DiscordSettings DiscordSettings { get; set; } = new DiscordSettings();
-        public static Discord Discord = new Discord("", 0, 0);
+        //public static DiscordSettings DiscordSettings { get; set; } = new DiscordSettings();
+        //public static Discord Discord = new Discord("", 0, 0);
         public static Twitter Twitter = new Twitter("", "", "", "");
         public Telegram Telegram = new Telegram("");
 
@@ -240,7 +240,7 @@ namespace TradeAlertResponder
         private async Task LoadSettings()
         {
             LoadTwitterSettings().GetAwaiter().GetResult();
-            LoadDiscordSettings().GetAwaiter().GetResult();
+            //LoadDiscordSettings().GetAwaiter().GetResult();
             LoadAlertSettings().GetAwaiter().GetResult();
             LoadScreenshotSettings().GetAwaiter().GetResult();
 
@@ -328,19 +328,19 @@ namespace TradeAlertResponder
             AlertSettings = await FileHelper.ImportAlertSettings();
         }
 
-        private async Task LoadDiscordSettings()
-        {
-            DiscordSettings = await FileHelper.ImportDiscordSettings();
-            if (DiscordSettings != null)
-            {
-                Discord = new Discord(DiscordSettings.BotToken, DiscordSettings.GuildServerId, DiscordSettings.TextChannelId);
-            }
-            else
-            {
-                DiscordSettings = new DiscordSettings();
-            }
-            //
-        }
+        //private async Task LoadDiscordSettings()
+        //{
+        //    DiscordSettings = await FileHelper.ImportDiscordSettings();
+        //    if (DiscordSettings != null)
+        //    {
+        //        Discord = new Discord(DiscordSettings.BotToken, DiscordSettings.GuildServerId, DiscordSettings.TextChannelId);
+        //    }
+        //    else
+        //    {
+        //        DiscordSettings = new DiscordSettings();
+        //    }
+        //    //
+        //}
         private async Task LoadTwitterSettings()
         {
             TwitterSettings = await FileHelper.ImportTwitterSettings();
@@ -441,8 +441,8 @@ namespace TradeAlertResponder
         {
             HideFocus();
 
-            if (DiscordSettings.Enabled && DiscordSettings.VerifiedByUserAsWorking)
-                Task.Run(() => Discord.SendMessage("Test", false));
+            //if (DiscordSettings.Enabled && DiscordSettings.VerifiedByUserAsWorking)
+            //    Task.Run(() => Discord.SendMessage("Test", false));
         }
 
         private void btnTwitterTest_Click(object sender, EventArgs e)
@@ -461,11 +461,11 @@ namespace TradeAlertResponder
         {
             HideFocus();
 
-            DiscordSettings RESULT = DiscordSettings;
-            DiscordSettingsForm DSF = new DiscordSettingsForm(ref RESULT);
-            //DialogResult DR = DSF.ShowDialog();
-            DSF.Show();
-            Discord = new Discord(DiscordSettings.BotToken, DiscordSettings.GuildServerId, DiscordSettings.TextChannelId);
+            //DiscordSettings RESULT = DiscordSettings;
+            //DiscordSettingsForm DSF = new DiscordSettingsForm(ref RESULT);
+            ////DialogResult DR = DSF.ShowDialog();
+            //DSF.Show();
+            ////Discord = new Discord(DiscordSettings.BotToken, DiscordSettings.GuildServerId, DiscordSettings.TextChannelId);
         }
 
         private void btnTwitterSettings_Click(object sender, EventArgs e)

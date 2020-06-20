@@ -1,4 +1,5 @@
 ﻿using Core;
+using CoreDiscord;
 using Plugin.AlertScanPlugins;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ namespace Plugin.AlertActionPlugins
 {
     public class DiscordAlertAction : IAlertActionPlugin
     {
+
+        public static Discord Discord = NewDiscord();
 
         public string Name
         {
@@ -46,6 +49,7 @@ namespace Plugin.AlertActionPlugins
             {
                 Properties.Settings.Default.DiscordAlertsEnabled = value;
                 Properties.Settings.Default.Save();
+                Task.Run(() => Discord.SendMessage("Test", false));
             }
         }
 
@@ -96,6 +100,19 @@ namespace Plugin.AlertActionPlugins
         private bool GetUseScreenshotSetting()
         {
             return Properties.Settings.Default.DiscordAlertsUseScreenshot;
+        }
+
+        public static Discord NewDiscord()
+        {
+            try
+            {
+                return new Discord(Properties.Settings.Default.DiscordAlertBotToken, Convert.ToUInt64(Properties.Settings.Default.DiscordAlertGuildServerId), Convert.ToUInt64(Properties.Settings.Default.DiscordAlertTextChannelId));
+            }
+            catch(Exception ex)
+            {
+                return new Discord("", 0, 0);
+            }
+            
         }
 
     }

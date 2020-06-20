@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Plugin.AlertActionPlugins;
+using CoreDiscord;
 
 namespace Plugin.AlertScanPlugins
 {
@@ -32,14 +34,24 @@ namespace Plugin.AlertScanPlugins
 
         private void SaveSettings()
         {
-            if(SettingsLoadedToForm)
+            try
             {
-                Properties.Settings.Default.DiscordAlertsUseScreenshot = chkIncludeScreenshot.Checked;
-                Properties.Settings.Default.DiscordAlertBotToken = txtBotToken.Text.Trim();
-                Properties.Settings.Default.DiscordAlertGuildServerId = txtGuildServerId.Text.Trim();
-                Properties.Settings.Default.DiscordAlertTextChannelId = txtTextChannelId.Text.Trim();
-                Properties.Settings.Default.Save();
+                if (SettingsLoadedToForm)
+                {
+                    Properties.Settings.Default.DiscordAlertsUseScreenshot = chkIncludeScreenshot.Checked;
+                    Properties.Settings.Default.DiscordAlertBotToken = txtBotToken.Text.Trim();
+                    Properties.Settings.Default.DiscordAlertGuildServerId = txtGuildServerId.Text.Trim();
+                    Properties.Settings.Default.DiscordAlertTextChannelId = txtTextChannelId.Text.Trim();
+                    Properties.Settings.Default.Save();
+
+                    DiscordAlertAction.Discord = DiscordAlertAction.NewDiscord();
+                }
             }
+            catch(Exception ex)
+            {
+
+            }
+            
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -116,6 +128,36 @@ namespace Plugin.AlertScanPlugins
         private void txtTextChannelId_TextChanged(object sender, EventArgs e)
         {
             SaveSettings();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

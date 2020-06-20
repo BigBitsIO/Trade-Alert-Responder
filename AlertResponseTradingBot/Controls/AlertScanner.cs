@@ -192,16 +192,17 @@ namespace TradeAlertResponder.Controls
                     Task.Run(() => SystemNotification(Alert));
 
                 bool DiscordOnAlert = MainNew.AlertSettings.DiscordOnAlert;
-                bool AddURLScreenshotToDiscord = MainNew.DiscordSettings.ScreenshotsInAlerts;
+                //bool AddURLScreenshotToDiscord = MainNew.DiscordSettings.ScreenshotsInAlerts;
                 bool TweetOnAlert = MainNew.AlertSettings.TweetOnAlert;
                 bool AddURLScreenshotToTweet = MainNew.TwitterSettings.ScreenshotsInAlerts;
 
-                bool WillGenerateMessage = (TweetOnAlert && MainNew.TwitterSettings.Enabled && MainNew.TwitterSettings.VerifiedByUserAsWorking)
-                    || (DiscordOnAlert && MainNew.DiscordSettings.Enabled && MainNew.DiscordSettings.VerifiedByUserAsWorking);
-                bool WillHaveScreenShot = WillGenerateMessage && (AddURLScreenshotToDiscord || AddURLScreenshotToTweet);
+                bool WillGenerateMessage = (TweetOnAlert && MainNew.TwitterSettings.Enabled && MainNew.TwitterSettings.VerifiedByUserAsWorking);
+                    //|| (DiscordOnAlert && MainNew.DiscordSettings.Enabled && MainNew.DiscordSettings.VerifiedByUserAsWorking);
+                //bool WillHaveScreenShot = WillGenerateMessage && (AddURLScreenshotToDiscord || AddURLScreenshotToTweet);
+                bool WillHaveScreenShot = WillGenerateMessage && AddURLScreenshotToTweet;
 
                 bool WillTweet = (TweetOnAlert && MainNew.TwitterSettings.Enabled && MainNew.TwitterSettings.VerifiedByUserAsWorking);
-                bool WillDiscord = (DiscordOnAlert && MainNew.DiscordSettings.Enabled && MainNew.DiscordSettings.VerifiedByUserAsWorking);
+                //bool WillDiscord = (DiscordOnAlert && MainNew.DiscordSettings.Enabled && MainNew.DiscordSettings.VerifiedByUserAsWorking);
 
 
 
@@ -254,34 +255,34 @@ namespace TradeAlertResponder.Controls
                             Task.Run(() => MainNew.Twitter.Tweet(Message));
                         }
                     }
-                    if (WillDiscord)
-                    {
-                        if (AddURLScreenshotToDiscord)
-                        {
-                            if (ScreenshotResult != null)
-                            {
-                                if (ScreenshotResult.Succeeded)
-                                {
-                                    Task.Run(() => MainNew.Discord.SendFile(ScreenshotResult.ImageFilePath, Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
-                                }
-                                else
-                                {
-                                    //still send message here
-                                    Task.Run(() => MainNew.Discord.SendMessage(Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
-                                }
-                            }
-                            else
-                            {
-                                //still send message here
-                                Task.Run(() => MainNew.Discord.SendMessage(Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
-                            }
-                        }
-                        else
-                        {
-                            //still send message here
-                            Task.Run(() => MainNew.Discord.SendMessage(Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
-                        }
-                    }
+                    //if (WillDiscord)
+                    //{
+                    //    if (AddURLScreenshotToDiscord)
+                    //    {
+                    //        if (ScreenshotResult != null)
+                    //        {
+                    //            if (ScreenshotResult.Succeeded)
+                    //            {
+                    //                Task.Run(() => MainNew.Discord.SendFile(ScreenshotResult.ImageFilePath, Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
+                    //            }
+                    //            else
+                    //            {
+                    //                //still send message here
+                    //                Task.Run(() => MainNew.Discord.SendMessage(Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
+                    //            }
+                    //        }
+                    //        else
+                    //        {
+                    //            //still send message here
+                    //            Task.Run(() => MainNew.Discord.SendMessage(Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        //still send message here
+                    //        Task.Run(() => MainNew.Discord.SendMessage(Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
+                    //    }
+                    //}
                 }
             }
             catch (Exception ex)

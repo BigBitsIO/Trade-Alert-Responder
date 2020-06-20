@@ -60,15 +60,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 42);
+            this.label1.Location = new System.Drawing.Point(10, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Bot Token:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtBotToken
             // 
-            this.txtBotToken.Location = new System.Drawing.Point(14, 66);
+            this.txtBotToken.Location = new System.Drawing.Point(14, 100);
             this.txtBotToken.Name = "txtBotToken";
             this.txtBotToken.PasswordChar = '*';
             this.txtBotToken.Size = new System.Drawing.Size(487, 20);
@@ -80,7 +81,7 @@
             this.chkBotToken.AutoSize = true;
             this.chkBotToken.Checked = true;
             this.chkBotToken.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkBotToken.Location = new System.Drawing.Point(508, 69);
+            this.chkBotToken.Location = new System.Drawing.Point(508, 103);
             this.chkBotToken.Name = "chkBotToken";
             this.chkBotToken.Size = new System.Drawing.Size(15, 14);
             this.chkBotToken.TabIndex = 6;
@@ -92,7 +93,7 @@
             this.chkGuildServerId.AutoSize = true;
             this.chkGuildServerId.Checked = true;
             this.chkGuildServerId.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkGuildServerId.Location = new System.Drawing.Point(508, 116);
+            this.chkGuildServerId.Location = new System.Drawing.Point(508, 150);
             this.chkGuildServerId.Name = "chkGuildServerId";
             this.chkGuildServerId.Size = new System.Drawing.Size(15, 14);
             this.chkGuildServerId.TabIndex = 9;
@@ -101,7 +102,7 @@
             // 
             // txtGuildServerId
             // 
-            this.txtGuildServerId.Location = new System.Drawing.Point(14, 113);
+            this.txtGuildServerId.Location = new System.Drawing.Point(14, 147);
             this.txtGuildServerId.Name = "txtGuildServerId";
             this.txtGuildServerId.PasswordChar = '*';
             this.txtGuildServerId.Size = new System.Drawing.Size(487, 20);
@@ -112,18 +113,19 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 89);
+            this.label3.Location = new System.Drawing.Point(10, 123);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Guild Server Id:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // chkTextChannelId
             // 
             this.chkTextChannelId.AutoSize = true;
             this.chkTextChannelId.Checked = true;
             this.chkTextChannelId.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkTextChannelId.Location = new System.Drawing.Point(508, 163);
+            this.chkTextChannelId.Location = new System.Drawing.Point(508, 197);
             this.chkTextChannelId.Name = "chkTextChannelId";
             this.chkTextChannelId.Size = new System.Drawing.Size(15, 14);
             this.chkTextChannelId.TabIndex = 12;
@@ -132,7 +134,7 @@
             // 
             // txtTextChannelId
             // 
-            this.txtTextChannelId.Location = new System.Drawing.Point(14, 160);
+            this.txtTextChannelId.Location = new System.Drawing.Point(14, 194);
             this.txtTextChannelId.Name = "txtTextChannelId";
             this.txtTextChannelId.PasswordChar = '*';
             this.txtTextChannelId.Size = new System.Drawing.Size(487, 20);
@@ -143,16 +145,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 136);
+            this.label4.Location = new System.Drawing.Point(10, 170);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(140, 20);
             this.label4.TabIndex = 10;
             this.label4.Text = "Text Channel Id:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // chkTagEveryone
             // 
             this.chkTagEveryone.AutoSize = true;
-            this.chkTagEveryone.Location = new System.Drawing.Point(180, 208);
+            this.chkTagEveryone.Location = new System.Drawing.Point(180, 242);
             this.chkTagEveryone.Name = "chkTagEveryone";
             this.chkTagEveryone.Size = new System.Drawing.Size(15, 14);
             this.chkTagEveryone.TabIndex = 15;
@@ -163,16 +166,17 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(10, 204);
+            this.label5.Location = new System.Drawing.Point(10, 238);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(133, 20);
             this.label5.TabIndex = 13;
             this.label5.Text = "Tag @everyone";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // chkTagHere
             // 
             this.chkTagHere.AutoSize = true;
-            this.chkTagHere.Location = new System.Drawing.Point(180, 251);
+            this.chkTagHere.Location = new System.Drawing.Point(180, 285);
             this.chkTagHere.Name = "chkTagHere";
             this.chkTagHere.Size = new System.Drawing.Size(15, 14);
             this.chkTagHere.TabIndex = 17;
@@ -183,16 +187,17 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(10, 247);
+            this.label6.Location = new System.Drawing.Point(10, 281);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(97, 20);
             this.label6.TabIndex = 16;
             this.label6.Text = "Tag @here";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // chkIncludeScreenshot
             // 
             this.chkIncludeScreenshot.AutoSize = true;
-            this.chkIncludeScreenshot.Location = new System.Drawing.Point(180, 295);
+            this.chkIncludeScreenshot.Location = new System.Drawing.Point(180, 329);
             this.chkIncludeScreenshot.Name = "chkIncludeScreenshot";
             this.chkIncludeScreenshot.Size = new System.Drawing.Size(15, 14);
             this.chkIncludeScreenshot.TabIndex = 19;
@@ -203,11 +208,12 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(10, 291);
+            this.label7.Location = new System.Drawing.Point(10, 325);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(165, 20);
             this.label7.TabIndex = 18;
             this.label7.Text = "Include Screenshot";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // DiscordAlertActionSettings
             // 
@@ -230,7 +236,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "DiscordAlertActionSettings";
-            this.Size = new System.Drawing.Size(533, 326);
+            this.Size = new System.Drawing.Size(533, 360);
             this.ResumeLayout(false);
             this.PerformLayout();
 
