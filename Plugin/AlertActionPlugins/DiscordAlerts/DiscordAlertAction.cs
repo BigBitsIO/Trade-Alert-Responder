@@ -49,7 +49,6 @@ namespace Plugin.AlertActionPlugins
             {
                 Properties.Settings.Default.DiscordAlertsEnabled = value;
                 Properties.Settings.Default.Save();
-                Task.Run(() => Discord.SendMessage("Test", false));
             }
         }
 
