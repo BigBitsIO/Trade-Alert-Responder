@@ -159,5 +159,10 @@ namespace Plugin.AlertScanPlugins
         {
 
         }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            Task.Run(() => DiscordAlertAction.Discord.SendMessage("Testing Discord Alerts - Alert Action Plugin for Trade Alert Responder!"));
+        }
     }
 }

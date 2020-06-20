@@ -44,6 +44,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.chkIncludeScreenshot = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -215,10 +216,22 @@
             this.label7.Text = "Include Screenshot";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
+            // btnTest
+            // 
+            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTest.Location = new System.Drawing.Point(299, 234);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(202, 111);
+            this.btnTest.TabIndex = 20;
+            this.btnTest.Text = "Test Discord";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // DiscordAlertActionSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.chkIncludeScreenshot);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.chkTagHere);
@@ -259,5 +272,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox chkIncludeScreenshot;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnTest;
     }
 }
