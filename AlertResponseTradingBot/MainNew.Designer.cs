@@ -55,8 +55,6 @@ namespace TradeAlertResponder
             this.btnScreenshotSettings = new FontAwesome.Sharp.IconButton();
             this.btnAlertSettings = new FontAwesome.Sharp.IconButton();
             this.btnTwitterTest = new FontAwesome.Sharp.IconButton();
-            this.btnDiscordTest = new FontAwesome.Sharp.IconButton();
-            this.btnDiscordSettings = new FontAwesome.Sharp.IconButton();
             this.btnTwitterSettings = new FontAwesome.Sharp.IconButton();
             this.pnlAboutTab = new System.Windows.Forms.TabPage();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
@@ -433,8 +431,6 @@ namespace TradeAlertResponder
             this.pnlSettingsPanel.Controls.Add(this.btnScreenshotSettings);
             this.pnlSettingsPanel.Controls.Add(this.btnAlertSettings);
             this.pnlSettingsPanel.Controls.Add(this.btnTwitterTest);
-            this.pnlSettingsPanel.Controls.Add(this.btnDiscordTest);
-            this.pnlSettingsPanel.Controls.Add(this.btnDiscordSettings);
             this.pnlSettingsPanel.Controls.Add(this.btnTwitterSettings);
             this.pnlSettingsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSettingsPanel.HorizontalScrollbarBarColor = true;
@@ -505,44 +501,6 @@ namespace TradeAlertResponder
             this.btnTwitterTest.Text = "Twitter Test";
             this.btnTwitterTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTwitterTest.Click += new System.EventHandler(this.btnTwitterTest_Click);
-            // 
-            // btnDiscordTest
-            // 
-            this.btnDiscordTest.FlatAppearance.BorderSize = 0;
-            this.btnDiscordTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDiscordTest.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnDiscordTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDiscordTest.IconChar = FontAwesome.Sharp.IconChar.Vial;
-            this.btnDiscordTest.IconColor = System.Drawing.Color.Black;
-            this.btnDiscordTest.IconSize = 32;
-            this.btnDiscordTest.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDiscordTest.Location = new System.Drawing.Point(241, 107);
-            this.btnDiscordTest.Name = "btnDiscordTest";
-            this.btnDiscordTest.Rotation = 0D;
-            this.btnDiscordTest.Size = new System.Drawing.Size(152, 37);
-            this.btnDiscordTest.TabIndex = 3;
-            this.btnDiscordTest.Text = "Discord Test";
-            this.btnDiscordTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiscordTest.Click += new System.EventHandler(this.btnDiscordTest_Click);
-            // 
-            // btnDiscordSettings
-            // 
-            this.btnDiscordSettings.FlatAppearance.BorderSize = 0;
-            this.btnDiscordSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDiscordSettings.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnDiscordSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDiscordSettings.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
-            this.btnDiscordSettings.IconColor = System.Drawing.Color.Black;
-            this.btnDiscordSettings.IconSize = 32;
-            this.btnDiscordSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDiscordSettings.Location = new System.Drawing.Point(19, 107);
-            this.btnDiscordSettings.Name = "btnDiscordSettings";
-            this.btnDiscordSettings.Rotation = 0D;
-            this.btnDiscordSettings.Size = new System.Drawing.Size(216, 37);
-            this.btnDiscordSettings.TabIndex = 5;
-            this.btnDiscordSettings.Text = "Discord Settings";
-            this.btnDiscordSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiscordSettings.Click += new System.EventHandler(this.btnDiscordSettings_Click);
             // 
             // btnTwitterSettings
             // 
@@ -1056,8 +1014,6 @@ namespace TradeAlertResponder
         private FontAwesome.Sharp.IconButton btnScreenshotSettings;
         private FontAwesome.Sharp.IconButton btnAlertSettings;
         private FontAwesome.Sharp.IconButton btnTwitterTest;
-        private FontAwesome.Sharp.IconButton btnDiscordTest;
-        private FontAwesome.Sharp.IconButton btnDiscordSettings;
         private FontAwesome.Sharp.IconButton btnTwitterSettings;
         private System.Windows.Forms.TabPage pnlContributeTab;
         private MetroFramework.Controls.MetroPanel pnlContributeBrowser;

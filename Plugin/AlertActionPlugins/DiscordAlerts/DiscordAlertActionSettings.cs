@@ -25,6 +25,8 @@ namespace Plugin.AlertScanPlugins
         private void LoadSettings()
         {
             chkIncludeScreenshot.Checked = Properties.Settings.Default.DiscordAlertsUseScreenshot;
+            chkTagEveryone.Checked = Properties.Settings.Default.DiscordAlertTagEveryone;
+            chkTagHere.Checked = Properties.Settings.Default.DiscordAlertTagHere;
             txtBotToken.Text = Properties.Settings.Default.DiscordAlertBotToken;
             txtGuildServerId.Text = Properties.Settings.Default.DiscordAlertGuildServerId;
             txtTextChannelId.Text = Properties.Settings.Default.DiscordAlertTextChannelId;
@@ -42,6 +44,8 @@ namespace Plugin.AlertScanPlugins
                     Properties.Settings.Default.DiscordAlertBotToken = txtBotToken.Text.Trim();
                     Properties.Settings.Default.DiscordAlertGuildServerId = txtGuildServerId.Text.Trim();
                     Properties.Settings.Default.DiscordAlertTextChannelId = txtTextChannelId.Text.Trim();
+                    Properties.Settings.Default.DiscordAlertTagHere = chkTagHere.Checked;
+                    Properties.Settings.Default.DiscordAlertTagEveryone = chkTagEveryone.Checked;
                     Properties.Settings.Default.Save();
 
                     DiscordAlertAction.Discord = DiscordAlertAction.NewDiscord();

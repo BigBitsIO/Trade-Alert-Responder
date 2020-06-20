@@ -189,33 +189,14 @@ namespace TradeAlertResponder.Controls
             try
             {
                 if (MainNew.AlertSettings.NotificationOnAlert)
-                    Task.Run(() => SystemNotification(Alert));
-
-                bool DiscordOnAlert = MainNew.AlertSettings.DiscordOnAlert;
-                //bool AddURLScreenshotToDiscord = MainNew.DiscordSettings.ScreenshotsInAlerts;
-                bool TweetOnAlert = MainNew.AlertSettings.TweetOnAlert;
-                bool AddURLScreenshotToTweet = MainNew.TwitterSettings.ScreenshotsInAlerts;
-
-                bool WillGenerateMessage = (TweetOnAlert && MainNew.TwitterSettings.Enabled && MainNew.TwitterSettings.VerifiedByUserAsWorking);
-                    //|| (DiscordOnAlert && MainNew.DiscordSettings.Enabled && MainNew.DiscordSettings.VerifiedByUserAsWorking);
-                //bool WillHaveScreenShot = WillGenerateMessage && (AddURLScreenshotToDiscord || AddURLScreenshotToTweet);
-                bool WillHaveScreenShot = WillGenerateMessage && AddURLScreenshotToTweet;
-
-                bool WillTweet = (TweetOnAlert && MainNew.TwitterSettings.Enabled && MainNew.TwitterSettings.VerifiedByUserAsWorking);
-                //bool WillDiscord = (DiscordOnAlert && MainNew.DiscordSettings.Enabled && MainNew.DiscordSettings.VerifiedByUserAsWorking);
-
-
-
-
-                if (WillGenerateMessage)
                 {
-                    string DirectoryPath = Constants.AppFolder(Constants.AppDirectory.Screenshots);
+                    //Task.Run(() => SystemNotification(Alert));
+                }
 
-                    CoreScreen.Screen.ScreenshotResult ScreenshotResult = WillHaveScreenShot ? MainNew.Screen.Screenshot(Alert.URL, DirectoryPath, MainNew.ScreenshotSettings.IncludeLogoWatermark, Constants.WatermarkFilePath, MainNew.ScreenshotSettings.CropStartPoint, MainNew.ScreenshotSettings.CropSize, MainNew.ScreenshotSettings.DoCropImage).GetAwaiter().GetResult() : null;
 
-                    DateTime NowTime = DateTime.UtcNow;
-
-                    string Message = (MainNew.AlertSettings.MyBotName != "" ? MainNew.AlertSettings.MyBotName : "") + (MainNew.AlertSettings.MyBotStatus != "" ? " [" + MainNew.AlertSettings.MyBotStatus + "]" : "") + (Alert.BaseAsset != "" ? " $" + Alert.BaseAsset : "") + (Alert.BaseAssetFullName != "" ? " #" + Alert.BaseAssetFullName : "") +
+                string DirectoryPath = Constants.AppFolder(Constants.AppDirectory.Screenshots);
+                DateTime NowTime = DateTime.UtcNow;
+                string Message = (MainNew.AlertSettings.MyBotName != "" ? MainNew.AlertSettings.MyBotName : "") + (MainNew.AlertSettings.MyBotStatus != "" ? " [" + MainNew.AlertSettings.MyBotStatus + "]" : "") + (Alert.BaseAsset != "" ? " $" + Alert.BaseAsset : "") + (Alert.BaseAssetFullName != "" ? " #" + Alert.BaseAssetFullName : "") +
                                         "\n" +
                                         (Alert.Ticker != "" ? "\nTicker: " + Alert.Ticker : "") +
                                         ((Alert.Action.ToString() != "" || Alert.Action.ToString() == "None") ? "\nAction: " + Alert.Action : "") +
@@ -227,62 +208,97 @@ namespace TradeAlertResponder.Controls
                                         (MainNew.AlertSettings.ReferralURL != "" ? "\nReferrals: " + MainNew.AlertSettings.ReferralURL : "") +
                                         (MainNew.AlertSettings.Disclaimertext != "" ? "\n\n" + MainNew.AlertSettings.Disclaimertext : "");
 
-                    if (WillTweet)
+                //bool DiscordOnAlert = MainNew.AlertSettings.DiscordOnAlert;
+                //bool AddURLScreenshotToDiscord = MainNew.DiscordSettings.ScreenshotsInAlerts;
+                //bool TweetOnAlert = MainNew.AlertSettings.TweetOnAlert;
+                //bool AddURLScreenshotToTweet = MainNew.TwitterSettings.ScreenshotsInAlerts;
+
+                //bool WillGenerateMessage = (TweetOnAlert && MainNew.TwitterSettings.Enabled && MainNew.TwitterSettings.VerifiedByUserAsWorking);
+                //    //|| (DiscordOnAlert && MainNew.DiscordSettings.Enabled && MainNew.DiscordSettings.VerifiedByUserAsWorking);
+                ////bool WillHaveScreenShot = WillGenerateMessage && (AddURLScreenshotToDiscord || AddURLScreenshotToTweet);
+                //bool WillHaveScreenShot = WillGenerateMessage && AddURLScreenshotToTweet;
+
+                //bool WillTweet = (TweetOnAlert && MainNew.TwitterSettings.Enabled && MainNew.TwitterSettings.VerifiedByUserAsWorking);
+                ////bool WillDiscord = (DiscordOnAlert && MainNew.DiscordSettings.Enabled && MainNew.DiscordSettings.VerifiedByUserAsWorking);
+
+
+
+                //if (WillGenerateMessage)
+                //{
+
+
+                //    CoreScreen.Screen.ScreenshotResult ScreenshotResult = WillHaveScreenShot ? MainNew.Screen.Screenshot(Alert.URL, DirectoryPath, MainNew.ScreenshotSettings.IncludeLogoWatermark, Constants.WatermarkFilePath, MainNew.ScreenshotSettings.CropStartPoint, MainNew.ScreenshotSettings.CropSize, MainNew.ScreenshotSettings.DoCropImage).GetAwaiter().GetResult() : null;
+
+
+
+                //    if (WillTweet)
+                //    {
+                //        if (AddURLScreenshotToTweet)
+                //        {
+                //            if (ScreenshotResult != null)
+                //            {
+                //                if (ScreenshotResult.Succeeded)
+                //                {
+                //                    Task.Run(() => MainNew.Twitter.TweetWithPngImage(Message, ScreenshotResult.ImageFilePath));
+                //                }
+                //                else
+                //                {
+                //                    //still send message here
+                //                    Task.Run(() => MainNew.Twitter.Tweet(Message));
+                //                }
+                //            }
+                //            else
+                //            {
+                //                //still send message here
+                //                Task.Run(() => MainNew.Twitter.Tweet(Message));
+                //            }
+                //        }
+                //        else
+                //        {
+                //            //still send message here
+                //            Task.Run(() => MainNew.Twitter.Tweet(Message));
+                //        }
+                //    }
+                //if (WillDiscord)
+                //{
+                //    if (AddURLScreenshotToDiscord)
+                //    {
+                //        if (ScreenshotResult != null)
+                //        {
+                //            if (ScreenshotResult.Succeeded)
+                //            {
+                //                Task.Run(() => MainNew.Discord.SendFile(ScreenshotResult.ImageFilePath, Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
+                //            }
+                //            else
+                //            {
+                //                //still send message here
+                //                Task.Run(() => MainNew.Discord.SendMessage(Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
+                //            }
+                //        }
+                //        else
+                //        {
+                //            //still send message here
+                //            Task.Run(() => MainNew.Discord.SendMessage(Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
+                //        }
+                //    }
+                //    else
+                //    {
+                //        //still send message here
+                //        Task.Run(() => MainNew.Discord.SendMessage(Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
+                //    }
+                //}
+            //}
+
+
+                // Using Alert Action Plugin Model...
+            List<IAlertActionPlugin> AlertActionPlugins = AlertActionPluginLoader.Plugins.Where(a => a.Enabled).ToList();
+                if(AlertActionPlugins.Any())
+                {
+                    CoreScreen.Screen.ScreenshotResult ScreenshotResult = AlertActionPlugins.Any(a => a.UseScreenshot) ? MainNew.Screen.Screenshot(Alert.URL, DirectoryPath, MainNew.ScreenshotSettings.IncludeLogoWatermark, Constants.WatermarkFilePath, MainNew.ScreenshotSettings.CropStartPoint, MainNew.ScreenshotSettings.CropSize, MainNew.ScreenshotSettings.DoCropImage).GetAwaiter().GetResult() : null;
+                    Parallel.ForEach(AlertActionPlugins, (Plugin) =>
                     {
-                        if (AddURLScreenshotToTweet)
-                        {
-                            if (ScreenshotResult != null)
-                            {
-                                if (ScreenshotResult.Succeeded)
-                                {
-                                    Task.Run(() => MainNew.Twitter.TweetWithPngImage(Message, ScreenshotResult.ImageFilePath));
-                                }
-                                else
-                                {
-                                    //still send message here
-                                    Task.Run(() => MainNew.Twitter.Tweet(Message));
-                                }
-                            }
-                            else
-                            {
-                                //still send message here
-                                Task.Run(() => MainNew.Twitter.Tweet(Message));
-                            }
-                        }
-                        else
-                        {
-                            //still send message here
-                            Task.Run(() => MainNew.Twitter.Tweet(Message));
-                        }
-                    }
-                    //if (WillDiscord)
-                    //{
-                    //    if (AddURLScreenshotToDiscord)
-                    //    {
-                    //        if (ScreenshotResult != null)
-                    //        {
-                    //            if (ScreenshotResult.Succeeded)
-                    //            {
-                    //                Task.Run(() => MainNew.Discord.SendFile(ScreenshotResult.ImageFilePath, Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
-                    //            }
-                    //            else
-                    //            {
-                    //                //still send message here
-                    //                Task.Run(() => MainNew.Discord.SendMessage(Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
-                    //            }
-                    //        }
-                    //        else
-                    //        {
-                    //            //still send message here
-                    //            Task.Run(() => MainNew.Discord.SendMessage(Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        //still send message here
-                    //        Task.Run(() => MainNew.Discord.SendMessage(Message, MainNew.DiscordSettings.TagHere, MainNew.DiscordSettings.TagEveryone));
-                    //    }
-                    //}
+                        Task.Run(() => Plugin.Action(Alert, ScreenshotResult, Message));
+                    });
                 }
             }
             catch (Exception ex)

@@ -94,5 +94,29 @@ namespace Plugin.Properties {
                 this["DiscordAlertTextChannelId"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DiscordAlertTagHere {
+            get {
+                return ((bool)(this["DiscordAlertTagHere"]));
+            }
+            set {
+                this["DiscordAlertTagHere"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DiscordAlertTagEveryone {
+            get {
+                return ((bool)(this["DiscordAlertTagEveryone"]));
+            }
+            set {
+                this["DiscordAlertTagEveryone"] = value;
+            }
+        }
     }
 }

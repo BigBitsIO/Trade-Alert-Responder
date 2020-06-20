@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static CoreScreen.Screen;
 
 namespace Plugin
 {
@@ -15,7 +16,7 @@ namespace Plugin
         string Description { get; }
         bool Enabled { get; set; }
         bool UseScreenshot { get;}
-        AlertActionResult Action(Alert Alert);
+        AlertActionResult Action(Alert Alert, ScreenshotResult ScreenshotResult, string Message);
         UserControl PluginSettings();
         UserControl About();
 

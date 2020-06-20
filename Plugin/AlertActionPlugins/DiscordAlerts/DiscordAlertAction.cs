@@ -4,9 +4,11 @@ using Plugin.AlertScanPlugins;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static CoreScreen.Screen;
 
 namespace Plugin.AlertActionPlugins
 {
@@ -81,9 +83,46 @@ namespace Plugin.AlertActionPlugins
             return new DiscordAlertActionAbout();
         }
 
-        public AlertActionResult Action(Alert Alert)
+        public AlertActionResult Action(Alert Alert, ScreenshotResult ScreenshotResult, string Message)
         {
-            return new AlertActionResult();
+            try
+            {
+                if (Properties.Settings.Default.DiscordAlertsUseScreenshot)
+                {
+                    if (ScreenshotResult != null)
+                    {
+                        if (ScreenshotResult.Succeeded)
+                        {
+                            Task.Run(() => Discord.SendFile(ScreenshotResult.ImageFilePath, Message, Properties.Settings.Default.DiscordAlertTagHere, Properties.Settings.Default.DiscordAlertTagEveryone));
+                        }
+                        else
+                        {
+                            //still send message here
+                            Task.Run(() => Discord.SendMessage(Message, Properties.Settings.Default.DiscordAlertTagHere, Properties.Settings.Default.DiscordAlertTagEveryone));
+                        }
+                    }
+                    else
+                    {
+                        //still send message here
+                        Task.Run(() => Discord.SendMessage(Message, Properties.Settings.Default.DiscordAlertTagHere, Properties.Settings.Default.DiscordAlertTagEveryone));
+                    }
+                }
+                else
+                {
+                    //still send message here
+                    Task.Run(() => Discord.SendMessage(Message, Properties.Settings.Default.DiscordAlertTagHere, Properties.Settings.Default.DiscordAlertTagEveryone));
+                }
+
+                AlertActionResult AAR = new AlertActionResult();
+                AAR.Succeeded = true;
+                AAR.ErrorMessage = "";
+
+                return AAR;
+            }
+            catch(Exception ex)
+            {
+                return new AlertActionResult();
+            }
         }
 
         public UserControl PluginSettings()
