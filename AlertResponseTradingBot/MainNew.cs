@@ -106,10 +106,6 @@ namespace TradeAlertResponder
 
             HideFocus();
 
-            
-
-            Notification.Icon = SystemIcons.Application; // Required for balloon notification to show
-
             //Telegram.ChannelMessage("Testing form load.");
             Core.Logs.Log(Core.Logs.LogLevel.Info, "Form finished loading.");
         }

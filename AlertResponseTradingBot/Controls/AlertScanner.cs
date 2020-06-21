@@ -25,7 +25,7 @@ namespace TradeAlertResponder.Controls
         private IAlertScanPlugin Plugin;
         private ChromiumWebBrowser ChromeBrowser;
         public bool IsScanning = false;
-        private NotifyIcon Notification = new NotifyIcon();
+        
         private MetroForm SettingsForm = new MetroForm();
         private MetroForm AboutForm = new MetroForm();
 
@@ -33,7 +33,6 @@ namespace TradeAlertResponder.Controls
         {
             InitializeComponent();
 
-            Notification.Visible = false;
             Plugin = _Plugin;
             lblPluginTextFriendlyName.Text = Plugin.Name;
             lblAuthor.Text = "Created By: " + Plugin.AuthorName;
@@ -190,7 +189,7 @@ namespace TradeAlertResponder.Controls
             {
                 if (MainNew.AlertSettings.NotificationOnAlert)
                 {
-                    //Task.Run(() => SystemNotification(Alert));
+                    Task.Run(() => SystemNotification(Alert));
                 }
 
 
@@ -310,7 +309,12 @@ namespace TradeAlertResponder.Controls
 
         private async Task SystemNotification(Alert Alert)
         {
+            NotifyIcon Notification = new NotifyIcon();
+            Notification.Visible = true;
+            Notification.Icon = System.Drawing.SystemIcons.Information;
             Notification.ShowBalloonTip(1000, Constants.ProjectName + " " + MainNew.AlertSettings.MyBotName + " - Alert!", "The application has found a new alert.  " + (Alert.Ticker != "" ? "Ticker: " + Alert.Ticker : "") + ((Alert.Action.ToString() != "" || Alert.Action.ToString() == "None") ? " Action: " + Alert.Action : ""), ToolTipIcon.Info);
+            Thread.Sleep(5000);
+            Notification.Dispose();
         }
 
         private void lblAuthor_Click(object sender, EventArgs e)
