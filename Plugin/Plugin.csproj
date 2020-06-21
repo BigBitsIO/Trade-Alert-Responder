@@ -57,6 +57,19 @@
     <Compile Include="AlertActionPlugins\DiscordAlerts\DiscordAlertActionSettings.Designer.cs">
       <DependentUpon>DiscordAlertActionSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlertActionPlugins\TwitterAlerts\TwitterAlertAction.cs" />
+    <Compile Include="AlertActionPlugins\TwitterAlerts\TwitterAlertActionAbout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlertActionPlugins\TwitterAlerts\TwitterAlertActionAbout.Designer.cs">
+      <DependentUpon>TwitterAlertActionAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlertActionPlugins\TwitterAlerts\TwitterAlertActionSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlertActionPlugins\TwitterAlerts\TwitterAlertActionSettings.Designer.cs">
+      <DependentUpon>TwitterAlertActionSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlertScanPluginLoader.cs" />
     <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningAbout.cs">
       <SubType>UserControl</SubType>
@@ -113,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AlertActionPlugins\DiscordAlerts\DiscordAlertActionSettings.resx">
       <DependentUpon>DiscordAlertActionSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlertActionPlugins\TwitterAlerts\TwitterAlertActionAbout.resx">
+      <DependentUpon>TwitterAlertActionAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlertActionPlugins\TwitterAlerts\TwitterAlertActionSettings.resx">
+      <DependentUpon>TwitterAlertActionSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningAbout.resx">
       <DependentUpon>TVAlertLogScanningAbout.cs</DependentUpon>

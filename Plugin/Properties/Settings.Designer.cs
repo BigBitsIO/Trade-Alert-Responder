@@ -118,5 +118,77 @@ namespace Plugin.Properties {
                 this["DiscordAlertTagEveryone"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool TwitterAlertsEnabled {
+            get {
+                return ((bool)(this["TwitterAlertsEnabled"]));
+            }
+            set {
+                this["TwitterAlertsEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool TwitterAlertsUseScreenshot {
+            get {
+                return ((bool)(this["TwitterAlertsUseScreenshot"]));
+            }
+            set {
+                this["TwitterAlertsUseScreenshot"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TwitterAlertsConsumerKey {
+            get {
+                return ((string)(this["TwitterAlertsConsumerKey"]));
+            }
+            set {
+                this["TwitterAlertsConsumerKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TwitterAlertsConsumerSecret {
+            get {
+                return ((string)(this["TwitterAlertsConsumerSecret"]));
+            }
+            set {
+                this["TwitterAlertsConsumerSecret"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TwitterAlertsAccessToken {
+            get {
+                return ((string)(this["TwitterAlertsAccessToken"]));
+            }
+            set {
+                this["TwitterAlertsAccessToken"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TwitterAlertsAccessTokenSecret {
+            get {
+                return ((string)(this["TwitterAlertsAccessTokenSecret"]));
+            }
+            set {
+                this["TwitterAlertsAccessTokenSecret"] = value;
+            }
+        }
     }
 }

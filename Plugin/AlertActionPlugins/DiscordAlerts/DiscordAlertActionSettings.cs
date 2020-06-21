@@ -99,11 +99,6 @@ namespace Plugin.AlertScanPlugins
             }
         }
 
-        private void chkEnabled_CheckedChanged(object sender, EventArgs e)
-        {
-            SaveSettings();
-        }
-
         private void chkIncludeScreenshot_CheckedChanged(object sender, EventArgs e)
         {
             SaveSettings();
