@@ -178,61 +178,6 @@ namespace Core
             return ScreenshotSettings;
         }
 
-        public static async Task ExportDiscordSettings(DiscordSettings DiscordSettings)
-        {
-            List<DiscordSettings> ToWrite = new List<DiscordSettings>();
-            ToWrite.Add(DiscordSettings);
-
-            string FilePath = Path.Combine(Constants.AppFolder(Constants.AppDirectory.DataDiscordSettings));
-
-                //DiscordSettings = DiscordSettings;
-
-                FilePath = Path.Combine(FilePath, "DsSettings.csv");
-                using (StreamWriter write = new StreamWriter(FilePath, false))
-                {
-                    CsvWriter csw = new CsvWriter(write, CultureInfo.InvariantCulture);
-                    csw.WriteHeader<DiscordSettings>(); // writes the csv header for this class
-                    csw.NextRecord();
-                    csw.WriteRecords(ToWrite); //WriteRecords, if you convert to list.
-                }
-        }
-
-        public static async Task<DiscordSettings> ImportDiscordSettings()
-        {
-            string FilePath = Path.Combine(Constants.AppFolder(Constants.AppDirectory.DataDiscordSettings));
-            DiscordSettings DiscordSettings = new DiscordSettings();
-            if (!String.IsNullOrEmpty(FilePath))
-            {
-                // First see if we have the file we want where we want it. To do that, we need to get the filepath to our app folder in my documents
-                if (Directory.Exists(FilePath))
-                {
-                    // We can only do this because the directory exists
-                    // Now check if the file exists
-                    string ourfilepath = Path.Combine(FilePath, "DsSettings.csv");
-
-                    // Get trade info, and Account balance
-                    if (File.Exists(ourfilepath))
-                    {
-                        // handle backward compatibility: if new fields were added, the CsvReader cannot find these and throws a CsvHelper.ValidationException.
-                        // in this case, we try to load the csv with our compatibility class that we copied before the additional fields were added and this shoudl go fine.
-                        // after that we create the new instances out of the old values and add default values for the new fields.
-                        try
-                        {
-                            using (var reader = new CsvReader(new StreamReader(ourfilepath), CultureInfo.InvariantCulture))
-                            {
-                                DiscordSettings = reader.GetRecords<DiscordSettings>().FirstOrDefault();
-                            }
-                        }
-                        catch (CsvHelper.ValidationException valex)
-                        {
-                        }
-                    }
-                }
-            }
-
-            return DiscordSettings;
-        }
-
         public static async Task ExportAlertSettings(AlertSettings AlertSettings)
         {
             List<AlertSettings> ToWrite = new List<AlertSettings>();

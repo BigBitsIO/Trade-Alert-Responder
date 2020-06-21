@@ -225,7 +225,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Discord.cs" />
-    <Compile Include="DiscordSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
