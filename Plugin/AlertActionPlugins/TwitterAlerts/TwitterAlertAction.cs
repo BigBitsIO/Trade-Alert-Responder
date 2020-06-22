@@ -1,4 +1,5 @@
 ﻿using Core;
+using CoreTwitter;
 using Plugin.AlertScanPlugins;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Plugin.AlertActionPlugins
     public class TwitterAlertAction : IAlertActionPlugin
     {
 
+        public static Twitter Twitter = NewTwitter();
 
         public string Name
         {
@@ -85,31 +87,31 @@ namespace Plugin.AlertActionPlugins
         {
             try
             {
-                //if (Properties.Settings.Default.TwitterAlertsUseScreenshot)
-                //{
-                //    if (ScreenshotResult != null)
-                //    {
-                //        if (ScreenshotResult.Succeeded)
-                //        {
-                //            Task.Run(() => Twitter.SendFile(ScreenshotResult.ImageFilePath, Message, Properties.Settings.Default.TwitterAlertTagHere, Properties.Settings.Default.TwitterAlertTagEveryone));
-                //        }
-                //        else
-                //        {
-                //            //still send message here
-                //            Task.Run(() => Twitter.SendMessage(Message, Properties.Settings.Default.TwitterAlertTagHere, Properties.Settings.Default.TwitterAlertTagEveryone));
-                //        }
-                //    }
-                //    else
-                //    {
-                //        //still send message here
-                //        Task.Run(() => Twitter.SendMessage(Message, Properties.Settings.Default.TwitterAlertTagHere, Properties.Settings.Default.TwitterAlertTagEveryone));
-                //    }
-                //}
-                //else
-                //{
-                //    //still send message here
-                //    Task.Run(() => Twitter.SendMessage(Message, Properties.Settings.Default.TwitterAlertTagHere, Properties.Settings.Default.TwitterAlertTagEveryone));
-                //}
+                if (Properties.Settings.Default.TwitterAlertsUseScreenshot)
+                {
+                    if (ScreenshotResult != null)
+                    {
+                        if (ScreenshotResult.Succeeded)
+                        {
+                            Task.Run(() => Twitter.TweetWithPngImage(Message, ScreenshotResult.ImageFilePath));
+                        }
+                        else
+                        {
+                            //still send message here
+                            Task.Run(() =>Twitter.Tweet(Message));
+                        }
+                    }
+                    else
+                    {
+                        //still send message here
+                        Task.Run(() => Twitter.Tweet(Message));
+                    }
+                }
+                else
+                {
+                    //still send message here
+                    Task.Run(() => Twitter.Tweet(Message));
+                }
 
                 AlertActionResult AAR = new AlertActionResult();
                 AAR.Succeeded = true;
@@ -136,6 +138,19 @@ namespace Plugin.AlertActionPlugins
         private bool GetUseScreenshotSetting()
         {
             return Properties.Settings.Default.TwitterAlertsUseScreenshot;
+        }
+
+        public static Twitter NewTwitter()
+        {
+            try
+            {
+                return new Twitter(Properties.Settings.Default.TwitterAlertsConsumerKey, Properties.Settings.Default.TwitterAlertsConsumerSecret, Properties.Settings.Default.TwitterAlertsAccessToken, Properties.Settings.Default.TwitterAlertsAccessTokenSecret);
+            }
+            catch (Exception ex)
+            {
+                return new Twitter("", "", "", "");
+            }
+
         }
 
     }

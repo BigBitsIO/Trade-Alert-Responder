@@ -108,6 +108,10 @@
       <Project>{F0CFA115-7ADD-4A85-8D0A-75987BF92676}</Project>
       <Name>CoreScreen</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CoreTwitter\CoreTwitter.csproj">
+      <Project>{5194A77F-785D-41D2-AFAD-28A05FC621CE}</Project>
+      <Name>CoreTwitter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{BB32068C-EFAC-405E-A2C7-E3CC57AA722B}</Project>
       <Name>Core</Name>

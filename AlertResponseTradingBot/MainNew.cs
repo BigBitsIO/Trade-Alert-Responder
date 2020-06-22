@@ -10,7 +10,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CoreTwitter;
 using System.Runtime.CompilerServices;
 using CoreScreen;
 using System.Diagnostics;
@@ -51,9 +50,7 @@ namespace TradeAlertResponder
         private bool AlertTableConfigured = false;
 
         // Social Media Settings
-        public static TwitterSettings TwitterSettings { get; set; } = new TwitterSettings();
-        public static Twitter Twitter = new Twitter("", "", "", "");
-        public Telegram Telegram = new Telegram("");
+        //public Telegram Telegram = new Telegram("");
 
         // Alert Settings
         public static AlertSettings AlertSettings = new AlertSettings();
@@ -232,12 +229,11 @@ namespace TradeAlertResponder
 
         private async Task LoadSettings()
         {
-            LoadTwitterSettings().GetAwaiter().GetResult();
             LoadAlertSettings().GetAwaiter().GetResult();
             LoadScreenshotSettings().GetAwaiter().GetResult();
 
-            int ControlY = btnTwitterSettings.Location.Y + 43;
-            int ControlX = btnTwitterSettings.Location.X;
+            int ControlY = btnScreenshotSettings.Location.Y + 43;
+            int ControlX = btnScreenshotSettings.Location.X;
             int ControlWidth = pnlSettingsPanel.Width - ControlX;
 
             AlertActionPluginContainer PluginControl = new AlertActionPluginContainer();
@@ -318,19 +314,6 @@ namespace TradeAlertResponder
         private async Task LoadAlertSettings()
         {
             AlertSettings = await FileHelper.ImportAlertSettings();
-        }
-        private async Task LoadTwitterSettings()
-        {
-            TwitterSettings = await FileHelper.ImportTwitterSettings();
-            if (TwitterSettings != null)
-            {
-                Twitter = new Twitter(TwitterSettings.ConsumerKey, TwitterSettings.ConsumerSecret, TwitterSettings.AccessToken, TwitterSettings.AccessTokenSecret);
-            }
-            else
-            {
-                TwitterSettings = new TwitterSettings();
-            }
-
         }
 
         private async Task LoadScreenshotSettings()
@@ -413,29 +396,6 @@ namespace TradeAlertResponder
             
 
             SaveAlerts().GetAwaiter().GetResult();
-        }
-
-        private void btnTwitterTest_Click(object sender, EventArgs e)
-        {
-            HideFocus();
-
-            if (TwitterSettings.Enabled && TwitterSettings.VerifiedByUserAsWorking)
-            {
-                //Task.Run(() => Twitter.Tweet("Test"));
-                string DirectoryPath = Constants.AppFolder(Constants.AppDirectory.Screenshots);
-                Task.Run(() => Twitter.TweetWithPngImage("Testing Trade Alert Responder with image.", Screen.Screenshot("https://www.tradingview.com", DirectoryPath, ScreenshotSettings.IncludeLogoWatermark, Constants.WatermarkFilePath, ScreenshotSettings.CropStartPoint, ScreenshotSettings.CropSize, ScreenshotSettings.DoCropImage).GetAwaiter().GetResult().ImageFilePath));
-            }
-        }
-
-        private void btnTwitterSettings_Click(object sender, EventArgs e)
-        {
-            HideFocus();
-
-            TwitterSettings RESULT = TwitterSettings;
-            TwitterSettingsForm TSF = new TwitterSettingsForm(ref RESULT);
-            //DialogResult DR = TSF.ShowDialog();
-            TSF.Show();
-            Twitter = new Twitter(TwitterSettings.ConsumerKey, TwitterSettings.ConsumerSecret, TwitterSettings.AccessToken, TwitterSettings.AccessTokenSecret);
         }
 
         private void btnTradingViewTab_Click(object sender, EventArgs e)
