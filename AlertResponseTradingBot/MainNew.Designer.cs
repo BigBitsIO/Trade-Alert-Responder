@@ -65,7 +65,6 @@ namespace TradeAlertResponder
             this.pnlContributeTab = new System.Windows.Forms.TabPage();
             this.pnlContributeBrowser = new MetroFramework.Controls.MetroPanel();
             this.pnlAlertsTab = new System.Windows.Forms.TabPage();
-            this.btnAlertsReset = new FontAwesome.Sharp.IconButton();
             this.grdAlerts = new MetroFramework.Controls.MetroGrid();
             this.pnlShopTab = new System.Windows.Forms.TabPage();
             this.pnlShopBrowser = new MetroFramework.Controls.MetroPanel();
@@ -80,6 +79,10 @@ namespace TradeAlertResponder
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.StyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.lblUpdate = new MetroFramework.Controls.MetroLabel();
+            this.pnlAlertsBackground = new MetroFramework.Controls.MetroPanel();
+            this.btnAlertsReset = new FontAwesome.Sharp.IconButton();
+            this.pnlAlertScanTabBackground = new MetroFramework.Controls.MetroPanel();
+            this.pnlVideoTabBackground = new MetroFramework.Controls.MetroPanel();
             this.currentLogMessage1 = new TradeAlertResponder.Controls.CurrentLogMessage();
             this.appInfo = new TradeAlertResponder.Controls.AppInfo();
             this.logs = new TradeAlertResponder.Controls.Logs();
@@ -104,8 +107,11 @@ namespace TradeAlertResponder
             ((System.ComponentModel.ISupportInitialize)(this.grdAlerts)).BeginInit();
             this.pnlShopTab.SuspendLayout();
             this.pnlVideoTab.SuspendLayout();
+            this.pnlAlertScanTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StyleManager)).BeginInit();
+            this.pnlAlertsBackground.SuspendLayout();
+            this.pnlVideoTabBackground.SuspendLayout();
             this.SuspendLayout();
             // 
             // grdOrders
@@ -391,13 +397,13 @@ namespace TradeAlertResponder
             // tabMainView
             // 
             this.tabMainView.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabMainView.Controls.Add(this.pnlVideoTab);
             this.tabMainView.Controls.Add(this.pnlSettingsTab);
+            this.tabMainView.Controls.Add(this.pnlAlertScanTab);
+            this.tabMainView.Controls.Add(this.pnlAlertsTab);
             this.tabMainView.Controls.Add(this.pnlAboutTab);
             this.tabMainView.Controls.Add(this.pnlContributeTab);
-            this.tabMainView.Controls.Add(this.pnlAlertsTab);
             this.tabMainView.Controls.Add(this.pnlShopTab);
-            this.tabMainView.Controls.Add(this.pnlVideoTab);
-            this.tabMainView.Controls.Add(this.pnlAlertScanTab);
             this.tabMainView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMainView.ItemSize = new System.Drawing.Size(0, 1);
             this.tabMainView.Location = new System.Drawing.Point(0, 0);
@@ -420,6 +426,7 @@ namespace TradeAlertResponder
             // 
             // pnlSettingsPanel
             // 
+            this.pnlSettingsPanel.Controls.Add(this.btnAlertsReset);
             this.pnlSettingsPanel.Controls.Add(this.btnScreenshotSettings);
             this.pnlSettingsPanel.Controls.Add(this.btnAlertSettings);
             this.pnlSettingsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -437,40 +444,48 @@ namespace TradeAlertResponder
             // 
             // btnScreenshotSettings
             // 
+            this.btnScreenshotSettings.BackColor = System.Drawing.Color.Transparent;
             this.btnScreenshotSettings.FlatAppearance.BorderSize = 0;
+            this.btnScreenshotSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnScreenshotSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnScreenshotSettings.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnScreenshotSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScreenshotSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScreenshotSettings.ForeColor = System.Drawing.Color.White;
             this.btnScreenshotSettings.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
-            this.btnScreenshotSettings.IconColor = System.Drawing.Color.Black;
+            this.btnScreenshotSettings.IconColor = System.Drawing.Color.White;
             this.btnScreenshotSettings.IconSize = 32;
             this.btnScreenshotSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnScreenshotSettings.Location = new System.Drawing.Point(20, 63);
             this.btnScreenshotSettings.Name = "btnScreenshotSettings";
             this.btnScreenshotSettings.Rotation = 0D;
-            this.btnScreenshotSettings.Size = new System.Drawing.Size(216, 37);
+            this.btnScreenshotSettings.Size = new System.Drawing.Size(243, 37);
             this.btnScreenshotSettings.TabIndex = 8;
             this.btnScreenshotSettings.Text = "Screenshot Settings";
             this.btnScreenshotSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnScreenshotSettings.UseVisualStyleBackColor = false;
             this.btnScreenshotSettings.Click += new System.EventHandler(this.btnScreenshotSettings_Click);
             // 
             // btnAlertSettings
             // 
+            this.btnAlertSettings.BackColor = System.Drawing.Color.Transparent;
             this.btnAlertSettings.FlatAppearance.BorderSize = 0;
+            this.btnAlertSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnAlertSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlertSettings.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnAlertSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlertSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlertSettings.ForeColor = System.Drawing.Color.White;
             this.btnAlertSettings.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
-            this.btnAlertSettings.IconColor = System.Drawing.Color.Black;
+            this.btnAlertSettings.IconColor = System.Drawing.Color.White;
             this.btnAlertSettings.IconSize = 32;
             this.btnAlertSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlertSettings.Location = new System.Drawing.Point(20, 20);
             this.btnAlertSettings.Name = "btnAlertSettings";
             this.btnAlertSettings.Rotation = 0D;
-            this.btnAlertSettings.Size = new System.Drawing.Size(216, 37);
+            this.btnAlertSettings.Size = new System.Drawing.Size(243, 37);
             this.btnAlertSettings.TabIndex = 7;
             this.btnAlertSettings.Text = "Alert Settings";
             this.btnAlertSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlertSettings.UseVisualStyleBackColor = false;
             this.btnAlertSettings.Click += new System.EventHandler(this.btnAlertSettings_Click);
             // 
             // pnlAboutTab
@@ -615,77 +630,57 @@ namespace TradeAlertResponder
             // pnlAlertsTab
             // 
             this.pnlAlertsTab.BackColor = System.Drawing.Color.Transparent;
-            this.pnlAlertsTab.Controls.Add(this.btnAlertsReset);
-            this.pnlAlertsTab.Controls.Add(this.grdAlerts);
+            this.pnlAlertsTab.Controls.Add(this.pnlAlertsBackground);
             this.pnlAlertsTab.Location = new System.Drawing.Point(4, 5);
             this.pnlAlertsTab.Name = "pnlAlertsTab";
             this.pnlAlertsTab.Size = new System.Drawing.Size(1178, 631);
             this.pnlAlertsTab.TabIndex = 1;
             this.pnlAlertsTab.Text = "Alerts";
             // 
-            // btnAlertsReset
-            // 
-            this.btnAlertsReset.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAlertsReset.FlatAppearance.BorderSize = 0;
-            this.btnAlertsReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlertsReset.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnAlertsReset.IconChar = FontAwesome.Sharp.IconChar.Save;
-            this.btnAlertsReset.IconColor = System.Drawing.Color.Black;
-            this.btnAlertsReset.IconSize = 32;
-            this.btnAlertsReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlertsReset.Location = new System.Drawing.Point(0, 0);
-            this.btnAlertsReset.Name = "btnAlertsReset";
-            this.btnAlertsReset.Rotation = 0D;
-            this.btnAlertsReset.Size = new System.Drawing.Size(84, 53);
-            this.btnAlertsReset.TabIndex = 1;
-            this.btnAlertsReset.Text = "Clear";
-            this.btnAlertsReset.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAlertsReset.UseVisualStyleBackColor = true;
-            this.btnAlertsReset.Click += new System.EventHandler(this.btnAlertsReset_Click);
-            // 
             // grdAlerts
             // 
             this.grdAlerts.AllowUserToResizeRows = false;
-            this.grdAlerts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grdAlerts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.grdAlerts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdAlerts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grdAlerts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdAlerts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.grdAlerts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdAlerts.DefaultCellStyle = dataGridViewCellStyle17;
-            this.grdAlerts.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grdAlerts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdAlerts.EnableHeadersVisualStyles = false;
             this.grdAlerts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.grdAlerts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.grdAlerts.Location = new System.Drawing.Point(0, 53);
+            this.grdAlerts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.grdAlerts.Location = new System.Drawing.Point(0, 0);
             this.grdAlerts.Name = "grdAlerts";
             this.grdAlerts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdAlerts.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.grdAlerts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grdAlerts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdAlerts.Size = new System.Drawing.Size(1178, 578);
+            this.grdAlerts.Size = new System.Drawing.Size(1178, 631);
             this.grdAlerts.TabIndex = 0;
+            this.grdAlerts.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // pnlShopTab
             // 
@@ -713,9 +708,7 @@ namespace TradeAlertResponder
             // pnlVideoTab
             // 
             this.pnlVideoTab.BackColor = System.Drawing.Color.Transparent;
-            this.pnlVideoTab.Controls.Add(this.btnIndicatorsExplainedPlaylist);
-            this.pnlVideoTab.Controls.Add(this.btnPineScriptTutorialPlaylist);
-            this.pnlVideoTab.Controls.Add(this.pnlVideoBrowser);
+            this.pnlVideoTab.Controls.Add(this.pnlVideoTabBackground);
             this.pnlVideoTab.Location = new System.Drawing.Point(4, 5);
             this.pnlVideoTab.Name = "pnlVideoTab";
             this.pnlVideoTab.Size = new System.Drawing.Size(1178, 631);
@@ -728,18 +721,21 @@ namespace TradeAlertResponder
             this.btnIndicatorsExplainedPlaylist.FlatAppearance.BorderSize = 0;
             this.btnIndicatorsExplainedPlaylist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIndicatorsExplainedPlaylist.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnIndicatorsExplainedPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIndicatorsExplainedPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIndicatorsExplainedPlaylist.ForeColor = System.Drawing.Color.White;
             this.btnIndicatorsExplainedPlaylist.IconChar = FontAwesome.Sharp.IconChar.Youtube;
-            this.btnIndicatorsExplainedPlaylist.IconColor = System.Drawing.Color.Black;
+            this.btnIndicatorsExplainedPlaylist.IconColor = System.Drawing.Color.White;
             this.btnIndicatorsExplainedPlaylist.IconSize = 32;
             this.btnIndicatorsExplainedPlaylist.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIndicatorsExplainedPlaylist.Location = new System.Drawing.Point(202, 0);
+            this.btnIndicatorsExplainedPlaylist.Location = new System.Drawing.Point(0, 0);
             this.btnIndicatorsExplainedPlaylist.Name = "btnIndicatorsExplainedPlaylist";
             this.btnIndicatorsExplainedPlaylist.Rotation = 0D;
-            this.btnIndicatorsExplainedPlaylist.Size = new System.Drawing.Size(202, 31);
+            this.btnIndicatorsExplainedPlaylist.Size = new System.Drawing.Size(245, 53);
             this.btnIndicatorsExplainedPlaylist.TabIndex = 2;
             this.btnIndicatorsExplainedPlaylist.Text = "Indicators Explained";
+            this.btnIndicatorsExplainedPlaylist.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIndicatorsExplainedPlaylist.UseVisualStyleBackColor = true;
+            this.btnIndicatorsExplainedPlaylist.Click += new System.EventHandler(this.btnIndicatorsExplainedPlaylist_Click);
             // 
             // btnPineScriptTutorialPlaylist
             // 
@@ -747,18 +743,21 @@ namespace TradeAlertResponder
             this.btnPineScriptTutorialPlaylist.FlatAppearance.BorderSize = 0;
             this.btnPineScriptTutorialPlaylist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPineScriptTutorialPlaylist.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnPineScriptTutorialPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPineScriptTutorialPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPineScriptTutorialPlaylist.ForeColor = System.Drawing.Color.White;
             this.btnPineScriptTutorialPlaylist.IconChar = FontAwesome.Sharp.IconChar.Youtube;
-            this.btnPineScriptTutorialPlaylist.IconColor = System.Drawing.Color.Black;
+            this.btnPineScriptTutorialPlaylist.IconColor = System.Drawing.Color.White;
             this.btnPineScriptTutorialPlaylist.IconSize = 32;
             this.btnPineScriptTutorialPlaylist.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPineScriptTutorialPlaylist.Location = new System.Drawing.Point(0, 0);
+            this.btnPineScriptTutorialPlaylist.Location = new System.Drawing.Point(245, 0);
             this.btnPineScriptTutorialPlaylist.Name = "btnPineScriptTutorialPlaylist";
             this.btnPineScriptTutorialPlaylist.Rotation = 0D;
-            this.btnPineScriptTutorialPlaylist.Size = new System.Drawing.Size(202, 31);
+            this.btnPineScriptTutorialPlaylist.Size = new System.Drawing.Size(245, 53);
             this.btnPineScriptTutorialPlaylist.TabIndex = 1;
             this.btnPineScriptTutorialPlaylist.Text = "Pine Script Tutorials";
+            this.btnPineScriptTutorialPlaylist.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPineScriptTutorialPlaylist.UseVisualStyleBackColor = true;
+            this.btnPineScriptTutorialPlaylist.Click += new System.EventHandler(this.btnPineScriptTutorialPlaylist_Click);
             // 
             // pnlVideoBrowser
             // 
@@ -766,16 +765,18 @@ namespace TradeAlertResponder
             this.pnlVideoBrowser.HorizontalScrollbarBarColor = true;
             this.pnlVideoBrowser.HorizontalScrollbarHighlightOnWheel = false;
             this.pnlVideoBrowser.HorizontalScrollbarSize = 10;
-            this.pnlVideoBrowser.Location = new System.Drawing.Point(0, 31);
+            this.pnlVideoBrowser.Location = new System.Drawing.Point(0, 53);
             this.pnlVideoBrowser.Name = "pnlVideoBrowser";
-            this.pnlVideoBrowser.Size = new System.Drawing.Size(1178, 600);
+            this.pnlVideoBrowser.Size = new System.Drawing.Size(1178, 578);
             this.pnlVideoBrowser.TabIndex = 0;
+            this.pnlVideoBrowser.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.pnlVideoBrowser.VerticalScrollbarBarColor = true;
             this.pnlVideoBrowser.VerticalScrollbarHighlightOnWheel = false;
             this.pnlVideoBrowser.VerticalScrollbarSize = 10;
             // 
             // pnlAlertScanTab
             // 
+            this.pnlAlertScanTab.Controls.Add(this.pnlAlertScanTabBackground);
             this.pnlAlertScanTab.Location = new System.Drawing.Point(4, 5);
             this.pnlAlertScanTab.Name = "pnlAlertScanTab";
             this.pnlAlertScanTab.Size = new System.Drawing.Size(1178, 631);
@@ -859,6 +860,78 @@ namespace TradeAlertResponder
             this.lblUpdate.MouseEnter += new System.EventHandler(this.lblUpdate_MouseEnter);
             this.lblUpdate.MouseLeave += new System.EventHandler(this.lblUpdate_MouseLeave);
             // 
+            // pnlAlertsBackground
+            // 
+            this.pnlAlertsBackground.Controls.Add(this.grdAlerts);
+            this.pnlAlertsBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlAlertsBackground.HorizontalScrollbarBarColor = true;
+            this.pnlAlertsBackground.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlAlertsBackground.HorizontalScrollbarSize = 10;
+            this.pnlAlertsBackground.Location = new System.Drawing.Point(0, 0);
+            this.pnlAlertsBackground.Name = "pnlAlertsBackground";
+            this.pnlAlertsBackground.Size = new System.Drawing.Size(1178, 631);
+            this.pnlAlertsBackground.TabIndex = 2;
+            this.pnlAlertsBackground.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pnlAlertsBackground.VerticalScrollbarBarColor = true;
+            this.pnlAlertsBackground.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlAlertsBackground.VerticalScrollbarSize = 10;
+            // 
+            // btnAlertsReset
+            // 
+            this.btnAlertsReset.BackColor = System.Drawing.Color.Transparent;
+            this.btnAlertsReset.FlatAppearance.BorderSize = 0;
+            this.btnAlertsReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnAlertsReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlertsReset.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnAlertsReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlertsReset.ForeColor = System.Drawing.Color.White;
+            this.btnAlertsReset.IconChar = FontAwesome.Sharp.IconChar.Save;
+            this.btnAlertsReset.IconColor = System.Drawing.Color.White;
+            this.btnAlertsReset.IconSize = 32;
+            this.btnAlertsReset.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAlertsReset.Location = new System.Drawing.Point(1020, 12);
+            this.btnAlertsReset.Name = "btnAlertsReset";
+            this.btnAlertsReset.Rotation = 0D;
+            this.btnAlertsReset.Size = new System.Drawing.Size(149, 53);
+            this.btnAlertsReset.TabIndex = 9;
+            this.btnAlertsReset.Text = "Clear Alerts";
+            this.btnAlertsReset.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlertsReset.UseVisualStyleBackColor = false;
+            this.btnAlertsReset.Click += new System.EventHandler(this.btnAlertsReset_Click);
+            // 
+            // pnlAlertScanTabBackground
+            // 
+            this.pnlAlertScanTabBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlAlertScanTabBackground.HorizontalScrollbarBarColor = true;
+            this.pnlAlertScanTabBackground.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlAlertScanTabBackground.HorizontalScrollbarSize = 10;
+            this.pnlAlertScanTabBackground.Location = new System.Drawing.Point(0, 0);
+            this.pnlAlertScanTabBackground.Name = "pnlAlertScanTabBackground";
+            this.pnlAlertScanTabBackground.Size = new System.Drawing.Size(1178, 631);
+            this.pnlAlertScanTabBackground.TabIndex = 0;
+            this.pnlAlertScanTabBackground.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pnlAlertScanTabBackground.VerticalScrollbarBarColor = true;
+            this.pnlAlertScanTabBackground.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlAlertScanTabBackground.VerticalScrollbarSize = 10;
+            // 
+            // pnlVideoTabBackground
+            // 
+            this.pnlVideoTabBackground.Controls.Add(this.btnPineScriptTutorialPlaylist);
+            this.pnlVideoTabBackground.Controls.Add(this.btnIndicatorsExplainedPlaylist);
+            this.pnlVideoTabBackground.Controls.Add(this.pnlVideoBrowser);
+            this.pnlVideoTabBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlVideoTabBackground.HorizontalScrollbarBarColor = true;
+            this.pnlVideoTabBackground.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlVideoTabBackground.HorizontalScrollbarSize = 10;
+            this.pnlVideoTabBackground.Location = new System.Drawing.Point(0, 0);
+            this.pnlVideoTabBackground.Name = "pnlVideoTabBackground";
+            this.pnlVideoTabBackground.Size = new System.Drawing.Size(1178, 631);
+            this.pnlVideoTabBackground.TabIndex = 3;
+            this.pnlVideoTabBackground.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pnlVideoTabBackground.VerticalScrollbarBarColor = true;
+            this.pnlVideoTabBackground.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlVideoTabBackground.VerticalScrollbarSize = 10;
+            // 
             // currentLogMessage1
             // 
             this.currentLogMessage1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -935,8 +1008,11 @@ namespace TradeAlertResponder
             ((System.ComponentModel.ISupportInitialize)(this.grdAlerts)).EndInit();
             this.pnlShopTab.ResumeLayout(false);
             this.pnlVideoTab.ResumeLayout(false);
+            this.pnlAlertScanTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StyleManager)).EndInit();
+            this.pnlAlertsBackground.ResumeLayout(false);
+            this.pnlVideoTabBackground.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -959,7 +1035,6 @@ namespace TradeAlertResponder
         private System.Windows.Forms.TabPage tabPage2;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private System.Windows.Forms.TabPage pnlAlertsTab;
-        private FontAwesome.Sharp.IconButton btnAlertsReset;
         private MetroFramework.Controls.MetroGrid grdAlerts;
         private System.Windows.Forms.TabPage pnlSettingsTab;
         private MetroFramework.Controls.MetroPanel pnlSettingsPanel;
@@ -991,6 +1066,10 @@ namespace TradeAlertResponder
         private Logs logs;
         private AppInfo appInfo;
         private Disclaimer disclaimer1;
+        private FontAwesome.Sharp.IconButton btnAlertsReset;
+        private MetroFramework.Controls.MetroPanel pnlAlertsBackground;
+        private MetroFramework.Controls.MetroPanel pnlAlertScanTabBackground;
+        private MetroFramework.Controls.MetroPanel pnlVideoTabBackground;
     }
 }
 

@@ -359,7 +359,7 @@ namespace TradeAlertResponder
             ChromeBrowserVideos = new ChromiumWebBrowser();
             pnlVideoBrowser.Controls.Add(ChromeBrowserVideos);
             ChromeBrowserVideos.Dock = DockStyle.Fill;
-            ChromeBrowserVideos.LoadHtml("<html><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/videoseries?list=PLM0BBafRCnRNhvMxyiqScZWV_h41raut6\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></html>");
+            ChromeBrowserVideos.LoadHtml("<html><body style=\"background-color: transparent; \"><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/videoseries?list=PLM0BBafRCnRNhvMxyiqScZWV_h41raut6\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></body></html>");
 
         }
 
@@ -430,7 +430,7 @@ namespace TradeAlertResponder
                 case "btnTradingViewTab":
                     tabMainView.SelectedTab = pnlAlertScanTab;
                     AlertScannerContainer ASC = new AlertScannerContainer();
-                    pnlAlertScanTab.Controls.Add(ASC);
+                    pnlAlertScanTabBackground.Controls.Add(ASC);
                     ASC.Dock = DockStyle.Fill;
                     break;
                 case "btnAlertsTab":
@@ -479,13 +479,6 @@ namespace TradeAlertResponder
         private void picLogo_Click(object sender, EventArgs e)
         {
             Process.Start("https://www.bigbits.io");
-        }
-
-        private void btnAlertsReset_Click(object sender, EventArgs e)
-        {
-            Alerts = new List<Alert>();
-            Task.Run(() => FileHelper.ExportAlerts(Alerts));
-            LoadAlertsGrid();
         }
 
         private void btnAlertInfo_Click(object sender, EventArgs e)
@@ -573,6 +566,13 @@ namespace TradeAlertResponder
         {
             HideFocus();
             SelectNavButton((IconButton)sender);
+        }
+
+        private void btnAlertsReset_Click(object sender, EventArgs e)
+        {
+            Alerts = new List<Alert>();
+            Task.Run(() => FileHelper.ExportAlerts(Alerts));
+            LoadAlertsGrid();
         }
     }
 }
