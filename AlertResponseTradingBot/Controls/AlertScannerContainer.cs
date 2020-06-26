@@ -83,6 +83,8 @@ namespace TradeAlertResponder.Controls
         {
             SettingsForm = new MetroForm();
             SettingsForm.Resizable = false;
+            SettingsForm.Theme = MetroFramework.MetroThemeStyle.Dark;
+            SettingsForm.Style = MetroFramework.MetroColorStyle.White;
             SettingsForm.ShadowType = MetroFormShadowType.DropShadow;
             SettingsForm.MinimizeBox = false;
             SettingsForm.MaximizeBox = false;

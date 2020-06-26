@@ -29,132 +29,190 @@
         private void InitializeComponent()
         {
             this.pnlAbout = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.pnlBackground = new MetroFramework.Controls.MetroPanel();
+            this.label7 = new MetroFramework.Controls.MetroLabel();
+            this.label8 = new MetroFramework.Controls.MetroLabel();
+            this.label1 = new MetroFramework.Controls.MetroLabel();
+            this.label6 = new MetroFramework.Controls.MetroLabel();
+            this.label2 = new MetroFramework.Controls.MetroLabel();
+            this.label5 = new MetroFramework.Controls.MetroLabel();
+            this.label3 = new MetroFramework.Controls.MetroLabel();
+            this.textBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.label4 = new MetroFramework.Controls.MetroLabel();
             this.pnlAbout.SuspendLayout();
+            this.pnlBackground.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlAbout
             // 
-            this.pnlAbout.Controls.Add(this.label8);
-            this.pnlAbout.Controls.Add(this.label7);
-            this.pnlAbout.Controls.Add(this.label6);
-            this.pnlAbout.Controls.Add(this.label5);
-            this.pnlAbout.Controls.Add(this.textBox1);
-            this.pnlAbout.Controls.Add(this.label4);
-            this.pnlAbout.Controls.Add(this.label3);
-            this.pnlAbout.Controls.Add(this.label2);
-            this.pnlAbout.Controls.Add(this.label1);
+            this.pnlAbout.Controls.Add(this.pnlBackground);
             this.pnlAbout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlAbout.Location = new System.Drawing.Point(0, 0);
             this.pnlAbout.Name = "pnlAbout";
-            this.pnlAbout.Size = new System.Drawing.Size(607, 555);
+            this.pnlAbout.Size = new System.Drawing.Size(573, 509);
             this.pnlAbout.TabIndex = 0;
             // 
-            // label1
+            // pnlBackground
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(33, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Description:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 97);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Author:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(33, 131);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Version:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(37, 180);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(529, 338);
-            this.textBox1.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(184, 34);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(228, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "TradingView Alert Log Scanner";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(184, 64);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(286, 20);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Scans TradingView Alert Log For Alerts";
+            this.pnlBackground.Controls.Add(this.label7);
+            this.pnlBackground.Controls.Add(this.label8);
+            this.pnlBackground.Controls.Add(this.label1);
+            this.pnlBackground.Controls.Add(this.label6);
+            this.pnlBackground.Controls.Add(this.label2);
+            this.pnlBackground.Controls.Add(this.label5);
+            this.pnlBackground.Controls.Add(this.label3);
+            this.pnlBackground.Controls.Add(this.textBox1);
+            this.pnlBackground.Controls.Add(this.label4);
+            this.pnlBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBackground.HorizontalScrollbarBarColor = true;
+            this.pnlBackground.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlBackground.HorizontalScrollbarSize = 10;
+            this.pnlBackground.Location = new System.Drawing.Point(0, 0);
+            this.pnlBackground.Name = "pnlBackground";
+            this.pnlBackground.Size = new System.Drawing.Size(573, 509);
+            this.pnlBackground.TabIndex = 9;
+            this.pnlBackground.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.pnlBackground.VerticalScrollbarBarColor = true;
+            this.pnlBackground.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlBackground.VerticalScrollbarSize = 10;
+            this.pnlBackground.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBackground_Paint);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(184, 97);
+            this.label7.Location = new System.Drawing.Point(173, 78);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 20);
+            this.label7.Size = new System.Drawing.Size(52, 19);
             this.label7.TabIndex = 7;
             this.label7.Text = "Big Bits";
+            this.label7.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(184, 131);
+            this.label8.Location = new System.Drawing.Point(173, 112);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 20);
+            this.label8.Size = new System.Drawing.Size(36, 19);
             this.label8.TabIndex = 8;
             this.label8.Text = "0.0.5";
+            this.label8.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
-            // About
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.label1.Location = new System.Drawing.Point(22, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Name:";
+            this.label1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(173, 45);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(236, 19);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Scans TradingView Alert Log For Alerts";
+            this.label6.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.label2.Location = new System.Drawing.Point(22, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 19);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Description:";
+            this.label2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(173, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(188, 19);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "TradingView Alert Log Scanner";
+            this.label5.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.label3.Location = new System.Drawing.Point(22, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 19);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Author:";
+            this.label3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // textBox1
+            // 
+            // 
+            // 
+            // 
+            this.textBox1.CustomButton.Image = null;
+            this.textBox1.CustomButton.Location = new System.Drawing.Point(193, 2);
+            this.textBox1.CustomButton.Name = "";
+            this.textBox1.CustomButton.Size = new System.Drawing.Size(333, 333);
+            this.textBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.textBox1.CustomButton.TabIndex = 1;
+            this.textBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.textBox1.CustomButton.UseSelectable = true;
+            this.textBox1.CustomButton.Visible = false;
+            this.textBox1.Lines = new string[0];
+            this.textBox1.Location = new System.Drawing.Point(22, 153);
+            this.textBox1.MaxLength = 32767;
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '\0';
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.textBox1.SelectedText = "";
+            this.textBox1.SelectionLength = 0;
+            this.textBox1.SelectionStart = 0;
+            this.textBox1.ShortcutsEnabled = true;
+            this.textBox1.Size = new System.Drawing.Size(529, 338);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.textBox1.UseSelectable = true;
+            this.textBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.textBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.label4.Location = new System.Drawing.Point(22, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 19);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Version:";
+            this.label4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // TVAlertLogScanningAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlAbout);
-            this.Name = "About";
-            this.Size = new System.Drawing.Size(607, 555);
+            this.Name = "TVAlertLogScanningAbout";
+            this.Size = new System.Drawing.Size(573, 509);
             this.pnlAbout.ResumeLayout(false);
-            this.pnlAbout.PerformLayout();
+            this.pnlBackground.ResumeLayout(false);
+            this.pnlBackground.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -162,14 +220,15 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlAbout;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private MetroFramework.Controls.MetroLabel label7;
+        private  MetroFramework.Controls.MetroLabel label6;
+        private  MetroFramework.Controls.MetroLabel label5;
+        private  MetroFramework.Controls.MetroTextBox textBox1;
+        private  MetroFramework.Controls.MetroLabel label4;
+        private  MetroFramework.Controls.MetroLabel label3;
+        private  MetroFramework.Controls.MetroLabel label2;
+        private  MetroFramework.Controls.MetroLabel label1;
+        private  MetroFramework.Controls.MetroLabel label8;
+        private MetroFramework.Controls.MetroPanel pnlBackground;
     }
 }
