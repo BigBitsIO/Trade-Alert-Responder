@@ -16,6 +16,7 @@ using CoreDiscord;
 using CoreTwitter;
 using System.Diagnostics;
 using MetroFramework.Forms;
+using Microsoft.VisualBasic.Logging;
 
 namespace TradeAlertResponder.Controls
 {
@@ -95,11 +96,13 @@ namespace TradeAlertResponder.Controls
             {
                 IsScanning = false;
                 btnScanForAlerts.IconColor = System.Drawing.Color.White;
+                Core.Logs.Log(Core.Logs.LogLevel.Info, Plugin.Name + " stopped scanning for alerts!");
             }
             else
             {
                 IsScanning = true;
                 btnScanForAlerts.IconColor = System.Drawing.Color.Lime;
+                Core.Logs.Log(Core.Logs.LogLevel.Info, Plugin.Name + " started scanning for alerts!");
                 Task.Run(() => ScanForAlerts());
             }
         }
@@ -175,6 +178,7 @@ namespace TradeAlertResponder.Controls
                                 {
                                     MainNew.Alerts.Add(ThisAlert);
                                     Task.Run(() => ProcessAlert(ThisAlert));
+                                    Core.Logs.Log(Core.Logs.LogLevel.Info, "New Alert found from " + ((Alert)ThisAlert).Source + "!  " + ((Alert)ThisAlert).Id.ToString());
                                 }
                     });
                 }

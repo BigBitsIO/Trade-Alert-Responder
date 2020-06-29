@@ -46,6 +46,8 @@ namespace TradeAlertResponder.Controls
             Type PluginType = AlertScanPluginLoader.Plugins.Where(a => a.Name == (string)ddlPlugin.SelectedValue).FirstOrDefault().GetType();
             IAlertScanPlugin Plugin = (IAlertScanPlugin)Activator.CreateInstance(PluginType);
 
+            Core.Logs.Log(Core.Logs.LogLevel.Info, "New alert scanner tab added for " + Plugin.Name);
+
             AddTab(Plugin);
             
         }

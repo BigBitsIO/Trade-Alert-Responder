@@ -64,8 +64,19 @@ namespace TradeAlertResponder.Controls
 
         private void tglEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            if(ControlLoaded) // Prevents this action from setting value before the form is fully loaded, and changed
+            if (ControlLoaded) // Prevents this action from setting value before the form is fully loaded, and changed
+            {
                 Plugin.Enabled = tglEnabled.Checked;
+
+                if (Plugin.Enabled)
+                {
+                    Core.Logs.Log(Core.Logs.LogLevel.Info, Plugin.Name + " alert actions enabled!");
+                }
+                else
+                {
+                    Core.Logs.Log(Core.Logs.LogLevel.Info, Plugin.Name + " alert actions disabled!");
+                }
+            }
         }
 
         private void btnPluginSettings_Click_1(object sender, EventArgs e)
