@@ -34,7 +34,7 @@ namespace Core
         public static string AlertScanPluginFolder = Constants.AppFolder(Constants.AppDirectory.AlertScanPlugins);
         public static string AlertActionPluginFolder = Constants.AppFolder(Constants.AppDirectory.AlertActionPlugins);
         public static string LogsFolder = Constants.AppFolder(Constants.AppDirectory.Logs);
-        public static string Version = "1.0.6";
+        public static string Version = "1.0.7";
 
         public static string AppFolder(AppDirectory Directory)
         {
