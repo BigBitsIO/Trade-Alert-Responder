@@ -49,17 +49,23 @@
             this.btnLogoSelect = new FontAwesome.Sharp.IconButton();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.btnResetLogo = new FontAwesome.Sharp.IconButton();
+            this.btnTest = new MetroFramework.Controls.MetroButton();
+            this.txtTestURL = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.picTest = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTest)).BeginInit();
             this.SuspendLayout();
             // 
             // btnValidateAndSave
             // 
-            this.btnValidateAndSave.Location = new System.Drawing.Point(82, 293);
+            this.btnValidateAndSave.Location = new System.Drawing.Point(23, 388);
             this.btnValidateAndSave.Name = "btnValidateAndSave";
-            this.btnValidateAndSave.Size = new System.Drawing.Size(75, 23);
+            this.btnValidateAndSave.Size = new System.Drawing.Size(202, 42);
             this.btnValidateAndSave.TabIndex = 6;
             this.btnValidateAndSave.Text = "Save";
+            this.btnValidateAndSave.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnValidateAndSave.UseSelectable = true;
             this.btnValidateAndSave.Click += new System.EventHandler(this.btnValidateAndSave_Click);
             // 
@@ -70,6 +76,7 @@
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(0, 0);
             this.lblResult.TabIndex = 7;
+            this.lblResult.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // tglWatermarkImage
             // 
@@ -82,6 +89,7 @@
             this.tglWatermarkImage.TabIndex = 16;
             this.tglWatermarkImage.Text = "Off";
             this.tglWatermarkImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tglWatermarkImage.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.tglWatermarkImage.UseSelectable = true;
             // 
             // lblWatermarkImage
@@ -93,6 +101,7 @@
             this.lblWatermarkImage.Size = new System.Drawing.Size(134, 19);
             this.lblWatermarkImage.TabIndex = 15;
             this.lblWatermarkImage.Text = "Watermark Image:";
+            this.lblWatermarkImage.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // tglCropImage
             // 
@@ -105,6 +114,7 @@
             this.tglCropImage.TabIndex = 28;
             this.tglCropImage.Text = "Off";
             this.tglCropImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tglCropImage.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.tglCropImage.UseSelectable = true;
             // 
             // lblDiscordOnScreenshot
@@ -116,6 +126,7 @@
             this.lblDiscordOnScreenshot.Size = new System.Drawing.Size(92, 19);
             this.lblDiscordOnScreenshot.TabIndex = 27;
             this.lblDiscordOnScreenshot.Text = "Crop Image:";
+            this.lblDiscordOnScreenshot.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // lblCropStartPoint
             // 
@@ -126,6 +137,7 @@
             this.lblCropStartPoint.Size = new System.Drawing.Size(80, 19);
             this.lblCropStartPoint.TabIndex = 29;
             this.lblCropStartPoint.Text = "Start Point";
+            this.lblCropStartPoint.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // lblCropSize
             // 
@@ -136,6 +148,7 @@
             this.lblCropSize.Size = new System.Drawing.Size(73, 19);
             this.lblCropSize.TabIndex = 30;
             this.lblCropSize.Text = "Crop Size";
+            this.lblCropSize.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // metroLabel1
             // 
@@ -146,6 +159,7 @@
             this.metroLabel1.Size = new System.Drawing.Size(22, 19);
             this.metroLabel1.TabIndex = 31;
             this.metroLabel1.Text = "X:";
+            this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // metroLabel2
             // 
@@ -156,6 +170,7 @@
             this.metroLabel2.Size = new System.Drawing.Size(22, 19);
             this.metroLabel2.TabIndex = 32;
             this.metroLabel2.Text = "Y:";
+            this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // metroLabel3
             // 
@@ -166,6 +181,7 @@
             this.metroLabel3.Size = new System.Drawing.Size(53, 19);
             this.metroLabel3.TabIndex = 33;
             this.metroLabel3.Text = "Width:";
+            this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // metroLabel4
             // 
@@ -176,6 +192,7 @@
             this.metroLabel4.Size = new System.Drawing.Size(58, 19);
             this.metroLabel4.TabIndex = 34;
             this.metroLabel4.Text = "Height:";
+            this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // txtCropStartPointX
             // 
@@ -203,6 +220,7 @@
             this.txtCropStartPointX.ShortcutsEnabled = true;
             this.txtCropStartPointX.Size = new System.Drawing.Size(75, 23);
             this.txtCropStartPointX.TabIndex = 35;
+            this.txtCropStartPointX.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtCropStartPointX.UseSelectable = true;
             this.txtCropStartPointX.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCropStartPointX.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -233,6 +251,7 @@
             this.txtCropStartPointY.ShortcutsEnabled = true;
             this.txtCropStartPointY.Size = new System.Drawing.Size(75, 23);
             this.txtCropStartPointY.TabIndex = 36;
+            this.txtCropStartPointY.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtCropStartPointY.UseSelectable = true;
             this.txtCropStartPointY.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCropStartPointY.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -263,6 +282,7 @@
             this.txtCropSizeHeight.ShortcutsEnabled = true;
             this.txtCropSizeHeight.Size = new System.Drawing.Size(75, 23);
             this.txtCropSizeHeight.TabIndex = 38;
+            this.txtCropSizeHeight.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtCropSizeHeight.UseSelectable = true;
             this.txtCropSizeHeight.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCropSizeHeight.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -293,6 +313,7 @@
             this.txtCropSizeWidth.ShortcutsEnabled = true;
             this.txtCropSizeWidth.Size = new System.Drawing.Size(75, 23);
             this.txtCropSizeWidth.TabIndex = 37;
+            this.txtCropSizeWidth.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtCropSizeWidth.UseSelectable = true;
             this.txtCropSizeWidth.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCropSizeWidth.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -318,8 +339,9 @@
             this.btnLogoSelect.FlatAppearance.BorderSize = 0;
             this.btnLogoSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogoSelect.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnLogoSelect.ForeColor = System.Drawing.Color.White;
             this.btnLogoSelect.IconChar = FontAwesome.Sharp.IconChar.Save;
-            this.btnLogoSelect.IconColor = System.Drawing.Color.Black;
+            this.btnLogoSelect.IconColor = System.Drawing.Color.White;
             this.btnLogoSelect.IconSize = 32;
             this.btnLogoSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogoSelect.Location = new System.Drawing.Point(219, 249);
@@ -334,10 +356,9 @@
             // 
             // iconPictureBox2
             // 
-            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconPictureBox2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Camera;
-            this.iconPictureBox2.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox2.IconColor = System.Drawing.Color.White;
             this.iconPictureBox2.IconSize = 60;
             this.iconPictureBox2.Location = new System.Drawing.Point(241, 11);
             this.iconPictureBox2.Name = "iconPictureBox2";
@@ -350,8 +371,9 @@
             this.btnResetLogo.FlatAppearance.BorderSize = 0;
             this.btnResetLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetLogo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnResetLogo.ForeColor = System.Drawing.Color.White;
             this.btnResetLogo.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            this.btnResetLogo.IconColor = System.Drawing.Color.Black;
+            this.btnResetLogo.IconColor = System.Drawing.Color.White;
             this.btnResetLogo.IconSize = 32;
             this.btnResetLogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnResetLogo.Location = new System.Drawing.Point(400, 249);
@@ -364,11 +386,81 @@
             this.btnResetLogo.UseVisualStyleBackColor = true;
             this.btnResetLogo.Click += new System.EventHandler(this.btnResetLogo_Click);
             // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(23, 340);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(202, 42);
+            this.btnTest.TabIndex = 42;
+            this.btnTest.Text = "Test Discord";
+            this.btnTest.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnTest.UseSelectable = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // txtTestURL
+            // 
+            // 
+            // 
+            // 
+            this.txtTestURL.CustomButton.Image = null;
+            this.txtTestURL.CustomButton.Location = new System.Drawing.Point(419, 1);
+            this.txtTestURL.CustomButton.Name = "";
+            this.txtTestURL.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtTestURL.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtTestURL.CustomButton.TabIndex = 1;
+            this.txtTestURL.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtTestURL.CustomButton.UseSelectable = true;
+            this.txtTestURL.CustomButton.Visible = false;
+            this.txtTestURL.Lines = new string[] {
+        "https://www.tradingview.com/chart/SOicDNGP/"};
+            this.txtTestURL.Location = new System.Drawing.Point(98, 297);
+            this.txtTestURL.MaxLength = 32767;
+            this.txtTestURL.Name = "txtTestURL";
+            this.txtTestURL.PasswordChar = '\0';
+            this.txtTestURL.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtTestURL.SelectedText = "";
+            this.txtTestURL.SelectionLength = 0;
+            this.txtTestURL.SelectionStart = 0;
+            this.txtTestURL.ShortcutsEnabled = true;
+            this.txtTestURL.Size = new System.Drawing.Size(441, 23);
+            this.txtTestURL.TabIndex = 44;
+            this.txtTestURL.Text = "https://www.tradingview.com/chart/SOicDNGP/";
+            this.txtTestURL.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.txtTestURL.UseSelectable = true;
+            this.txtTestURL.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtTestURL.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel5.Location = new System.Drawing.Point(23, 297);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(69, 19);
+            this.metroLabel5.TabIndex = 43;
+            this.metroLabel5.Text = "Test URL:";
+            this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // picTest
+            // 
+            this.picTest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picTest.Location = new System.Drawing.Point(255, 340);
+            this.picTest.Name = "picTest";
+            this.picTest.Size = new System.Drawing.Size(284, 90);
+            this.picTest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picTest.TabIndex = 45;
+            this.picTest.TabStop = false;
+            this.picTest.Click += new System.EventHandler(this.picTest_Click);
+            // 
             // ScreenshotSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 339);
+            this.ClientSize = new System.Drawing.Size(562, 441);
+            this.Controls.Add(this.picTest);
+            this.Controls.Add(this.txtTestURL);
+            this.Controls.Add(this.metroLabel5);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnResetLogo);
             this.Controls.Add(this.imgLogo);
             this.Controls.Add(this.btnLogoSelect);
@@ -393,10 +485,12 @@
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Style = MetroFramework.MetroColorStyle.Black;
+            this.Style = MetroFramework.MetroColorStyle.White;
             this.Text = "Screenshot Settings";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTest)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,5 +518,9 @@
         private FontAwesome.Sharp.IconButton btnLogoSelect;
         private System.Windows.Forms.PictureBox imgLogo;
         private FontAwesome.Sharp.IconButton btnResetLogo;
+        private MetroFramework.Controls.MetroButton btnTest;
+        private MetroFramework.Controls.MetroTextBox txtTestURL;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private System.Windows.Forms.PictureBox picTest;
     }
 }

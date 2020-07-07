@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Core;
 using System.IO;
 using System.Threading;
+using MetroFramework.Controls;
 
 namespace TradeAlertResponder
 {
@@ -112,6 +113,46 @@ namespace TradeAlertResponder
             {
                 //MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string DirectoryPath = Constants.AppFolder(Constants.AppDirectory.Screenshots);
+                CoreScreen.Screen.ScreenshotResult ScreenshotResult = MainNew.Screen.Screenshot(txtTestURL.Text.Trim(), DirectoryPath, tglWatermarkImage.Checked, Constants.WatermarkFilePath, new Point(Convert.ToInt32(txtCropStartPointX.Text.Trim()), Convert.ToInt32(txtCropStartPointY.Text.Trim())), new Size(Convert.ToInt32(txtCropSizeWidth.Text.Trim()), Convert.ToInt32(txtCropSizeHeight.Text.Trim())), tglCropImage.Checked).GetAwaiter().GetResult();
+
+                if(ScreenshotResult.Succeeded)
+                {
+                    picTest.Image = Image.FromFile(ScreenshotResult.ImageFilePath);
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        private void picTest_Click(object sender, EventArgs e)
+        {
+            MetroForm PictureForm = new MetroForm();
+            PictureForm.Theme = MetroFramework.MetroThemeStyle.Dark;
+            PictureForm.Style = MetroFramework.MetroColorStyle.White;
+            PictureForm.BorderStyle = MetroFormBorderStyle.FixedSingle;
+            PictureForm.Resizable = false;
+            PictureForm.Text = "Test Screenshot";
+            PictureForm.Size = new Size(Convert.ToInt32(txtCropSizeWidth.Text.Trim()), Convert.ToInt32(txtCropSizeHeight.Text.Trim()));
+            //MetroPanel PicturePanel = new MetroPanel();
+            //PicturePanel.Size = new Size(Convert.ToInt32(txtCropSizeWidth.Text.Trim()), Convert.ToInt32(txtCropSizeHeight.Text.Trim()));
+            //PicturePanel.Location = new Point(0, 0);
+            //PicturePanel.Dock = DockStyle.Fill;
+            PictureBox Picture = new PictureBox();
+            Picture.Size = new Size(Convert.ToInt32(txtCropSizeWidth.Text.Trim()), Convert.ToInt32(txtCropSizeHeight.Text.Trim()));
+            Picture.Image = picTest.Image;
+            Picture.Dock = DockStyle.Fill;
+            Picture.SizeMode = PictureBoxSizeMode.StretchImage;
+            PictureForm.Controls.Add(Picture);
+            PictureForm.Show();
         }
     }
 }
