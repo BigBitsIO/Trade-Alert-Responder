@@ -131,7 +131,7 @@ namespace TradeAlertResponder
 
             try
             {
-                LatestVersion = Github.GetVersion().GetAwaiter().GetResult();
+                LatestVersion = Github.GetVersion(Constants.Version).GetAwaiter().GetResult();
             }
             catch (Exception ex)
             {

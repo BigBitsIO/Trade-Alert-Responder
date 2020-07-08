@@ -9,11 +9,19 @@ namespace CoreGithub
 {
     public static class Github
     {
-        public static async Task<string> GetVersion()
+        public static async Task<string> GetVersion(string ConstantsVersion)
         {
-            var client = new GitHubClient(new ProductHeaderValue("Trade-Alert-Responder"));
-            var releases = client.Repository.Release.GetAll("BigBitsIO", "Trade-Alert-Responder").GetAwaiter().GetResult();
-            return releases[0].TagName;
+            try
+            {
+                var client = new GitHubClient(new ProductHeaderValue("Trade-Alert-Responder"));
+                var releases = client.Repository.Release.GetAll("BigBitsIO", "Trade-Alert-Responder").GetAwaiter().GetResult();
+                return releases[0].TagName;
+            }
+            catch(Exception ex)
+            {
+                return ConstantsVersion;
+            }
+            
         }
     }
 }

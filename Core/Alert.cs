@@ -37,6 +37,7 @@ namespace Core
 
         public string WebhookURL { get; set; } = "";
         public string WebhookMessage { get; set; } = "";
+        public string WebhookJSON { get; set; } = "";
 
 
         public Alert(string _Source)
@@ -219,6 +220,16 @@ namespace Core
                         WebhookMessageString = BodyText.Substring(WebhookMessageFrom, WebhookMessageTo - WebhookMessageFrom);
 
                     ThisAlert.WebhookMessage = WebhookMessageString;
+
+                    // WebhookJSON for chart if any - this is typically a bool, but will be parsed by alert action plugins as needed to allow for multiple webhooks with different message payload types
+                    int WebhookJSONFrom = BodyText.IndexOf("<whjs>") + "<whjs>".Length;
+                    int WebhookJSONTo = BodyText.IndexOf("</whjs>");
+
+                    string WebhookJSONString = "";
+                    if (WebhookJSONFrom >= 0 && WebhookJSONTo > WebhookJSONFrom)
+                        WebhookJSONString = BodyText.Substring(WebhookJSONFrom, WebhookJSONTo - WebhookJSONFrom);
+
+                    ThisAlert.WebhookJSON = WebhookJSONString;
 
                     // Set Id
                     if (BotString != "")

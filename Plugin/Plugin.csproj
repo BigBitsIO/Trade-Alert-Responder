@@ -79,6 +79,19 @@
     <Compile Include="AlertActionPlugins\TwitterAlerts\TwitterAlertActionSettings.Designer.cs">
       <DependentUpon>TwitterAlertActionSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlertActionPlugins\WebhookAlerts\WebhookAlertAction.cs" />
+    <Compile Include="AlertActionPlugins\WebhookAlerts\WebhookAlertActionAbout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlertActionPlugins\WebhookAlerts\WebhookAlertActionAbout.Designer.cs">
+      <DependentUpon>WebhookAlertActionAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlertActionPlugins\WebhookAlerts\WebhookAlertActionSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlertActionPlugins\WebhookAlerts\WebhookAlertActionSettings.Designer.cs">
+      <DependentUpon>WebhookAlertActionSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlertScanPluginLoader.cs" />
     <Compile Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningAbout.cs">
       <SubType>UserControl</SubType>
@@ -121,6 +134,10 @@
       <Project>{5194A77F-785D-41D2-AFAD-28A05FC621CE}</Project>
       <Name>CoreTwitter</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CoreWebRequest\CoreWebRequest.csproj">
+      <Project>{BE159C40-808E-498F-8B76-2E1B55C16D66}</Project>
+      <Name>CoreWebRequest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{BB32068C-EFAC-405E-A2C7-E3CC57AA722B}</Project>
       <Name>Core</Name>
@@ -146,6 +163,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AlertActionPlugins\TwitterAlerts\TwitterAlertActionSettings.resx">
       <DependentUpon>TwitterAlertActionSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlertActionPlugins\WebhookAlerts\WebhookAlertActionAbout.resx">
+      <DependentUpon>WebhookAlertActionAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlertActionPlugins\WebhookAlerts\WebhookAlertActionSettings.resx">
+      <DependentUpon>WebhookAlertActionSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AlertScanPlugins\TVAlertLogScanning\TVAlertLogScanningAbout.resx">
       <DependentUpon>TVAlertLogScanningAbout.cs</DependentUpon>
