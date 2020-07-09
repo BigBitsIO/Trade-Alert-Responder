@@ -138,8 +138,74 @@ namespace Plugin.AlertActionPlugins
         {
             try
             {
-                // TODO: actually parse
-                return new List<WebhookItem>();
+                bool URLFound = true;
+                int i = 1;
+                string LastURL = "";
+                string LastMessage = "";
+                string LastIsJSON = "";
+                List<WebhookItem> Webhooks = new List<WebhookItem>();
+
+                while(URLFound)
+                {
+                    WebhookItem WI = new WebhookItem();
+                    bool iFound = false;
+
+                    int URLFrom = URLs.IndexOf("<" + i.ToString() + ">") + ("<" + i.ToString() + ">").Length;
+                    int URLTo = URLs.IndexOf("</" + i + ">");
+
+                    string URLString = "";
+                    if (URLFrom >= 0 && URLTo > URLFrom)
+                    {
+                        URLString = URLs.Substring(URLFrom, URLTo - URLFrom);
+                        LastURL = URLString;
+                        iFound = true;
+                    }
+                    else
+                        URLString = i > 1 ? LastURL : "";
+
+                    WI.URL = URLString;
+
+
+                    int MessageFrom = Messages.IndexOf("<" + i.ToString() + ">") + ("<" + i.ToString() + ">").Length;
+                    int MessageTo = Messages.IndexOf("</" + i + ">");
+
+                    string MessageString = "";
+                    if (MessageFrom >= 0 && MessageTo > MessageFrom)
+                    { 
+                        MessageString = Messages.Substring(MessageFrom, MessageTo - MessageFrom);
+                        LastMessage = MessageString;
+                        iFound = true;
+                    }
+                    else
+                        MessageString = i > 1 ? LastMessage : "";
+
+                    WI.Message = MessageString;
+
+                    int IsJSONFrom = IsJSONs.IndexOf("<" + i.ToString() + ">") + ("<" + i.ToString() + ">").Length;
+                    int IsJSONTo = IsJSONs.IndexOf("</" + i + ">");
+
+                    string IsJSONString = "";
+                    if (IsJSONFrom >= 0 && IsJSONTo > IsJSONFrom)
+                    { 
+                        IsJSONString = IsJSONs.Substring(IsJSONFrom, IsJSONTo - IsJSONFrom);
+                        LastIsJSON = IsJSONString;
+                        iFound = true;
+                    }
+                    else
+                        IsJSONString = i > 1 ? IsJSONString : "";
+
+                    WI.IsJSON = IsJSONString.ToLower() == "true" || IsJSONString == "1";
+
+                    URLFound = iFound;
+
+                    i++;
+
+                    if (iFound)
+                        Webhooks.Add(WI);
+
+                }
+
+                return Webhooks;
             }
             catch(Exception ex)
             {

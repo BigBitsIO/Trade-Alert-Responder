@@ -15,15 +15,26 @@ namespace CoreWebRequest
             {
                 string HtmlResult = "";
 
-                if (UseJSON)
+                if(Uri.IsWellFormedUriString("https://www.google.com", UriKind.Absolute))
                 {
-                    wc.Headers[HttpRequestHeader.ContentType] = "application/json";
-                    HtmlResult = wc.UploadString(URL, "POST", SerializedJSON);
-                }
-                else
-                {
-                    wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                    HtmlResult = wc.UploadString(URL, "POST", Parameters);
+                    try
+                    {
+                        if (UseJSON)
+                        {
+                            wc.Headers[HttpRequestHeader.ContentType] = "application/json";
+                            HtmlResult = wc.UploadString(URL, "POST", SerializedJSON);
+                        }
+                        else
+                        {
+                            wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                            HtmlResult = wc.UploadString(URL, "POST", Parameters);
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+
+                    }
+                    
                 }
 
                 return HtmlResult;
