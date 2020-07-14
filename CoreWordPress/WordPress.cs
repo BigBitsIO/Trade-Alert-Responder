@@ -14,9 +14,9 @@ namespace CoreWordPress
     {
 
         // Properties
-        private string URI { get; set; }
-        private string User { get; set; }
-        private string Password { get; set; }
+        private string URI { get; set; } = "";
+        private string User { get; set; } = "";
+        private string Password { get; set; } = "";
 
         private WordPressClient Client = null;
 
@@ -28,12 +28,20 @@ namespace CoreWordPress
             User = _User;
             Password = _Password;
 
-            Client = GetClient();
-            SetAuth();
+            if (URI != "")
+            {
+                Client = GetClient();
+                SetAuth();
+            }
+            
         }
 
         public WordPressClient GetClient()
         {
+            if (URI == "")
+            {
+                return null;
+            }
             WordPressClient TheClient = new WordPressClient(URI);
             return TheClient;
         }
@@ -51,7 +59,7 @@ namespace CoreWordPress
             var IsValid = Client.IsValidJWToken().Result;
         }
 
-        public async Task<Post> CreatePost(string Title, string PostHTML, List<string> Tags, List<string> Categories, string FeatureImageURL)
+        private async Task<Post> CreatePostWithFeatureImageURL(string Title, string PostHTML, List<string> Tags, List<string> Categories, string FeatureImageURL)
         {
             var MediaPull = await Client.Media.GetAll();
             List<MediaItem> Media = MediaPull.ToList();
@@ -78,6 +86,104 @@ namespace CoreWordPress
             }
         }
 
+        private async Task<Post> CreatePostWithFeatureImageFilePath(string Title, string PostHTML, List<string> Tags, List<string> Categories, string FeatureImageFilePath)
+        {
+            var MediaPull = await Client.Media.GetAll();
+            List<MediaItem> Media = MediaPull.ToList();
+
+
+
+            var Post = new Post()
+            {
+                Title = new Title(Title),
+                Content = new Content(PostHTML),
+                Tags = await GetTagIDArrayAsync(Tags),
+                Categories = await GetCategoryIDArrayAsync(Categories),
+                FeaturedMedia = await GetMediaID(await CreateMediaFromFileAsync(FeatureImageFilePath, Title))
+            };
+
+            if (IsTokenValid())
+            {
+                var CreatedPost = await Client.Posts.Create(Post);
+                return CreatedPost;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private async Task<Post> CreatePostWithNoFeatureImage(string Title, string PostHTML, List<string> Tags, List<string> Categories)
+        {
+            var MediaPull = await Client.Media.GetAll();
+            List<MediaItem> Media = MediaPull.ToList();
+
+
+
+            var Post = new Post()
+            {
+                Title = new Title(Title),
+                Content = new Content(PostHTML),
+                Tags = await GetTagIDArrayAsync(Tags),
+                Categories = await GetCategoryIDArrayAsync(Categories)
+            };
+
+            if (IsTokenValid())
+            {
+                var CreatedPost = await Client.Posts.Create(Post);
+                return CreatedPost;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> PostWithFeaturedImageURL(string _title, string _html, List<string> _taglist, List<string> _categorylist, string _url)
+        {
+            try
+            {
+
+                await CreatePostWithFeatureImageURL(_title, _html, _taglist, _categorylist, _url);
+
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> PostWithFeatureImageFilePath(string _title, string _html, List<string> _taglist, List<string> _categorylist, string _filepath)
+        {
+            try
+            {
+
+                await CreatePostWithFeatureImageFilePath(_title, _html, _taglist, _categorylist, _filepath);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> PostWithFeatureImageFilePath(string _title, string _html, List<string> _taglist, List<string> _categorylist)
+        {
+            try
+            {
+
+                await CreatePostWithNoFeatureImage(_title, _html, _taglist, _categorylist);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         private async Task<int?> GetMediaID(MediaItem Media)
         {
             return Media.Id;
@@ -101,6 +207,19 @@ namespace CoreWordPress
 
 
                 return await Client.Media.Create(FileLoc, FeatureImageTitle + ".jpg");
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private async Task<MediaItem> CreateMediaFromFileAsync(string FilePath, string FeatureImageTitle)
+        {
+            if (IsTokenValid())
+            {
+                return await Client.Media.Create(FilePath, FeatureImageTitle + ".jpg");
 
             }
             else

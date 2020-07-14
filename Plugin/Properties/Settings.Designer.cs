@@ -202,5 +202,65 @@ namespace Plugin.Properties {
                 this["WebhookAlertsEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool WordPressAlertsEnabled {
+            get {
+                return ((bool)(this["WordPressAlertsEnabled"]));
+            }
+            set {
+                this["WordPressAlertsEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool WordPressAlertsUseScreenshot {
+            get {
+                return ((bool)(this["WordPressAlertsUseScreenshot"]));
+            }
+            set {
+                this["WordPressAlertsUseScreenshot"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WordPressAlertAPIURL {
+            get {
+                return ((string)(this["WordPressAlertAPIURL"]));
+            }
+            set {
+                this["WordPressAlertAPIURL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WordPressAlertAPIUser {
+            get {
+                return ((string)(this["WordPressAlertAPIUser"]));
+            }
+            set {
+                this["WordPressAlertAPIUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WordPressAlertAPIUserPassword {
+            get {
+                return ((string)(this["WordPressAlertAPIUserPassword"]));
+            }
+            set {
+                this["WordPressAlertAPIUserPassword"] = value;
+            }
+        }
     }
 }
